@@ -66,6 +66,19 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => revealObs.observe(r));
 
+  // Top bar hide on scroll
+  const topBar = document.getElementById('top-bar');
+  const mainNav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      topBar.classList.add('hidden');
+      mainNav.classList.add('scrolled');
+    } else {
+      topBar.classList.remove('hidden');
+      mainNav.classList.remove('scrolled');
+    }
+  });
+
   // Sticky CTA
   const sticky = document.getElementById('sticky');
   window.addEventListener('scroll', () => {
