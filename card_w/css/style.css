@@ -117,10 +117,10 @@
 
   /* ── HERO ── */
   .hero {
-    height: 680px;
+    min-height: 680px;
     background: linear-gradient(135deg, #001a5c 0%, #003087 45%, #0046b5 100%);
     position: relative; overflow: hidden;
-    display: flex; align-items: center;
+    display: flex; align-items: flex-start;
     padding: 226px 32px 80px;
   }
   .hero-bg-circles {
@@ -156,7 +156,7 @@
     column-gap: 60px;
     align-items: center;
   }
-  .hero-badge, .hero-h1, .hero-sub, .hero-stats, .hero-btns { grid-column: 1; }
+  .hero-badge, .hero-h1, .hero-sub, .hero-stats, .hero-btns, .hero-age { grid-column: 1; }
   .hero-card-wrap { grid-column: 2; grid-row: 1 / 7; align-self: center; }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
@@ -204,6 +204,30 @@
     display: flex; gap: 12px; flex-wrap: wrap;
     animation: fadeUp 0.8s ease 0.4s both;
   }
+  .hero-age {
+    grid-column: 1;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    animation: fadeUp 0.8s ease 0.5s both;
+  }
+  .hero-age-title { margin-bottom: 4px; }
+  .hero-age-highlight {
+    font-size: 18px; font-weight: 700; color: #fff;
+    background: linear-gradient(transparent 60%, rgba(255,220,0,0.6) 60%);
+    padding-bottom: 2px;
+  }
+  .hero-age-sub {
+    font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 10px;
+  }
+  .hero-age-link {
+    font-size: 12px; color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-age-link:hover { color: #fff; border-color: #fff; }
   .btn-primary {
     background: var(--jcb-red); color: var(--white);
     border: none; border-radius: 50px;
@@ -569,6 +593,87 @@
   .on-dark .section-h2 { color: var(--white); }
   .on-dark .section-h2 em { color: var(--gold); }
   .on-dark .section-desc { color: rgba(255,255,255,0.65); }
+
+  /* ── COMPARISON ── */
+  .comparison-section { background: var(--white); }
+  .comparison-wrap { margin-top: 40px; overflow-x: auto; }
+  .comparison-table {
+    width: 100%; border-collapse: collapse;
+    min-width: 560px;
+    border: 1px solid rgba(0,48,135,0.1);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .comp-th-label {
+    background: var(--jcb-blue); color: #fff;
+    font-size: 13px; font-weight: 700;
+    padding: 16px 20px; text-align: center;
+    width: 30%; vertical-align: middle; line-height: 1.6;
+  }
+  .comp-fn { color: rgba(255,255,255,0.65); font-size: 10px; font-weight: 400; }
+  .comp-th-card {
+    text-align: center; padding: 20px 16px 16px;
+    background: var(--white); width: 35%;
+  }
+  .comp-card-img {
+    width: 120px; height: 76px; border-radius: 8px;
+    margin: 0 auto 12px; display: block;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .comp-card-s {
+    background: linear-gradient(135deg, #c8a96e 0%, #e8d5a0 40%, #b8935a 100%);
+    position: relative; overflow: hidden;
+  }
+  .comp-card-s::after {
+    content: 'JCB ORIGINAL SERIES / S';
+    position: absolute; top: 8px; left: 8px;
+    font-size: 5px; font-weight: 700; color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+  }
+  .comp-card-w {
+    background: linear-gradient(135deg, #001a5c 0%, #003087 50%, #0046b5 100%);
+    position: relative; overflow: hidden;
+  }
+  .comp-card-w::after {
+    content: 'JCB ORIGINAL SERIES / W';
+    position: absolute; top: 8px; left: 8px;
+    font-size: 5px; font-weight: 700; color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+  }
+  .comp-card-name {
+    font-size: 15px; font-weight: 700; color: var(--text-dark);
+    display: block; text-decoration: none;
+  }
+  .comp-card-name-link { text-decoration: underline; text-underline-offset: 3px; }
+  .comp-card-name-link:hover { color: var(--jcb-blue); }
+  .comp-ext-icon { font-size: 12px; }
+  .comp-row-imgs th, .comp-row-imgs td { border-bottom: 2px solid var(--jcb-blue); }
+  .comp-row-dark { background: var(--jcb-blue-light); }
+  .comp-row-dark .comp-th-label { background: var(--jcb-blue-mid); }
+  .comp-row-dark td {
+    color: var(--jcb-blue); font-size: 14px; font-weight: 700;
+    text-align: center; padding: 16px 12px; line-height: 1.5;
+  }
+  .comparison-table tbody tr td {
+    font-size: 14px; color: var(--text-dark);
+    text-align: center; padding: 16px 12px;
+    border-bottom: 1px solid rgba(0,48,135,0.08);
+  }
+  .comparison-table tbody tr th {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .comp-row-alt { background: var(--off-white); }
+  .comp-notes {
+    margin-top: 20px;
+    font-size: 11px; color: var(--text-muted); line-height: 1.8;
+  }
+  .comp-notes p { margin: 0; }
+  @media (max-width: 900px) {
+    .comp-th-label { font-size: 11px; padding: 12px 10px; width: 28%; }
+    .comp-card-img { width: 90px; height: 57px; }
+    .comp-card-name { font-size: 13px; }
+    .comp-row-dark td { font-size: 12px; padding: 12px 8px; }
+    .comparison-table tbody tr td { font-size: 12px; padding: 12px 8px; }
+  }
 
   /* ── FAQ ── */
   .faq-section { background: var(--off-white); }
