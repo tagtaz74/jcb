@@ -1,6 +1,6 @@
   // Footnote anchor highlight
   document.querySelectorAll('.fn-link').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function() {
       const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       target.classList.remove('fn-highlight');
@@ -38,41 +38,6 @@
   hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
   overlay.addEventListener('click', () => toggleDrawer(false));
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleDrawer(false)));
-
-  // ① 3D Card Tilt + Glare
-  (function () {
-    const card = document.querySelector('.card-img-wrap');
-    if (!card) return;
-
-    const glare = document.createElement('div');
-    glare.style.cssText = 'position:absolute;inset:0;border-radius:16px;pointer-events:none;opacity:0;transition:opacity 0.4s ease;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.28) 0%,transparent 65%);mix-blend-mode:screen;z-index:2;';
-    card.appendChild(glare);
-
-    const MAX_TILT = 14;
-    let hovering = false;
-
-    card.addEventListener('mouseenter', () => {
-      hovering = true;
-      card.style.transition = 'transform 0.08s linear, filter 0.3s ease';
-      glare.style.opacity = '1';
-    });
-
-    card.addEventListener('mousemove', e => {
-      if (!hovering) return;
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = `perspective(900px) rotateX(${-y * MAX_TILT}deg) rotateY(${x * MAX_TILT}deg) scale(1.05)`;
-      glare.style.background = `radial-gradient(circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%, rgba(255,255,255,0.3) 0%, transparent 65%)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      hovering = false;
-      card.style.transition = 'transform 0.7s cubic-bezier(0.23,1,0.32,1), filter 0.3s ease';
-      card.style.transform = 'rotate(-3deg)';
-      glare.style.opacity = '0';
-    });
-  })();
 
   // ③ Scroll Parallax（カードが浮遊するように上昇）
   (function () {
