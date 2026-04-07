@@ -620,15 +620,19 @@
   .campaign-card-title { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.6; }
   .campaign-total {
     grid-column: 1 / -1;
-    background: var(--grad-gold);
+    background: linear-gradient(135deg, #001060 0%, #003087 100%);
+    border: 1px solid rgba(201,168,76,0.3);
     border-radius: var(--radius-lg); padding: 32px 36px;
     display: flex; align-items: center; justify-content: space-between;
-    box-shadow: 0 16px 48px rgba(201,168,76,0.35);
+    box-shadow: 0 16px 48px rgba(0,16,96,0.45);
   }
-  .campaign-total-label { font-size: 13px; color: rgba(0,48,135,0.65); margin-bottom: 4px; }
+  .campaign-total-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 4px; }
   .campaign-total-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 52px; font-weight: 700; color: var(--jcb-blue); line-height: 1;
+    font-size: 52px; font-weight: 700; line-height: 1;
+    background: var(--grad-gold);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   .campaign-total-unit { font-size: 22px; }
   .campaign-btn {
