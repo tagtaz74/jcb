@@ -632,7 +632,7 @@
   }
   .campaign-total-unit { font-size: 22px; }
   .campaign-btn {
-    background: var(--jcb-blue); color: var(--white);
+    background: var(--grad-cta); color: var(--white);
     border: none; border-radius: 50px;
     padding: 18px 40px; font-size: 16px; font-weight: 700;
     font-family: 'Noto Sans JP', sans-serif;
@@ -640,9 +640,9 @@
     transition: all 0.2s; text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
     white-space: nowrap;
-    box-shadow: 0 8px 24px rgba(0,48,135,0.35);
+    box-shadow: 0 8px 24px rgba(232,50,10,0.38);
   }
-  .campaign-btn:hover { background: #001a5c; transform: scale(1.03); box-shadow: 0 12px 36px rgba(0,48,135,0.45); }
+  .campaign-btn:hover { opacity: 0.9; transform: scale(1.03); box-shadow: 0 12px 36px rgba(232,50,10,0.52); }
 
   /* section header on dark */
   .on-dark .section-label-tag { background: rgba(201,168,76,0.18); color: #f0d98a; box-shadow: none; }
