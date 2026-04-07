@@ -21,6 +21,7 @@
     --grad-hero: linear-gradient(160deg, #060c28 0%, #00104a 35%, #003087 68%, #1251c8 100%);
     --grad-blue: linear-gradient(135deg, var(--jcb-electric) 0%, var(--jcb-blue) 100%);
     --grad-red: linear-gradient(135deg, #f43056 0%, var(--jcb-red) 100%);
+    --grad-cta: linear-gradient(135deg, #ff6a28 0%, #e8320a 100%);
     --grad-gold: linear-gradient(135deg, #f0c55a 0%, var(--gold) 60%, #a8782e 100%);
   }
 
@@ -65,17 +66,17 @@
   }
   .nav-logo span { color: var(--jcb-red); }
   .nav-cta {
-    background: var(--grad-blue); color: var(--white);
+    background: var(--grad-cta); color: var(--white);
     border: none; border-radius: 50px;
     padding: 10px 24px; font-size: 13px; font-weight: 700;
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer; letter-spacing: 0.02em;
     transition: all 0.2s;
     text-decoration: none; display: inline-block;
-    box-shadow: 0 4px 16px rgba(61,120,248,0.35);
+    box-shadow: 0 4px 16px rgba(232,50,10,0.35);
     white-space: nowrap;
   }
-  .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(61,120,248,0.45); }
+  .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,50,10,0.48); }
   .nav-right { display: flex; align-items: center; gap: 12px; }
   .hamburger {
     width: 40px; height: 40px; border: none; background: transparent;
@@ -256,16 +257,16 @@
 
   /* ── BUTTONS ── */
   .btn-primary {
-    background: var(--grad-red); color: var(--white);
+    background: var(--grad-cta); color: var(--white);
     border: none; border-radius: 50px;
     padding: 17px 40px; font-size: 15px; font-weight: 700;
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer; letter-spacing: 0.03em;
     transition: all 0.2s; text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    box-shadow: 0 8px 32px rgba(232,0,29,0.38);
+    box-shadow: 0 8px 32px rgba(232,50,10,0.38);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(232,0,29,0.50); opacity: 0.94; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(232,50,10,0.52); opacity: 0.94; }
   .btn-secondary {
     background: rgba(255,255,255,0.08); color: var(--white);
     border: 1px solid rgba(255,255,255,0.35); border-radius: 50px;
