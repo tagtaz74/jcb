@@ -619,26 +619,6 @@
     margin: 0 auto 12px; display: block;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   }
-  .comp-card-s {
-    background: linear-gradient(135deg, #c8a96e 0%, #e8d5a0 40%, #b8935a 100%);
-    position: relative; overflow: hidden;
-  }
-  .comp-card-s::after {
-    content: 'JCB ORIGINAL SERIES / S';
-    position: absolute; top: 8px; left: 8px;
-    font-size: 5px; font-weight: 700; color: rgba(255,255,255,0.7);
-    letter-spacing: 0.05em;
-  }
-  .comp-card-w {
-    background: linear-gradient(135deg, #001a5c 0%, #003087 50%, #0046b5 100%);
-    position: relative; overflow: hidden;
-  }
-  .comp-card-w::after {
-    content: 'JCB ORIGINAL SERIES / W';
-    position: absolute; top: 8px; left: 8px;
-    font-size: 5px; font-weight: 700; color: rgba(255,255,255,0.7);
-    letter-spacing: 0.05em;
-  }
   .comp-card-name {
     font-size: 15px; font-weight: 700; color: var(--text-dark);
     display: block; text-decoration: none;
