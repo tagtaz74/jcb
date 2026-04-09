@@ -631,8 +631,37 @@
   .sim-total-unit { font-size: 18px; color: rgba(255,255,255,0.65); }
   .sim-caveat { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 10px; }
 
+  /* ── TSUMITATE TRIGGER ── */
+  .tsumitate-trigger-wrap { text-align: center; margin-top: 48px; }
+  .tsumitate-trigger {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--white);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    font-size: 14px; font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tsumitate-trigger:hover { background: var(--text-dark); color: var(--white); }
+  .tsumitate-trigger-arrow {
+    font-size: 10px;
+    display: inline-block;
+    transition: transform 0.35s ease;
+  }
+  .tsumitate-trigger.open .tsumitate-trigger-arrow { transform: rotate(180deg); }
+
   /* ── TSUMITATE ── */
-  .tsumitate-section { background: var(--white); }
+  .tsumitate-section { background: var(--white); padding: 0; }
+  .tsumitate-collapse {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.6s ease, padding 0.6s ease;
+    padding: 0 32px;
+  }
+  .tsumitate-collapse.open { max-height: 1000px; padding: 96px 32px; }
   .tsumitate-connector {
     display: flex; align-items: center; justify-content: center;
     gap: 16px; margin-bottom: 36px;
@@ -1228,6 +1257,7 @@
     .top-bar { padding: 8px 20px; }
     nav { padding: 14px 20px; }
     section { padding: 72px 20px; }
+    .tsumitate-collapse.open { padding: 72px 20px; }
     .hero { height: auto; min-height: 560px; padding: 156px 20px 72px; }
     .hero-left { display: flex; flex-direction: column; align-items: stretch; }
     .hero-sub { margin-bottom: 0; }

@@ -17,6 +17,20 @@
     document.getElementById('spec-' + id).classList.add('active');
   }
 
+  // Tsumitate accordion toggle
+  function toggleTsumitate() {
+    const collapse = document.getElementById('tsumitate-collapse');
+    const btn = document.getElementById('tsumitate-btn');
+    const isOpen = collapse.classList.contains('open');
+    collapse.classList.toggle('open');
+    btn.classList.toggle('open');
+    if (!isOpen) {
+      collapse.querySelectorAll('.reveal:not(.visible)').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), 100 + i * 80);
+      });
+    }
+  }
+
   // FAQ toggle
   function toggleFaq(btn) {
     const item = btn.parentElement;
