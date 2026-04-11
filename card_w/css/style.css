@@ -811,6 +811,25 @@
     font-size: 10px; font-weight: 700; padding: 3px 10px;
     border-radius: 50px; margin-top: 8px;
   }
+  .flow-card-type {
+    margin-top: 52px;
+    padding: 20px 28px;
+    background: var(--jcb-blue);
+    border-radius: 12px;
+    color: var(--white);
+  }
+  .flow-card-type + .flow-steps { margin-top: 24px; }
+  .flow-card-type-inner { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .flow-card-type-label {
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+  .flow-card-type-name {
+    font-size: 22px; font-weight: 700; color: var(--white);
+  }
+  .flow-card-type-desc {
+    font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0;
+  }
 
   /* ── CAMPAIGN ── */
   .campaign-section {
@@ -1268,6 +1287,9 @@
     .features-grid { grid-template-columns: 1fr; }
     .reasons-grid { grid-template-columns: 1fr; }
     .scene-grid { grid-template-columns: 1fr; gap: 32px; }
+    .flow-card-type { margin-top: 36px; padding: 16px 20px; border-radius: 10px; }
+    .flow-card-type + .flow-steps { margin-top: 16px; }
+    .flow-card-type-name { font-size: 18px; }
     .flow-steps { display: flex; flex-direction: column; gap: 8px; margin-top: 32px; }
     .flow-steps::before { display: none; }
     .flow-step { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; text-align: left; padding: 14px 16px; background: var(--white); border: 1px solid rgba(0,48,135,0.10); border-radius: 14px; }
