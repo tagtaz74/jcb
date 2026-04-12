@@ -114,6 +114,22 @@
   }
   .nav-drawer a:hover { color: var(--jcb-electric); padding-left: 6px; }
   .nav-drawer a:last-child { border-bottom: none; }
+  .nav-drawer-apply {
+    margin-top: 12px !important;
+    padding: 14px 0 !important;
+    border-bottom: none !important;
+    border-radius: 50px;
+    text-align: center;
+    background: linear-gradient(135deg, #ff7a30 0%, #e8320a 100%);
+    color: #fff !important;
+    letter-spacing: 0.06em;
+    box-shadow: 0 6px 20px rgba(232,50,10,0.35);
+  }
+  .nav-drawer-apply:hover {
+    color: #fff !important;
+    padding-left: 0 !important;
+    opacity: 0.9;
+  }
   .nav-drawer-label {
     font-size: 10px; font-weight: 700; color: var(--text-muted);
     letter-spacing: 0.12em; margin-bottom: 8px;
