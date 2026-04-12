@@ -652,9 +652,58 @@
 <section class="final-cta" id="apply">
   <h2>今がベストタイミング。<br><em>始めよう。</em></h2>
   <p>年会費永年無料 × 最大10.5%還元 × 今だけ25,000円相当プレゼント</p>
-  <div class="final-btn-row">
-    <a href="https://entry.jcb.co.jp/input_basic" class="btn-primary">無料で申し込む →</a>
+
+  <div class="apply-selector" id="apply-selector">
+
+    <!-- Step 1: カード種類 -->
+    <div class="apply-selector-group">
+      <div class="apply-selector-title">1. カード種類を選ぶ</div>
+      <div class="apply-selector-options" id="step-card">
+        <button class="apply-option" data-group="card" data-value="w">
+          <div class="apply-option-img-wrap">
+            <img src="images/card_w.png" alt="JCBカードW">
+          </div>
+          <span>JCBカードW</span>
+        </button>
+        <button class="apply-option" data-group="card" data-value="plusl">
+          <div class="apply-option-img-wrap">
+            <div class="apply-option-cards-plusl">
+              <img src="images/card_pink.webp" alt="" class="card-top">
+              <img src="images/card_white.webp" alt="" class="card-bl">
+              <img src="images/card_mika.png" alt="" class="card-br">
+            </div>
+          </div>
+          <span>JCBカードW Plus L</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: 番号の有無 -->
+    <div class="apply-selector-group">
+      <div class="apply-selector-title">2. カード番号の有無を選ぶ</div>
+      <div class="apply-selector-options" id="step-number">
+        <button class="apply-option" data-group="number" data-value="numberless">
+          <div class="apply-option-img-wrap">
+            <img src="images/exp_numberless.png" alt="ナンバーレス">
+          </div>
+          <span>ナンバーレス</span>
+          <small>カード番号を見られたくない方に</small>
+        </button>
+        <button class="apply-option" data-group="number" data-value="numbered">
+          <div class="apply-option-img-wrap">
+            <img src="images/exp_number.png" alt="番号あり">
+          </div>
+          <span>番号あり</span>
+          <small>カード番号をパッと確認したい方に</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="final-btn-row">
+      <button class="apply-submit-btn" id="apply-submit-btn" disabled>無料で申し込む</button>
+    </div>
   </div>
+
   <p class="final-disclaimer"><a href="#fn17" class="fn-link fn-link-dark">※17</a> 18歳以上39歳以下限定。審査があります。</p>
 </section>
 

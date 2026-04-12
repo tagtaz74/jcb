@@ -1135,6 +1135,90 @@
   .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 18px 54px rgba(201,168,76,0.55); }
   .final-disclaimer { margin-top: 28px; font-size: 12px; color: rgba(255,255,255,0.35); position: relative; }
 
+  /* ── APPLY SELECTOR ── */
+  .apply-selector {
+    max-width: 680px; margin: 0 auto 36px;
+    position: relative; z-index: 1;
+  }
+  .apply-selector-group {
+    background: #dceeff; border-radius: 14px;
+    padding: 20px 20px 24px; margin-bottom: 16px;
+  }
+  .apply-selector-title {
+    font-size: 14px; font-weight: 700; color: #003087;
+    margin-bottom: 14px; text-align: center;
+  }
+  .apply-selector-options {
+    display: flex; gap: 12px; justify-content: center;
+    align-items: stretch;
+  }
+  .apply-option {
+    flex: 1;
+    background: #fff; border: 2px solid transparent;
+    border-radius: 12px; padding: 16px 12px 14px;
+    cursor: pointer; transition: all 0.18s;
+    display: flex; flex-direction: column; align-items: center;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  /* 画像エリア：固定高さで全オプション揃える */
+  .apply-option-img-wrap {
+    width: 100%; height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .apply-option-img-wrap > img {
+    max-width: 100%; max-height: 100%; object-fit: contain; display: block;
+  }
+  /* Plus L 三角形レイアウト（3枚非重なり） */
+  .apply-option-cards-plusl {
+    position: relative; width: 190px; height: 120px;
+  }
+  .apply-option-cards-plusl img {
+    position: absolute;
+    width: 46%;   /* 190px × 46% ≈ 87px。右端同士が重ならない幅 */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .apply-option-cards-plusl .card-top {
+    top: 0; left: 50%; transform: translateX(-50%); z-index: 3;
+  }
+  .apply-option-cards-plusl .card-bl {
+    bottom: 0; left: 0; z-index: 2;
+  }
+  .apply-option-cards-plusl .card-br {
+    bottom: 0; right: 0; z-index: 1;
+  }
+  /* テキスト：画像エリアの下、上端を揃えるためmargin-topで押し上げない */
+  .apply-option span {
+    font-size: 13px; font-weight: 700; color: #0b0e1f;
+    margin-top: 10px; display: block;
+  }
+  .apply-option small {
+    font-size: 11px; color: #3d4070; line-height: 1.5; text-align: center;
+    margin-top: 4px;
+  }
+  .apply-option:hover { border-color: #3d78f8; background: #f5f8ff; }
+  .apply-option.selected { background: #ffe818; border-color: #e6c800; }
+  .apply-option.selected span { color: #0b0e1f; }
+  .apply-submit-btn {
+    display: inline-block; padding: 18px 64px;
+    font-size: 17px; font-weight: 900;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: none; border-radius: 50px; cursor: pointer;
+    transition: all 0.25s;
+    background: #888; color: #fff; box-shadow: none;
+    margin-top: 8px;
+  }
+  .apply-submit-btn:not(:disabled) {
+    background: linear-gradient(135deg, #ff7a30 0%, #e8320a 100%);
+    box-shadow: 0 12px 36px rgba(232,50,10,0.45);
+  }
+  .apply-submit-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 48px rgba(232,50,10,0.55);
+  }
+  .apply-submit-btn:disabled { cursor: default; }
+
   /* ── FOOTNOTE LINKS ── */
   .fn-link {
     display: inline-block; font-size: 10px; font-weight: 700;
@@ -1303,6 +1387,32 @@
     .hero-stats { flex-direction: row; gap: 8px; }
     .hero-stat { text-align: center; padding: 12px 8px; }
     .hero-stat-num { font-size: 24px; }
+    .apply-selector-options { flex-direction: column; }
+    .apply-option {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 14px; row-gap: 2px;
+      padding: 14px 16px; text-align: left;
+    }
+    .apply-option-img-wrap {
+      grid-column: 1; grid-row: 1 / 3;
+      width: 90px; height: 70px; align-self: center;
+    }
+    .apply-option-cards-plusl { width: 90px; height: 60px; }
+    .apply-option-cards-plusl img { border-radius: 3px; }
+    .apply-option span {
+      grid-column: 2; grid-row: 1;
+      margin-top: 0; font-size: 13px; align-self: end;
+    }
+    .apply-option span:last-child {
+      grid-row: 1 / 3; align-self: center;
+    }
+    .apply-option small {
+      grid-column: 2; grid-row: 2;
+      text-align: left; align-self: start;
+    }
+    .apply-submit-btn { width: 100%; padding: 18px 24px; }
   }
 
   /* ── SCROLL REVEAL ── */

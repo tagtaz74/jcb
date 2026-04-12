@@ -99,3 +99,35 @@
     if (window.scrollY > 500) sticky.classList.add('visible');
     else sticky.classList.remove('visible');
   });
+
+  // Apply selector
+  const applyState = { card: null, number: null };
+  const submitBtn = document.getElementById('apply-submit-btn');
+
+  // Apply URL map
+  const applyUrls = {
+    'w_numberless':  'https://entry.jcb.co.jp/input_basic?cardtype=w&number=0',
+    'w_numbered':    'https://entry.jcb.co.jp/input_basic?cardtype=w&number=1',
+    'plusl_numberless': 'https://entry.jcb.co.jp/input_basic?cardtype=plusl&number=0',
+    'plusl_numbered':   'https://entry.jcb.co.jp/input_basic?cardtype=plusl&number=1',
+  };
+
+  document.querySelectorAll('.apply-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      // Deselect siblings
+      document.querySelectorAll(`.apply-option[data-group="${group}"]`).forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      applyState[group] = btn.dataset.value;
+      // Enable submit if both selected
+      if (applyState.card && applyState.number) {
+        submitBtn.disabled = false;
+      }
+    });
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const key = `${applyState.card}_${applyState.number}`;
+    const url = applyUrls[key] || 'https://entry.jcb.co.jp/input_basic';
+    window.location.href = url;
+  });
