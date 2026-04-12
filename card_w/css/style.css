@@ -440,6 +440,11 @@
     max-width: 560px;
   }
 
+  .section-partner-desc {
+    font-size: 13px; color: var(--text-muted); line-height: 1.85;
+    max-width: 560px; margin-top: 10px;
+  }
+
   /* ── FEATURES ── */
   .features-bg { background: var(--white); }
   .features-grid {
