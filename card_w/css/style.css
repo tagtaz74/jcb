@@ -654,7 +654,12 @@
   .sim-caveat { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 10px; }
 
   /* ── TSUMITATE TRIGGER ── */
-  .tsumitate-trigger-wrap { text-align: center; margin-top: 48px; grid-column: 1 / -1; }
+  .tsumitate-trigger-wrap { text-align: center; margin-top: 48px; grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .jpoint-partner-link {
+    font-size: 13px; color: var(--jcb-blue-mid);
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .jpoint-partner-link:hover { color: var(--jcb-electric); }
   .tsumitate-trigger {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--white);
