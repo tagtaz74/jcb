@@ -118,6 +118,15 @@
     if (!isOpen) item.classList.add('open');
   }
 
+  // FAQを開いてスクロール（Plus Lリンクから呼び出し）
+  function openFaqAndScroll(id) {
+    const item = document.getElementById(id);
+    if (!item) return;
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    item.classList.add('open');
+    setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('nav-drawer');
