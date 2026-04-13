@@ -61,6 +61,11 @@ body {
 }
 .logo span { display: block; font-size: 10px; letter-spacing: 3px; opacity: .7; font-weight: 400; }
 
+/* アンカースクロール：固定ヘッダー分オフセット */
+section[id], div[id^="feature"] {
+  scroll-margin-top: 64px;
+}
+
 /* ── HERO ── */
 .hero {
   background: linear-gradient(135deg, #0D2B6E 0%, #1A3E8F 55%, #2B55B5 100%);
@@ -132,9 +137,9 @@ body {
 .rate-pill strong { font-size: 15px; font-weight: 700; }
 .hero-badges {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
   margin-bottom: 36px;
 }
 .hero-badge {
@@ -147,7 +152,21 @@ body {
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  width: 100%;
+  max-width: 280px;
+}
+@media (min-width: 600px) {
+  .hero-badges {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    width: auto;
+    max-width: none;
+  }
 }
 .hero-badge .icon { font-size: 18px; }
 a.hero-badge { text-decoration: none; transition: background .15s, border-color .15s; }
@@ -183,21 +202,23 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .section { padding: 48px 20px 40px; }
 .section-title {
   font-size: 18px;
-  color: var(--navy);
+  color: #fff;
   font-weight: 700;
   letter-spacing: .5px;
-  margin-bottom: 4px;
+  background: var(--navy);
+  padding: 14px 20px;
+  margin: 0 -20px 20px;
 }
 .section-title-ja {
   font-size: 13px;
   color: var(--text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   letter-spacing: .5px;
 }
 .section-divider {
   width: 36px; height: 3px;
   background: var(--navy-light);
-  margin: 8px 0 24px;
+  margin: 0 0 20px;
   border-radius: 2px;
 }
 
@@ -296,14 +317,15 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   background: var(--white);
 }
 .feature-card-header {
-  background: var(--navy);
+  background: var(--navy-pale);
+  border-bottom: 1px solid var(--gray-light);
   padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 .feature-num {
-  background: var(--red);
+  background: var(--navy);
   color: #fff;
   font-family: 'Oswald', sans-serif;
   font-size: 13px;
@@ -314,7 +336,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   flex-shrink: 0;
   letter-spacing: .5px;
 }
-.feature-card-header h3 { color: #fff; font-size: 15px; font-weight: 700; line-height: 1.4; }
+.feature-card-header h3 { color: var(--navy); font-size: 15px; font-weight: 700; line-height: 1.4; }
 .feature-card-body { padding: 20px; }
 .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
 .rate-table th { background: var(--navy-pale); color: var(--navy); font-weight: 700; padding: 8px 10px; text-align: left; font-size: 11px; }
@@ -464,9 +486,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   padding: 48px 20px 40px;
   color: var(--text);
 }
-.flow-section .section-title { color: var(--navy); }
 .flow-section .section-title-ja { color: var(--text-muted); }
-.flow-section .section-divider { background: var(--navy-light); }
 .flow-cards { display: flex; flex-direction: column; gap: 0; }
 .flow-card {
   display: flex;
@@ -785,8 +805,8 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ① FV -->
 <section class="hero">
-  <div class="hero-eyebrow">JCB比 低金利</div>
-  <h1 class="fade-up">年利1.30〜12.50%<br>の低金利でご融資</h1>
+  <div class="hero-eyebrow">JCBのカードローン　FAITH</div>
+  <h1 class="fade-up">年利1.30〜12.50%<br>の低金利<sup style="font-size:0.3em;font-weight:400;opacity:0.8;vertical-align:super;">※</sup>でご融資</h1>
   <p class="hero-sub fade-up fade-up-1">JCBのカードローン「FAITH」なら、WEB完結・最短即日で借り入れ可能。</p>
 
 <div class="hero-badges fade-up fade-up-2">
@@ -796,7 +816,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   </div>
 
   <a href="#" class="btn-primary fade-up fade-up-3">今すぐ申し込む</a>
-  <p class="hero-note">20歳以上69歳以下、毎月安定した収入のある方が対象。審査結果によってはご希望に沿えない場合があります。</p>
+  <p class="hero-note">20歳以上69歳以下、毎月安定した収入のある方が対象。審査結果によってはご希望に沿えない場合があります。<br>※JCB比</p>
 </section>
 
 <!-- キャンペーン -->
@@ -1221,7 +1241,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- 貸付条件表 -->
 <section class="loan-section" id="loan">
-  <h2 class="section-title" style="font-size:16px;color:var(--navy);margin-bottom:16px;">貸付条件</h2>
+  <h2 class="section-title">貸付条件</h2>
   <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">資金使途：自由 ／ 担保・保証人不要</p>
   <table class="loan-table">
     <thead>
