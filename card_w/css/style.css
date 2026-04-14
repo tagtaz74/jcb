@@ -1016,7 +1016,7 @@
     font-size: 12px; font-weight: 400;
   }
   .campaign-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     margin-top: 52px;
   }
   .campaign-card {
@@ -1034,6 +1034,12 @@
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   .campaign-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+  a.campaign-card { text-decoration: none; display: block; cursor: pointer; }
+  .campaign-card-ext {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    margin-top: 12px;
+  }
   .campaign-card-label {
     font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
     color: var(--gold); margin-bottom: 12px; text-transform: uppercase;
