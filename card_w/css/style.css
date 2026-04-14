@@ -418,7 +418,7 @@
   section { padding: 96px 32px; }
   .section-inner { max-width: 1060px; margin: 0 auto; }
   .section-label-tag {
-    display: inline-block;
+    display: inline-block; position: relative;
     font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--white);
     background: var(--grad-blue);
@@ -695,6 +695,10 @@
     height: 52px; width: auto;
     border: none;
     object-fit: contain; background: var(--white); padding: 2px;
+  }
+  .jpoint-others-heading {
+    font-size: 12px; font-weight: 700; color: var(--text-mid);
+    letter-spacing: 0.02em; margin: 16px 0 10px; text-align: center;
   }
   .jpoint-logo-others {
     display: grid !important;
