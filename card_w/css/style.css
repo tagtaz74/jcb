@@ -255,10 +255,9 @@
   }
   .hero-age {
     grid-column: 1;
-    margin-top: 24px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    animation: fadeUp 0.8s ease 0.5s both;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s ease 0.2s both;
   }
   .hero-age-title { margin-bottom: 4px; }
   .hero-age-highlight {
@@ -277,6 +276,8 @@
     transition: color 0.2s, border-color 0.2s;
   }
   .hero-age-link:hover { color: #fff; border-color: #fff; }
+  .hero-age-footer { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .hero-age-link--anchor { display: inline-flex; align-items: center; }
 
   /* ── BUTTONS ── */
   .btn-primary {
@@ -1122,6 +1123,35 @@
 
   /* ── SPEC ── */
   .spec-section { background: var(--white); }
+  .spec-card-designs {
+    display: flex; gap: 48px; align-items: flex-start; justify-content: center;
+    margin-top: 32px; flex-wrap: wrap;
+  }
+  .spec-design-item { display: flex; flex-direction: column; gap: 10px; }
+  .spec-design-label {
+    font-size: 13px; font-weight: 700; color: var(--text-dark);
+  }
+  .spec-design-label small {
+    font-size: 11px; font-weight: 500; color: var(--text-muted); margin-left: 6px;
+  }
+  .spec-design-item > img {
+    height: 90px; width: auto; object-fit: contain;
+  }
+  .spec-design-plusl {
+    display: flex; gap: 10px; align-items: flex-end;
+  }
+  .spec-design-plusl img {
+    height: 70px; width: auto; object-fit: contain;
+  }
+  .spec-design-faq-link {
+    display: inline-flex; align-items: center;
+    font-size: 12px; color: var(--jcb-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,48,135,0.3);
+    padding-bottom: 1px; margin-top: 8px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .spec-design-faq-link:hover { color: var(--jcb-blue-mid); border-color: var(--jcb-blue-mid); }
   .spec-simple-table { width: 100%; border-collapse: collapse; margin-top: 44px; }
   .spec-simple-table tr { border-bottom: 1px solid rgba(0,48,135,0.07); }
   .spec-simple-table tr:last-child { border-bottom: none; }
