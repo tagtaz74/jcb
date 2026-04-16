@@ -6,790 +6,7 @@
 <title>JCB CARD LOAN FAITH — LP改善モック</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --navy: #0D2B6E;
-  --navy-mid: #1A3E8F;
-  --navy-light: #2B55B5;
-  --navy-pale: #E8EEF8;
-  --red: #C0392B;
-  --red-light: #FDECEA;
-  --gold: #B8870A;
-  --gold-light: #FEF8E7;
-  --white: #FFFFFF;
-  --off-white: #F5F7FC;
-  --gray-light: #E8ECF2;
-  --gray: #94A3B8;
-  --text: #1A202C;
-  --text-sub: #4A5568;
-  --text-muted: #718096;
-  --green: #2E7D32;
-  --green-light: #E8F5E9;
-  --radius: 12px;
-  --radius-sm: 8px;
-}
-
-html { scroll-behavior: smooth; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background: var(--off-white);
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.7;
-  padding-bottom: 80px;
-}
-
-/* ── HEADER ── */
-.site-header {
-  background: var(--navy);
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.logo {
-  font-family: 'Oswald', sans-serif;
-  color: #fff;
-  font-size: 18px;
-  letter-spacing: 2px;
-  line-height: 1.2;
-}
-.logo span { display: block; font-size: 10px; letter-spacing: 3px; opacity: .7; font-weight: 400; }
-
-/* アンカースクロール：固定ヘッダー分オフセット */
-section[id], div[id^="feature"] {
-  scroll-margin-top: 64px;
-}
-
-/* ── HERO ── */
-.hero {
-  background: linear-gradient(135deg, #0D2B6E 0%, #1A3E8F 55%, #2B55B5 100%);
-  padding: 52px 20px 48px;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 260px; height: 260px;
-  border-radius: 50%;
-  border: 40px solid rgba(255,255,255,0.05);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -40px; left: -40px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  border: 30px solid rgba(255,255,255,0.04);
-  pointer-events: none;
-}
-.hero-eyebrow {
-  display: inline-block;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-.hero h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(28px, 6vw, 42px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-.hero-sub {
-  font-size: 13px;
-  opacity: .8;
-  margin-bottom: 28px;
-}
-.hero-rates {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-.rate-pill {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 12px;
-  color: #fff;
-  backdrop-filter: blur(4px);
-}
-.rate-pill strong { font-size: 15px; font-weight: 700; }
-.hero-badges {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 36px;
-}
-.hero-badge {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  max-width: 280px;
-}
-@media (min-width: 600px) {
-  .hero-badges {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .hero-badge {
-    width: auto;
-    max-width: none;
-  }
-}
-.hero-badge .icon { font-size: 18px; }
-a.hero-badge { text-decoration: none; transition: background .15s, border-color .15s; }
-a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
-.btn-primary {
-  display: inline-block;
-  background: var(--red);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 16px 48px;
-  border-radius: 50px;
-  text-decoration: none;
-  letter-spacing: .5px;
-  box-shadow: 0 4px 20px rgba(192,57,43,0.4);
-  transition: transform .15s, box-shadow .15s;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,57,43,0.5); }
-.hero-note { font-size: 11px; opacity: .6; margin-top: 12px; }
-
-/* campaign banner */
-.campaign-banner {
-  background: var(--gold-light);
-  border-top: 3px solid var(--gold);
-  border-bottom: 1px solid #e8d08a;
-  padding: 14px 20px;
-  text-align: center;
-}
-.campaign-banner p { font-size: 13px; color: var(--gold); font-weight: 700; }
-.campaign-banner small { font-size: 11px; color: var(--text-sub); font-weight: 400; }
-
-/* ── SECTION WRAPPER ── */
-.section { padding: 48px 20px 40px; }
-.section-title {
-  font-size: 18px;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: .5px;
-  background: var(--navy);
-  padding: 14px 20px;
-  margin: 0 -20px 20px;
-}
-.section-title-ja {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  letter-spacing: .5px;
-}
-.section-divider {
-  width: 36px; height: 3px;
-  background: var(--navy-light);
-  margin: 0 0 20px;
-  border-radius: 2px;
-}
-
-/* ── 1秒診断 (compact) ── */
-.diagnose-section {
-  background: var(--navy-pale);
-  padding: 24px 20px;
-}
-.diagnose-inner {
-  background: var(--white);
-  border: 1px solid var(--gray-light);
-  border-radius: var(--radius);
-  padding: 20px;
-}
-.diagnose-label {
-  color: var(--navy);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-  text-align: center;
-}
-.diagnose-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-.diagnose-field { flex: 1; min-width: 120px; }
-.diagnose-field label { display: block; font-size: 12px; color: var(--text-sub); margin-bottom: 5px; }
-.diagnose-field input {
-  width: 100%;
-  background: var(--off-white);
-  border: 1px solid var(--gray-light);
-  border-radius: 8px;
-  padding: 10px 14px;
-  color: var(--text);
-  font-size: 15px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color .2s;
-}
-.diagnose-field input::placeholder { color: var(--gray); }
-.diagnose-field input:focus { border-color: var(--navy-light); }
-.unit { color: var(--text-muted); font-size: 12px; display: block; text-align: right; margin-top: 4px; }
-.btn-diagnose {
-  background: var(--navy);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.diagnose-note { font-size: 10px; color: var(--text-muted); margin-top: 10px; text-align: center; }
-
-/* diagnose result */
-.diagnose-result {
-  display: none;
-  margin-top: 16px;
-  background: var(--navy-pale);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  color: var(--navy);
-}
-.diagnose-result.show { display: block; }
-.result-amount { font-size: 32px; font-weight: 700; color: var(--navy); }
-.result-label { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; }
-.btn-apply-sm {
-  display: inline-block;
-  background: var(--red);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 10px 28px;
-  border-radius: 50px;
-  text-decoration: none;
-  margin-top: 12px;
-}
-
-/* ── 3特長 CARDS ── */
-.features-section {
-  background: var(--white);
-  padding: 48px 20px;
-}
-.feature-cards { display: flex; flex-direction: column; gap: 20px; }
-.feature-card {
-  border: 1.5px solid var(--gray-light);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--white);
-}
-.feature-card-header {
-  background: var(--navy-pale);
-  border-bottom: 1px solid var(--gray-light);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.feature-num {
-  background: var(--navy);
-  color: #fff;
-  font-family: 'Oswald', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  letter-spacing: .5px;
-}
-.feature-card-header h3 { color: var(--navy); font-size: 15px; font-weight: 700; line-height: 1.4; }
-.feature-card-body { padding: 20px; }
-.rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
-.rate-table th { background: var(--navy-pale); color: var(--navy); font-weight: 700; padding: 8px 10px; text-align: left; font-size: 11px; }
-.rate-table td { padding: 7px 10px; border-bottom: 1px solid var(--gray-light); color: var(--text); }
-.rate-table tr:last-child td { border-bottom: none; }
-.rate-table .rate-val { font-weight: 700; color: var(--navy-mid); }
-.comparison-box {
-  background: var(--navy-pale);
-  border-radius: var(--radius-sm);
-  padding: 14px;
-  margin: 14px 0;
-  display: flex;
-  gap: 10px;
-}
-.compare-col { flex: 1; text-align: center; }
-.compare-col .label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
-.compare-col .rate { font-size: 20px; font-weight: 700; color: var(--navy); }
-.compare-col .total { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
-.compare-col.faith .rate { color: var(--red); }
-.compare-divider { display: flex; align-items: center; color: var(--gray); font-size: 18px; }
-.saving-badge {
-  background: var(--red);
-  color: #fff;
-  border-radius: 6px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 4px;
-}
-.feature-list { list-style: none; }
-.feature-list li {
-  padding: 8px 0;
-  border-bottom: 1px solid var(--gray-light);
-  font-size: 13px;
-  color: var(--text-sub);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.feature-list li:last-child { border-bottom: none; }
-.feature-list li::before { content: '✓'; color: var(--navy-mid); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-.step-flow {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 12px 0;
-}
-.step-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 12px 0;
-  position: relative;
-}
-.step-item::after {
-  content: '';
-  position: absolute;
-  left: 16px;
-  top: 44px;
-  width: 2px;
-  height: calc(100% - 20px);
-  background: var(--gray-light);
-}
-.step-item:last-child::after { display: none; }
-.step-dot {
-  width: 34px; height: 34px;
-  background: var(--navy);
-  color: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  font-family: 'Oswald', sans-serif;
-  flex-shrink: 0;
-  z-index: 1;
-}
-.step-content h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-.step-content p { font-size: 12px; color: var(--text-sub); line-height: 1.5; }
-
-/* ── Q&A SECTION ── */
-.qa-section { padding: 48px 20px 40px; }
-.qa-section.borrow { background: var(--off-white); }
-.qa-section.repay { background: var(--white); }
-.qa-list { display: flex; flex-direction: column; gap: 10px; }
-.qa-item {
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--gray-light);
-  overflow: hidden;
-}
-.qa-section.repay .qa-item { background: var(--off-white); }
-.qa-question {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 16px 20px;
-  text-align: left;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.5;
-}
-.qa-question .q-mark {
-  background: var(--navy);
-  color: #fff;
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.qa-arrow {
-  margin-left: auto;
-  color: var(--navy-light);
-  font-size: 18px;
-  transition: transform .25s;
-  flex-shrink: 0;
-}
-.qa-item.open .qa-arrow { transform: rotate(180deg); }
-.qa-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .3s ease;
-}
-.qa-item.open .qa-answer { max-height: 400px; }
-.qa-answer-inner {
-  padding: 0 20px 16px 58px;
-  font-size: 13px;
-  color: var(--text-sub);
-  line-height: 1.8;
-  border-top: 1px solid var(--gray-light);
-  padding-top: 14px;
-}
-
-/* ── FLOW SECTION ── */
-.flow-section {
-  background: #F0F4FB;
-  padding: 48px 20px 40px;
-  color: var(--text);
-}
-.flow-section .section-title-ja { color: var(--text-muted); }
-.flow-cards { display: flex; flex-direction: column; gap: 0; }
-.flow-card {
-  display: flex;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--gray-light);
-  position: relative;
-}
-.flow-card:last-child { border-bottom: none; }
-.flow-step-num {
-  font-family: 'Oswald', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 1px;
-  min-width: 52px;
-  text-align: center;
-  padding-top: 3px;
-}
-.flow-step-num span {
-  display: block;
-  width: 36px; height: 36px;
-  border: 2px solid var(--navy);
-  border-radius: 50%;
-  line-height: 32px;
-  margin: 0 auto 4px;
-  font-size: 16px;
-}
-.flow-card-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--navy); }
-.flow-card-content p { font-size: 12px; color: var(--text-sub); line-height: 1.6; }
-
-/* ── REQUIREMENTS ── */
-.req-section {
-  background: var(--off-white);
-  padding: 48px 20px 40px;
-}
-.req-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 1px solid var(--gray-light);
-  padding: 20px;
-  margin-bottom: 14px;
-}
-.req-card:last-child { margin-bottom: 0; }
-.req-card h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.req-card h3::before {
-  content: '';
-  display: inline-block;
-  width: 4px; height: 16px;
-  background: var(--navy);
-  border-radius: 2px;
-}
-.req-card p, .req-card li { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
-.req-card ul { padding-left: 18px; }
-.req-card li { margin-bottom: 4px; }
-
-/* ── FAQ SECTION ── */
-.faq-section {
-  background: var(--white);
-  padding: 48px 20px 40px;
-}
-
-/* ── LOAN TABLE ── */
-.loan-section {
-  background: var(--navy-pale);
-  padding: 40px 20px;
-}
-.loan-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.loan-table th { background: var(--navy); color: #fff; padding: 10px 12px; text-align: left; font-size: 11px; }
-.loan-table td { padding: 10px 12px; border-bottom: 1px solid var(--gray-light); vertical-align: top; }
-.loan-table tr:last-child td { border-bottom: none; }
-.loan-note { font-size: 11px; color: var(--text-muted); margin-top: 12px; line-height: 1.8; }
-
-/* ── FIXED CTA ── */
-.fixed-cta {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: var(--navy);
-  border-top: 3px solid var(--red);
-  padding: 12px 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  z-index: 200;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-}
-.fixed-cta .cta-text { color: rgba(255,255,255,.7); font-size: 11px; flex: 1; }
-.fixed-cta .cta-text strong { display: block; color: #fff; font-size: 13px; font-weight: 700; }
-.fixed-cta a {
-  background: var(--red);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.fixed-cta-diag {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 12px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ── FOOTER ── */
-.site-footer {
-  background: #0a1f52;
-  padding: 32px 20px;
-  text-align: center;
-}
-.footer-logo {
-  font-family: 'Oswald', sans-serif;
-  color: rgba(255,255,255,.8);
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-}
-.footer-tagline { font-size: 11px; color: rgba(255,255,255,.4); margin-bottom: 20px; }
-.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 16px; }
-.footer-links a { color: rgba(255,255,255,.5); font-size: 11px; text-decoration: none; }
-.footer-notice { font-size: 10px; color: rgba(255,255,255,.3); line-height: 1.8; }
-.footer-contact {
-  background: rgba(255,255,255,0.06);
-  border-radius: 10px;
-  padding: 16px;
-  margin: 16px 0;
-}
-.footer-contact h4 { color: rgba(255,255,255,.7); font-size: 11px; margin-bottom: 6px; }
-.footer-contact .tel { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
-.footer-contact .hours { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 4px; }
-
-/* ── UTILS ── */
-.badge-small {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-bottom: 6px;
-}
-.badge-red { background: var(--red-light); color: var(--red); }
-.badge-green { background: var(--green-light); color: var(--green); }
-.badge-navy { background: var(--navy-pale); color: var(--navy); }
-.notice-box {
-  background: var(--navy-pale);
-  border-left: 3px solid var(--navy-light);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 10px 14px;
-  font-size: 11px;
-  color: var(--text-sub);
-  line-height: 1.7;
-  margin-top: 12px;
-}
-.atm-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 14px 0;
-}
-.atm-box {
-  background: var(--off-white);
-  border-radius: var(--radius-sm);
-  padding: 12px;
-  border: 1px solid var(--gray-light);
-}
-.atm-box h4 { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.atm-box li { font-size: 12px; color: var(--text-sub); list-style: none; padding: 2px 0; }
-.atm-box li::before { content: '・'; color: var(--navy-light); }
-.free-badge {
-  background: var(--navy-pale);
-  color: var(--navy);
-  border: 1.5px solid var(--navy-mid);
-  text-align: center;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-.free-badge span { display: block; font-size: 11px; font-weight: 400; color: var(--text-sub); margin-top: 2px; }
-
-/* ── HAMBURGER & DRAWER ── */
-.hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-  justify-content: center;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.drawer-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 300;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .25s;
-}
-.drawer-overlay.open { opacity: 1; pointer-events: auto; }
-
-.drawer {
-  position: fixed;
-  top: 0; right: 0;
-  width: min(300px, 85vw);
-  height: 100%;
-  background: var(--white);
-  z-index: 301;
-  transform: translateX(100%);
-  transition: transform .3s ease;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-.drawer.open { transform: translateX(0); }
-
-.drawer-header {
-  background: var(--navy);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-.drawer-logo { color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
-.drawer-close {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,.8);
-  font-size: 20px;
-  cursor: pointer;
-  line-height: 1;
-  padding: 4px;
-}
-
-.drawer-nav { padding: 8px 0; flex: 1; }
-.drawer-nav a {
-  display: block;
-  padding: 15px 24px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--navy);
-  text-decoration: none;
-  border-bottom: 1px solid var(--gray-light);
-  transition: background .15s;
-}
-.drawer-nav a:hover { background: var(--navy-pale); }
-
-.drawer-cta { padding: 20px; flex-shrink: 0; }
-.drawer-cta a {
-  display: block;
-  background: var(--navy);
-  color: #fff;
-  text-align: center;
-  padding: 14px;
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fade-up { animation: fadeUp .5s ease both; }
-.fade-up-1 { animation-delay: .1s; }
-.fade-up-2 { animation-delay: .2s; }
-.fade-up-3 { animation-delay: .3s; }
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -805,18 +22,40 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ① FV -->
 <section class="hero">
-  <div class="hero-eyebrow">JCBのカードローン　FAITH</div>
-  <h1 class="fade-up">年利1.30〜12.50%<br>の低金利<sup style="font-size:0.3em;font-weight:400;opacity:0.8;vertical-align:super;">※</sup>でご融資</h1>
-  <p class="hero-sub fade-up fade-up-1">JCBのカードローン「FAITH」なら、WEB完結・最短即日で借り入れ可能。</p>
-
-<div class="hero-badges fade-up fade-up-2">
-    <a class="hero-badge" href="#feature-rate">年利1.30〜12.50%の低金利！</a>
-    <a class="hero-badge" href="#feature-web">申し込みはWEB完結！</a>
-    <a class="hero-badge" href="#feature-atm">全国のATMで手数料無料！</a>
+  <div class="hero-eyebrow">CARD LOAN FAITH</div>
+  <h1 class="fade-up">
+    <span class="hero-h1-lead">必要なとき、すぐ借りられる。</span>
+    <span class="hero-h1-bottom"><span class="hero-h1-jcb">JCB</span><span class="hero-h1-sub">のカードローン。</span></span>
+  </h1>
+  <div class="hero-features fade-up fade-up-1">
+    <a class="hero-feature-item" href="#feature-rate">
+      <div class="hero-feature-num">01</div>
+      <div class="hero-feature-text">
+        <strong>年利1.30〜12.50%の低金利</strong>
+        <span>ご利用可能枠に応じた金利設定（JCB比）</span>
+      </div>
+      <div class="hero-feature-more">詳細を見る<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v8M2.5 7l3.5 3.5L9.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="hero-feature-item" href="#feature-web">
+      <div class="hero-feature-num">02</div>
+      <div class="hero-feature-text">
+        <strong>申し込みはWEB完結</strong>
+        <span>24時間365日・最短即日審査・即日キャッシング</span>
+      </div>
+      <div class="hero-feature-more">詳細を見る<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v8M2.5 7l3.5 3.5L9.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="hero-feature-item" href="#feature-atm">
+      <div class="hero-feature-num">03</div>
+      <div class="hero-feature-text">
+        <strong>全国のATMで手数料無料</strong>
+        <span>月3回まで出金手数料0円</span>
+      </div>
+      <div class="hero-feature-more">詳細を見る<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v8M2.5 7l3.5 3.5L9.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
   </div>
 
-  <a href="#" class="btn-primary fade-up fade-up-3">今すぐ申し込む</a>
-  <p class="hero-note">20歳以上69歳以下、毎月安定した収入のある方が対象。審査結果によってはご希望に沿えない場合があります。<br>※JCB比</p>
+  <a href="#" class="btn-primary fade-up fade-up-2">今すぐ申し込む</a>
+  <p class="hero-note">20歳以上69歳以下、毎月安定した収入のある方が対象。審査結果によってはご希望に沿えない場合があります。</p>
 </section>
 
 <!-- キャンペーン -->
@@ -853,15 +92,17 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ③ 3つの特長（常時展開） -->
 <section class="features-section" id="features">
-  <h2 class="section-title">人気の3つの理由</h2>
-  <div class="section-divider"></div>
+  <div class="features-heading">
+    <div class="features-heading-en">WHY FAITH</div>
+    <h2>人気の3つの理由</h2>
+  </div>
 
   <div class="feature-cards">
 
     <!-- 特長1: 低金利 -->
     <div class="feature-card" id="feature-rate">
       <div class="feature-card-header">
-        <div class="feature-num">01</div>
+        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">01</span></div>
         <h3>年利1.30〜12.50%の低金利！<br><span style="font-size:12px;font-weight:400;opacity:.8;">（JCB比）ご利用可能枠に応じた金利設定</span></h3>
       </div>
       <div class="feature-card-body">
@@ -906,7 +147,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
     <!-- 特長2: WEB完結 -->
     <div class="feature-card" id="feature-web">
       <div class="feature-card-header">
-        <div class="feature-num">02</div>
+        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">02</span></div>
         <h3>申し込みはWEB完結！<br><span style="font-size:12px;font-weight:400;opacity:.8;">24時間365日・最短即日審査・即日キャッシング</span></h3>
       </div>
       <div class="feature-card-body">
@@ -926,7 +167,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
     <!-- 特長3: ATM -->
     <div class="feature-card" id="feature-atm">
       <div class="feature-card-header">
-        <div class="feature-num">03</div>
+        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">03</span></div>
         <h3>全国のATMで手数料無料！<br><span style="font-size:12px;font-weight:400;opacity:.8;">月3回まで出金手数料0円</span></h3>
       </div>
       <div class="feature-card-body">
@@ -963,9 +204,11 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ④ 借りる Q&A -->
 <section class="qa-section borrow" id="borrow">
-  <h2 class="section-title">借りる</h2>
-  <div class="section-title-ja">よくある疑問</div>
-  <div class="section-divider"></div>
+  <div class="section-heading" data-en="BORROWING">
+    <div class="section-heading-en">BORROWING</div>
+    <h2>借りる</h2>
+    <p>よくある疑問</p>
+  </div>
 
   <div class="qa-list">
     <div class="qa-item open">
@@ -1041,7 +284,17 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
       </button>
       <div class="qa-answer">
         <div class="qa-answer-inner">
-          WEB申込の場合、基本的に必要なのは口座情報を確認できるもの（キャッシュカード・預金通帳等）のみです。WEBで口座振替設定をすれば、本人確認書類の提出は不要です。ただし、希望する利用可能枠が50万円超、または他社借入との合計が100万円超の場合は収入証明書類（源泉徴収票・課税証明書・給与明細書等）が必要になります。
+          <p class="req-case-label">WEB申し込みの場合</p>
+          <ul class="req-doc-list">
+            <li>
+              <span class="req-doc-main">口座情報を確認できるもの（キャッシュカード・預金通帳等）</span>
+              <span class="req-doc-note">WEBで口座設定をすれば、本人確認書類の提出が不要です。</span>
+            </li>
+            <li>
+              <span class="req-doc-main">収入証明書類（希望枠または他社との合計が50万円超・100万円超の場合）</span>
+              <span class="req-doc-note">例：源泉徴収票、課税証明書、給与明細書等</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1063,9 +316,11 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ⑤ 返済する Q&A -->
 <section class="qa-section repay" id="repay">
-  <h2 class="section-title">返済する</h2>
-  <div class="section-title-ja">よくある疑問</div>
-  <div class="section-divider"></div>
+  <div class="section-heading" data-en="REPAYMENT">
+    <div class="section-heading-en">REPAYMENT</div>
+    <h2>返済する</h2>
+    <p>よくある疑問</p>
+  </div>
 
   <div class="qa-list">
     <div class="qa-item">
@@ -1124,8 +379,10 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ⑥ 申込フロー -->
 <section class="flow-section" id="flow">
-  <h2 class="section-title">申し込みからご利用の流れ</h2>
-  <div class="section-divider"></div>
+  <div class="section-heading" data-en="HOW IT WORKS">
+    <div class="section-heading-en">HOW IT WORKS</div>
+    <h2>申し込みからご利用の流れ</h2>
+  </div>
 
   <div class="flow-cards">
     <div class="flow-card">
@@ -1161,8 +418,10 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 
 <!-- ⑦ よくあるご質問（補完） -->
 <section class="faq-section" id="faq">
-  <h2 class="section-title">よくあるご質問</h2>
-  <div class="section-divider"></div>
+  <div class="section-heading" data-en="FAQ">
+    <div class="section-heading-en">FAQ</div>
+    <h2>よくあるご質問</h2>
+  </div>
 
   <div class="qa-list">
     <div class="qa-item">
@@ -1220,28 +479,13 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 </section>
 
 <!-- 申込条件・必要書類 -->
-<section class="req-section" id="apply">
-  <h2 class="section-title">申し込みにあたって</h2>
-  <div class="section-divider"></div>
-
-  <div class="req-card">
-    <h3>申し込みに必要なもの</h3>
-    <p style="margin-bottom:8px;font-size:13px;font-weight:700;">WEB申し込みの場合</p>
-    <ul>
-      <li>口座情報を確認できるもの（キャッシュカード・預金通帳等）<br><span style="font-size:11px;color:var(--text-muted);">WEBで口座設定をすれば、本人確認書類の提出が不要です。</span></li>
-      <li>収入証明書類（希望枠または他社との合計が50万円超・100万円超の場合）<br><span style="font-size:11px;color:var(--text-muted);">例：源泉徴収票、課税証明書、給与明細書等</span></li>
-    </ul>
-  </div>
-
-  <div class="req-card">
-    <h3>在籍確認について</h3>
-    <p>原則、電話での在籍確認は行いません。審査状況により連絡するケースがありますが、申し込み者様以外の方にカードローンの申し込みが知られることはありません。</p>
-  </div>
-</section>
 
 <!-- 貸付条件表 -->
 <section class="loan-section" id="loan">
-  <h2 class="section-title">貸付条件</h2>
+  <div class="section-heading" data-en="LOAN CONDITIONS">
+    <div class="section-heading-en">LOAN CONDITIONS</div>
+    <h2>貸付条件</h2>
+  </div>
   <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">資金使途：自由 ／ 担保・保証人不要</p>
   <table class="loan-table">
     <thead>
@@ -1317,7 +561,6 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
     <a href="#repay" onclick="closeDrawer()">返済する</a>
     <a href="#flow" onclick="closeDrawer()">申し込みからご利用の流れ</a>
     <a href="#faq" onclick="closeDrawer()">よくあるご質問</a>
-    <a href="#apply" onclick="closeDrawer()">申し込みにあたって</a>
     <a href="#loan" onclick="closeDrawer()">貸付条件</a>
   </div>
   <div class="drawer-cta">
