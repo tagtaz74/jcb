@@ -127,7 +127,7 @@ section[id], div[id^="feature"] {
   font-size: clamp(36px, 9vw, 64px);
   font-weight: 900;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, #FFD970 0%, #F0C030 50%, #C8A000 100%);
+  background: linear-gradient(135deg, #FFF4B0 0%, #FFD060 22%, #E8B400 52%, #C89800 78%, #DDBE50 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -136,8 +136,12 @@ section[id], div[id^="feature"] {
 .hero h1 .hero-h1-sub {
   font-size: clamp(32px, 8vw, 58px);
   font-weight: 700;
-  opacity: 0.92;
   line-height: 1;
+  background: linear-gradient(135deg, #F0F0F0 0%, #C8C8D8 30%, #FFFFFF 52%, #B8B8CC 75%, #E0E0EC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.35));
 }
 .hero-features {
   display: flex;
@@ -729,8 +733,8 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .compare-col.faith .rate { color: var(--red); }
 .compare-divider { display: flex; align-items: center; color: var(--gray); font-size: 18px; }
 .saving-badge {
-  background: var(--red);
-  color: #fff;
+  background: var(--red-light);
+  color: var(--red);
   border-radius: 8px;
   padding: 8px 14px;
   font-size: 13px;
@@ -894,7 +898,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   gap: 12px;
   cursor: pointer;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--text);
   line-height: 1.5;
@@ -903,9 +907,9 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   background: var(--navy);
   color: #fff;
   font-family: 'Oswald', sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
-  width: 26px; height: 26px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
