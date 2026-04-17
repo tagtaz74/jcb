@@ -1179,6 +1179,36 @@
     .sst-label { width: 120px; font-size: 11px; }
     .sst-val { font-size: 13px; }
   }
+  /* ── PLUS L SUPPLEMENT ── */
+  .plusl-supplement {
+    margin-top: 28px;
+    padding: 18px 22px;
+    border: 1.5px solid rgba(0, 48, 135, 0.16);
+    border-radius: 12px;
+    background: rgba(232, 240, 255, 0.28);
+  }
+  .plusl-supplement-head {
+    font-size: 12px; font-weight: 700;
+    color: var(--jcb-blue); letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .plusl-supplement-cards {
+    display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .plusl-supplement-cards img { height: 52px; width: auto; }
+  .plusl-supplement-lead {
+    font-size: 12px; color: var(--text-mid); line-height: 1.7; margin-bottom: 12px;
+  }
+  .plusl-supplement-feat-title {
+    font-size: 12px; font-weight: 700; color: var(--text-dark);
+    padding: 8px 0; border-top: 1px solid rgba(0, 48, 135, 0.1); margin-bottom: 8px;
+  }
+  .plusl-supplement-feats {
+    padding-left: 18px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .plusl-supplement-feats li { font-size: 12px; color: var(--text-mid); line-height: 1.75; }
+  .plusl-supplement-feats li strong { display: block; color: var(--text-dark); margin-bottom: 2px; }
+
   .spec-tabs { display: flex; gap: 8px; margin: 40px 0 28px; flex-wrap: wrap; }
   .spec-tab {
     padding: 9px 22px; border-radius: 50px; font-size: 13px; font-weight: 700;
