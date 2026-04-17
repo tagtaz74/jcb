@@ -1207,7 +1207,7 @@
   }
   .plusl-supplement-feats {
     padding-left: 0; display: flex; flex-direction: column; gap: 8px;
-    list-style: decimal; text-align: left; max-width: 640px; margin: 0 auto;
+    list-style: decimal; text-align: left;
     padding-left: 20px;
   }
   .plusl-supplement-feats li { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
