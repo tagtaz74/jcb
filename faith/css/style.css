@@ -384,7 +384,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .diagnose-field select:focus { border-color: var(--gold); }
 .unit { color: var(--text-muted); font-size: 12px; display: block; text-align: right; margin-top: 4px; }
 .btn-diagnose {
-  background: var(--gold);
+  background: linear-gradient(160deg, #2E8B4A 0%, #1A6032 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -395,6 +395,12 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+  box-shadow: 0 5px 18px rgba(20,80,40,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-diagnose:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20,80,40,0.52), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .diagnose-note { font-size: 10px; color: var(--text-muted); margin-top: 10px; text-align: center; }
 
@@ -514,7 +520,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 }
 .simulate-field select:focus { border-color: var(--gold); }
 .btn-simulate {
-  background: var(--gold);
+  background: linear-gradient(160deg, #2E8B4A 0%, #1A6032 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -525,10 +531,17 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+  box-shadow: 0 5px 18px rgba(20,80,40,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-simulate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20,80,40,0.52), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .simulate-note { font-size: 10px; color: var(--text-muted); margin-top: 10px; text-align: center; }
 .simulate-result { display: none; margin-top: 16px; }
-.simulate-result.show { display: block; }
+.simulate-result.show { display: flex; flex-direction: column; align-items: center; }
+.simulate-result .sim-result-table { width: 100%; }
 .sim-result-table {
   width: 100%;
   border-collapse: collapse;
