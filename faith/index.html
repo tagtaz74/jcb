@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JCB CARD LOAN FAITH — LP改善モック</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
 <!-- ① FV -->
 <section class="hero">
-  <div class="hero-eyebrow">CARD LOAN FAITH</div>
+  <div class="hero-eyebrow">JCB CARD LOAN FAITH</div>
   <h1 class="fade-up">
     <span class="hero-h1-lead">必要なとき、すぐ借りられる。</span>
     <span class="hero-h1-bottom"><span class="hero-h1-jcb">JCB</span><span class="hero-h1-sub">のカードローン。</span></span>
@@ -54,7 +54,7 @@
     </a>
   </div>
 
-  <a href="#" class="btn-primary fade-up fade-up-2">今すぐ申し込む</a>
+  <a href="#" class="btn-primary fade-up fade-up-2"><span class="apply-badge">最短即日審査</span>審査を申し込む</a>
   <p class="hero-note">20歳以上69歳以下、毎月安定した収入のある方が対象。審査結果によってはご希望に沿えない場合があります。</p>
 </section>
 
@@ -64,46 +64,102 @@
   <small>参加登録不要。対象期間内にキャッシングリボ払いをご利用の場合、利息をキャッシュバックします。</small>
 </div>
 
-<!-- ② 1秒診断（コンパクト） -->
-<div class="diagnose-section">
-  <div class="diagnose-inner">
-    <p class="diagnose-label">お借り入れ 1秒診断</p>
-    <div class="diagnose-row">
-      <div class="diagnose-field">
-        <label>年収</label>
-        <input type="number" id="income" placeholder="例：400" min="0">
-        <span class="unit">万円</span>
-      </div>
-      <div class="diagnose-field">
-        <label>他社借入額</label>
-        <input type="number" id="debt" placeholder="例：0" min="0">
-        <span class="unit">万円</span>
-      </div>
-      <button class="btn-diagnose" onclick="runDiagnose()">診断する</button>
-    </div>
-    <p class="diagnose-note">※1万円単位で入力 ／ 対象：20歳以上69歳以下・毎月安定収入がある方</p>
-    <div class="diagnose-result" id="diagnoseResult">
-      <p class="result-label">お借り入れ可能見込額</p>
-      <p class="result-amount" id="resultAmount">—</p>
-      <a href="#" class="btn-apply-sm">このまま申し込む →</a>
-    </div>
-  </div>
-</div>
-
-<!-- ③ 3つの特長（常時展開） -->
-<section class="features-section" id="features">
+<!-- FAITHが選ばれる理由 タイル -->
+<section class="benefits-section">
   <div class="features-heading">
     <div class="features-heading-en">WHY FAITH</div>
-    <h2>人気の3つの理由</h2>
+    <p class="features-heading-sub">初めてでも安心</p>
+    <h2>FAITHが選ばれる理由</h2>
   </div>
+  <div class="benefits-grid">
 
+    <!-- 1: 低金利 → #feature-rate -->
+    <a href="#feature-rate" class="benefit-tile benefit-tile--link">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.2"/><circle cx="15" cy="15" r="2.2"/><line x1="5" y1="19" x2="19" y2="5"/></svg>
+      </div>
+      <div class="benefit-title">年利1.30〜12.50%<br>の低金利</div>
+      <p class="benefit-desc">一般的なカードローン（15〜18%）より低く設定。毎月の返済額も総支払額も抑えられます。</p>
+      <span class="benefit-more">詳細を見る ↓</span>
+    </a>
+
+    <!-- 2: WEB完結 → #feature-web -->
+    <a href="#feature-web" class="benefit-tile benefit-tile--link">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><polyline points="9 15 11 17 15 13"/></svg>
+      </div>
+      <div class="benefit-title">書類提出なし<br>WEB完結</div>
+      <p class="benefit-desc">申し込みから審査まですべてWEB完結。WEBで口座設定すれば本人確認書類も不要。</p>
+      <span class="benefit-more">詳細を見る ↓</span>
+    </a>
+
+    <!-- 3: 振込手数料無料 → #feature-atm -->
+    <a href="#feature-atm" class="benefit-tile benefit-tile--link">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><circle cx="9" cy="15" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div class="benefit-title">振込手数料<br>無料</div>
+      <p class="benefit-desc">返済は口座自動引き落とし。ATMでの返済も月3回まで出金手数料0円。</p>
+      <span class="benefit-more">詳細を見る ↓</span>
+    </a>
+
+    <!-- 4: 在籍確認なし -->
+    <div class="benefit-tile">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45c1.12.45 2.3.78 3.53.98a2 2 0 011.8 2v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.18 2 2 0 014 2h3a2 2 0 012 1.72c.2 1.24.53 2.42.98 3.53a2 2 0 01-.45 2.11L8.09 10.8"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+      </div>
+      <div class="benefit-title">在籍確認の<br>電話は原則なし</div>
+      <p class="benefit-desc">勤め先への電話連絡は原則不要。審査状況によって連絡が必要な場合も、第三者に知られません。</p>
+    </div>
+
+    <!-- 5: 24時間365日 -->
+    <div class="benefit-tile">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="benefit-title">24時間365日<br>いつでも申込</div>
+      <p class="benefit-desc">深夜でも休日でも、スマートフォンからいつでも申し込めます。誰かに見られる心配もありません。</p>
+    </div>
+
+    <!-- 6: カード到着前 -->
+    <div class="benefit-tile">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="benefit-title">カード到着前でも<br>受け取れる</div>
+      <p class="benefit-desc">審査完了後、キャッシング振込サービスを利用すれば最短数十秒で口座にお振り込み。</p>
+    </div>
+
+    <!-- 7: 明細郵送なし -->
+    <div class="benefit-tile">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><line x1="3" y1="3" x2="21" y2="21"/></svg>
+      </div>
+      <div class="benefit-title">明細は<br>原則郵送なし</div>
+      <p class="benefit-desc">明細は「MyJCB」でWEB確認。自宅に書類が届かないため、家族の目を気にせず利用できます。</p>
+    </div>
+
+    <!-- 8: JCBだから信頼 -->
+    <div class="benefit-tile">
+      <div class="benefit-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="benefit-title">JCBだから<br>信頼できる</div>
+      <p class="benefit-desc">国際ブランド「JCB」が直接提供。消費者金融ではなくJCB自身が取り扱うため、安心してお申し込みいただけます。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 3つの特長 詳細 -->
+<section class="features-section" id="features">
   <div class="feature-cards">
 
     <!-- 特長1: 低金利 -->
     <div class="feature-card" id="feature-rate">
       <div class="feature-card-header">
-        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">01</span></div>
-        <h3>年利1.30〜12.50%の低金利！<br><span style="font-size:12px;font-weight:400;opacity:.8;">（JCB比）ご利用可能枠に応じた金利設定</span></h3>
+        <div class="feature-num"><span class="feature-num-label">特長</span><span class="feature-num-dot">.</span><span class="feature-num-n">01</span></div>
+        <h3>年利1.30〜12.50%の低金利<br><span style="font-size:12px;font-weight:400;opacity:.8;">（JCB比）ご利用可能枠に応じた金利設定</span></h3>
       </div>
       <div class="feature-card-body">
         <table class="rate-table">
@@ -147,8 +203,8 @@
     <!-- 特長2: WEB完結 -->
     <div class="feature-card" id="feature-web">
       <div class="feature-card-header">
-        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">02</span></div>
-        <h3>申し込みはWEB完結！<br><span style="font-size:12px;font-weight:400;opacity:.8;">24時間365日・最短即日審査・即日キャッシング</span></h3>
+        <div class="feature-num"><span class="feature-num-label">特長</span><span class="feature-num-dot">.</span><span class="feature-num-n">02</span></div>
+        <h3>申し込みはWEB完結<br><span style="font-size:12px;font-weight:400;opacity:.8;">24時間365日・最短即日審査・即日キャッシング</span></h3>
       </div>
       <div class="feature-card-body">
         <ul class="feature-list">
@@ -167,8 +223,8 @@
     <!-- 特長3: ATM -->
     <div class="feature-card" id="feature-atm">
       <div class="feature-card-header">
-        <div class="feature-num"><span class="feature-num-label">人気の理由</span><span class="feature-num-dot">.</span><span class="feature-num-n">03</span></div>
-        <h3>全国のATMで手数料無料！<br><span style="font-size:12px;font-weight:400;opacity:.8;">月3回まで出金手数料0円</span></h3>
+        <div class="feature-num"><span class="feature-num-label">特長</span><span class="feature-num-dot">.</span><span class="feature-num-n">03</span></div>
+        <h3>全国のATMで手数料無料<br><span style="font-size:12px;font-weight:400;opacity:.8;">月3回まで出金手数料0円</span></h3>
       </div>
       <div class="feature-card-body">
         <div class="free-badge">
@@ -207,7 +263,53 @@
   <div class="section-heading" data-en="BORROWING">
     <div class="section-heading-en">BORROWING</div>
     <h2>借りる</h2>
-    <p>よくある疑問</p>
+  </div>
+
+  <!-- ② お借り入れ可能額10秒診断-->
+  <div class="diagnose-section">
+    <div class="diagnose-inner">
+      <p class="diagnose-label">お借り入れ可能額10秒診断</p>
+      <div class="diagnose-row">
+        <div class="diagnose-field">
+          <label>年収</label>
+          <select id="income">
+            <option value="">選択してください</option>
+            <option value="100">〜100万円</option>
+            <option value="200">100万円〜200万円</option>
+            <option value="300">200万円〜300万円</option>
+            <option value="400">300万円〜400万円</option>
+            <option value="500">400万円〜500万円</option>
+            <option value="600">500万円〜600万円</option>
+            <option value="700">600万円〜700万円</option>
+            <option value="800">700万円〜800万円</option>
+            <option value="900">800万円〜900万円</option>
+            <option value="1000">900万円〜1,000万円</option>
+            <option value="1000">1,000万円以上</option>
+          </select>
+        </div>
+        <div class="diagnose-field">
+          <label>他社借入額</label>
+          <select id="debt">
+            <option value="">選択してください</option>
+            <option value="10">〜10万円</option>
+            <option value="50">10万円〜50万円</option>
+            <option value="100">50万円〜100万円</option>
+            <option value="150">100万円〜150万円</option>
+            <option value="200">150万円〜200万円</option>
+            <option value="250">200万円〜250万円</option>
+            <option value="300">250万円〜300万円</option>
+            <option value="300">300万円以上</option>
+          </select>
+        </div>
+        <button class="btn-diagnose" onclick="runDiagnose()">診断する</button>
+      </div>
+      <p class="diagnose-note">※1万円単位で入力 ／ 対象：20歳以上69歳以下・毎月安定収入がある方</p>
+      <div class="diagnose-result" id="diagnoseResult">
+        <p class="result-label">お借り入れ可能見込額</p>
+        <p class="result-amount" id="resultAmount">—</p>
+        <a href="#" class="btn-apply-sm"><span class="apply-badge">最短即日審査</span>審査を申し込む</a>
+      </div>
+    </div>
   </div>
 
   <div class="qa-list">
@@ -319,7 +421,69 @@
   <div class="section-heading" data-en="REPAYMENT">
     <div class="section-heading-en">REPAYMENT</div>
     <h2>返済する</h2>
-    <p>よくある疑問</p>
+  </div>
+
+  <!-- 返済シミュレーション -->
+  <div class="simulate-section">
+    <p class="simulate-label">返済シミュレーション</p>
+    <div class="simulate-row">
+      <div class="simulate-field">
+        <label>お借入れ金額</label>
+        <div class="simulate-input-wrap">
+          <input type="number" id="simAmount" placeholder="例：500000" min="0" step="10000" oninput="updateSimRate()">
+          <span class="simulate-unit">円</span>
+        </div>
+      </div>
+      <div class="simulate-field simulate-field--rate">
+        <label>適用年利</label>
+        <div class="simulate-rate-box" id="simRateBox">金額を入力</div>
+      </div>
+      <div class="simulate-field">
+        <label>返済希望期間</label>
+        <select id="simPeriod">
+          <option value="">選択してください</option>
+          <option value="1">1ヵ月</option>
+          <option value="2">2ヵ月</option>
+          <option value="3">3ヵ月</option>
+          <option value="4">4ヵ月</option>
+          <option value="5">5ヵ月</option>
+          <option value="6">6ヵ月</option>
+          <option value="7">7ヵ月</option>
+          <option value="8">8ヵ月</option>
+          <option value="9">9ヵ月</option>
+          <option value="10">10ヵ月</option>
+          <option value="11">11ヵ月</option>
+          <option value="12">12ヵ月</option>
+          <option value="13">13ヵ月</option>
+          <option value="14">14ヵ月</option>
+          <option value="15">15ヵ月</option>
+          <option value="16">16ヵ月</option>
+          <option value="17">17ヵ月</option>
+          <option value="18">18ヵ月</option>
+          <option value="19">19ヵ月</option>
+          <option value="20">20ヵ月</option>
+          <option value="21">21ヵ月</option>
+          <option value="22">22ヵ月</option>
+          <option value="23">23ヵ月</option>
+          <option value="24">24ヵ月</option>
+        </select>
+      </div>
+      <button class="btn-simulate" onclick="runSimulate()">計算する</button>
+    </div>
+    <p class="simulate-note">※元利均等返済方式での試算です。実際の返済額とは異なる場合があります。</p>
+    <div class="simulate-result" id="simulateResult">
+      <table class="sim-result-table">
+        <tbody>
+          <tr><th>借入金額</th><td id="simResAmount"></td></tr>
+          <tr><th>借入金利（年利）</th><td id="simResRate"></td></tr>
+          <tr class="sim-res-highlight"><th>毎月の返済額</th><td id="simResMonthly"></td></tr>
+          <tr><th>返済月数</th><td id="simResPeriod"></td></tr>
+          <tr><th>返済総額</th><td id="simResTotal"></td></tr>
+          <tr><th>利息総額</th><td id="simResInterest"></td></tr>
+        </tbody>
+      </table>
+      <a href="#" class="btn-apply-sm" style="margin-top:16px;"><span class="apply-badge">最短即日審査</span>審査を申し込む</a>
+    </div>
   </div>
 
   <div class="qa-list">
@@ -544,8 +708,7 @@
     <strong>JCB CARD LOAN FAITH</strong>
     WEB完結・最短即日審査
   </div>
-  <a href="#" class="fixed-cta-diag">1秒診断</a>
-  <a href="#">今すぐ申し込む</a>
+  <a href="#"><span class="apply-badge">最短即日審査</span>審査を申し込む</a>
 </div>
 
 <!-- DRAWER -->
@@ -556,7 +719,7 @@
     <button class="drawer-close" onclick="closeDrawer()" aria-label="閉じる">✕</button>
   </div>
   <div class="drawer-nav">
-    <a href="#features" onclick="closeDrawer()">人気の3つの理由</a>
+    <a href="#features" onclick="closeDrawer()">FAITHが選ばれる理由</a>
     <a href="#borrow" onclick="closeDrawer()">借りる</a>
     <a href="#repay" onclick="closeDrawer()">返済する</a>
     <a href="#flow" onclick="closeDrawer()">申し込みからご利用の流れ</a>
@@ -564,7 +727,7 @@
     <a href="#loan" onclick="closeDrawer()">貸付条件</a>
   </div>
   <div class="drawer-cta">
-    <a href="#" onclick="closeDrawer()">今すぐ申し込む</a>
+    <a href="#" onclick="closeDrawer()">審査を申し込む</a>
   </div>
 </nav>
 
@@ -591,17 +754,72 @@ function toggleQA(btn) {
   item.classList.toggle('open');
 }
 
+function getFaithRate(amountYen) {
+  const man = amountYen / 10000;
+  if (man >= 900) return 1.30;
+  if (man >= 700) return 3.30;
+  if (man >= 500) return 4.40;
+  if (man >= 400) return 6.20;
+  if (man >= 350) return 6.90;
+  if (man >= 250) return 8.00;
+  if (man >= 150) return 10.50;
+  return 12.50;
+}
+
+function updateSimRate() {
+  const amount = parseFloat(document.getElementById('simAmount').value) || 0;
+  const box = document.getElementById('simRateBox');
+  if (amount > 0) {
+    box.textContent = getFaithRate(amount).toFixed(2) + '%';
+    box.classList.add('has-value');
+  } else {
+    box.textContent = '金額を入力';
+    box.classList.remove('has-value');
+  }
+}
+
+function runSimulate() {
+  const amount = parseFloat(document.getElementById('simAmount').value) || 0;
+  const periodVal = document.getElementById('simPeriod').value;
+  if (amount <= 0) { alert('お借入れ金額を入力してください。'); return; }
+  if (!periodVal) { alert('返済希望期間を選択してください。'); return; }
+
+  const n = parseInt(periodVal);
+  const annualRate = getFaithRate(amount);
+  const r = annualRate / 100 / 12;
+  const monthly = r === 0
+    ? Math.ceil(amount / n)
+    : Math.ceil(amount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+  const total = monthly * n;
+  const interest = total - amount;
+  const fmt = v => v.toLocaleString('ja-JP') + ' 円';
+
+  document.getElementById('simResAmount').textContent = fmt(amount);
+  document.getElementById('simResRate').textContent = annualRate.toFixed(2) + ' %';
+  document.getElementById('simResMonthly').textContent = fmt(monthly);
+  document.getElementById('simResPeriod').textContent = n + ' ヵ月';
+  document.getElementById('simResTotal').textContent = fmt(total);
+  document.getElementById('simResInterest').textContent = fmt(interest);
+  document.getElementById('simulateResult').classList.add('show');
+}
+
 function runDiagnose() {
-  const income = parseFloat(document.getElementById('income').value) || 0;
-  const debt   = parseFloat(document.getElementById('debt').value) || 0;
+  const incomeVal = document.getElementById('income').value;
+  const debtVal   = document.getElementById('debt').value;
   const result = document.getElementById('diagnoseResult');
   const amount = document.getElementById('resultAmount');
 
-  if (income <= 0) {
-    alert('年収を入力してください。');
+  if (!incomeVal) {
+    alert('年収を選択してください。');
     return;
   }
-  // Simple mock calculation: 1/3 of income minus existing debt
+  if (!debtVal) {
+    alert('他社借入額を選択してください。');
+    return;
+  }
+
+  const income = parseFloat(incomeVal);
+  const debt   = parseFloat(debtVal);
   const max = Math.max(0, Math.floor(income / 3) - debt);
   const capped = Math.min(max, 900);
 

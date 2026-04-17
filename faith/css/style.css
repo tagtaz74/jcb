@@ -16,6 +16,8 @@
   --text-muted: #718096;
   --green: #2E7D32;
   --green-light: #E8F5E9;
+  --orange: #E85C00;
+  --orange-dark: #C04000;
   --radius: 12px;
   --radius-sm: 8px;
 }
@@ -93,7 +95,7 @@ section[id], div[id^="feature"] {
   font-weight: 700;
   letter-spacing: 1.5px;
   padding: 5px 14px;
-  border-radius: 20px;
+  border-radius: 8px;
   margin-bottom: 24px;
   text-transform: uppercase;
 }
@@ -121,9 +123,9 @@ section[id], div[id^="feature"] {
   white-space: nowrap;
 }
 .hero h1 .hero-h1-jcb {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: clamp(36px, 9vw, 64px);
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 2px;
   background: linear-gradient(135deg, #FFD970 0%, #F0C030 50%, #C8A000 100%);
   -webkit-background-clip: text;
@@ -164,7 +166,7 @@ section[id], div[id^="feature"] {
   gap: 8px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 16px 18px 36px;
   text-decoration: none;
   color: #fff;
@@ -215,7 +217,7 @@ section[id], div[id^="feature"] {
 .rate-pill {
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 6px 12px;
   font-size: 12px;
   color: #fff;
@@ -258,20 +260,40 @@ section[id], div[id^="feature"] {
 .hero-badge .icon { font-size: 18px; }
 a.hero-badge { text-decoration: none; transition: background .15s, border-color .15s; }
 a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
-.btn-primary {
+.btn-apply-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.apply-badge {
   display: inline-block;
-  background: var(--red);
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 50px;
+  letter-spacing: .8px;
+  border: 1px solid rgba(255,255,255,0.45);
+}
+.btn-primary {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(160deg, #F07830 0%, var(--orange-dark) 100%);
   color: #fff;
   font-size: 18px;
   font-weight: 700;
-  padding: 18px 60px;
-  border-radius: 50px;
+  padding: 14px 60px 16px;
+  border-radius: 8px;
   text-decoration: none;
   letter-spacing: .5px;
-  box-shadow: 0 6px 28px rgba(192,57,43,0.45);
+  box-shadow: 0 6px 24px rgba(200,70,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
   transition: transform .15s, box-shadow .15s;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,57,43,0.5); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,70,0,0.55), inset 0 1px 0 rgba(255,255,255,0.18); }
 .hero-note { font-size: 11px; opacity: .6; margin-top: 12px; }
 
 /* campaign banner */
@@ -309,23 +331,21 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   border-radius: 2px;
 }
 
-/* ── 1秒診断 (compact) ── */
+/* ── お借入れ可能額診断 ── */
 .diagnose-section {
-  background: var(--navy-pale);
-  padding: 24px 20px;
-}
-.diagnose-inner {
-  background: var(--white);
-  border: 1px solid var(--gray-light);
+  background: var(--gold-light);
+  border: 1px solid #e0c97a;
   border-radius: var(--radius);
   padding: 20px;
+  margin-bottom: 24px;
 }
+.diagnose-inner { /* フラット化 — 視覚的な役割なし */ }
 .diagnose-label {
-  color: var(--navy);
+  color: var(--gold);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   text-align: center;
 }
 .diagnose-row {
@@ -336,9 +356,10 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 }
 .diagnose-field { flex: 1; min-width: 120px; }
 .diagnose-field label { display: block; font-size: 12px; color: var(--text-sub); margin-bottom: 5px; }
-.diagnose-field input {
+.diagnose-field input,
+.diagnose-field select {
   width: 100%;
-  background: var(--off-white);
+  background: var(--white);
   border: 1px solid var(--gray-light);
   border-radius: 8px;
   padding: 10px 14px;
@@ -347,12 +368,19 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   font-family: inherit;
   outline: none;
   transition: border-color .2s;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
 }
 .diagnose-field input::placeholder { color: var(--gray); }
-.diagnose-field input:focus { border-color: var(--navy-light); }
+.diagnose-field input:focus,
+.diagnose-field select:focus { border-color: var(--gold); }
 .unit { color: var(--text-muted); font-size: 12px; display: block; text-align: right; margin-top: 4px; }
 .btn-diagnose {
-  background: var(--navy);
+  background: var(--gold);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -370,31 +398,164 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .diagnose-result {
   display: none;
   margin-top: 16px;
-  background: var(--navy-pale);
-  border-radius: 10px;
+  background: var(--white);
+  border-radius: var(--radius);
   padding: 16px;
   text-align: center;
-  color: var(--navy);
+  border: 1px solid #e0c97a;
 }
 .diagnose-result.show { display: block; }
-.result-amount { font-size: 32px; font-weight: 700; color: var(--navy); }
+
+.result-amount { font-size: 32px; font-weight: 700; color: var(--gold); }
 .result-label { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; }
 .btn-apply-sm {
-  display: inline-block;
-  background: var(--red);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(160deg, #F07830 0%, var(--orange-dark) 100%);
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  padding: 10px 28px;
-  border-radius: 50px;
+  padding: 9px 30px 11px;
+  border-radius: 8px;
   text-decoration: none;
-  margin-top: 12px;
+  box-shadow: 0 5px 18px rgba(200,70,0,0.40), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-apply-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(200,70,0,0.52), inset 0 1px 0 rgba(255,255,255,0.18); }
+
+/* ── 返済シミュレーション ── */
+.simulate-section {
+  background: var(--gold-light);
+  border: 1px solid #e0c97a;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.simulate-label {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.simulate-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.simulate-field { flex: 1; min-width: 130px; }
+.simulate-field label { display: block; font-size: 12px; color: var(--text-sub); margin-bottom: 5px; }
+.simulate-field--rate { flex: 0 0 90px; min-width: 80px; }
+.simulate-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.simulate-input-wrap input {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+}
+.simulate-input-wrap input:focus { border-color: var(--gold); }
+.simulate-unit { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.simulate-rate-box {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 10px 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.simulate-rate-box.has-value {
+  color: var(--gold);
+  font-weight: 700;
+  background: var(--gold-light);
+  border-color: #e0c97a;
+}
+.simulate-field select {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 10px 32px 10px 14px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.simulate-field select:focus { border-color: var(--gold); }
+.btn-simulate {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.simulate-note { font-size: 10px; color: var(--text-muted); margin-top: 10px; text-align: center; }
+.simulate-result { display: none; margin-top: 16px; }
+.simulate-result.show { display: block; }
+.sim-result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.sim-result-table th,
+.sim-result-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--gray-light);
+  text-align: left;
+}
+.sim-result-table th {
+  color: var(--text-sub);
+  font-weight: 500;
+  width: 50%;
+  background: var(--off-white);
+}
+.sim-result-table td { color: var(--text); }
+.sim-result-table tr:last-child th,
+.sim-result-table tr:last-child td { border-bottom: none; }
+.sim-result-table tr.sim-res-highlight th,
+.sim-result-table tr.sim-res-highlight td {
+  background: var(--navy-pale);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 16px;
 }
 
 /* ── 3特長 CARDS ── */
 .features-section {
   background: var(--white);
-  padding: 0 20px 48px;
+  padding: 32px 20px 48px;
 }
 .features-heading {
   background: linear-gradient(135deg, #071A4E 0%, #0D2B6E 60%, #1A3E8F 100%);
@@ -425,6 +586,14 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   font-weight: 500;
   margin-bottom: 12px;
   text-transform: uppercase;
+  position: relative;
+}
+.features-heading-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
   position: relative;
 }
 .features-heading h2 {
@@ -510,7 +679,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   gap: 0;
   flex-shrink: 0;
   background: linear-gradient(135deg, #071A4E 0%, #1A3E8F 100%);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 5px 10px 5px 12px;
   line-height: 1;
 }
@@ -561,7 +730,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .saving-badge {
   background: var(--red);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 8px 14px;
   font-size: 13px;
   font-weight: 700;
@@ -617,6 +786,89 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 }
 .step-content h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
 .step-content p { font-size: 12px; color: var(--text-sub); line-height: 1.5; }
+
+/* ── FAITHが選ばれる理由 BENEFITS TILES ── */
+.benefits-section {
+  background: var(--navy);
+  padding: 0 20px 48px;
+}
+.benefits-section .features-heading {
+  margin: 0 -20px 28px;
+}
+.benefits-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.benefits-heading-en {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 6px;
+}
+.benefits-heading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.benefit-tile {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 18px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .18s, border-color .18s, transform .18s;
+}
+.benefit-tile--link:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-3px);
+}
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.benefit-tile--link .benefit-icon {
+  background: rgba(232, 92, 0, 0.25);
+  color: #F8A870;
+}
+.benefit-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.45;
+}
+.benefit-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  flex: 1;
+}
+.benefit-more {
+  font-size: 11px;
+  font-weight: 700;
+  color: #F8A870;
+  margin-top: 2px;
+}
 
 /* ── Q&A SECTION ── */
 .qa-section { padding: 0 20px 40px; }
@@ -795,7 +1047,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--navy);
-  border-top: 3px solid var(--red);
+  border-top: 3px solid var(--orange);
   padding: 12px 20px;
   display: flex;
   gap: 10px;
@@ -806,27 +1058,20 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .fixed-cta .cta-text { color: rgba(255,255,255,.7); font-size: 11px; flex: 1; }
 .fixed-cta .cta-text strong { display: block; color: #fff; font-size: 13px; font-weight: 700; }
 .fixed-cta a {
-  background: var(--red);
+  background: linear-gradient(160deg, #F07830 0%, var(--orange-dark) 100%);
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 50px;
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-}
-.fixed-cta-diag {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 12px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(200,70,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ── FOOTER ── */
@@ -848,7 +1093,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .footer-notice { font-size: 10px; color: rgba(255,255,255,.3); line-height: 1.8; }
 .footer-contact {
   background: rgba(255,255,255,0.06);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 16px;
   margin: 16px 0;
 }
@@ -862,7 +1107,7 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   font-size: 10px;
   font-weight: 700;
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 6px;
 }
 .badge-red { background: var(--red-light); color: var(--red); }
@@ -991,14 +1236,15 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 .drawer-cta { padding: 20px; flex-shrink: 0; }
 .drawer-cta a {
   display: block;
-  background: var(--navy);
+  background: linear-gradient(160deg, #F07830 0%, var(--orange-dark) 100%);
   color: #fff;
   text-align: center;
   padding: 14px;
-  border-radius: 50px;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 5px 18px rgba(200,70,0,0.40), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 
 /* animations */
