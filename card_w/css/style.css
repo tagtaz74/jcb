@@ -1197,7 +1197,9 @@
     display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
     justify-content: center;
   }
+  .plusl-card-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .plusl-supplement-cards img { height: 80px; width: auto; }
+  .plusl-card-caption { font-size: 11px; color: var(--text-muted); }
   .plusl-supplement-lead {
     font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px;
   }
