@@ -10,8 +10,13 @@
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">
+  <img src="images/JCB_logo.svg.png" alt="JCB" class="top-bar-logo">
+</div>
+
 <!-- HEADER -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="logo">
     JCB CARD LOAN <span>F A I T H</span>
   </div>
@@ -846,6 +851,21 @@
 </nav>
 
 <script>
+// Top bar hide on scroll
+(function() {
+  const topBar = document.getElementById('topBar');
+  const siteHeader = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      topBar.classList.add('hidden');
+      siteHeader.classList.add('scrolled');
+    } else {
+      topBar.classList.remove('hidden');
+      siteHeader.classList.remove('scrolled');
+    }
+  });
+})();
+
 function toggleDrawer() {
   const btn = document.getElementById('hamburgerBtn');
   const drawer = document.getElementById('drawer');

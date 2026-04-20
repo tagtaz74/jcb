@@ -31,8 +31,24 @@ body {
   color: var(--text);
   font-size: 15px;
   line-height: 1.7;
+  padding-top: 114px;
   padding-bottom: 80px;
 }
+
+/* ── TOP BAR ── */
+.top-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,48,135,0.1);
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  transition: transform 0.3s ease;
+}
+.top-bar.hidden { transform: translateY(-100%); }
+.top-bar-logo { height: 36px; width: auto; display: block; }
 
 /* ── HEADER ── */
 .site-header {
@@ -41,10 +57,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 56px;
+  left: 0; right: 0;
   z-index: 100;
+  transition: top 0.3s ease;
 }
+.site-header.scrolled { top: 0; }
 .logo {
   font-family: 'Oswald', sans-serif;
   color: #fff;
@@ -54,7 +73,7 @@ body {
 }
 .logo span { display: block; font-size: 10px; letter-spacing: 3px; opacity: .7; font-weight: 400; }
 
-/* アンカースクロール：固定ヘッダー分オフセット */
+/* アンカースクロール：スクロール後のヘッダー高さ分オフセット */
 section[id], div[id^="feature"] {
   scroll-margin-top: 64px;
 }
