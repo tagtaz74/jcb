@@ -1534,6 +1534,43 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
 }
 
 /* ── VIDEO SECTION ── */
+/* ── ABOUT SECTION ── */
+.about-section {
+  padding: 48px 20px;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--gray-light);
+}
+.about-catch {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+.about-grid {
+  margin-bottom: 28px;
+}
+.about-grid .benefit-tile {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+}
+.about-grid .benefit-title {
+  color: var(--navy);
+}
+.about-grid .benefit-desc {
+  color: var(--text-sub);
+}
+.about-video {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.about-video a { display: block; }
+.about-video img { width: 100%; height: auto; display: block; }
+
 .video-section {
   background: #fff;
   padding: 36px 20px 40px;
