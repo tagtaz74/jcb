@@ -29,10 +29,11 @@
 <section class="hero">
   <div class="hero-eyebrow">JCB CARD LOAN FAITH</div>
   <h1 class="fade-up">
-    <span class="hero-h1-lead">WEBで申し込み完結。最短即日審査＆融資完了。
+    <span class="hero-h1-lead">1万円から900万円まで。WEBで申し込み完結。最短即日審査。
 </span>
     <span class="hero-h1-bottom"><span class="hero-h1-jcb">JCB</span><span class="hero-h1-sub">のカードローン。</span></span>
   </h1>
+  <p class="mock-disclaimer">このページは考えをお伝えするためのモックであり、最終形ではありません。</p>
   <div class="hero-features fade-up fade-up-1">
     <a class="hero-feature-item" href="#feature-rate">
       <div class="hero-feature-num">01</div>
@@ -65,16 +66,16 @@
 </section>
 
 <!-- キャンペーン -->
-<div class="campaign-banner">
+<!--div class="campaign-banner">
   <p>WEB新規申込限定！最大2.5ヵ月分の利息0円キャンペーン実施中</p>
   <small>参加登録不要。対象期間内にキャッシングリボ払いをご利用の場合、利息をキャッシュバックします。</small>
-</div>
+</div -->
 
 <!-- お借り入れ可能額10秒診断 -->
 <section class="diagnose-standalone" id="diagnose">
   <div class="diagnose-standalone-inner">
     <h2 class="diagnose-standalone-title">お借り入れ可能額<span>10秒診断</span></h2>
-    <p class="diagnose-standalone-sub">年収と他社借入額から、借り入れ可能見込額を簡単チェック</p>
+    <p class="diagnose-standalone-sub">年収とほかのローンで返済中の金額から、借り入れ可能見込額を簡単チェック</p>
     <div class="diagnose-section">
       <div class="diagnose-inner">
         <div class="diagnose-row">
@@ -96,7 +97,7 @@
             </select>
           </div>
           <div class="diagnose-field">
-            <label>他社借入額</label>
+            <label>ほかのローンで返済中の金額</label>
             <select id="debt">
               <option value="">選択してください</option>
               <option value="10">〜10万円</option>
@@ -109,7 +110,7 @@
               <option value="300">300万円以上</option>
             </select>
           </div>
-          <button class="btn-diagnose" onclick="runDiagnose()">診断する</button>
+          <button class="btn-diagnose" onclick="runDiagnose()">借入可能金額を見る</button>
         </div>
         <p class="diagnose-note">※対象：20歳以上69歳以下・毎月安定収入がある方</p>
         <div class="diagnose-result" id="diagnoseResult">
@@ -205,19 +206,21 @@
 
         <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px;">JCBクレジットカードとの比較（15万円を借りた場合）</p>
         <div class="comparison-box">
-          <div class="compare-col faith">
-            <div class="label">FAITH</div>
-            <div class="rate">10.50%</div>
-            <div class="total">返済総額 177,191円</div>
+          <div class="compare-row">
+            <div class="compare-col faith">
+              <div class="label">FAITH</div>
+              <div class="rate">10.50%</div>
+              <div class="total">返済総額 177,191円</div>
+            </div>
+            <div class="compare-divider">vs</div>
+            <div class="compare-col">
+              <div class="label">JCBクレジットカード</div>
+              <div class="rate">18.00%</div>
+              <div class="total">返済総額 186,635円</div>
+            </div>
           </div>
-          <div class="compare-divider">vs</div>
-          <div class="compare-col">
-            <div class="label">JCBクレジットカード</div>
-            <div class="rate">18.00%</div>
-            <div class="total">返済総額 186,635円</div>
-          </div>
+          <div class="saving-badge">FAITHなら 9,444円おトク！</div>
         </div>
-        <div class="saving-badge">FAITHなら 9,444円おトク！</div>
         <p style="font-size:11px;color:var(--text-muted);margin-top:10px;">※シミュレーション結果は実際のお支払い金額と異なる場合があります。</p>
 
         <div class="notice-box" style="margin-top:14px;">
@@ -250,14 +253,11 @@
     <div class="feature-card" id="feature-atm">
       <div class="feature-card-header">
         <div class="feature-num"><span class="feature-num-label">特長</span><span class="feature-num-dot">.</span><span class="feature-num-n">03</span></div>
-        <h3>全国のATMで手数料無料<br><span style="font-size:12px;font-weight:400;opacity:.8;">月3回まで出金手数料0円</span></h3>
+        <h3>全国のATMで手数料無料<br><span style="font-size:12px;font-weight:400;opacity:.8;">月3回まで出金手数料0円（ATM出金手数料のみ対象）</span></h3>
       </div>
       <div class="feature-card-body">
-        <div class="free-badge">
-          月3回まで手数料無料
-          <span>ATM出金手数料のみ対象</span>
-        </div>
         <div class="atm-grid">
+          <p class="atm-grid-title">手数料が無料になる主なATM設置店舗</p>
           <div class="atm-box">
             <h4>金融機関ATM</h4>
             <ul>
@@ -756,7 +756,7 @@
 <!-- 貸付条件表 -->
 <section class="loan-section" id="loan">
   <div class="section-heading" data-en="LOAN CONDITIONS">
-    <h2>貸付条件</h2>
+    <h2>貸付条件・注意事項</h2>
   </div>
   <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">資金使途：自由 ／ 担保・保証人不要</p>
   <table class="loan-table">
@@ -784,6 +784,18 @@
     ご利用可能枠は当社所定の審査後に決定します。入会には審査があります。<br>
     貸付条件を確認し、借りすぎに注意しましょう。
   </p>
+
+  <div class="loan-caution">
+    <h3 class="loan-caution-title">ご注意</h3>
+    <ul class="loan-caution-list">
+      <li>ご利用可能枠は、カードご利用代金明細書またはMyJCBなどでご確認ください。</li>
+      <li>キャッシングサービスをご利用の際には「融資ご利用内容のお知らせ」を交付いたします。WEB確認サービスにご登録のお客さまは、MyJCBでご確認いただけます。</li>
+      <li>「融資ご利用内容のお知らせ」に記載の返済期間・回数・期日・金額は、交付後の新規ご利用や返済により変動する場合があります。</li>
+      <li>カードの発行会社によっては「融資ご利用内容のお知らせ」が交付されない場合や、融資利率および遅延損害金が異なる場合があります。</li>
+      <li>カードやご利用状況によっては、本サービスをご利用いただけない場合があります。</li>
+      <li>複数枚のJCBカードをお持ちの場合、各カードにご利用可能枠が設定されますが、同一発行会社のカードご利用合計額は、最も高いご利用可能枠の範囲内となります（一部対象外カードあり）。</li>
+    </ul>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -827,14 +839,13 @@
     <button class="drawer-close" onclick="closeDrawer()" aria-label="閉じる">✕</button>
   </div>
   <div class="drawer-nav">
-    <a href="#diagnose" onclick="event.preventDefault(); drawerNavTo('#diagnose')">お借り入れ可能額10秒診断</a>
     <a href="#benefits" onclick="event.preventDefault(); drawerNavTo('#benefits')">FAITHが選ばれる理由</a>
     <a href="#scene" onclick="event.preventDefault(); drawerNavTo('#scene')">例えばこんなシーンに</a>
     <a href="#borrow" onclick="event.preventDefault(); drawerNavTo('#borrow')">借りる</a>
     <a href="#repay" onclick="event.preventDefault(); drawerNavTo('#repay')">返済する</a>
     <a href="#flow" onclick="event.preventDefault(); drawerNavTo('#flow')">申し込みからご利用の流れ</a>
     <a href="#faq" onclick="event.preventDefault(); drawerNavTo('#faq')">よくあるご質問</a>
-    <a href="#loan" onclick="event.preventDefault(); drawerNavTo('#loan')">貸付条件</a>
+    <a href="#loan" onclick="event.preventDefault(); drawerNavTo('#loan')">貸付条件・注意事項</a>
   </div>
   <div class="drawer-cta">
     <a href="#" onclick="closeDrawer()">審査を申し込む</a>
@@ -947,7 +958,7 @@ function runDiagnose() {
     return;
   }
   if (!debtVal) {
-    alert('他社借入額を選択してください。');
+    alert('ほかのローンで返済中の金額を選択してください。');
     return;
   }
 
