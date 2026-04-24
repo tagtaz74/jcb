@@ -982,15 +982,32 @@ a.hero-badge:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,2
   color: var(--text);
 }
 .flow-section .section-title-ja { color: var(--text-muted); }
-.flow-cards { display: flex; flex-direction: column; gap: 0; }
+.flow-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
 .flow-card {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 14px;
   padding: 20px 0;
   border-bottom: 1px solid var(--gray-light);
   position: relative;
 }
 .flow-card:last-child { border-bottom: none; }
+.flow-card-top {
+  display: flex;
+  gap: 16px;
+}
+.flow-step-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+}
 .flow-step-num {
   font-family: 'Oswald', sans-serif;
   font-size: 13px;
