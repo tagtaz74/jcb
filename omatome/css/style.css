@@ -674,6 +674,10 @@ body {
   padding: 16px 12px 14px;
   text-align: center;
   border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .card-col-header.card-s { border-color: #1a56b0; }
 .card-col-header.card-w { border-color: #003087; }
@@ -686,14 +690,34 @@ body {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 .card-s .comp-badge { background: #eff6ff; color: #1a56b0; }
 .card-w .comp-badge { background: #eef2ff; color: #003087; }
 .card-g .comp-badge { background: #fef9e7; color: #b8860b; }
 .card-p .comp-badge { background: #f1f5f9; color: #4a5568; }
-.card-col-name { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.3; }
-.card-col-fee  { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+.card-col-thumb {
+  width: 72px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-col-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.card-col-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.3;
+}
+.card-col-fee  { display: none; }
 .comparison-table tbody tr { border-top: 1px solid var(--border); }
 .comparison-table tbody tr:hover { background: #fafbff; }
 .row-label-cell {
@@ -792,35 +816,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  background: #d1d5db;
+  border-radius: 14px 14px 0 0;
   overflow: hidden;
-}
-.cv-s-normal  { background: linear-gradient(135deg, #1a56b0 0%, #003087 100%); }
-.cv-s-biomass { background: linear-gradient(135deg, #2d6a4f 0%, #1a3c29 100%); }
-.cv-s-disney  { background: linear-gradient(135deg, #1a56b0 0%, #c41e3a 100%); }
-.cv-w-normal  { background: linear-gradient(135deg, #003087 0%, #1a1a4e 100%); }
-.cv-wplusl-pink  { background: linear-gradient(135deg, #e91e8c 0%, #c2185b 100%); }
-.cv-wplusl-white { background: linear-gradient(135deg, #e8f0fe 0%, #b0c4e8 100%); }
-.cv-wplusl-mika  { background: linear-gradient(135deg, #1a1a1a 0%, #3d0c3d 100%); }
-.cv-g-normal  { background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%); }
-.cv-g-biomass { background: linear-gradient(135deg, #6b7c3e 0%, #4a5528 100%); }
-.cv-g-disney  { background: linear-gradient(135deg, #b8860b 0%, #003087 100%); }
-.cv-g-kira    { background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); }
-.cv-g-sakura  { background: linear-gradient(135deg, #f4a7b9 0%, #e91e8c 100%); }
-.cv-p-normal  { background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); }
-.cv-p-mikage  { background: linear-gradient(135deg, #718096 0%, #4a5568 100%); }
-.card-visual-inner {
-  width: 118px; height: 74px;
-  border-radius: 8px;
   position: relative;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 8px 10px;
+  padding: 10px;
 }
-.card-visual-inner.light-bg {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(0,0,0,0.08);
+.card-visual[class*="cv-"] {
+  background: #d1d5db;
+}
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.card-visual-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
 }
 .card-chip { width: 20px; height: 14px; background: rgba(255,255,255,0.35); border-radius: 3px; }
 .card-chip.dark { background: rgba(0,0,0,0.2); }
