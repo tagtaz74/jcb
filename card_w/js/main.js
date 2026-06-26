@@ -189,13 +189,13 @@
   });
 
   // Apply selector
-  const applyState = { card: null };
-  const submitBtnNl = document.getElementById('apply-submit-btn-nl');
-  const submitBtnNm = document.getElementById('apply-submit-btn-nm');
+  const applyState = { card: null, number: null };
+  const submitBtn = document.getElementById('apply-submit-btn');
 
+  // Apply URL map
   const applyUrls = {
-    'w_numberless':     'https://entry.jcb.co.jp/input_basic?cardtype=w&number=0',
-    'w_numbered':       'https://entry.jcb.co.jp/input_basic?cardtype=w&number=1',
+    'w_numberless':  'https://entry.jcb.co.jp/input_basic?cardtype=w&number=0',
+    'w_numbered':    'https://entry.jcb.co.jp/input_basic?cardtype=w&number=1',
     'plusl_numberless': 'https://entry.jcb.co.jp/input_basic?cardtype=plusl&number=0',
     'plusl_numbered':   'https://entry.jcb.co.jp/input_basic?cardtype=plusl&number=1',
   };
@@ -203,19 +203,19 @@
   document.querySelectorAll('.apply-option').forEach(btn => {
     btn.addEventListener('click', () => {
       const group = btn.dataset.group;
+      // Deselect siblings
       document.querySelectorAll(`.apply-option[data-group="${group}"]`).forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       applyState[group] = btn.dataset.value;
-      if (applyState.card) {
-        submitBtnNl.disabled = false;
-        submitBtnNm.disabled = false;
+      // Enable submit if both selected
+      if (applyState.card && applyState.number) {
+        submitBtn.disabled = false;
       }
     });
   });
 
-  submitBtnNl.addEventListener('click', () => {
-    window.location.href = applyUrls[`${applyState.card}_numberless`] || 'https://entry.jcb.co.jp/input_basic';
-  });
-  submitBtnNm.addEventListener('click', () => {
-    window.location.href = applyUrls[`${applyState.card}_numbered`] || 'https://entry.jcb.co.jp/input_basic';
+  submitBtn.addEventListener('click', () => {
+    const key = `${applyState.card}_${applyState.number}`;
+    const url = applyUrls[key] || 'https://entry.jcb.co.jp/input_basic';
+    window.location.href = url;
   });
