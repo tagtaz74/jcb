@@ -21,45 +21,17 @@
     <div class="dot" id="dot3"></div>
     <div class="dot" id="dot4"></div>
     <div class="dot" id="dot5"></div>
+    <div class="dot" id="dot6"></div>
   </div>
-  <span class="progress-text" id="progressText">0 / 5 回答済み</span>
+  <span class="progress-text" id="progressText">0 / 6 回答済み</span>
 </div>
 
 <div class="main">
 
-  <!-- Q1: 年会費 -->
+  <!-- Q1: 年齢 -->
   <div class="question-card" id="qcard1">
     <div class="question-header">
       <div class="q-num">1</div>
-      <div>
-        <div class="q-text">年会費について、どちらに近いですか？</div>
-        <div class="q-sub">コストへのこだわりを教えてください</div>
-      </div>
-    </div>
-    <div class="options">
-      <label class="option" id="opt_fee_free">
-        <input type="radio" name="fee" value="free">
-        <div class="radio-circle"><div class="radio-inner"></div></div>
-        <div class="option-content">
-          <div class="option-label">絶対に無料がいい</div>
-          <div class="option-desc">年会費0円が絶対条件</div>
-        </div>
-      </label>
-      <label class="option" id="opt_fee_paid">
-        <input type="radio" name="fee" value="paid">
-        <div class="radio-circle"><div class="radio-inner"></div></div>
-        <div class="option-content">
-          <div class="option-label">特典次第では有料でも構わない</div>
-          <div class="option-desc">その分のサービス・優待があれば払える</div>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <!-- Q2: 年齢 -->
-  <div class="question-card" id="qcard2">
-    <div class="question-header">
-      <div class="q-num">2</div>
       <div>
         <div class="q-text">現在の年齢を教えてください</div>
         <div class="q-sub">申込条件に関わります</div>
@@ -85,10 +57,68 @@
     </div>
   </div>
 
-  <!-- Q3: 旅行 -->
+  <!-- Q2: 性別 -->
+  <div class="question-card" id="qcard2">
+    <div class="question-header">
+      <div class="q-num">2</div>
+      <div>
+        <div class="q-text">性別を教えてください</div>
+        <div class="q-sub">女性向けカードのご提案に使用します</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_gender_female">
+        <input type="radio" name="gender" value="female">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">女性</div>
+          <div class="option-desc">女性向け特典カードもご提案します</div>
+        </div>
+      </label>
+      <label class="option" id="opt_gender_male">
+        <input type="radio" name="gender" value="male">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">男性・その他</div>
+          <div class="option-desc">スペック・ポイント重視でご提案します</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q3: 年会費 -->
   <div class="question-card" id="qcard3">
     <div class="question-header">
       <div class="q-num">3</div>
+      <div>
+        <div class="q-text">年会費について、どちらに近いですか？</div>
+        <div class="q-sub">コストへのこだわりを教えてください</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_fee_free">
+        <input type="radio" name="fee" value="free">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">絶対に無料がいい</div>
+          <div class="option-desc">年会費0円が絶対条件</div>
+        </div>
+      </label>
+      <label class="option" id="opt_fee_paid">
+        <input type="radio" name="fee" value="paid">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">特典次第では有料でも構わない</div>
+          <div class="option-desc">その分のサービス・優待があれば払える</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q4: 旅行 -->
+  <div class="question-card" id="qcard4">
+    <div class="question-header">
+      <div class="q-num">4</div>
       <div>
         <div class="q-text">旅行はどのくらいしますか？</div>
         <div class="q-sub">国内・海外のご利用頻度を教えてください</div>
@@ -122,10 +152,10 @@
     </div>
   </div>
 
-  <!-- Q4: 食 -->
-  <div class="question-card" id="qcard4">
+  <!-- Q5: 食 -->
+  <div class="question-card" id="qcard5">
     <div class="question-header">
-      <div class="q-num">4</div>
+      <div class="q-num">5</div>
       <div>
         <div class="q-text">食へのこだわりはありますか？</div>
         <div class="q-sub">グルメ・外食の志向を教えてください</div>
@@ -151,12 +181,12 @@
     </div>
   </div>
 
-  <!-- Q5: ポイント -->
-  <div class="question-card" id="qcard5">
+  <!-- Q6: ポイント -->
+  <div class="question-card" id="qcard6">
     <div class="question-header">
-      <div class="q-num">5</div>
+      <div class="q-num">6</div>
       <div>
-        <div class="q-text">ポイントを貯めることを重視しますか？</div>
+        <div class="q-text">ポイントをためることを重視しますか？</div>
         <div class="q-sub">日常的なポイント活用のスタンスを教えてください</div>
       </div>
     </div>
@@ -165,7 +195,7 @@
         <input type="radio" name="points" value="yes">
         <div class="radio-circle"><div class="radio-inner"></div></div>
         <div class="option-content">
-          <div class="option-label">積極的にポイントを貯めたい</div>
+          <div class="option-label">積極的にポイントをためたい</div>
           <div class="option-desc">還元率・ポイント効率を重視する</div>
         </div>
       </label>
@@ -186,7 +216,7 @@
       あなたにぴったりのカードを診断する
     </button>
     <p class="cta-hint" id="cta-hint">
-      残り <span class="unanswered-count" id="unansweredCount">5</span> 問 回答してください
+      残り <span class="unanswered-count" id="unansweredCount">6</span> 問 回答してください
     </p>
   </div>
 

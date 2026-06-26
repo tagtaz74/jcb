@@ -12,6 +12,24 @@ const cards = {
       'ショッピング保険': '海外最高100万円',
     }
   },
+  WplusL: {
+    name: 'JCBカード W Plus L',
+    fee: '年会費 永年無料',
+    color: 'pink',
+    badge: 'ポイント特化＋女性向け特典',
+    specs: {
+      '年会費': '永年無料',
+      '申込対象': '18〜39歳（40歳以降も継続可）',
+      'ポイント付与': '200円 → 2ポイント（通常の2倍）',
+      '海外旅行保険': '最高2,000万円',
+      'ショッピング保険': '海外最高100万円',
+    },
+    plusLBenefits: [
+      { title: '女性向け優待「LINDAリーグ」', desc: '美容・ファッション・グルメ・旅行など女性向けブランドや協賛企業からの月替わり優待・割引が受けられます。男性会員も利用可能です。' },
+      { title: '毎月のプレゼント企画「LINDAの日」', desc: '毎月10日・30日に抽選でJCBギフトカード2,000円分が当たる企画など、plus L会員限定のプレゼント・キャンペーンが定期的に実施されます。' },
+      { title: '女性疾病保険（任意加入・有料）', desc: '18〜69歳の女性会員のみが対象のオプション保険です。月額290円〜という手頃な保険料で、乳がん・子宮がん・子宮筋腫・妊娠時合併症など女性特有の疾病による入院・手術を補償します。通常の疾病入院・手術も保障対象に含まれます。' },
+    ]
+  },
   S: {
     name: 'JCBカード S',
     fee: '年会費 永年無料',
@@ -57,20 +75,28 @@ const cards = {
 
 function getAnswers() {
   const get = n => { const e = document.querySelector(`input[name="${n}"]:checked`); return e ? e.value : null; };
-  return { fee: get('fee'), age: get('age'), travel: get('travel'), food: get('food'), points: get('points') };
+  return { fee: get('fee'), age: get('age'), travel: get('travel'), food: get('food'), points: get('points'), gender: get('gender') };
 }
 
-function diagnose({ fee, age, travel, food, points }) {
+function diagnose({ fee, age, travel, food, points, gender }) {
+  const wReasons = [
+    { title: 'ポイントが通常の2倍たまる', desc: '200円につき2ポイント付与。同じ年会費無料カードの中で最高クラスの還元率です。' },
+    { title: '年会費は永年無料', desc: '39歳以下で入会すれば40歳以降もずっと無料で使い続けられます。' },
+    { title: '日常の買い物がとにかくお得', desc: 'コンビニやAmazon.co.jp、スターバックスなど優待店ではポイント最大21倍（還元率10.5%）。' },
+    { title: '海外旅行保険も付帯', desc: '無料カードながら最高2,000万円の海外旅行傷害保険が付きます。' },
+  ];
+  const wPlusLReasons = [
+    { title: 'ポイントが通常の2倍たまる', desc: 'JCBカード Wと同じ高い還元率を持ちながら、女性向けの特典もプラスされています。' },
+    { title: '女性向け優待「LINDAリーグ」付き', desc: '美容・ファッション・グルメ・旅行など女性向けブランドや協賛企業の月替わり優待・割引が利用できます。' },
+    { title: '毎月抽選でギフトカードが当たる', desc: '毎月10日・30日に抽選でJCBギフトカード2,000円分が当たる「LINDAの日」など、plus L会員限定の特典が充実。' },
+    { title: 'デザインが3種類から選べる', desc: 'ホワイト・ピンク・M / mika ninagawaの3種類から好みのデザインを選べます。' },
+  ];
+
   if (fee === 'free') {
-    if (age === 'under40') return {
-      card: 'W',
-      reasons: [
-        { title: 'ポイントが通常の2倍たまる', desc: '200円につき2ポイント付与。同じ年会費無料カードの中で最高クラスの還元率です。' },
-        { title: '年会費は永年無料', desc: '39歳以下で入会すれば40歳以降もずっと無料で使い続けられます。' },
-        { title: '日常の買い物がとにかくお得', desc: 'コンビニやAmazon.co.jp、スターバックスなど優待店ではポイント最大21倍（還元率10.5%）。' },
-        { title: '海外旅行保険も付帯', desc: '無料カードながら最高2,000万円の海外旅行傷害保険が付きます。' },
-      ]
-    };
+    if (age === 'under40') {
+      if (gender === 'female') return { card: 'WplusL', reasons: wPlusLReasons };
+      return { card: 'W', reasons: wReasons };
+    }
     return {
       card: 'S',
       reasons: [
@@ -107,15 +133,18 @@ function diagnose({ fee, age, travel, food, points }) {
     ]
   };
 
-  if (age === 'under40' && points === 'yes') return {
-    card: 'W',
-    reasons: [
-      { title: 'ポイント還元率が最強クラス', desc: '200円につき2ポイント付与。優待店では最大21倍（還元率10.5%）。日常使いで圧倒的にお得。' },
-      { title: '年会費無料でコスト0', desc: '有料でもOKな余裕があるなら、その分ポイントに活用するのが賢い選択です。' },
-      { title: '普段使いで最大の効果を発揮', desc: 'セブン-イレブン・Amazon.co.jp・スターバックスなど身近なお店でポイント最大21倍に。' },
-      { title: 'クレカ積立でさらにお得', desc: '積立投資にも対応。月5万円以上のショッピング利用で還元率最大0.5%に。' },
-    ]
-  };
+  if (age === 'under40' && points === 'yes') {
+    if (gender === 'female') return { card: 'WplusL', reasons: wPlusLReasons };
+    return {
+      card: 'W',
+      reasons: [
+        { title: 'ポイント還元率が最強クラス', desc: '200円につき2ポイント付与。優待店では最大21倍（還元率10.5%）。日常使いで圧倒的にお得。' },
+        { title: '年会費無料でコスト0', desc: '有料でもOKな余裕があるなら、その分ポイントに活用するのが賢い選択です。' },
+        { title: '普段使いで最大の効果を発揮', desc: 'セブン-イレブン・Amazon.co.jp・スターバックスなど身近なお店でポイント最大21倍に。' },
+        { title: 'クレカ積立でさらにお得', desc: '積立投資にも対応。月5万円以上のショッピング利用で還元率最大0.5%に。' },
+      ]
+    };
+  }
 
   return {
     card: 'S',
@@ -146,6 +175,42 @@ function showResult() {
     </li>`
   ).join('');
 
+  let extraHTML = '';
+  if (result.card === 'WplusL') {
+    const designHTML = `
+      <div class="design-section">
+        <div class="design-section-title">選べるデザイン</div>
+        <div class="design-cards">
+          <div class="design-card-wrap">
+            <div class="design-card design-white"></div>
+            <div class="design-card-label">ホワイト</div>
+          </div>
+          <div class="design-card-wrap">
+            <div class="design-card design-pink"></div>
+            <div class="design-card-label">ピンク</div>
+          </div>
+          <div class="design-card-wrap">
+            <div class="design-card design-mika"></div>
+            <div class="design-card-label">M / mika ninagawa <sup>※15</sup></div>
+          </div>
+        </div>
+      </div>`;
+    const plusLHTML = card.plusLBenefits.map((b, i) => `
+      <div class="plusl-benefit-item">
+        <div class="plusl-benefit-num">${i + 1}.</div>
+        <div class="plusl-benefit-text">
+          <strong>${b.title}</strong>
+          <span>${b.desc}</span>
+        </div>
+      </div>`).join('');
+    extraHTML = `
+      ${designHTML}
+      <div class="plusl-benefits">
+        <div class="plusl-benefits-title">Plus Lだけの特典</div>
+        ${plusLHTML}
+      </div>`;
+  }
+
   document.getElementById('cardResult').innerHTML = `
     <div class="card-result-header ${card.color}">
       <div class="card-badge">${card.badge}</div>
@@ -156,11 +221,13 @@ function showResult() {
       <div class="reason-title">おすすめの理由</div>
       <ul class="reasons">${reasonsHTML}</ul>
       <div class="card-points">${specsHTML}</div>
+      ${extraHTML}
     </div>
   `;
 
   const allCards = [
     { key: 'W', color: 'green', label: 'JCBカード W', note: '年会費無料・ポイント2倍（39歳以下限定）' },
+    { key: 'WplusL', color: 'pink', label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
     { key: 'S', color: 'blue', label: 'JCBカード S', note: '年会費無料・クラブオフ優待（年齢不問）' },
     { key: 'gold', color: 'gold', label: 'JCBゴールド', note: '旅行保険1億円・空港ラウンジ' },
     { key: 'platinum', color: 'platinum', label: 'JCBプラチナ', note: 'グルメ・コンシェルジュ・プライオリティパス' },
@@ -187,7 +254,7 @@ function resetDiagnosis() {
   document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
   document.getElementById('diagnoseBtn').disabled = true;
   document.getElementById('cta-hint').style.display = '';
-  document.getElementById('unansweredCount').textContent = '5';
+  document.getElementById('unansweredCount').textContent = '6';
   const section = document.getElementById('resultSection');
   section.classList.remove('visible');
   section.style.display = 'none';
@@ -196,7 +263,7 @@ function resetDiagnosis() {
 }
 
 function updateDots() {
-  const names = ['fee', 'age', 'travel', 'food', 'points'];
+  const names = ['age', 'gender', 'fee', 'travel', 'food', 'points'];
   let answered = 0;
   names.forEach((name, i) => {
     const checked = document.querySelector(`input[name="${name}"]:checked`);
@@ -204,11 +271,11 @@ function updateDots() {
     if (checked) { dot.classList.add('filled'); answered++; }
     else { dot.classList.remove('filled'); }
   });
-  document.getElementById('progressText').textContent = `${answered} / 5 回答済み`;
-  document.getElementById('unansweredCount').textContent = 5 - answered;
+  document.getElementById('progressText').textContent = `${answered} / 6 回答済み`;
+  document.getElementById('unansweredCount').textContent = 6 - answered;
   const btn = document.getElementById('diagnoseBtn');
-  btn.disabled = answered < 5;
-  document.getElementById('cta-hint').style.display = answered === 5 ? 'none' : '';
+  btn.disabled = answered < 6;
+  document.getElementById('cta-hint').style.display = answered === 6 ? 'none' : '';
 }
 
 document.querySelectorAll('.option').forEach(label => {
@@ -220,7 +287,7 @@ document.querySelectorAll('.option').forEach(label => {
     });
     this.classList.add('selected');
     radio.checked = true;
-    const qnum = { fee:1, age:2, travel:3, food:4, points:5 }[name];
+    const qnum = { age:1, gender:2, fee:3, travel:4, food:5, points:6 }[name];
     document.getElementById(`qcard${qnum}`).classList.add('answered');
     updateDots();
   });
