@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>あなたにぴったりのJCBカード診断</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">カード診断</div>
+  <h1>あなたにぴったりの<br>JCBカードがわかる！</h1>
+  <p>5つの質問に答えるだけで、<br>あなたの生活スタイルに最適なカードをご提案します。</p>
+</div>
+
+<div class="progress-bar-wrap" id="progressBar">
+  <div class="progress-dots">
+    <div class="dot" id="dot1"></div>
+    <div class="dot" id="dot2"></div>
+    <div class="dot" id="dot3"></div>
+    <div class="dot" id="dot4"></div>
+    <div class="dot" id="dot5"></div>
+  </div>
+  <span class="progress-text" id="progressText">0 / 5 回答済み</span>
+</div>
+
+<div class="main">
+
+  <!-- Q1: 年会費 -->
+  <div class="question-card" id="qcard1">
+    <div class="question-header">
+      <div class="q-num">1</div>
+      <div>
+        <div class="q-text">年会費について、どちらに近いですか？</div>
+        <div class="q-sub">コストへのこだわりを教えてください</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_fee_free">
+        <input type="radio" name="fee" value="free">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">絶対に無料がいい</div>
+          <div class="option-desc">年会費0円が絶対条件</div>
+        </div>
+      </label>
+      <label class="option" id="opt_fee_paid">
+        <input type="radio" name="fee" value="paid">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">特典次第では有料でも構わない</div>
+          <div class="option-desc">その分のサービス・優待があれば払える</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q2: 年齢 -->
+  <div class="question-card" id="qcard2">
+    <div class="question-header">
+      <div class="q-num">2</div>
+      <div>
+        <div class="q-text">現在の年齢を教えてください</div>
+        <div class="q-sub">申込条件に関わります</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_age_under40">
+        <input type="radio" name="age" value="under40">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">39歳以下</div>
+          <div class="option-desc">18〜39歳</div>
+        </div>
+      </label>
+      <label class="option" id="opt_age_over40">
+        <input type="radio" name="age" value="over40">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">40歳以上</div>
+          <div class="option-desc">40歳〜</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q3: 旅行 -->
+  <div class="question-card" id="qcard3">
+    <div class="question-header">
+      <div class="q-num">3</div>
+      <div>
+        <div class="q-text">旅行はどのくらいしますか？</div>
+        <div class="q-sub">国内・海外のご利用頻度を教えてください</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_travel_overseas">
+        <input type="radio" name="travel" value="overseas">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">海外にも行く</div>
+          <div class="option-desc">年に1〜2回は海外旅行に行く</div>
+        </div>
+      </label>
+      <label class="option" id="opt_travel_domestic">
+        <input type="radio" name="travel" value="domestic">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">国内メイン</div>
+          <div class="option-desc">旅行するなら主に国内</div>
+        </div>
+      </label>
+      <label class="option" id="opt_travel_none">
+        <input type="radio" name="travel" value="none">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">あまり旅行しない</div>
+          <div class="option-desc">旅行はほとんどしない</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q4: 食 -->
+  <div class="question-card" id="qcard4">
+    <div class="question-header">
+      <div class="q-num">4</div>
+      <div>
+        <div class="q-text">食へのこだわりはありますか？</div>
+        <div class="q-sub">グルメ・外食の志向を教えてください</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_food_gourmet">
+        <input type="radio" name="food" value="gourmet">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">たまには高級グルメも楽しみたい</div>
+          <div class="option-desc">特別な日はいいレストランを使いたい</div>
+        </div>
+      </label>
+      <label class="option" id="opt_food_cospa">
+        <input type="radio" name="food" value="cospa">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">コスパ重視・日常使いメイン</div>
+          <div class="option-desc">毎日のお買い物・外食でお得になりたい</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Q5: ポイント -->
+  <div class="question-card" id="qcard5">
+    <div class="question-header">
+      <div class="q-num">5</div>
+      <div>
+        <div class="q-text">ポイントを貯めることを重視しますか？</div>
+        <div class="q-sub">日常的なポイント活用のスタンスを教えてください</div>
+      </div>
+    </div>
+    <div class="options">
+      <label class="option" id="opt_points_yes">
+        <input type="radio" name="points" value="yes">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">積極的にポイントを貯めたい</div>
+          <div class="option-desc">還元率・ポイント効率を重視する</div>
+        </div>
+      </label>
+      <label class="option" id="opt_points_no">
+        <input type="radio" name="points" value="no">
+        <div class="radio-circle"><div class="radio-inner"></div></div>
+        <div class="option-content">
+          <div class="option-label">ポイントよりも優待・サービス重視</div>
+          <div class="option-desc">割引や特典のほうが使いやすい</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <button class="cta-btn" id="diagnoseBtn" disabled onclick="showResult()">
+      あなたにぴったりのカードを診断する
+    </button>
+    <p class="cta-hint" id="cta-hint">
+      残り <span class="unanswered-count" id="unansweredCount">5</span> 問 回答してください
+    </p>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-section" id="resultSection">
+    <div class="result-label">診断結果</div>
+    <div class="result-headline">あなたにおすすめのカードは...</div>
+    <div class="card-result" id="cardResult"></div>
+    <div class="other-cards" id="otherCards">
+      <div class="other-title">その他のカードとの比較</div>
+      <div class="other-list" id="otherList"></div>
+    </div>
+    <div style="margin-top: 16px;">
+      <button class="retry-btn" onclick="resetDiagnosis()">もう一度診断する</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
