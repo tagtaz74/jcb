@@ -768,9 +768,9 @@
           <img src="./images/card_pink.webp" alt="JCBカード W PlusL">
         </div>
         <div class="anc-dots">
-          <span class="anc-dot active"></span>
-          <span class="anc-dot"></span>
-          <span class="anc-dot"></span>
+          <span class="anc-dot active" data-img="./images/card_pink.webp" data-alt="JCBカード W PlusL ピンク"></span>
+          <span class="anc-dot" data-img="./images/card_white.webp" data-alt="JCBカード W PlusL ホワイト"></span>
+          <span class="anc-dot" data-img="./images/card_mika.png" data-alt="JCBカード W PlusL ミカ"></span>
         </div>
         <div class="anc-name">JCBカード W PlusL</div>
         <div class="anc-specs">
@@ -792,9 +792,9 @@
           <img src="./images/card_s.png" alt="JCBカード S">
         </div>
         <div class="anc-dots">
-          <span class="anc-dot active"></span>
-          <span class="anc-dot"></span>
-          <span class="anc-dot"></span>
+          <span class="anc-dot active" data-img="./images/card_s.png" data-alt="JCBカード S"></span>
+          <span class="anc-dot" data-img="./images/card_s_biomass.jpg" data-alt="JCBカード S バイオマス"></span>
+          <span class="anc-dot" data-img="./images/card_s_disney.jpg" data-alt="JCBカード S ディズニー"></span>
         </div>
         <div class="anc-name">JCBカード S</div>
         <div class="anc-specs">
@@ -1114,6 +1114,20 @@ function toggleDesign(el) {
   el.closest('.design-gallery-grid').querySelectorAll('.design-gal-wrap').forEach(c => c.classList.remove('expanded'));
   if (!isExpanded) el.classList.add('expanded');
 }
+
+// カード券面画像の切り替え
+document.querySelectorAll('.anc-dots').forEach(dotsEl => {
+  dotsEl.querySelectorAll('.anc-dot[data-img]').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const card = dot.closest('.anc-card');
+      const img = card.querySelector('.anc-img-wrap img');
+      img.src = dot.dataset.img;
+      img.alt = dot.dataset.alt;
+      dotsEl.querySelectorAll('.anc-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+});
 </script>
 </body>
 </html>

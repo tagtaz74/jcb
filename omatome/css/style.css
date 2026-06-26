@@ -920,7 +920,9 @@ body {
 .anc-img-wrap { text-align: center; margin-bottom: 12px; }
 .anc-img-wrap img { max-width: 150px; height: auto; }
 .anc-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
-.anc-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; }
+.anc-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; transition: background 0.2s; }
+.anc-dot[data-img] { cursor: pointer; width: 10px; height: 10px; }
+.anc-dot[data-img]:hover { background: #6b7280; }
 .anc-dot.active { background: #374151; }
 .anc-name { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
 .anc-sub-name { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-top: -8px; margin-bottom: 10px; }
