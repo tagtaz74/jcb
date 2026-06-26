@@ -809,11 +809,32 @@
   <h2>今がベストタイミング。<br><em>始めよう。</em></h2>
   <p>年会費永年無料 × 最大10.5%還元 × 今だけ24,000円相当プレゼント</p>
 
+  <!-- 番号表示の説明 -->
+  <div class="number-explain" id="step-number">
+    <p class="number-explain-heading">カードは番号表示のあり・なしをお選びいただけます。</p>
+    <div class="number-explain-options">
+      <div class="number-explain-item">
+        <div class="apply-option-img-wrap">
+          <img src="images/exp_numberless.png" alt="ナンバーレス">
+        </div>
+        <span>ナンバーレス</span>
+        <small>カード番号を見られたくない方に</small>
+      </div>
+      <div class="number-explain-item">
+        <div class="apply-option-img-wrap">
+          <img src="images/exp_number.png" alt="番号あり">
+        </div>
+        <span>番号あり</span>
+        <small>カード番号をパッと確認したい方に</small>
+      </div>
+    </div>
+  </div>
+
   <div class="apply-selector" id="apply-selector">
 
-    <!-- Step 1: カード種類 -->
+    <!-- カード種類 -->
     <div class="apply-selector-group">
-      <div class="apply-selector-title">1. カードのデザインを選ぶ</div>
+      <div class="apply-selector-title">カードのデザインを選ぶ</div>
       <a href="#plusl-info" class="plusl-faq-link">JCBカードWとJCBカードW Plus Lの違い</a>
       <div class="apply-selector-options" id="step-card">
         <button class="apply-option" data-group="card" data-value="w">
@@ -835,29 +856,9 @@
       </div>
     </div>
 
-    <!-- Step 2: 番号の有無 -->
-    <div class="apply-selector-group">
-      <div class="apply-selector-title">2. カード番号の有無を選ぶ</div>
-      <div class="apply-selector-options" id="step-number">
-        <button class="apply-option" data-group="number" data-value="numberless">
-          <div class="apply-option-img-wrap">
-            <img src="images/exp_numberless.png" alt="ナンバーレス">
-          </div>
-          <span>ナンバーレス</span>
-          <small>カード番号を見られたくない方に</small>
-        </button>
-        <button class="apply-option" data-group="number" data-value="numbered">
-          <div class="apply-option-img-wrap">
-            <img src="images/exp_number.png" alt="番号あり">
-          </div>
-          <span>番号あり</span>
-          <small>カード番号をパッと確認したい方に</small>
-        </button>
-      </div>
-    </div>
-
     <div class="final-btn-row">
-      <button class="apply-submit-btn" id="apply-submit-btn" disabled>無料で申し込む<span class="apply-submit-sub">申込フォーム画面に遷移します</span></button>
+      <button class="apply-submit-btn" id="apply-submit-btn-nl" disabled>ナンバーレスで申し込む<span class="apply-submit-sub">申込フォーム画面に遷移します</span></button>
+      <button class="apply-submit-btn" id="apply-submit-btn-nm" disabled>番号ありで申し込む<span class="apply-submit-sub">申込フォーム画面に遷移します</span></button>
     </div>
   </div>
 
