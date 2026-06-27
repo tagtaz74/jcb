@@ -802,9 +802,11 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 .design-gal-wrap:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
-.design-gal-wrap.expanded { grid-column: span 2; }
 .card-visual {
   height: 100px;
   display: flex;
@@ -847,14 +849,11 @@ body {
 .design-gal-info { padding: 12px; }
 .design-gal-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
 .design-gal-sub  { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
-.design-gal-specs { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
-.design-gal-wrap.expanded .design-gal-specs { display: block; }
+.design-gal-specs { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
 .spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; font-size: 12px; }
 .spec-row-label { color: var(--text-muted); }
 .spec-row-value { font-weight: 600; color: var(--text); text-align: right; }
 .spec-row-value.accent { color: var(--jcb-blue); }
-.expand-hint { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 4px; }
-.design-gal-wrap.expanded .expand-hint { display: none; }
 .gal-section-title {
   font-size: 12px; font-weight: 700; color: var(--text-muted);
   letter-spacing: 0.08em; text-transform: uppercase; margin: 24px 0 12px;
