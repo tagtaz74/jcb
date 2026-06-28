@@ -160,21 +160,9 @@ function diagnose({ fee, age, travel, food, points, gender }) {
   };
 }
 
-const GAS_URL = 'https://script.google.com/a/macros/gon-dola.com/s/AKfycbzWMTaSEzeOfPzGMmfEkwTNu95yKJPw0QnEB3gIcxl6B64W7qq5OKtc4yRIW-a2JTwE/exec';
-
-function sendDiagnosisData(ans, resultCard) {
-  fetch(GAS_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ...ans, result: resultCard }),
-  }).catch(() => {});
-}
-
 function showResult() {
   const ans = getAnswers();
   const result = diagnose(ans);
-  sendDiagnosisData(ans, result.card);
   const card = cards[result.card];
 
   const specsHTML = Object.entries(card.specs).map(([k, v]) =>
