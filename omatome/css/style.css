@@ -33,16 +33,16 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
 }
 .progress-inner {
-  max-width: 960px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 12px 16px;
   display: flex;
   align-items: center;
   gap: 12px;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
 }
 .progress-dots {
   display: flex;
@@ -1025,7 +1025,7 @@ body {
 #flow .section-lead { margin-top: 10px; }
 #flow .section-sub-text { margin-bottom: 0; }
 .flow-inner {
-  max-width: 560px;
+  max-width: 640px;
   margin: 28px auto 0;
   padding: 0 16px;
 }
@@ -1128,6 +1128,46 @@ body {
 #flow-numbered .flow-summary { border-left-color: var(--jcb-blue-light); background: #f0f7ff; }
 #flow-numbered .flow-steps { background: #f0f7ff; }
 #flow-numbered .flow-step-heading b { background: var(--jcb-blue-light); }
+
+/* ========================================
+   CAMPAIGN SECTION
+======================================== */
+.campaign-section {
+  background: var(--white);
+  padding: 56px 0 64px;
+}
+.campaign-grid-wrap {
+  max-width: 960px;
+  margin: 28px auto 0;
+  padding: 0 16px;
+}
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.campaign-grid a {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.campaign-grid a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+.campaign-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 640px) {
+  .campaign-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
 
 /* ========================================
    FOOTER

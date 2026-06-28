@@ -1,3 +1,6 @@
+/* =============================================
+   CARD DATA
+============================================= */
 const cards = {
   W: {
     name: 'JCBカード W',
@@ -177,38 +180,9 @@ function showResult() {
 
   let extraHTML = '';
   if (result.card === 'WplusL') {
-    const designHTML = `
-      <div class="design-section">
-        <div class="design-section-title">選べるデザイン</div>
-        <div class="design-cards">
-          <div class="design-card-wrap">
-            <div class="design-card design-white"></div>
-            <div class="design-card-label">ホワイト</div>
-          </div>
-          <div class="design-card-wrap">
-            <div class="design-card design-pink"></div>
-            <div class="design-card-label">ピンク</div>
-          </div>
-          <div class="design-card-wrap">
-            <div class="design-card design-mika"></div>
-            <div class="design-card-label">M / mika ninagawa <sup>※15</sup></div>
-          </div>
-        </div>
-      </div>`;
-    const plusLHTML = card.plusLBenefits.map((b, i) => `
-      <div class="plusl-benefit-item">
-        <div class="plusl-benefit-num">${i + 1}.</div>
-        <div class="plusl-benefit-text">
-          <strong>${b.title}</strong>
-          <span>${b.desc}</span>
-        </div>
-      </div>`).join('');
-    extraHTML = `
-      ${designHTML}
-      <div class="plusl-benefits">
-        <div class="plusl-benefits-title">Plus Lだけの特典</div>
-        ${plusLHTML}
-      </div>`;
+    const designHTML = `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`;
+    const plusLHTML = card.plusLBenefits.map((b, i) => `<div class="plusl-benefit-item"><div class="plusl-benefit-num">${i+1}.</div><div class="plusl-benefit-text"><strong>${b.title}</strong><span>${b.desc}</span></div></div>`).join('');
+    extraHTML = `${designHTML}<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
   }
 
   document.getElementById('cardResult').innerHTML = `
@@ -222,25 +196,18 @@ function showResult() {
       <ul class="reasons">${reasonsHTML}</ul>
       <div class="card-points">${specsHTML}</div>
       ${extraHTML}
-    </div>
-  `;
+    </div>`;
 
   const allCards = [
-    { key: 'W', color: 'green', label: 'JCBカード W', note: '年会費無料・ポイント2倍（39歳以下限定）' },
-    { key: 'WplusL', color: 'pink', label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
-    { key: 'S', color: 'blue', label: 'JCBカード S', note: '年会費無料・クラブオフ優待（年齢不問）' },
-    { key: 'gold', color: 'gold', label: 'JCBゴールド', note: '旅行保険1億円・空港ラウンジ' },
-    { key: 'platinum', color: 'platinum', label: 'JCBプラチナ', note: 'グルメ・コンシェルジュ・プライオリティパス' },
+    { key: 'W',        color: 'green',    label: 'JCBカード W',       note: '年会費無料・ポイント2倍（39歳以下限定）' },
+    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
+    { key: 'S',        color: 'blue',     label: 'JCBカード S',        note: '年会費無料・クラブオフ優待（年齢不問）' },
+    { key: 'gold',     color: 'gold',     label: 'JCBゴールド',        note: '旅行保険1億円・空港ラウンジ' },
+    { key: 'platinum', color: 'platinum', label: 'JCBプラチナ',        note: 'グルメ・コンシェルジュ・プライオリティパス' },
   ];
   document.getElementById('otherList').innerHTML = allCards
     .filter(c => c.key !== result.card)
-    .map(c => `
-      <div class="other-item">
-        <div class="other-dot ${c.color}"></div>
-        <span class="other-card-name">${c.label}</span>
-        <span class="other-card-note">${c.note}</span>
-      </div>`)
-    .join('');
+    .map(c => `<div class="other-item"><div class="other-dot ${c.color}"></div><span class="other-card-name">${c.label}</span><span class="other-card-note">${c.note}</span></div>`).join('');
 
   const section = document.getElementById('resultSection');
   section.style.display = 'block';
@@ -282,13 +249,59 @@ document.querySelectorAll('.option').forEach(label => {
   label.addEventListener('click', function() {
     const radio = this.querySelector('input[type="radio"]');
     const name = radio.name;
-    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-      r.closest('.option').classList.remove('selected');
-    });
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r => { r.closest('.option').classList.remove('selected'); });
     this.classList.add('selected');
     radio.checked = true;
     const qnum = { age:1, gender:2, fee:3, travel:4, food:5, points:6 }[name];
     document.getElementById(`qcard${qnum}`).classList.add('answered');
     updateDots();
+  });
+});
+
+/* =============================================
+   FLOW: TAB SWITCHING
+============================================= */
+document.querySelectorAll('.flow-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.flowTab;
+    document.querySelectorAll('.flow-tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.flow-tab-panel').forEach(p => {
+      p.hidden = true;
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    document.getElementById(target).hidden = false;
+  });
+});
+
+/* =============================================
+   COMPARISON: TAB SWITCHING
+============================================= */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+  });
+});
+
+/* =============================================
+   COMPARISON: DESIGN GALLERY
+============================================= */
+document.querySelectorAll('.anc-dots').forEach(dotsEl => {
+  dotsEl.querySelectorAll('.anc-dot[data-img]').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const card = dot.closest('.anc-card');
+      const img = card.querySelector('.anc-img-wrap img');
+      img.src = dot.dataset.img;
+      img.alt = dot.dataset.alt;
+      dotsEl.querySelectorAll('.anc-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
   });
 });
