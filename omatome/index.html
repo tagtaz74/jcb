@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>あなたにぴったりのJCBカードがわかる！</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- ========================================
+  SECTION 1: HERO
+======================================== -->
+<section class="hero" id="top">
+  <div class="hero-eyebrow">JCBカード選びをサポート</div>
+  <h1>あなたにぴったりの<br>JCBカードがわかる！</h1>
+  <p class="hero-desc">6問の診断でベストカードを提案。<br>比較表でスペックを確認して、今すぐ申し込もう。</p>
+  <div class="hero-cards">
+    <div class="hero-card-chip">
+      <img src="./images/card_s.png" alt="JCBカード S">
+    </div>
+    <div class="hero-card-chip">
+      <img src="./images/card_w.png" alt="JCBカード W">
+    </div>
+    <div class="hero-card-chip">
+      <img src="./images/card_gold.png" alt="JCBゴールド">
+    </div>
+    <div class="hero-card-chip">
+      <img src="./images/card_platinum.png" alt="JCBプラチナ">
+    </div>
+  </div>
+  <div class="hero-btns">
+    <a href="#diagnosis" class="hero-btn-primary">診断してみる ↓</a>
+    <a href="#compare"   class="hero-btn-secondary">スペックを比較する ↓</a>
+  </div>
+</section>
+
+<!-- ========================================
+  SECTION 2: 診断
+======================================== -->
+<section id="diagnosis">
+
+  <div class="comparison-wrap">
+    <h2 class="section-eyebrow">カード診断</h2>
+    <p class="section-lead">6問でわかる、あなたにぴったりのカード</p>
+    <p class="section-sub-text">以下の質問に答えると、あなたの生活スタイルに最適なJCBカードをご提案します。</p>
+  </div>
+
+  <div class="progress-bar-wrap" id="progressBar">
+    <div class="progress-inner">
+      <div class="progress-dots">
+        <div class="dot" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+        <div class="dot" id="dot3"></div>
+        <div class="dot" id="dot4"></div>
+        <div class="dot" id="dot5"></div>
+        <div class="dot" id="dot6"></div>
+      </div>
+      <span class="progress-text" id="progressText">0 / 6 回答済み</span>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- Q1: 年齢 -->
+    <div class="question-card" id="qcard1">
+      <div class="question-header">
+        <div class="q-num">1</div>
+        <div>
+          <div class="q-text">現在の年齢を教えてください</div>
+          <div class="q-sub">申込条件に関わります</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_age_under40">
+          <input type="radio" name="age" value="under40">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">39歳以下</div>
+            <div class="option-desc">18〜39歳</div>
+          </div>
+        </label>
+        <label class="option" id="opt_age_over40">
+          <input type="radio" name="age" value="over40">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">40歳以上</div>
+            <div class="option-desc">40歳〜</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q2: 性別 -->
+    <div class="question-card" id="qcard2">
+      <div class="question-header">
+        <div class="q-num">2</div>
+        <div>
+          <div class="q-text">性別を教えてください</div>
+          <div class="q-sub">女性向けカードのご提案に使用します</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_gender_female">
+          <input type="radio" name="gender" value="female">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">女性</div>
+            <div class="option-desc">女性向け特典カードもご提案します</div>
+          </div>
+        </label>
+        <label class="option" id="opt_gender_male">
+          <input type="radio" name="gender" value="male">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">男性・その他</div>
+            <div class="option-desc">スペック・ポイント重視でご提案します</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q3: 年会費 -->
+    <div class="question-card" id="qcard3">
+      <div class="question-header">
+        <div class="q-num">3</div>
+        <div>
+          <div class="q-text">年会費について、どちらに近いですか？</div>
+          <div class="q-sub">コストへのこだわりを教えてください</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_fee_free">
+          <input type="radio" name="fee" value="free">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">絶対に無料がいい</div>
+            <div class="option-desc">年会費0円が絶対条件</div>
+          </div>
+        </label>
+        <label class="option" id="opt_fee_paid">
+          <input type="radio" name="fee" value="paid">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">特典次第では有料でも構わない</div>
+            <div class="option-desc">その分のサービス・優待があれば払える</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q4: 旅行 -->
+    <div class="question-card" id="qcard4">
+      <div class="question-header">
+        <div class="q-num">4</div>
+        <div>
+          <div class="q-text">旅行はどのくらいしますか？</div>
+          <div class="q-sub">国内・海外のご利用頻度を教えてください</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_travel_overseas">
+          <input type="radio" name="travel" value="overseas">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">海外にも行く</div>
+            <div class="option-desc">年に1〜2回は海外旅行に行く</div>
+          </div>
+        </label>
+        <label class="option" id="opt_travel_domestic">
+          <input type="radio" name="travel" value="domestic">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">国内メイン</div>
+            <div class="option-desc">旅行するなら主に国内</div>
+          </div>
+        </label>
+        <label class="option" id="opt_travel_none">
+          <input type="radio" name="travel" value="none">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">あまり旅行しない</div>
+            <div class="option-desc">旅行はほとんどしない</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q5: 食 -->
+    <div class="question-card" id="qcard5">
+      <div class="question-header">
+        <div class="q-num">5</div>
+        <div>
+          <div class="q-text">食へのこだわりはありますか？</div>
+          <div class="q-sub">グルメ・外食の志向を教えてください</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_food_gourmet">
+          <input type="radio" name="food" value="gourmet">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">たまには高級グルメも楽しみたい</div>
+            <div class="option-desc">特別な日はいいレストランを使いたい</div>
+          </div>
+        </label>
+        <label class="option" id="opt_food_cospa">
+          <input type="radio" name="food" value="cospa">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">コスパ重視・日常使いメイン</div>
+            <div class="option-desc">毎日のお買い物・外食でお得になりたい</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q6: ポイント -->
+    <div class="question-card" id="qcard6">
+      <div class="question-header">
+        <div class="q-num">6</div>
+        <div>
+          <div class="q-text">ポイントをためることを重視しますか？</div>
+          <div class="q-sub">日常的なポイント活用のスタンスを教えてください</div>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option" id="opt_points_yes">
+          <input type="radio" name="points" value="yes">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">積極的にポイントをためたい</div>
+            <div class="option-desc">還元率・ポイント効率を重視する</div>
+          </div>
+        </label>
+        <label class="option" id="opt_points_no">
+          <input type="radio" name="points" value="no">
+          <div class="radio-circle"><div class="radio-inner"></div></div>
+          <div class="option-content">
+            <div class="option-label">ポイントよりも優待・サービス重視</div>
+            <div class="option-desc">割引や特典のほうが使いやすい</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <button class="cta-btn" id="diagnoseBtn" disabled onclick="showResult()">
+        あなたにぴったりのカードを診断する
+      </button>
+      <p class="cta-hint" id="cta-hint">
+        残り <span class="unanswered-count" id="unansweredCount">6</span> 問 回答してください
+      </p>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-section" id="resultSection">
+      <div class="result-label">診断結果</div>
+      <div class="result-headline">あなたにおすすめのカードは...</div>
+      <div class="card-result" id="cardResult"></div>
+      <div class="other-cards" id="otherCards">
+        <div class="other-title">その他のカードとの比較</div>
+        <div class="other-list" id="otherList"></div>
+      </div>
+      <div class="result-action-row">
+        <a href="#compare" class="result-compare-link">スペック比較表で詳しく確認する ↓</a>
+        <button class="retry-btn" onclick="resetDiagnosis()">もう一度診断する</button>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</section>
+
+<!-- ========================================
+  SECTION 3: スペック比較
+======================================== -->
+<section id="compare" class="comparison-bg">
+  <div class="comparison-wrap">
+
+    <h2 class="section-eyebrow">スペック比較</h2>
+    <p class="section-lead">カードスペックを比べて選ぶ</p>
+    <p class="section-sub-text">基本スペック・保険補償・優待特典・デザインの4軸で各カードの違いを確認できます。</p>
+
+    <div class="tab-nav" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="basic">基本スペックで選ぶ</button>
+      <button class="tab-btn" role="tab" data-tab="insurance">保険・補償で選ぶ</button>
+      <button class="tab-btn" role="tab" data-tab="benefits">優待・特典で選ぶ</button>
+      <button class="tab-btn" role="tab" data-tab="design">デザインで選ぶ</button>
+    </div>
+
+    <!-- ===== TAB 1: 基本スペック ===== -->
+    <div class="tab-panel active" id="panel-basic">
+      <p class="scroll-hint">← 横にスクロールして比較</p>
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-label"></th>
+              <th><div class="card-col-header card-s">
+                <div class="card-col-thumb"><img src="./images/card_s.png" alt="JCBカード S"></div>
+                <div class="card-col-name">JCBカード S</div>
+              </div></th>
+              <th><div class="card-col-header card-w">
+                <div class="card-col-thumb"><img src="./images/card_w.png" alt="JCBカード W"></div>
+                <div class="card-col-name">JCBカード W</div>
+              </div></th>
+              <th><div class="card-col-header card-wl">
+                <div class="card-col-thumb"><img src="./images/card_pink.webp" alt="JCBカード W Plus L"></div>
+                <div class="card-col-name">JCBカード W Plus L</div>
+              </div></th>
+              <th><div class="card-col-header card-g">
+                <div class="card-col-thumb"><img src="./images/card_gold.png" alt="JCBゴールド"></div>
+                <div class="card-col-name">JCBゴールド</div>
+              </div></th>
+              <th><div class="card-col-header card-p">
+                <div class="card-col-thumb"><img src="./images/card_platinum.png" alt="JCBプラチナ"></div>
+                <div class="card-col-name">JCBプラチナ</div>
+              </div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-header-row"><td colspan="6">年会費・家族カード</td></tr>
+            <tr>
+              <td class="row-label-cell">年会費<small>（本会員）</small></td>
+              <td class="value-cell highlight">永年無料</td>
+              <td class="value-cell highlight">永年無料<br><small style="font-weight:400;font-size:11px;color:var(--text-muted)">39歳以下入会</small></td>
+              <td class="value-cell highlight">永年無料<br><small style="font-weight:400;font-size:11px;color:var(--text-muted)">39歳以下入会</small></td>
+              <td class="value-cell">11,000円<br><small style="font-size:11px;color:var(--jcb-green);font-weight:600">初年度無料</small></td>
+              <td class="value-cell">27,500円</td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">家族カード</td>
+              <td class="value-cell highlight">無料</td>
+              <td class="value-cell highlight">無料</td>
+              <td class="value-cell highlight">無料</td>
+              <td class="value-cell">1枚無料<br><small style="font-size:11px;color:var(--text-muted)">2枚目〜1,100円</small></td>
+              <td class="value-cell">1枚無料<br><small style="font-size:11px;color:var(--text-muted)">2枚目〜3,300円</small></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">申込条件</td></tr>
+            <tr>
+              <td class="row-label-cell">申込対象</td>
+              <td class="value-cell">18歳以上<br><small style="font-size:11px;color:var(--text-muted)">学生可</small></td>
+              <td class="value-cell">18〜39歳<br><small style="font-size:11px;color:var(--text-muted)">学生可</small></td>
+              <td class="value-cell">18〜39歳<br><small style="font-size:11px;color:var(--text-muted)">学生可</small></td>
+              <td class="value-cell">20歳以上<br><small style="font-size:11px;color:var(--text-muted)">安定収入・学生不可</small></td>
+              <td class="value-cell">20歳以上<br><small style="font-size:11px;color:var(--text-muted)">安定収入・学生不可</small></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">ポイント</td></tr>
+            <tr>
+              <td class="row-label-cell">ポイント付与</td>
+              <td class="value-cell">200円 → 1pt</td>
+              <td class="value-cell highlight">200円 → <strong>2pt</strong></td>
+              <td class="value-cell highlight">200円 → <strong>2pt</strong></td>
+              <td class="value-cell">200円 → 1pt</td>
+              <td class="value-cell">200円 → 1pt</td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">還元率<small>（最大）</small></td>
+              <td class="value-cell">10%</td>
+              <td class="value-cell highlight"><strong>10.5%</strong></td>
+              <td class="value-cell highlight"><strong>10.5%</strong></td>
+              <td class="value-cell">10%</td>
+              <td class="value-cell">10%</td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">クレカ積立<small>ポイント還元</small></td>
+              <td class="value-cell">最大 0.5%</td>
+              <td class="value-cell">最大 0.5%</td>
+              <td class="value-cell">最大 0.5%</td>
+              <td class="value-cell highlight">最大 <strong>1.0%</strong></td>
+              <td class="value-cell highlight">最大 <strong>1.0%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== TAB 2: 保険・補償 ===== -->
+    <div class="tab-panel" id="panel-insurance">
+      <p class="scroll-hint">← 横にスクロールして比較</p>
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-label"></th>
+              <th><div class="card-col-header card-s"><div class="card-col-thumb"><img src="./images/card_s.png" alt="JCBカード S"></div><div class="card-col-name">JCBカード S</div></div></th>
+              <th><div class="card-col-header card-w"><div class="card-col-thumb"><img src="./images/card_w.png" alt="JCBカード W"></div><div class="card-col-name">JCBカード W</div></div></th>
+              <th><div class="card-col-header card-wl"><div class="card-col-thumb"><img src="./images/card_pink.webp" alt="JCBカード W Plus L"></div><div class="card-col-name">JCBカード W Plus L</div></div></th>
+              <th><div class="card-col-header card-g"><div class="card-col-thumb"><img src="./images/card_gold.png" alt="JCBゴールド"></div><div class="card-col-name">JCBゴールド</div></div></th>
+              <th><div class="card-col-header card-p"><div class="card-col-thumb"><img src="./images/card_platinum.png" alt="JCBプラチナ"></div><div class="card-col-name">JCBプラチナ</div></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-header-row"><td colspan="6">旅行傷害保険</td></tr>
+            <tr>
+              <td class="row-label-cell">海外旅行保険</td>
+              <td class="value-cell">最高<br>2,000万円</td>
+              <td class="value-cell">最高<br>2,000万円</td>
+              <td class="value-cell">最高<br>2,000万円</td>
+              <td class="value-cell highlight">最高<br><strong>1億円</strong></td>
+              <td class="value-cell highlight">最高<br><strong>1億円</strong></td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">国内旅行保険</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell highlight">最高<br><strong>5,000万円</strong></td>
+              <td class="value-cell highlight">最高<br><strong>1億円</strong></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">ショッピングガード</td></tr>
+            <tr>
+              <td class="row-label-cell">海外ショッピング<small>補償</small></td>
+              <td class="value-cell">最高<br>100万円</td>
+              <td class="value-cell">最高<br>100万円</td>
+              <td class="value-cell">最高<br>100万円</td>
+              <td class="value-cell highlight">最高<br><strong>500万円</strong></td>
+              <td class="value-cell highlight">最高<br><strong>500万円</strong></td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">国内ショッピング<small>補償</small></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell highlight">最高<br><strong>500万円</strong></td>
+              <td class="value-cell highlight">最高<br><strong>500万円</strong></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">その他の補償</td></tr>
+            <tr>
+              <td class="row-label-cell">航空機遅延保険</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="check">✓</span></td>
+              <td class="value-cell"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">スマホ保険</td>
+              <td class="value-cell">最高<br>3万円</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell">最高<br>5万円</td>
+              <td class="value-cell">最高<br>5万円</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== TAB 3: 優待・特典 ===== -->
+    <div class="tab-panel" id="panel-benefits">
+      <p class="scroll-hint">← 横にスクロールして比較</p>
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-label"></th>
+              <th><div class="card-col-header card-s"><div class="card-col-thumb"><img src="./images/card_s.png" alt="JCBカード S"></div><div class="card-col-name">JCBカード S</div></div></th>
+              <th><div class="card-col-header card-w"><div class="card-col-thumb"><img src="./images/card_w.png" alt="JCBカード W"></div><div class="card-col-name">JCBカード W</div></div></th>
+              <th><div class="card-col-header card-wl"><div class="card-col-thumb"><img src="./images/card_pink.webp" alt="JCBカード W Plus L"></div><div class="card-col-name">JCBカード W Plus L</div></div></th>
+              <th><div class="card-col-header card-g"><div class="card-col-thumb"><img src="./images/card_gold.png" alt="JCBゴールド"></div><div class="card-col-name">JCBゴールド</div></div></th>
+              <th><div class="card-col-header card-p"><div class="card-col-thumb"><img src="./images/card_platinum.png" alt="JCBプラチナ"></div><div class="card-col-name">JCBプラチナ</div></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-header-row"><td colspan="6">日常の優待</td></tr>
+            <tr>
+              <td class="row-label-cell">クラブオフ<small>国内外20万ヵ所以上</small></td>
+              <td class="value-cell"><span class="check">✓</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="partial">GOLD版</span></td>
+              <td class="value-cell"><span class="partial">GOLD版</span></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">トラベル</td></tr>
+            <tr>
+              <td class="row-label-cell">空港ラウンジ</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell">国内主要<br>＋ハワイ</td>
+              <td class="value-cell">国内主要<br>＋ハワイ</td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">プライオリティ・パス<small>世界1,800ヵ所</small></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="partial">招待後※</span></td>
+              <td class="value-cell highlight"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">HoteLux<small>高級ホテル予約</small></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell">クーポン<br>1万円/年</td>
+              <td class="value-cell highlight">クーポン<br><strong>2万円/年</strong></td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">グルメ</td></tr>
+            <tr>
+              <td class="row-label-cell">グルメ・ベネフィット<small>2名で1名無料</small></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell highlight"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td class="row-label-cell">JCBスター・ダイニング</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell">割引</td>
+              <td class="value-cell highlight">割引<br>＋限定イベント</td>
+            </tr>
+            <tr class="group-header-row"><td colspan="6">コンシェルジュ</td></tr>
+            <tr>
+              <td class="row-label-cell">コンシェルジュ</td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell"><span class="cross">—</span></td>
+              <td class="value-cell highlight">24時間<br>専用デスク</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;padding:0 4px">※ JCBゴールドを2年連続100万円以上利用でザ・プレミアに招待後、プライオリティ・パスが利用可能。</p>
+    </div>
+
+    <!-- ===== TAB 4: デザイン ===== -->
+    <div class="tab-panel" id="panel-design">
+
+      <p class="gal-section-title">JCBカード S</p>
+      <div class="design-gallery-grid">
+        <a class="design-gal-wrap" href="#apply-card-s">
+          <div class="card-visual"><img class="card-image" src="./images/card_s.png" alt="JCBカード S 通常デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">通常デザイン</div><div class="design-gal-sub">JCBカード S</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-s">
+          <div class="card-visual"><img class="card-image" src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">バイオマスデザイン</div><div class="design-gal-sub">JCBカード S</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">特徴</span><span class="spec-row-value">植物由来素材使用</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-s">
+          <div class="card-visual"><img class="card-image" src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">ディズニー・デザイン</div><div class="design-gal-sub">JCBカード S</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">特徴</span><span class="spec-row-value">ディズニー特典付き</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <p class="gal-section-title">JCBカード W / W Plus L</p>
+      <div class="design-gallery-grid">
+        <a class="design-gal-wrap" href="#apply-card-w">
+          <div class="card-visual"><img class="card-image" src="./images/card_w.png" alt="JCBカード W 通常デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">通常デザイン</div><div class="design-gal-sub">JCBカード W</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">ポイント</span><span class="spec-row-value accent">通常の2倍</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-wplusl">
+          <div class="card-visual"><img class="card-image" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンクデザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">ピンクデザイン</div><div class="design-gal-sub">JCBカード W Plus L</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">ポイント</span><span class="spec-row-value accent">通常の2倍</span></div>
+              <div class="spec-row"><span class="spec-row-label">特典</span><span class="spec-row-value">LINDAリーグ・女性保険</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-wplusl">
+          <div class="card-visual"><img class="card-image" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイトデザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">ホワイトデザイン</div><div class="design-gal-sub">JCBカード W Plus L</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">ポイント</span><span class="spec-row-value accent">通常の2倍</span></div>
+              <div class="spec-row"><span class="spec-row-label">特典</span><span class="spec-row-value">LINDAリーグ・女性保険</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-wplusl">
+          <div class="card-visual"><img class="card-image" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">M / mika ninagawa</div><div class="design-gal-sub">JCBカード W Plus L</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value accent">永年無料</span></div>
+              <div class="spec-row"><span class="spec-row-label">ポイント</span><span class="spec-row-value accent">通常の2倍</span></div>
+              <div class="spec-row"><span class="spec-row-label">デザイン</span><span class="spec-row-value">蜷川実花ディレクション</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <p class="gal-section-title">JCBゴールド</p>
+      <div class="design-gallery-grid">
+        <a class="design-gal-wrap" href="#apply-card-gold">
+          <div class="card-visual"><img class="card-image" src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">通常デザイン</div><div class="design-gal-sub">JCBゴールド</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">11,000円（初年度無料）</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-gold">
+          <div class="card-visual"><img class="card-image" src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">バイオマスデザイン</div><div class="design-gal-sub">JCBゴールド</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">11,000円（初年度無料）</span></div>
+              <div class="spec-row"><span class="spec-row-label">特徴</span><span class="spec-row-value">植物由来素材使用</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-gold">
+          <div class="card-visual"><img class="card-image" src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">ディズニー・デザイン</div><div class="design-gal-sub">JCBゴールド</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">11,000円（初年度無料）</span></div>
+              <div class="spec-row"><span class="spec-row-label">特徴</span><span class="spec-row-value">ディズニー特典付き</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-gold-kirameki">
+          <div class="card-visual"><img class="card-image" src="./images/card_gold_kirameki.png" alt="JCBゴールド 限定デザイン 煌"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">限定デザイン「煌」</div><div class="design-gal-sub">JCBゴールド ／ メタルサーフェス</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">11,000円（初年度無料）</span></div>
+              <div class="spec-row"><span class="spec-row-label">発行費用</span><span class="spec-row-value">1,100円（税込）</span></div>
+              <div class="spec-row"><span class="spec-row-label">素材</span><span class="spec-row-value">メタルサーフェス</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-gold-sakura">
+          <div class="card-visual"><img class="card-image" src="./images/card_gold_sakura.png" alt="JCBゴールド 限定デザイン 桜"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">限定デザイン「桜」</div><div class="design-gal-sub">JCBゴールド ／ メタルサーフェス</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">11,000円（初年度無料）</span></div>
+              <div class="spec-row"><span class="spec-row-label">発行費用</span><span class="spec-row-value">1,100円（税込）</span></div>
+              <div class="spec-row"><span class="spec-row-label">素材</span><span class="spec-row-value">メタルサーフェス</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <p class="gal-section-title">JCBプラチナ</p>
+      <div class="design-gallery-grid">
+        <a class="design-gal-wrap" href="#apply-card-platinum">
+          <div class="card-visual"><img class="card-image" src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">通常デザイン</div><div class="design-gal-sub">JCBプラチナ</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">27,500円</span></div>
+            </div>
+          </div>
+        </a>
+        <a class="design-gal-wrap" href="#apply-card-platinum-mikage">
+          <div class="card-visual"><img class="card-image" src="./images/card_platinum_mikage.png" alt="JCBプラチナ 限定デザイン 御影"></div>
+          <div class="design-gal-info">
+            <div class="design-gal-name">限定デザイン「御影」</div><div class="design-gal-sub">JCBプラチナ ／ メタルサーフェス</div>
+            <div class="design-gal-specs">
+              <div class="spec-row"><span class="spec-row-label">年会費</span><span class="spec-row-value">27,500円</span></div>
+              <div class="spec-row"><span class="spec-row-label">発行費用</span><span class="spec-row-value">1,100円（税込）</span></div>
+              <div class="spec-row"><span class="spec-row-label">素材</span><span class="spec-row-value">メタルサーフェス</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div><!-- /panel-design -->
+    <div class="cta-wrap compare-cta">
+      <a class="cta-btn" href="#apply">カードを選んで申し込む ↓</a>
+    </div>
+  </div><!-- /comparison-wrap -->
+</section>
+
+<!-- ========================================
+  SECTION 4: 申込み
+======================================== -->
+<section id="apply" class="apply-section">
+  <div class="comparison-wrap">
+    <h2 class="section-eyebrow">お申し込み</h2>
+    <p class="section-lead">気になるカードを申し込む</p>
+    <p class="section-sub-text">各カードの公式ページからオンラインで申し込めます。</p>
+  </div>
+
+  <!-- 番号表示の説明 -->
+  <div class="number-explain" id="step-number">
+    <p class="number-explain-heading">カードは番号表示のあり・なしをお選びいただけます。</p>
+    <div class="number-explain-options">
+      <div class="number-explain-item">
+        <div class="number-explain-img-wrap">
+          <img src="./images/exp_numberless.png" alt="ナンバーレス">
+        </div>
+        <span>ナンバーレス</span>
+        <small>カード番号を見られたくない方に</small>
+      </div>
+      <div class="number-explain-item">
+        <div class="number-explain-img-wrap">
+          <img src="./images/exp_number.png" alt="番号あり">
+        </div>
+        <span>番号あり</span>
+        <small>カード番号をパッと確認したい方に</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="anc-wrap">
+
+    <!-- Row 1: W / W Plus L / S -->
+    <div class="anc-grid anc-3col">
+
+      <!-- JCBカード W -->
+      <div class="anc-card" id="apply-card-w">
+        <div class="anc-img-wrap">
+          <img src="./images/card_w.png" alt="JCBカード W">
+        </div>
+        <div class="anc-name">JCBカード W</div>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value accent">永年無料</span></div>
+          <div class="anc-spec-row"><span class="anc-label">ポイント</span><span class="anc-value accent">通常の2倍</span></div>
+        </div>
+        <div class="anc-apply-box">
+          <div class="anc-box-label">カードを申し込む</div>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213010122&ActionType=entrytop&_gl=1*yylp*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">ナンバーレスカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+113000122&ActionType=entrytop&_gl=1*yylp*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">番号ありのカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="anc-detail-link" href="https://www.jcb.co.jp/promotion/ordercard/w/index.html" target="_blank" rel="noopener">カード詳細を見る<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- JCBカード W Plus L -->
+      <div class="anc-card" id="apply-card-wplusl">
+        <div class="anc-img-wrap">
+          <img src="./images/card_pink.webp" alt="JCBカード W Plus L">
+        </div>
+        <div class="anc-dots">
+          <span class="anc-dot active" data-img="./images/card_pink.webp" data-alt="JCBカード W Plus L ピンク"></span>
+          <span class="anc-dot" data-img="./images/card_white.webp" data-alt="JCBカード W Plus L ホワイト"></span>
+          <span class="anc-dot" data-img="./images/card_mika.png" data-alt="JCBカード W Plus L ミカ"></span>
+        </div>
+        <div class="anc-name">JCBカード W Plus L</div>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value accent">永年無料</span></div>
+          <div class="anc-spec-row"><span class="anc-label">ポイント</span><span class="anc-value accent">通常の2倍</span></div>
+          <div class="anc-spec-row"><span class="anc-label">特典</span><span class="anc-value accent">LINDAリーグ・女性保険</span></div>
+        </div>
+        <div class="anc-apply-box">
+          <div class="anc-box-label">カードを申し込む</div>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213010123&ActionType=entrytop&_gl=1*1uglsfu*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">ナンバーレスカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+113000123&ActionType=entrytop&_gl=1*1uglsfu*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">番号ありのカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="anc-detail-link" href="https://www.jcb.co.jp/promotion/ordercard/wplusl/index.html" target="_blank" rel="noopener">カード詳細を見る<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- JCBカード S -->
+      <div class="anc-card" id="apply-card-s">
+        <div class="anc-img-wrap">
+          <img src="./images/card_s.png" alt="JCBカード S">
+        </div>
+        <div class="anc-dots">
+          <span class="anc-dot active" data-img="./images/card_s.png" data-alt="JCBカード S"></span>
+          <span class="anc-dot" data-img="./images/card_s_biomass.jpg" data-alt="JCBカード S バイオマス"></span>
+          <span class="anc-dot" data-img="./images/card_s_disney.jpg" data-alt="JCBカード S ディズニー"></span>
+        </div>
+        <div class="anc-name">JCBカード S</div>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value accent">永年無料</span></div>
+        </div>
+        <div class="anc-apply-box">
+          <div class="anc-box-label">カードを申し込む</div>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213210124&ActionType=entrytop&_gl=1*1uglsfu*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">ナンバーレスカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+113000124&ActionType=entrytop&_gl=1*194r0q8*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">番号ありのカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="anc-detail-link" href="https://www.jcb.co.jp/promotion/ordercard/os_card_s/index.html" target="_blank" rel="noopener">カード詳細を見る<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+
+    <!-- Row 2: ゴールド / プラチナ -->
+    <div class="anc-grid anc-2col">
+
+      <!-- JCBゴールド -->
+      <div class="anc-card" id="apply-card-gold">
+        <div class="anc-img-wrap">
+          <img src="./images/card_gold.png" alt="JCBゴールド">
+        </div>
+        <div class="anc-dots">
+          <span class="anc-dot active" data-img="./images/card_gold.png" data-alt="JCBゴールド 通常デザイン"></span>
+          <span class="anc-dot" data-img="./images/card_gold_biomass.jpg" data-alt="JCBゴールド バイオマスデザイン"></span>
+          <span class="anc-dot" data-img="./images/card_gold_disney.png" data-alt="JCBゴールド ディズニーデザイン"></span>
+        </div>
+        <div class="anc-name">JCBゴールド</div>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value">11,000円（初年度無料）</span></div>
+        </div>
+        <div class="anc-apply-box">
+          <div class="anc-box-label">カードを申し込む</div>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213301207&ActionType=entrytop&_gl=1*194r0q8*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">ナンバーレスカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+113021207&ActionType=entrytop&_gl=1*194r0q8*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">番号ありのカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="anc-detail-link" href="https://www.jcb.co.jp/promotion/ordercard/gold/index.html" target="_blank" rel="noopener">カード詳細を見る<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- JCBプラチナ -->
+      <div class="anc-card" id="apply-card-platinum">
+        <div class="anc-img-wrap">
+          <img src="./images/card_platinum.png" alt="JCBプラチナ">
+        </div>
+        <div class="anc-name">JCBプラチナ</div>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value">27,500円</span></div>
+        </div>
+        <div class="anc-apply-box">
+          <div class="anc-box-label">カードを申し込む</div>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213012419&ActionType=entrytop&_gl=1*194r0q8*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">ナンバーレスカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+113002419&ActionType=entrytop&_gl=1*lfaxuv*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">番号ありのカード<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="anc-detail-link" href="https://www.jcb.co.jp/promotion/ordercard/platinum/index.html" target="_blank" rel="noopener">カード詳細を見る<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+
+    <!-- Row 3: 限定デザイン -->
+    <p class="anc-limited-heading">限定デザインを申し込む</p>
+    <div class="anc-grid anc-3col">
+
+      <!-- JCBゴールド 煌 -->
+      <div class="anc-card anc-card-limited" id="apply-card-gold-kirameki">
+        <div class="anc-img-wrap">
+          <img src="./images/card_gold_kirameki.png" alt="JCBゴールド 煌">
+        </div>
+        <div class="anc-name">JCBゴールド</div>
+        <div class="anc-sub-name">-煌-</div>
+        <p class="anc-desc">金箔の上品な輝きを表現した、<br>落ち着きのある一枚。</p>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value">11,000円（初年度無料）</span></div>
+          <div class="anc-spec-row"><span class="anc-label">発行費用</span><span class="anc-value">1,100円（税込）</span></div>
+          <div class="anc-spec-row"><span class="anc-label">素材</span><span class="anc-value">メタルサーフェス</span></div>
+        </div>
+        <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213401207&ActionType=entrytop&_gl=1*lfaxuv*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">カードを申し込む<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- JCBゴールド 桜 -->
+      <div class="anc-card anc-card-limited" id="apply-card-gold-sakura">
+        <div class="anc-img-wrap">
+          <img src="./images/card_gold_sakura.png" alt="JCBゴールド 桜">
+        </div>
+        <div class="anc-name">JCBゴールド</div>
+        <div class="anc-sub-name">-桜-</div>
+        <p class="anc-desc">日本の華やかさを桜色で表現した、<br>柔らかな印象の一枚。</p>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value">11,000円（初年度無料）</span></div>
+          <div class="anc-spec-row"><span class="anc-label">発行費用</span><span class="anc-value">1,100円（税込）</span></div>
+          <div class="anc-spec-row"><span class="anc-label">素材</span><span class="anc-value">メタルサーフェス</span></div>
+        </div>
+        <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213401207&ActionType=entrytop&_gl=1*lfaxuv*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">カードを申し込む<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- JCBプラチナ 御影 -->
+      <div class="anc-card anc-card-limited" id="apply-card-platinum-mikage">
+        <div class="anc-img-wrap">
+          <img src="./images/card_platinum_mikage.png" alt="JCBプラチナ 御影">
+        </div>
+        <div class="anc-name">JCBプラチナ</div>
+        <div class="anc-sub-name">-御影-</div>
+        <p class="anc-desc">石のもつ重厚な雰囲気を表現した、上質な一枚。</p>
+        <div class="anc-specs">
+          <div class="anc-spec-row"><span class="anc-label">年会費</span><span class="anc-value">27,500円</span></div>
+          <div class="anc-spec-row"><span class="anc-label">発行費用</span><span class="anc-value">1,100円（税込）</span></div>
+          <div class="anc-spec-row"><span class="anc-label">素材</span><span class="anc-value">メタルサーフェス</span></div>
+        </div>
+        <a class="anc-btn" href="https://entry.jcb.co.jp/input_basic?1323011+3950+100+213012419&ActionType=entrytop&_gl=1*194r0q8*_gcl_aw*R0NMLjE3ODI0NTEzMjUuQ2owS0NRandvX1BSQmhETkFSSXNBRWNWQUxVc0ZrbDBaY3VobjI3My1EZUdpcGFlNEVNOWdfM2o5VU1kY1U1UjZyYUlSMDMyamtncTFnZ2FBbjZERUFMd193Y0I.*_gcl_au*MTc3ODA2MTUzMC4xNzgyNDM2ODky*FPAU*MTc3ODA2MTUzMC4xNzgyNDM2ODky" target="_blank" rel="noopener">カードを申し込む<svg class="btn-icon-ext" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================
+  SECTION 5: カード発行の流れ
+======================================== -->
+<section id="flow" class="flow-section">
+  <div class="comparison-wrap">
+    <h2 class="section-eyebrow">カード発行の流れ</h2>
+    <p class="section-lead">ナンバーレスなら最短5分ですぐ使える。</p>
+    <p class="section-sub-text">ナンバーレスはすぐ使える。番号ありはカード本体に番号を印字してお届け。</p>
+  </div>
+
+  <div class="flow-inner">
+    <div class="flow-card">
+    <div class="flow-tabs" role="tablist" aria-label="カード発行タイプ">
+      <button type="button" class="flow-tab-btn active" role="tab" aria-selected="true" aria-controls="flow-numberless" data-flow-tab="flow-numberless">
+        <small>入会後すぐに使える</small>
+        <b>ナンバーレス</b>
+      </button>
+      <button type="button" class="flow-tab-btn" role="tab" aria-selected="false" aria-controls="flow-numbered" data-flow-tab="flow-numbered">
+        <small>1週間でお届け</small>
+        <b>番号あり</b>
+      </button>
+    </div>
+
+    <div class="flow-panel-wrap">
+      <div id="flow-numberless" class="flow-tab-panel" role="tabpanel">
+        <div class="flow-summary">
+          <p><b><strong>最短5分</strong>でカード番号・セキュリティコードを発行</b></p>
+          <p>申込後すぐにカード番号が発行され、オンラインや電子マネーでご利用いただけます。</p>
+        </div>
+        <ol class="flow-steps">
+          <li>
+            <div class="flow-step-heading"><b>1</b><h3>カードを申し込む</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-1.png" alt=""><p>スマホで申込。必要なのは基本情報だけ。</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>2</b><h3>入会審査</h3><em class="flow-em flow-em--nl">最短5分</em></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-2.png" alt=""><p>自動審査でスピーディーに完了。</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>3</b><h3>MyJCBアプリで本人確認</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-3.png" alt=""><p>アプリをDLして初回設定（初回のみ）</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>4</b><h3>すぐ使える！</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-4.png" alt=""><p>アプリ内のカード番号・セキュリティコードでオンラインショッピング利用可。Apple Pay／Google Pay™／Samsung Walletを設定すれば店頭でも使える！</p></div>
+          </li>
+        </ol>
+      </div>
+
+      <div id="flow-numbered" class="flow-tab-panel" role="tabpanel" hidden>
+        <div class="flow-summary">
+          <p><b>カード本体に番号を記載</b></p>
+          <p>約1週間で、ご自宅にカードをお届けします。</p>
+        </div>
+        <ol class="flow-steps">
+          <li>
+            <div class="flow-step-heading"><b>1</b><h3>カードを申し込む</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-1.png" alt=""><p>スマホで申込。必要なのは基本情報だけ。</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>2</b><h3>入会審査</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-2.png" alt=""><p>自動審査でスピーディーに完了。</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>3</b><h3>カードをお届け</h3><em class="flow-em flow-em--nrml">約1週間</em></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-3.png" alt=""><p>ご自宅に約1週間でお届けします。</p></div>
+          </li>
+          <li>
+            <div class="flow-step-heading"><b>4</b><h3>ご利用開始</h3></div>
+            <div class="flow-step-body"><img src="./images/ic-flow-nrml-4.png" alt=""><p>カード到着後、ネット・店頭でご利用いただけます。</p></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    </div><!-- /flow-card -->
+  </div>
+</section>
+
+<footer class="page-footer">
+  <p>本ページはJCBカードの特徴をわかりやすくご紹介するためのサポートページです。</p>
+  <p>最新の情報・詳細な条件は各カードの公式ページでご確認ください。</p>
+  <p style="margin-top:8px"><a href="#top">▲ ページトップへ</a></p>
+</footer>
+
+<script>
+/* =============================================
+   CARD DATA
+============================================= */
+const cards = {
+  W: {
+    name: 'JCBカード W', fee: '年会費 永年無料', color: 'green', badge: 'ポイント特化型',
+    specs: { '年会費': '永年無料', '申込対象': '18〜39歳（40歳以降も継続可）', 'ポイント付与': '200円 → 2ポイント（通常の2倍）', '海外旅行保険': '最高2,000万円', 'ショッピング保険': '海外最高100万円' }
+  },
+  WplusL: {
+    name: 'JCBカード W Plus L', fee: '年会費 永年無料', color: 'pink', badge: 'ポイント特化＋女性向け特典',
+    specs: { '年会費': '永年無料', '申込対象': '18〜39歳（40歳以降も継続可）', 'ポイント付与': '200円 → 2ポイント（通常の2倍）', '海外旅行保険': '最高2,000万円', 'ショッピング保険': '海外最高100万円' },
+    plusLBenefits: [
+      { title: '女性向け優待「LINDAリーグ」', desc: '美容・ファッション・グルメ・旅行など女性向けブランドや協賛企業からの月替わり優待・割引が受けられます。男性会員も利用可能です。' },
+      { title: '毎月のプレゼント企画「LINDAの日」', desc: '毎月10日・30日に抽選でJCBギフトカード2,000円分が当たる企画など、plus L会員限定のプレゼント・キャンペーンが定期的に実施されます。' },
+      { title: '女性疾病保険（任意加入・有料）', desc: '18〜69歳の女性会員のみが対象のオプション保険です。月額290円〜という手頃な保険料で、乳がん・子宮がん・子宮筋腫・妊娠時合併症など女性特有の疾病による入院・手術を補償します。' },
+    ]
+  },
+  S: {
+    name: 'JCBカード S', fee: '年会費 永年無料', color: 'blue', badge: '優待充実型',
+    specs: { '年会費': '永年無料', '申込対象': '18歳以上（年齢上限なし）', '主な特典': 'クラブオフ優待（国内外20万ヵ所以上）', '海外旅行保険': '最高2,000万円', 'スマホ保険': '年間最高3万円' }
+  },
+  gold: {
+    name: 'JCBゴールド', fee: '年会費 11,000円（税込）初年度無料', color: 'gold', badge: 'トラベル充実型',
+    specs: { '年会費': '11,000円（税込）※初年度無料', '申込対象': '20歳以上（学生不可）', '海外旅行保険': '最高1億円', '国内旅行保険': '最高5,000万円', '空港ラウンジ': '国内主要空港＋ハワイ 無料', 'クレカ積立還元': '最大1.0%' }
+  },
+  platinum: {
+    name: 'JCBプラチナ', fee: '年会費 27,500円（税込）', color: 'platinum', badge: 'プレミアム体験型',
+    specs: { '年会費': '27,500円（税込）', '申込対象': '20歳以上（学生不可）', 'グルメ特典': '2名以上で1名分無料（グルメ・ベネフィット）', '海外旅行保険': '最高1億円', '空港ラウンジ': 'プライオリティ・パス（世界1,800ヵ所以上）', 'コンシェルジュ': '24時間365日専用デスク' }
+  }
+};
+
+/* =============================================
+   DIAGNOSIS
+============================================= */
+function getAnswers() {
+  const get = n => { const e = document.querySelector(`input[name="${n}"]:checked`); return e ? e.value : null; };
+  return { fee: get('fee'), age: get('age'), travel: get('travel'), food: get('food'), points: get('points'), gender: get('gender') };
+}
+
+function diagnose({ fee, age, travel, food, points, gender }) {
+  const wReasons = [
+    { title: 'ポイントが通常の2倍たまる', desc: '200円につき2ポイント付与。同じ年会費無料カードの中で最高クラスの還元率です。' },
+    { title: '年会費は永年無料', desc: '39歳以下で入会すれば40歳以降もずっと無料で使い続けられます。' },
+    { title: '日常の買い物がとにかくお得', desc: 'コンビニやAmazon.co.jp、スターバックスなど優待店ではポイント最大21倍（還元率10.5%）。' },
+    { title: '海外旅行保険も付帯', desc: '無料カードながら最高2,000万円の海外旅行傷害保険が付きます。' },
+  ];
+  const wPlusLReasons = [
+    { title: 'ポイントが通常の2倍たまる', desc: 'JCBカード Wと同じ高い還元率を持ちながら、女性向けの特典もプラスされています。' },
+    { title: '女性向け優待「LINDAリーグ」付き', desc: '美容・ファッション・グルメ・旅行など女性向けブランドや協賛企業の月替わり優待・割引が利用できます。' },
+    { title: '毎月抽選でギフトカードが当たる', desc: '毎月10日・30日に抽選でJCBギフトカード2,000円分が当たる「LINDAの日」など、plus L会員限定の特典が充実。' },
+    { title: 'デザインが3種類から選べる', desc: 'ホワイト・ピンク・M / mika ninagawaの3種類から好みのデザインを選べます。' },
+  ];
+  if (fee === 'free') {
+    if (age === 'under40') {
+      if (gender === 'female') return { card: 'WplusL', reasons: wPlusLReasons };
+      return { card: 'W', reasons: wReasons };
+    }
+    return { card: 'S', reasons: [
+      { title: '年会費無料・年齢制限なし', desc: '18歳以上なら誰でも申込OK。40歳以上でも安心して使えるスタンダードカードです。' },
+      { title: '国内外20万ヵ所以上の優待', desc: '映画、グルメ、温泉、レジャーなど幅広い施設を最大80%OFFで利用可能（クラブオフ）。' },
+      { title: '家族カードも永年無料', desc: '家族も同じ優待と保険が使えて、ポイントも合算できます。' },
+      { title: 'スマホ保険付き', desc: '年間最高3万円のスマートフォン保険が付帯。無料カードでの付帯は珍しい特典です。' },
+    ]};
+  }
+  if (food === 'gourmet') return { card: 'platinum', reasons: [
+    { title: 'グルメ・ベネフィット（2名で1名分無料）', desc: '国内の厳選レストランでコースを2名以上で利用すると1名分が無料に。記念日や接待に最高。' },
+    { title: 'プライオリティ・パスで世界中の空港ラウンジへ', desc: '世界146ヵ国・1,800ヵ所以上の空港ラウンジを追加料金なしで利用できます。' },
+    { title: '24時間コンシェルジュサービス', desc: 'レストラン予約から旅行手配まで、専任スタッフが365日24時間対応してくれます。' },
+    { title: 'ラグジュアリーホテル特典', desc: '世界4,000軒以上のホテルを優待価格で予約可能。年20,000円分のホテルクーポンも付与。' },
+    { title: 'JCBザ・クラスへの招待チャンス', desc: '利用実績次第で完全招待制の最上位カード「JCBザ・クラス」への招待対象になります。' },
+  ]};
+  if (travel === 'overseas' || travel === 'domestic') return { card: 'gold', reasons: [
+    { title: '旅行傷害保険が大幅アップ', desc: travel === 'overseas' ? '海外最高1億円・国内最高5,000万円の旅行傷害保険付き。海外での万一の事態も安心です。' : '国内最高5,000万円の旅行傷害保険付き。国内旅行でも充実した補償が受けられます。' },
+    { title: '空港ラウンジが無料で使える', desc: '国内主要空港＋ハワイ ホノルル空港のラウンジを本会員・家族会員ともに無料利用できます。' },
+    { title: 'クレカ積立でポイント還元率アップ', desc: '積立投資にも使えてポイント還元率最大1.0%。ゴールド以上のカードで適用される特典です。' },
+    { title: 'ゴールドザ・プレミアへの招待', desc: '2年連続100万円以上利用でプライオリティ・パス付きの上位カードに無条件で招待されます。' },
+    { title: '初年度年会費無料', desc: 'オンライン入会なら初年度11,000円が無料。まずお試しで体験できます。' },
+  ]};
+  if (age === 'under40' && points === 'yes') {
+    if (gender === 'female') return { card: 'WplusL', reasons: wPlusLReasons };
+    return { card: 'W', reasons: [
+      { title: 'ポイント還元率が最強クラス', desc: '200円につき2ポイント付与。優待店では最大21倍（還元率10.5%）。日常使いで圧倒的にお得。' },
+      { title: '年会費無料でコスト0', desc: '有料でもOKな余裕があるなら、その分ポイントに活用するのが賢い選択です。' },
+      { title: '普段使いで最大の効果を発揮', desc: 'セブン-イレブン・Amazon.co.jp・スターバックスなど身近なお店でポイント最大21倍に。' },
+      { title: 'クレカ積立でさらにお得', desc: '積立投資にも対応。月5万円以上のショッピング利用で還元率最大0.5%に。' },
+    ]};
+  }
+  return { card: 'S', reasons: [
+    { title: '国内外20万ヵ所以上の優待サービス', desc: '映画、カラオケ、温泉、グルメなど幅広いジャンルの施設を最大80%OFFで利用できます。' },
+    { title: '年会費永年無料でリスクゼロ', desc: '旅行より日常での使いやすさを重視するなら、維持費のかからないカードSがベスト。' },
+    { title: '家族カードも永年無料', desc: '家族も同じ優待と保険が使えて、ポイントも本会員と合算。家族まとめてお得に。' },
+    { title: '年齢制限なし・長く使えるカード', desc: '18歳以上なら何歳でも申込可能。ライフステージが変わっても使い続けられる安心感。' },
+  ]};
+}
+
+function showResult() {
+  const ans = getAnswers();
+  const result = diagnose(ans);
+  const card = cards[result.card];
+  const specsHTML = Object.entries(card.specs).map(([k, v]) =>
+    `<div class="points-row"><span class="points-key">${k}</span><span class="points-val">${v}</span></div>`).join('');
+  const reasonsHTML = result.reasons.map(r =>
+    `<li class="reason-item"><div class="reason-text"><strong>${r.title}</strong><span>${r.desc}</span></div></li>`).join('');
+  let extraHTML = '';
+  if (result.card === 'WplusL') {
+    const designHTML = `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`;
+    const plusLHTML = card.plusLBenefits.map((b, i) => `<div class="plusl-benefit-item"><div class="plusl-benefit-num">${i+1}.</div><div class="plusl-benefit-text"><strong>${b.title}</strong><span>${b.desc}</span></div></div>`).join('');
+    extraHTML = `${designHTML}<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
+  }
+  document.getElementById('cardResult').innerHTML = `
+    <div class="card-result-header ${card.color}">
+      <div class="card-badge">${card.badge}</div>
+      <div class="card-name">${card.name}</div>
+      <div class="card-fee">${card.fee}</div>
+    </div>
+    <div class="card-result-body">
+      <div class="reason-title">おすすめの理由</div>
+      <ul class="reasons">${reasonsHTML}</ul>
+      <div class="card-points">${specsHTML}</div>
+      ${extraHTML}
+    </div>`;
+  const allCards = [
+    { key: 'W',        color: 'green',    label: 'JCBカード W',       note: '年会費無料・ポイント2倍（39歳以下限定）' },
+    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
+    { key: 'S',        color: 'blue',     label: 'JCBカード S',        note: '年会費無料・クラブオフ優待（年齢不問）' },
+    { key: 'gold',     color: 'gold',     label: 'JCBゴールド',        note: '旅行保険1億円・空港ラウンジ' },
+    { key: 'platinum', color: 'platinum', label: 'JCBプラチナ',        note: 'グルメ・コンシェルジュ・プライオリティパス' },
+  ];
+  document.getElementById('otherList').innerHTML = allCards
+    .filter(c => c.key !== result.card)
+    .map(c => `<div class="other-item"><div class="other-dot ${c.color}"></div><span class="other-card-name">${c.label}</span><span class="other-card-note">${c.note}</span></div>`).join('');
+  const section = document.getElementById('resultSection');
+  section.style.display = 'block';
+  setTimeout(() => section.classList.add('visible'), 10);
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetDiagnosis() {
+  document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
+  document.getElementById('diagnoseBtn').disabled = true;
+  document.getElementById('cta-hint').style.display = '';
+  document.getElementById('unansweredCount').textContent = '6';
+  const section = document.getElementById('resultSection');
+  section.classList.remove('visible');
+  section.style.display = 'none';
+  updateDots();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateDots() {
+  const names = ['age', 'gender', 'fee', 'travel', 'food', 'points'];
+  let answered = 0;
+  names.forEach((name, i) => {
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    const dot = document.getElementById(`dot${i + 1}`);
+    if (checked) { dot.classList.add('filled'); answered++; }
+    else { dot.classList.remove('filled'); }
+  });
+  document.getElementById('progressText').textContent = `${answered} / 6 回答済み`;
+  document.getElementById('unansweredCount').textContent = 6 - answered;
+  const btn = document.getElementById('diagnoseBtn');
+  btn.disabled = answered < 6;
+  document.getElementById('cta-hint').style.display = answered === 6 ? 'none' : '';
+}
+
+document.querySelectorAll('.option').forEach(label => {
+  label.addEventListener('click', function() {
+    const radio = this.querySelector('input[type="radio"]');
+    const name = radio.name;
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r => { r.closest('.option').classList.remove('selected'); });
+    this.classList.add('selected');
+    radio.checked = true;
+    const qnum = { age:1, gender:2, fee:3, travel:4, food:5, points:6 }[name];
+    document.getElementById(`qcard${qnum}`).classList.add('answered');
+    updateDots();
+  });
+});
+
+/* =============================================
+   FLOW: TAB SWITCHING
+============================================= */
+document.querySelectorAll('.flow-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.flowTab;
+    document.querySelectorAll('.flow-tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.flow-tab-panel').forEach(p => {
+      p.hidden = true;
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    document.getElementById(target).hidden = false;
+  });
+});
+
+/* =============================================
+   COMPARISON: TAB SWITCHING
+============================================= */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+  });
+});
+
+/* =============================================
+   COMPARISON: DESIGN GALLERY
+============================================= */
+// カード券面画像の切り替え
+document.querySelectorAll('.anc-dots').forEach(dotsEl => {
+  dotsEl.querySelectorAll('.anc-dot[data-img]').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const card = dot.closest('.anc-card');
+      const img = card.querySelector('.anc-img-wrap img');
+      img.src = dot.dataset.img;
+      img.alt = dot.dataset.alt;
+      dotsEl.querySelectorAll('.anc-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+});
+</script>
+</body>
+</html>
