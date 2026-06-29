@@ -295,6 +295,9 @@ body {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
   margin-bottom: 12px;
 }
 .reasons {
@@ -389,9 +392,7 @@ body {
 
 /* PLUS L — design cards */
 .design-section {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+  margin-bottom: 20px;
 }
 .design-section-title {
   font-size: 13px;
@@ -406,16 +407,15 @@ body {
   gap: 12px;
 }
 .design-card-wrap {
-  flex: 1;
+  flex: 0 0 calc((100% - 24px) / 3);
   text-align: center;
 }
 .design-card-img {
   width: 100%;
   aspect-ratio: 1.586 / 1;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
 }
 .design-card-label {
   font-size: 11px;
@@ -683,17 +683,17 @@ body {
 .card-col-header {
   padding: 16px 12px 14px;
   text-align: center;
-  border-bottom: 3px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.card-col-header.card-s  { border-color: #1a56b0; }
-.card-col-header.card-w  { border-color: #003087; }
-.card-col-header.card-wl { border-color: #c2185b; }
-.card-col-header.card-g  { border-color: #b8860b; }
-.card-col-header.card-p  { border-color: #4a5568; }
+.comparison-table thead th { border-bottom: 3px solid transparent; }
+.comparison-table thead th:has(.card-col-header.card-s)  { border-bottom-color: #1a56b0; }
+.comparison-table thead th:has(.card-col-header.card-w)  { border-bottom-color: #003087; }
+.comparison-table thead th:has(.card-col-header.card-wl) { border-bottom-color: #c2185b; }
+.comparison-table thead th:has(.card-col-header.card-g)  { border-bottom-color: #b8860b; }
+.comparison-table thead th:has(.card-col-header.card-p)  { border-bottom-color: #4a5568; }
 .comp-badge {
   display: inline-block;
   padding: 3px 10px;

@@ -178,11 +178,19 @@ function showResult() {
     </li>`
   ).join('');
 
+  const designSections = {
+    W:        `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_w.png" alt="JCBカード W 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
+    WplusL:   `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`,
+    S:        `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s.png" alt="JCBカード S 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
+    gold:     `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
+    platinum: `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
+  };
+  const designHTML = designSections[result.card] || '';
+
   let extraHTML = '';
   if (result.card === 'WplusL') {
-    const designHTML = `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`;
     const plusLHTML = card.plusLBenefits.map((b, i) => `<div class="plusl-benefit-item"><div class="plusl-benefit-num">${i+1}.</div><div class="plusl-benefit-text"><strong>${b.title}</strong><span>${b.desc}</span></div></div>`).join('');
-    extraHTML = `${designHTML}<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
+    extraHTML = `<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
   }
 
   document.getElementById('cardResult').innerHTML = `
@@ -192,6 +200,7 @@ function showResult() {
       <div class="card-fee">${card.fee}</div>
     </div>
     <div class="card-result-body">
+      ${designHTML}
       <div class="reason-title">おすすめの理由</div>
       <ul class="reasons">${reasonsHTML}</ul>
       <div class="card-points">${specsHTML}</div>
