@@ -1,4 +1,22 @@
 /* =============================================
+   HAMBURGER MENU
+============================================= */
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+  const overlay   = document.getElementById('nav-overlay');
+  function toggleDrawer(open) {
+    hamburger.classList.toggle('open', open);
+    drawer.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+  overlay.addEventListener('click', () => toggleDrawer(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleDrawer(false)));
+})();
+
+/* =============================================
    CARD DATA
 ============================================= */
 const cards = {
