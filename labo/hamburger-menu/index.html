@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハンバーガーメニュー トランジションサンプル</title>
+<style>
+  :root {
+    --ink: #333;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background: #f5f5f5;
+    color: var(--ink);
+  }
+
+  .demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 100;
+  }
+
+  .demo-header__logo {
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------------------------------
+     ハンバーガーボタン本体（66×48px目安）
+  --------------------------------- */
+  .hamburger-btn {
+    width: 66px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger-btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .hamburger-icon {
+    position: relative;
+    width: 28px;
+    height: 20px;
+  }
+
+  .hamburger-icon .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--ink);
+    border-radius: 1px;
+    transition:
+      top 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s ease;
+  }
+
+  .hamburger-icon .line1 { top: 0; }
+  .hamburger-icon .line2 { top: 8.5px; }
+  .hamburger-icon .line3 { top: 17px; }
+
+  /* アクティブ（X字）状態 */
+  .hamburger-btn.is-active .line1 {
+    top: 8.5px;
+    transform: rotate(45deg);
+  }
+
+  .hamburger-btn.is-active .line2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .hamburger-btn.is-active .line3 {
+    top: 8.5px;
+    transform: rotate(-45deg);
+  }
+
+  /* ラベル（MENU ⇔ CLOSE）クロスフェード */
+  .hamburger-label {
+    position: relative;
+    width: 100%;
+    height: 12px;
+  }
+
+  .hamburger-label .label-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .label-menu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .label-close {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  .hamburger-btn.is-active .label-menu {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  .hamburger-btn.is-active .label-close {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------------------------------
+     デモ用のスライドメニュー・オーバーレイ
+     （ハンバーガーの動作確認用。本体には必須ではない）
+  --------------------------------- */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 90;
+  }
+
+  .overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(280px, 80vw);
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 95;
+    padding: 88px 32px 32px;
+  }
+
+  .drawer.is-active {
+    transform: translateX(0);
+  }
+
+  .drawer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .drawer nav li + li {
+    margin-top: 20px;
+  }
+
+  .drawer nav a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .demo-note {
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 0 24px;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="demo-header">
+  <div class="demo-header__logo">LOGO</div>
+
+  <button
+    type="button"
+    class="hamburger-btn"
+    id="menuBtn"
+    aria-expanded="false"
+    aria-controls="drawer"
+  >
+    <span class="hamburger-icon">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </span>
+    <span class="hamburger-label">
+      <span class="label-text label-menu">MENU</span>
+      <span class="label-text label-close">CLOSE</span>
+    </span>
+  </button>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer">
+  <nav>
+    <ul>
+      <li><a href="#">TOP</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">お知らせ</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<p class="demo-note">
+  右上のボタンをクリックすると、3本線がなめらかにアニメーションしながら「×」に変化し、下のラベルも「MENU」から「CLOSE」にクロスフェードします。
+</p>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('overlay');
+  const drawer = document.getElementById('drawer');
+
+  menuBtn.addEventListener('click', () => {
+    const isActive = menuBtn.classList.toggle('is-active');
+    overlay.classList.toggle('is-active', isActive);
+    drawer.classList.toggle('is-active', isActive);
+    menuBtn.setAttribute('aria-expanded', String(isActive));
+  });
+
+  overlay.addEventListener('click', () => {
+    menuBtn.classList.remove('is-active');
+    overlay.classList.remove('is-active');
+    drawer.classList.remove('is-active');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+</script>
+
+</body>
+</html>
