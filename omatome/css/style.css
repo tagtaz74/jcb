@@ -708,16 +708,11 @@ body {
 }
 .tab-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
   margin-bottom: 24px;
-  padding-bottom: 2px;
 }
-.tab-nav::-webkit-scrollbar { display: none; }
 .tab-btn {
-  flex-shrink: 0;
   padding: 10px 20px;
   border-radius: 24px;
   border: 1.5px solid var(--border);
