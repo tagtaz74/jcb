@@ -245,15 +245,13 @@ function showResult() {
 function resetDiagnosis() {
   document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
   document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
-  document.getElementById('diagnoseBtn').disabled = true;
-  document.getElementById('cta-hint').style.display = '';
-  document.getElementById('unansweredCount').textContent = '6';
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered', 'active'));
   const section = document.getElementById('resultSection');
   section.classList.remove('visible');
   section.style.display = 'none';
   updateDots();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  goToStep(1);
+  document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function updateDots() {
@@ -266,24 +264,49 @@ function updateDots() {
     else { dot.classList.remove('filled'); }
   });
   document.getElementById('progressText').textContent = `${answered} / 6 回答済み`;
-  document.getElementById('unansweredCount').textContent = 6 - answered;
-  const btn = document.getElementById('diagnoseBtn');
-  btn.disabled = answered < 6;
-  document.getElementById('cta-hint').style.display = answered === 6 ? 'none' : '';
+}
+
+/* =============================================
+   STEP-BY-STEP DIAGNOSIS
+============================================= */
+let currentStep = 1;
+let stepping = false;
+
+function goToStep(n) {
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  const card = document.getElementById(`qcard${n}`);
+  if (card) card.classList.add('active');
+  currentStep = n;
 }
 
 document.querySelectorAll('.option').forEach(label => {
   label.addEventListener('click', function() {
+    if (stepping) return;
+
     const radio = this.querySelector('input[type="radio"]');
     const name = radio.name;
     document.querySelectorAll(`input[name="${name}"]`).forEach(r => { r.closest('.option').classList.remove('selected'); });
     this.classList.add('selected');
     radio.checked = true;
+
     const qnum = { age:1, gender:2, fee:3, travel:4, food:5, points:6 }[name];
     document.getElementById(`qcard${qnum}`).classList.add('answered');
     updateDots();
+
+    stepping = true;
+    setTimeout(() => {
+      stepping = false;
+      if (currentStep < 6) {
+        goToStep(currentStep + 1);
+        document.getElementById('progressBar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        showResult();
+      }
+    }, 420);
   });
 });
+
+goToStep(1);
 
 /* =============================================
    FLOW: TAB SWITCHING

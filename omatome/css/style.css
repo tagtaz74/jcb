@@ -162,6 +162,7 @@ body {
 
 /* QUESTION CARD */
 .question-card {
+  display: none;
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -170,8 +171,16 @@ body {
   border: 1.5px solid var(--border);
   transition: border-color 0.2s;
 }
+.question-card.active {
+  display: block;
+  animation: qcardIn 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
 .question-card.answered {
   border-color: #93c5fd;
+}
+@keyframes qcardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .question-header {
   display: flex;
@@ -257,8 +266,7 @@ body {
 
 /* CTA BUTTON */
 .cta-wrap {
-  margin-top: 8px;
-  padding: 0 4px;
+  display: none;
 }
 .cta-btn {
   width: 100%;
