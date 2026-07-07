@@ -243,6 +243,15 @@ function showResult() {
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function backFromResult() {
+  const section = document.getElementById('resultSection');
+  section.classList.remove('visible');
+  section.style.display = 'none';
+  document.getElementById('stepNav').style.display = '';
+  goToStep(6);
+  document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function resetDiagnosis() {
   document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
   document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));

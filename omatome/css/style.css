@@ -442,6 +442,23 @@ body {
 .points-val { font-weight: 700; text-align: right; }
 
 /* RETRY */
+.result-back-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--jcb-blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,48,135,0.22);
+}
+.result-back-btn:hover {
+  background: #1a56b0;
+  box-shadow: 0 4px 12px rgba(0,48,135,0.32);
+}
 .retry-btn {
   width: 100%;
   padding: 14px;
