@@ -92,7 +92,7 @@
 
   /* ---------------------------------
      タブ本体
-     表示するタブ数は .tabs の class（tabs--show-1 / -2 / -3）で切り替える
+     各タブの表示/非表示は data-hidden="true|false" で個別に切り替える
      タブが1つの場合にナビ自体を消したい時は .tabs--hide-single-nav を付与する
   --------------------------------- */
   .tabs-wrap {
@@ -170,26 +170,19 @@
     color: #ffffff;
   }
 
-  /* 表示するタブ数に応じて、対象外のボタン／パネルを非表示にする */
-  .tabs[data-tab-count="1"] .tab-btn[data-slot="2"],
-  .tabs[data-tab-count="1"] .tab-btn[data-slot="3"],
-  .tabs[data-tab-count="1"] .tab-panel[data-slot="2"],
-  .tabs[data-tab-count="1"] .tab-panel[data-slot="3"] {
-    display: none;
-  }
-
-  .tabs[data-tab-count="2"] .tab-btn[data-slot="3"],
-  .tabs[data-tab-count="2"] .tab-panel[data-slot="3"] {
+  /* チェックが外れたタブのボタン／パネルを個別に非表示にする */
+  .tab-btn[data-hidden="true"],
+  .tab-panel[data-hidden="true"] {
     display: none;
   }
 
   /* タブが1つだけの場合、ナビ自体を非表示にしたいケース用トグル */
-  .tabs[data-tab-count="1"].tabs--hide-single-nav .tab-nav {
+  .tabs[data-visible-count="1"].tabs--hide-single-nav .tab-nav {
     display: none;
   }
 
   /* タブが1つの場合でも不自然にならないよう、ボタンを見出し風に見せる */
-  .tabs[data-tab-count="1"] .tab-nav .tab-btn {
+  .tabs[data-visible-count="1"] .tab-nav .tab-btn {
     cursor: default;
     pointer-events: none;
   }
@@ -218,17 +211,17 @@
 <header class="demo-header">
   <h1>タブ表示数カスタムサンプル</h1>
   <p>
-    タブの数を1〜3個の範囲で柔軟に切り替えられる構成のテストページです。<br>
-    下の操作パネルで表示タブ数・ナビ非表示の有無を切り替えて挙動を確認できます。
+    タブごとに表示/非表示を個別に切り替えられる構成のテストページです。<br>
+    下の操作パネルのチェックボックスで、表示するタブの組み合わせを自由に変更できます。
   </p>
 </header>
 
 <section class="controls">
   <fieldset>
-    <legend>表示するタブ数</legend>
-    <label><input type="radio" name="tabCount" value="1"> 1つ</label>
-    <label><input type="radio" name="tabCount" value="2"> 2つ</label>
-    <label><input type="radio" name="tabCount" value="3" checked> 3つ</label>
+    <legend>表示するタブ</legend>
+    <label><input type="checkbox" class="tab-toggle" data-target="card-sw" checked> JCBカード S/JCBカード W</label>
+    <label><input type="checkbox" class="tab-toggle" data-target="card-gold" checked> JCBゴールド</label>
+    <label><input type="checkbox" class="tab-toggle" data-target="card-platinum" checked> JCBプラチナ</label>
   </fieldset>
 
   <fieldset>
@@ -241,31 +234,33 @@
   <div class="mechanism-note">
     <h2>仕組み</h2>
     <ul>
-      <li><code>.tabs</code> の <code>data-tab-count="1|2|3"</code> を切り替えると、その数を超える <code>data-slot</code> のボタン／パネルがCSSで自動的に非表示になります。</li>
-      <li>タブが1つの場合、ボタンはクリック不可・見出し風の見た目にして不自然にならないようにしています。</li>
-      <li><code>.tabs--hide-single-nav</code> クラスを付与すると、タブが1つの時にナビ自体（<code>.tab-nav</code>）を非表示にできます。</li>
-      <li>実運用では <code>data-tab-count</code> 属性と <code>tabs--hide-single-nav</code> クラスを、手動で出し分ける想定です。</li>
+      <li>各タブのボタン／パネルには共通の <code>data-tab</code> 値（<code>card-sw</code> / <code>card-gold</code> / <code>card-platinum</code>）が付いており、チェックボックスのON/OFFに応じて対応するボタン・パネルの <code>data-hidden</code> 属性を <code>true</code> / <code>false</code> に切り替えます。</li>
+      <li><code>data-hidden="true"</code> のボタン／パネルはCSSで非表示になります（<code>data-hidden</code> はタブごとの独立したフラグなので、任意の組み合わせで表示できます）。</li>
+      <li>表示中のタブ数は毎回JSで数え直し、<code>.tabs</code> の <code>data-visible-count</code> 属性に反映します。これが1の場合、ボタンはクリック不可・見出し風の見た目にして不自然にならないようにしています。</li>
+      <li><code>.tabs--hide-single-nav</code> クラスを付与すると、表示タブが1つの時にナビ自体（<code>.tab-nav</code>）を非表示にできます。</li>
+      <li>全てのタブを非表示にはできないよう、最後の1つが外れる操作はJSで無効化しています。</li>
+      <li>実運用ではチェックボックスの代わりに、各タブの <code>data-hidden</code> 属性をサーバー側やCMS側の条件分岐で出し分ける想定です。</li>
     </ul>
   </div>
 
-  <div class="tabs" data-tab-count="3" id="tabs">
+  <div class="tabs" data-visible-count="3" id="tabs">
     <div class="tab-nav" role="tablist">
-      <button type="button" class="tab-btn active" role="tab" data-slot="1" data-tab="card-sw">JCBカード S/JCBカード W</button>
-      <button type="button" class="tab-btn" role="tab" data-slot="2" data-tab="card-gold">JCBゴールド</button>
-      <button type="button" class="tab-btn" role="tab" data-slot="3" data-tab="card-platinum">JCBプラチナ</button>
+      <button type="button" class="tab-btn active" role="tab" data-tab="card-sw" data-hidden="false">JCBカード S/JCBカード W</button>
+      <button type="button" class="tab-btn" role="tab" data-tab="card-gold" data-hidden="false">JCBゴールド</button>
+      <button type="button" class="tab-btn" role="tab" data-tab="card-platinum" data-hidden="false">JCBプラチナ</button>
     </div>
 
-    <div class="tab-panel active" role="tabpanel" data-slot="1" id="panel-card-sw">
+    <div class="tab-panel active" role="tabpanel" data-tab="card-sw" data-hidden="false" id="panel-card-sw">
       <h2>JCBカード S/JCBカード W</h2>
       <p>ここにJCBカード S/JCBカード Wの仮テキストが入ります。年会費や基本スペック、付帯サービスなどの説明をここに配置します。</p>
     </div>
 
-    <div class="tab-panel" role="tabpanel" data-slot="2" id="panel-card-gold">
+    <div class="tab-panel" role="tabpanel" data-tab="card-gold" data-hidden="false" id="panel-card-gold">
       <h2>JCBゴールド</h2>
       <p>ここにJCBゴールドの仮テキストが入ります。空港ラウンジサービスや旅行保険などの特典説明をここに配置します。</p>
     </div>
 
-    <div class="tab-panel" role="tabpanel" data-slot="3" id="panel-card-platinum">
+    <div class="tab-panel" role="tabpanel" data-tab="card-platinum" data-hidden="false" id="panel-card-platinum">
       <h2>JCBプラチナ</h2>
       <p>ここにJCBプラチナの仮テキストが入ります。コンシェルジュサービスなど上位カード向けの特典説明をここに配置します。</p>
     </div>
@@ -273,41 +268,84 @@
 </div>
 
 <script>
+  /* =========================================================
+     ここから ▼ 本番でも必要な部分
+     data-hidden や data-visible-count は本番ではHTML側に
+     あらかじめ埋め込んでおく想定のため、下記の「タブ切り替え」
+     の動作だけあれば本番ページとして成立する。
+     ========================================================= */
   const tabs = document.getElementById('tabs');
   const tabBtns = tabs.querySelectorAll('.tab-btn');
   const tabPanels = tabs.querySelectorAll('.tab-panel');
-  const tabCountRadios = document.querySelectorAll('input[name="tabCount"]');
-  const hideSingleNavCheckbox = document.getElementById('hideSingleNav');
 
   function activateTab(targetBtn) {
     tabBtns.forEach((btn) => btn.classList.toggle('active', btn === targetBtn));
     tabPanels.forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.slot === targetBtn.dataset.slot);
+      panel.classList.toggle('active', panel.dataset.tab === targetBtn.dataset.tab);
     });
   }
 
   tabBtns.forEach((btn) => {
     btn.addEventListener('click', () => activateTab(btn));
   });
+  /* ここまで ▲ 本番でも必要な部分 ========================= */
 
-  function applyTabCount(count) {
-    tabs.dataset.tabCount = count;
+  /* =========================================================
+     ここから ▼ デモ操作パネル（body > section.controls）専用
+     .controls セクションを削除する場合、この範囲は丸ごと
+     不要になる（tabToggles・hideSingleNavCheckbox も含む）。
+     本番では data-hidden / data-visible-count /
+     tabs--hide-single-nav をチェックボックスの代わりに
+     HTML側に直接指定しておく。
+     ========================================================= */
+  const tabToggles = document.querySelectorAll('.tab-toggle');
+  const hideSingleNavCheckbox = document.getElementById('hideSingleNav');
+
+  function applyVisibility() {
+    let visibleCount = 0;
+    let firstVisibleTarget = null;
+
+    tabToggles.forEach((toggle) => {
+      const target = toggle.dataset.target;
+      const hidden = !toggle.checked;
+
+      tabs.querySelector(`.tab-btn[data-tab="${target}"]`).dataset.hidden = String(hidden);
+      tabs.querySelector(`.tab-panel[data-tab="${target}"]`).dataset.hidden = String(hidden);
+
+      if (!hidden) {
+        visibleCount += 1;
+        if (!firstVisibleTarget) firstVisibleTarget = target;
+      }
+    });
+
+    tabs.dataset.visibleCount = visibleCount;
 
     // 非表示になったタブがactiveのままだと表示が崩れるため、
-    // 表示範囲内の先頭タブに強制的に切り替える
+    // 表示中の先頭タブに強制的に切り替える
     const activeBtn = tabs.querySelector('.tab-btn.active');
-    if (!activeBtn || Number(activeBtn.dataset.slot) > Number(count)) {
-      activateTab(tabs.querySelector('.tab-btn[data-slot="1"]'));
+    if (!activeBtn || activeBtn.dataset.hidden === 'true') {
+      activateTab(tabs.querySelector(`.tab-btn[data-tab="${firstVisibleTarget}"]`));
     }
   }
 
-  tabCountRadios.forEach((radio) => {
-    radio.addEventListener('change', (e) => applyTabCount(e.target.value));
+  tabToggles.forEach((toggle) => {
+    toggle.addEventListener('change', (e) => {
+      const checkedCount = Array.from(tabToggles).filter((t) => t.checked).length;
+
+      // 全てのタブを非表示にはできないよう、最後の1つは維持する
+      if (checkedCount === 0) {
+        e.target.checked = true;
+        return;
+      }
+
+      applyVisibility();
+    });
   });
 
   hideSingleNavCheckbox.addEventListener('change', (e) => {
     tabs.classList.toggle('tabs--hide-single-nav', e.target.checked);
   });
+  /* ここまで ▲ デモ操作パネル専用 ========================= */
 </script>
 
 </body>
