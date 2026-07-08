@@ -23,7 +23,7 @@
 <div class="nav-drawer" id="nav-drawer">
   <div class="nav-drawer-label">MENU</div>
   <a href="#diagnosis">カード診断</a>
-  <a href="#compare">スペック比較</a>
+  <a href="#compare">スペック・デザイン比較</a>
   <a href="#campaign">新規入会キャンペーン</a>
   <a href="#features">JCBカードの特長</a>
   <a href="#flow">カード発行の流れ</a>
@@ -79,20 +79,6 @@
     <h2 class="section-eyebrow">カード診断</h2>
     <p class="section-lead">6問でわかる、あなたにぴったりのJCBカード。</p>
     <p class="section-sub-text">以下の質問に答えると、あなたの生活スタイルに最適なJCBカードをご提案します。</p>
-  </div>
-
-  <div class="progress-bar-wrap" id="progressBar">
-    <div class="progress-inner">
-      <div class="progress-dots">
-        <div class="dot" id="dot1"></div>
-        <div class="dot" id="dot2"></div>
-        <div class="dot" id="dot3"></div>
-        <div class="dot" id="dot4"></div>
-        <div class="dot" id="dot5"></div>
-        <div class="dot" id="dot6"></div>
-      </div>
-      <span class="progress-text" id="progressText">0 / 6 回答済み</span>
-    </div>
   </div>
 
   <div class="main">
@@ -279,6 +265,23 @@
       </div>
     </div>
 
+    <!-- STEP NAV -->
+    <div class="step-nav" id="stepNav">
+      <button class="step-nav-btn step-nav-back" id="stepBack" onclick="stepBack()">&#x3c; 戻る</button>
+      <div class="step-nav-center">
+        <div class="progress-dots">
+          <div class="dot" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+          <div class="dot" id="dot3"></div>
+          <div class="dot" id="dot4"></div>
+          <div class="dot" id="dot5"></div>
+          <div class="dot" id="dot6"></div>
+        </div>
+        <span class="progress-text" id="progressText">0 / 6 回答済み</span>
+      </div>
+      <button class="step-nav-btn step-nav-next" id="stepNext" onclick="stepNext()">進む &#x3e;</button>
+    </div>
+
     <!-- CTA -->
     <div class="cta-wrap">
       <button class="cta-btn" id="diagnoseBtn" disabled onclick="showResult()">
@@ -299,6 +302,7 @@
         <div class="other-list" id="otherList"></div>
       </div>
       <div class="result-action-row">
+        <button class="result-back-btn" onclick="backFromResult()">&#x3c; 直前の質問に戻る</button>
         <a href="#compare" class="result-compare-link">スペック比較表で詳しく確認する ↓</a>
         <button class="retry-btn" onclick="resetDiagnosis()">もう一度診断する</button>
       </div>
@@ -313,16 +317,16 @@
 <section id="compare" class="comparison-bg">
   <div class="comparison-wrap">
 
-    <h2 class="section-eyebrow">スペック比較</h2>
+    <h2 class="section-eyebrow">スペック・デザイン比較</h2>
     <p class="section-lead">あなたが重視するポイントは？デザインやスペックを比べて選ぶ。
     </p>
     <p class="section-sub-text">基本スペック・保険補償・優待特典・デザインの4軸で各カードの違いを確認できます。</p>
 
     <div class="tab-nav" role="tablist">
-      <button class="tab-btn active" role="tab" data-tab="basic">基本スペックで選ぶ</button>
-      <button class="tab-btn" role="tab" data-tab="insurance">保険・補償で選ぶ</button>
-      <button class="tab-btn" role="tab" data-tab="benefits">優待・特典で選ぶ</button>
-      <button class="tab-btn" role="tab" data-tab="design">デザインで選ぶ</button>
+      <button class="tab-btn active" role="tab" data-tab="basic">基本スペックで比較</button>
+      <button class="tab-btn" role="tab" data-tab="insurance">保険・補償で比較</button>
+      <button class="tab-btn" role="tab" data-tab="benefits">優待・特典で比較</button>
+      <button class="tab-btn" role="tab" data-tab="design">デザインで比較</button>
     </div>
 
     <!-- ===== TAB 1: 基本スペック ===== -->

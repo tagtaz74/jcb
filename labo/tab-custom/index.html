@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タブ表示数カスタムサンプル</title>
+<style>
+  :root {
+    --jcb-blue: #003087;
+    --bg: #f5f7fa;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e2e8f0;
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .demo-header {
+    padding: 32px 16px 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .demo-header h1 {
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+
+  .demo-header p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ---------------------------------
+     操作パネル（デモ用。本体には不要）
+  --------------------------------- */
+  .controls {
+    max-width: 688px;
+    margin: 24px auto 0;
+    padding: 16px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .controls fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .controls legend {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+    padding: 0;
+    margin-right: 4px;
+  }
+
+  .controls label {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .controls label input {
+    cursor: pointer;
+  }
+
+  /* ---------------------------------
+     タブ本体
+     表示するタブ数は .tabs の class（tabs--show-1 / -2 / -3）で切り替える
+     タブが1つの場合にナビ自体を消したい時は .tabs--hide-single-nav を付与する
+  --------------------------------- */
+  .tabs-wrap {
+    max-width: 720px;
+    margin: 32px auto 64px;
+    padding: 0 16px;
+  }
+
+  .mechanism-note {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .mechanism-note h2 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--jcb-blue);
+  }
+
+  .mechanism-note ul {
+    margin: 0;
+    padding-left: 1.3em;
+  }
+
+  .mechanism-note code {
+    background: var(--bg);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 12px;
+  }
+
+  .tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--jcb-blue);
+  }
+
+  .tab-btn {
+    padding: 14px 28px;
+    border-radius: 5px 5px 0 0;
+    border: 1.5px solid var(--border);
+    border-bottom: none;
+    background: var(--white);
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+
+  .tab-btn:hover { border-color: var(--jcb-blue); color: var(--jcb-blue); }
+  .tab-btn.active { background: var(--jcb-blue); border-color: var(--jcb-blue); color: white; }
+
+  /* カード種別ごとのアクティブ配色 */
+  .tab-btn[data-tab="card-gold"]:hover { border-color: #b8860b; color: #8a6a08; }
+  .tab-btn.active[data-tab="card-gold"] {
+    background: #b8860b;
+    border-color: #b8860b;
+    color: #3b2a06;
+  }
+
+  .tab-btn[data-tab="card-platinum"]:hover { border-color: #1a1a1a; color: #1a1a1a; }
+  .tab-btn.active[data-tab="card-platinum"] {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  /* 表示するタブ数に応じて、対象外のボタン／パネルを非表示にする */
+  .tabs[data-tab-count="1"] .tab-btn[data-slot="2"],
+  .tabs[data-tab-count="1"] .tab-btn[data-slot="3"],
+  .tabs[data-tab-count="1"] .tab-panel[data-slot="2"],
+  .tabs[data-tab-count="1"] .tab-panel[data-slot="3"] {
+    display: none;
+  }
+
+  .tabs[data-tab-count="2"] .tab-btn[data-slot="3"],
+  .tabs[data-tab-count="2"] .tab-panel[data-slot="3"] {
+    display: none;
+  }
+
+  /* タブが1つだけの場合、ナビ自体を非表示にしたいケース用トグル */
+  .tabs[data-tab-count="1"].tabs--hide-single-nav .tab-nav {
+    display: none;
+  }
+
+  /* タブが1つの場合でも不自然にならないよう、ボタンを見出し風に見せる */
+  .tabs[data-tab-count="1"] .tab-nav .tab-btn {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .tab-panel {
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .tab-panel.active { display: block; }
+
+  .tab-panel h2 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--jcb-blue);
+  }
+</style>
+</head>
+<body>
+
+<header class="demo-header">
+  <h1>タブ表示数カスタムサンプル</h1>
+  <p>
+    タブの数を1〜3個の範囲で柔軟に切り替えられる構成のテストページです。<br>
+    下の操作パネルで表示タブ数・ナビ非表示の有無を切り替えて挙動を確認できます。
+  </p>
+</header>
+
+<section class="controls">
+  <fieldset>
+    <legend>表示するタブ数</legend>
+    <label><input type="radio" name="tabCount" value="1"> 1つ</label>
+    <label><input type="radio" name="tabCount" value="2"> 2つ</label>
+    <label><input type="radio" name="tabCount" value="3" checked> 3つ</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>タブが1つの時</legend>
+    <label><input type="checkbox" id="hideSingleNav"> ナビ自体を非表示にする</label>
+  </fieldset>
+</section>
+
+<div class="tabs-wrap">
+  <div class="mechanism-note">
+    <h2>仕組み</h2>
+    <ul>
+      <li><code>.tabs</code> の <code>data-tab-count="1|2|3"</code> を切り替えると、その数を超える <code>data-slot</code> のボタン／パネルがCSSで自動的に非表示になります。</li>
+      <li>タブが1つの場合、ボタンはクリック不可・見出し風の見た目にして不自然にならないようにしています。</li>
+      <li><code>.tabs--hide-single-nav</code> クラスを付与すると、タブが1つの時にナビ自体（<code>.tab-nav</code>）を非表示にできます。</li>
+      <li>実運用では <code>data-tab-count</code> 属性と <code>tabs--hide-single-nav</code> クラスを、手動で出し分ける想定です。</li>
+    </ul>
+  </div>
+
+  <div class="tabs" data-tab-count="3" id="tabs">
+    <div class="tab-nav" role="tablist">
+      <button type="button" class="tab-btn active" role="tab" data-slot="1" data-tab="card-sw">JCBカード S/JCBカード W</button>
+      <button type="button" class="tab-btn" role="tab" data-slot="2" data-tab="card-gold">JCBゴールド</button>
+      <button type="button" class="tab-btn" role="tab" data-slot="3" data-tab="card-platinum">JCBプラチナ</button>
+    </div>
+
+    <div class="tab-panel active" role="tabpanel" data-slot="1" id="panel-card-sw">
+      <h2>JCBカード S/JCBカード W</h2>
+      <p>ここにJCBカード S/JCBカード Wの仮テキストが入ります。年会費や基本スペック、付帯サービスなどの説明をここに配置します。</p>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" data-slot="2" id="panel-card-gold">
+      <h2>JCBゴールド</h2>
+      <p>ここにJCBゴールドの仮テキストが入ります。空港ラウンジサービスや旅行保険などの特典説明をここに配置します。</p>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" data-slot="3" id="panel-card-platinum">
+      <h2>JCBプラチナ</h2>
+      <p>ここにJCBプラチナの仮テキストが入ります。コンシェルジュサービスなど上位カード向けの特典説明をここに配置します。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const tabs = document.getElementById('tabs');
+  const tabBtns = tabs.querySelectorAll('.tab-btn');
+  const tabPanels = tabs.querySelectorAll('.tab-panel');
+  const tabCountRadios = document.querySelectorAll('input[name="tabCount"]');
+  const hideSingleNavCheckbox = document.getElementById('hideSingleNav');
+
+  function activateTab(targetBtn) {
+    tabBtns.forEach((btn) => btn.classList.toggle('active', btn === targetBtn));
+    tabPanels.forEach((panel) => {
+      panel.classList.toggle('active', panel.dataset.slot === targetBtn.dataset.slot);
+    });
+  }
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => activateTab(btn));
+  });
+
+  function applyTabCount(count) {
+    tabs.dataset.tabCount = count;
+
+    // 非表示になったタブがactiveのままだと表示が崩れるため、
+    // 表示範囲内の先頭タブに強制的に切り替える
+    const activeBtn = tabs.querySelector('.tab-btn.active');
+    if (!activeBtn || Number(activeBtn.dataset.slot) > Number(count)) {
+      activateTab(tabs.querySelector('.tab-btn[data-slot="1"]'));
+    }
+  }
+
+  tabCountRadios.forEach((radio) => {
+    radio.addEventListener('change', (e) => applyTabCount(e.target.value));
+  });
+
+  hideSingleNavCheckbox.addEventListener('change', (e) => {
+    tabs.classList.toggle('tabs--hide-single-nav', e.target.checked);
+  });
+</script>
+
+</body>
+</html>
