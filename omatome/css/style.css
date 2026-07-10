@@ -727,9 +727,12 @@ body {
   max-width: 960px;
   margin: 24px auto 0;
   padding: 0 16px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+@media (max-width: 900px) {
+  .type-reco-wrap { grid-template-columns: 1fr; }
 }
 .type-reco-block {
   display: block;
@@ -754,7 +757,7 @@ body {
 .type-reco-row {
   display: flex;
   align-items: flex-start;
-  gap: 32px;
+  gap: 16px;
 }
 .type-reco-visual { flex-shrink: 0; width: 150px; }
 .type-reco-visual .anc-img-wrap { margin-bottom: 8px; }
@@ -771,7 +774,6 @@ body {
   font-size: 14px;
   color: var(--text);
   margin: 0 0 14px;
-  white-space: nowrap;
 }
 .type-reco-features {
   list-style: none;
@@ -784,7 +786,7 @@ body {
 .type-reco-features li {
   position: relative;
   padding-left: 14px;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text);
   line-height: 1.6;
 }
@@ -1198,7 +1200,7 @@ body {
 .anc-value { font-weight: 600; text-align: right; }
 .anc-value.accent { color: var(--jcb-blue); font-weight: 700; }
 .anc-apply-box {
-  border: 2px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 18px 14px 14px;
   position: relative;
@@ -1212,7 +1214,7 @@ body {
 .anc-btn {
   display: flex; align-items: center; justify-content: center; gap: 5px;
   width: 100%; padding: 11px 8px;
-  background: #d4a000; color: white;
+  background: var(--jcb-blue); color: white;
   text-align: center; text-decoration: none;
   font-size: 13px; font-weight: 700;
   border-radius: var(--radius); margin-bottom: 8px;
@@ -1238,6 +1240,15 @@ body {
 }
 .anc-card-limited .anc-img-wrap img { max-width: 110px; }
 .anc-card-limited .anc-name { font-size: 11px; font-weight: 500; color: var(--text-muted); margin-bottom: 2px; }
+.anc-limited-notes { margin-top: 24px; }
+.anc-limited-notes ul { list-style: none; margin: 0; padding: 0; }
+.anc-limited-notes2 { margin-top: 12px; }
+.anc-limited-notes .notes-txt,
+.anc-limited-notes2 .notes-txt {
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+.anc-limited-notes .notes-heading { margin-bottom: 0; }
 .anc-card-limited .anc-sub-name { font-size: 22px; font-weight: 800; color: var(--text); margin-top: 0; margin-bottom: 12px; }
 @media (max-width: 640px) {
   .anc-3col, .anc-2col { grid-template-columns: 1fr; }
