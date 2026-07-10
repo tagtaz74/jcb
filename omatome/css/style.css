@@ -720,6 +720,83 @@ body {
 #diagnosis { padding-top: 40px; }
 
 /* ========================================
+   TYPE-BASED RECOMMENDATION SECTION
+======================================== */
+#recommend { padding-top: 40px; }
+.type-reco-wrap {
+  max-width: 960px;
+  margin: 24px auto 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.type-reco-block {
+  display: block;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.type-reco-block:hover {
+  border-color: var(--jcb-blue);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.type-reco-tag {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+.type-reco-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+.type-reco-visual { flex-shrink: 0; width: 150px; }
+.type-reco-visual .anc-img-wrap { margin-bottom: 8px; }
+.type-reco-visual .anc-img-wrap img { max-width: 130px; }
+.type-reco-visual .anc-dots { margin-bottom: 0; }
+.type-reco-info { flex: 1; min-width: 0; }
+.type-reco-name { font-size: 21px; font-weight: 800; color: var(--text); margin: 0 0 10px; white-space: nowrap; }
+.type-reco-fee {
+  display: inline-block;
+  width: fit-content;
+  padding: 7px 14px;
+  border: 1.5px solid var(--text);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text);
+  margin: 0 0 14px;
+  white-space: nowrap;
+}
+.type-reco-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.type-reco-features li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.type-reco-features li::before { content: '・'; position: absolute; left: 0; }
+@media (max-width: 640px) {
+  .type-reco-block { padding: 16px; }
+  .type-reco-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .type-reco-visual { width: 100%; }
+  .type-reco-name, .type-reco-fee { white-space: normal; }
+}
+
+/* ========================================
    DIAGNOSIS additions
 ======================================== */
 .result-action-row {

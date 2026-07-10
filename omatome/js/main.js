@@ -34,7 +34,7 @@ const cards = {
     }
   },
   WplusL: {
-    name: 'JCBカード W Plus L',
+    name: 'JCBカード W plus L',
     fee: '年会費 永年無料',
     color: 'pink',
     badge: 'ポイント特化＋女性向け特典',
@@ -198,7 +198,7 @@ function showResult() {
 
   const designSections = {
     W:        `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_w.png" alt="JCBカード W 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
-    WplusL:   `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`,
+    WplusL:   `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`,
     S:        `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s.png" alt="JCBカード S 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
     gold:     `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
     platinum: `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
@@ -208,7 +208,7 @@ function showResult() {
   let extraHTML = '';
   if (result.card === 'WplusL') {
     const plusLHTML = card.plusLBenefits.map((b, i) => `<div class="plusl-benefit-item"><div class="plusl-benefit-num">${i+1}.</div><div class="plusl-benefit-text"><strong>${b.title}</strong><span>${b.desc}</span></div></div>`).join('');
-    extraHTML = `<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
+    extraHTML = `<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW plus Lだけの特典</div>${plusLHTML}</div>`;
   }
 
   document.getElementById('cardResult').innerHTML = `
@@ -227,7 +227,7 @@ function showResult() {
 
   const allCards = [
     { key: 'W',        color: 'green',    label: 'JCBカード W',       note: '年会費無料・ポイント2倍（39歳以下限定）' },
-    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
+    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
     { key: 'S',        color: 'blue',     label: 'JCBカード S',        note: '年会費無料・クラブオフ優待（年齢不問）' },
     { key: 'gold',     color: 'gold',     label: 'JCBゴールド',        note: '旅行保険1億円・空港ラウンジ' },
     { key: 'platinum', color: 'platinum', label: 'JCBプラチナ',        note: 'グルメ・コンシェルジュ・プライオリティパス' },
@@ -389,8 +389,10 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 ============================================= */
 document.querySelectorAll('.anc-dots').forEach(dotsEl => {
   dotsEl.querySelectorAll('.anc-dot[data-img]').forEach(dot => {
-    dot.addEventListener('click', () => {
-      const card = dot.closest('.anc-card');
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = dot.closest('.anc-card, .type-reco-visual');
       const img = card.querySelector('.anc-img-wrap img');
       img.src = dot.dataset.img;
       img.alt = dot.dataset.alt;
