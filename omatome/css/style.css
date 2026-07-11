@@ -370,7 +370,7 @@ body {
 .card-result-header.blue { background: linear-gradient(135deg, #003087 0%, #1a56b0 100%); }
 .card-result-header.gold { background: linear-gradient(135deg, #92670a 0%, #c8960c 100%); }
 .card-result-header.platinum { background: linear-gradient(135deg, #374151 0%, #6b7280 100%); }
-.card-result-header.green { background: linear-gradient(135deg, #065f46 0%, #16803c 100%); }
+.card-result-header.gray { background: linear-gradient(135deg, #57534e 0%, #78716c 100%); }
 .card-result-header.pink { background: linear-gradient(135deg, #880e4f 0%, #c2185b 50%, #e91e8c 100%); }
 
 .card-badge {
@@ -442,8 +442,10 @@ body {
 .points-val { font-weight: 700; text-align: right; }
 
 /* RETRY */
-.result-back-btn {
+.result-apply-btn {
+  display: block;
   width: 100%;
+  box-sizing: border-box;
   padding: 14px;
   background: var(--jcb-blue);
   color: #fff;
@@ -451,11 +453,13 @@ body {
   border-radius: var(--radius);
   font-size: 14px;
   font-weight: 700;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 2px 8px rgba(0,48,135,0.22);
 }
-.result-back-btn:hover {
+.result-apply-btn:hover {
   background: #1a56b0;
   box-shadow: 0 4px 12px rgba(0,48,135,0.32);
 }
@@ -807,20 +811,6 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-.result-compare-link {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--jcb-blue);
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.result-compare-link:hover { background: #eff6ff; }
 
 /* ========================================
    COMPARISON SECTION

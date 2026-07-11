@@ -23,7 +23,7 @@ const cards = {
   W: {
     name: 'JCBカード W',
     fee: '年会費 永年無料',
-    color: 'green',
+    color: 'blue',
     badge: 'ポイント特化型',
     specs: {
       '年会費': '永年無料',
@@ -54,7 +54,7 @@ const cards = {
   S: {
     name: 'JCBカード S',
     fee: '年会費 永年無料',
-    color: 'blue',
+    color: 'gray',
     badge: '優待充実型',
     specs: {
       '年会費': '永年無料',
@@ -236,20 +236,15 @@ function showResult() {
     .filter(c => c.key !== result.card)
     .map(c => `<div class="other-item"><div class="other-dot ${c.color}"></div><span class="other-card-name">${c.label}</span><span class="other-card-note">${c.note}</span></div>`).join('');
 
-  document.getElementById('stepNav').style.display = 'none';
+  const applyAnchors = { W: 'apply-card-w', WplusL: 'apply-card-wplusl', S: 'apply-card-s', gold: 'apply-card-gold', platinum: 'apply-card-platinum' };
+  const applyBtn = document.getElementById('resultApplyBtn');
+  applyBtn.href = '#' + applyAnchors[result.card];
+  applyBtn.textContent = `${card.name}を申し込む`;
+
   const section = document.getElementById('resultSection');
   section.style.display = 'block';
   setTimeout(() => section.classList.add('visible'), 10);
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function backFromResult() {
-  const section = document.getElementById('resultSection');
-  section.classList.remove('visible');
-  section.style.display = 'none';
-  document.getElementById('stepNav').style.display = '';
-  goToStep(6);
-  document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function resetDiagnosis() {
