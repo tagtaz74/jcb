@@ -178,9 +178,39 @@ function diagnose({ fee, age, travel, food, points, gender }) {
   };
 }
 
-function showResult() {
+const FIELD_VALUES = {
+  age: ['under40', 'over40'],
+  gender: ['female', 'male'],
+  fee: ['free', 'paid'],
+  travel: ['overseas', 'domestic', 'none'],
+  food: ['gourmet', 'cospa'],
+  points: ['yes', 'no'],
+};
+
+// 残りの未回答質問がどんな組み合わせでも結果が変わらないなら、その結果を返す（まだ確定しないなら null）
+function findDeterminedResult(answers) {
+  const unanswered = Object.keys(FIELD_VALUES).filter(k => !answers[k]);
+  if (unanswered.length === 0) return diagnose(answers);
+
+  let combos = [{}];
+  unanswered.forEach(key => {
+    const next = [];
+    combos.forEach(c => FIELD_VALUES[key].forEach(v => next.push({ ...c, [key]: v })));
+    combos = next;
+  });
+
+  let signature = null;
+  for (const combo of combos) {
+    const json = JSON.stringify(diagnose({ ...answers, ...combo }));
+    if (signature === null) signature = json;
+    else if (signature !== json) return null;
+  }
+  return diagnose(answers);
+}
+
+function showResult(precomputed) {
   const ans = getAnswers();
-  const result = diagnose(ans);
+  const result = precomputed || diagnose(ans);
   const card = cards[result.card];
 
   const specsHTML = Object.entries(card.specs).map(([k, v]) =>
@@ -293,7 +323,8 @@ function updateNavButtons() {
   const nextBtn = document.getElementById('stepNext');
   backBtn.disabled = currentStep === 1;
   nextBtn.disabled = !isStepAnswered(currentStep);
-  nextBtn.textContent = currentStep === 6 ? '結果を見る >' : '進む >';
+  const determined = isStepAnswered(currentStep) && !!findDeterminedResult(getAnswers());
+  nextBtn.textContent = (determined || currentStep === 6) ? '結果を見る >' : '進む >';
 }
 
 function goToStep(n) {
@@ -305,13 +336,33 @@ function goToStep(n) {
   updateNavButtons();
 }
 
+function clearAnswersFrom(n) {
+  for (let i = n; i <= 6; i++) {
+    const name = stepQNames[i - 1];
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+      r.checked = false;
+      r.closest('.option').classList.remove('selected');
+    });
+    const card = document.getElementById(`qcard${i}`);
+    if (card) card.classList.remove('answered');
+  }
+}
+
 function stepBack() {
-  if (currentStep > 1) goToStep(currentStep - 1);
+  if (currentStep === 1) return;
+  clearAnswersFrom(currentStep);
+  const section = document.getElementById('resultSection');
+  section.classList.remove('visible');
+  section.style.display = 'none';
+  goToStep(currentStep - 1);
 }
 
 function stepNext() {
   if (!isStepAnswered(currentStep)) return;
-  if (currentStep < 6) {
+  const determined = findDeterminedResult(getAnswers());
+  if (determined) {
+    showResult(determined);
+  } else if (currentStep < 6) {
     goToStep(currentStep + 1);
   } else {
     showResult();
@@ -336,7 +387,10 @@ document.querySelectorAll('.option').forEach(label => {
     stepping = true;
     setTimeout(() => {
       stepping = false;
-      if (currentStep < 6) {
+      const determined = findDeterminedResult(getAnswers());
+      if (determined) {
+        showResult(determined);
+      } else if (currentStep < 6) {
         goToStep(currentStep + 1);
       } else {
         showResult();
