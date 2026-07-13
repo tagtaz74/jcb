@@ -23,7 +23,7 @@ const cards = {
   W: {
     name: 'JCBカード W',
     fee: '年会費 永年無料',
-    color: 'green',
+    color: 'blue',
     badge: 'ポイント特化型',
     specs: {
       '年会費': '永年無料',
@@ -34,7 +34,7 @@ const cards = {
     }
   },
   WplusL: {
-    name: 'JCBカード W Plus L',
+    name: 'JCBカード W plus L',
     fee: '年会費 永年無料',
     color: 'pink',
     badge: 'ポイント特化＋女性向け特典',
@@ -54,7 +54,7 @@ const cards = {
   S: {
     name: 'JCBカード S',
     fee: '年会費 永年無料',
-    color: 'blue',
+    color: 'gray',
     badge: '優待充実型',
     specs: {
       '年会費': '永年無料',
@@ -178,9 +178,39 @@ function diagnose({ fee, age, travel, food, points, gender }) {
   };
 }
 
-function showResult() {
+const FIELD_VALUES = {
+  age: ['under40', 'over40'],
+  gender: ['female', 'male'],
+  fee: ['free', 'paid'],
+  travel: ['overseas', 'domestic', 'none'],
+  food: ['gourmet', 'cospa'],
+  points: ['yes', 'no'],
+};
+
+// 残りの未回答質問がどんな組み合わせでも結果が変わらないなら、その結果を返す（まだ確定しないなら null）
+function findDeterminedResult(answers) {
+  const unanswered = Object.keys(FIELD_VALUES).filter(k => !answers[k]);
+  if (unanswered.length === 0) return diagnose(answers);
+
+  let combos = [{}];
+  unanswered.forEach(key => {
+    const next = [];
+    combos.forEach(c => FIELD_VALUES[key].forEach(v => next.push({ ...c, [key]: v })));
+    combos = next;
+  });
+
+  let signature = null;
+  for (const combo of combos) {
+    const json = JSON.stringify(diagnose({ ...answers, ...combo }));
+    if (signature === null) signature = json;
+    else if (signature !== json) return null;
+  }
+  return diagnose(answers);
+}
+
+function showResult(precomputed) {
   const ans = getAnswers();
-  const result = diagnose(ans);
+  const result = precomputed || diagnose(ans);
   const card = cards[result.card];
 
   const specsHTML = Object.entries(card.specs).map(([k, v]) =>
@@ -198,7 +228,7 @@ function showResult() {
 
   const designSections = {
     W:        `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_w.png" alt="JCBカード W 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
-    WplusL:   `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W Plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W Plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W Plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`,
+    WplusL:   `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_white.webp" alt="JCBカード W plus L ホワイト"><div class="design-card-label">ホワイト</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_pink.webp" alt="JCBカード W plus L ピンク"><div class="design-card-label">ピンク</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_mika.png" alt="JCBカード W plus L M / mika ninagawa"><div class="design-card-label">M / mika ninagawa</div></div></div></div>`,
     S:        `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s.png" alt="JCBカード S 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
     gold:     `<div class="design-section"><div class="design-section-title">選べるデザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"><div class="design-card-label">通常デザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"><div class="design-card-label">バイオマスデザイン</div></div><div class="design-card-wrap"><img class="design-card-img" src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"><div class="design-card-label">ディズニー・デザイン</div></div></div></div>`,
     platinum: `<div class="design-section"><div class="design-section-title">券面デザイン</div><div class="design-cards"><div class="design-card-wrap"><img class="design-card-img" src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"><div class="design-card-label">通常デザイン</div></div></div></div>`,
@@ -208,7 +238,7 @@ function showResult() {
   let extraHTML = '';
   if (result.card === 'WplusL') {
     const plusLHTML = card.plusLBenefits.map((b, i) => `<div class="plusl-benefit-item"><div class="plusl-benefit-num">${i+1}.</div><div class="plusl-benefit-text"><strong>${b.title}</strong><span>${b.desc}</span></div></div>`).join('');
-    extraHTML = `<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW Plus Lだけの特典</div>${plusLHTML}</div>`;
+    extraHTML = `<div class="plusl-benefits"><div class="plusl-benefits-title">JCBカードW plus Lだけの特典</div>${plusLHTML}</div>`;
   }
 
   document.getElementById('cardResult').innerHTML = `
@@ -227,7 +257,7 @@ function showResult() {
 
   const allCards = [
     { key: 'W',        color: 'green',    label: 'JCBカード W',       note: '年会費無料・ポイント2倍（39歳以下限定）' },
-    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W Plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
+    { key: 'WplusL',   color: 'pink',     label: 'JCBカード W plus L', note: '年会費無料・ポイント2倍＋女性向け特典（39歳以下限定）' },
     { key: 'S',        color: 'blue',     label: 'JCBカード S',        note: '年会費無料・クラブオフ優待（年齢不問）' },
     { key: 'gold',     color: 'gold',     label: 'JCBゴールド',        note: '旅行保険1億円・空港ラウンジ' },
     { key: 'platinum', color: 'platinum', label: 'JCBプラチナ',        note: 'グルメ・コンシェルジュ・プライオリティパス' },
@@ -236,20 +266,15 @@ function showResult() {
     .filter(c => c.key !== result.card)
     .map(c => `<div class="other-item"><div class="other-dot ${c.color}"></div><span class="other-card-name">${c.label}</span><span class="other-card-note">${c.note}</span></div>`).join('');
 
-  document.getElementById('stepNav').style.display = 'none';
+  const applyAnchors = { W: 'apply-card-w', WplusL: 'apply-card-wplusl', S: 'apply-card-s', gold: 'apply-card-gold', platinum: 'apply-card-platinum' };
+  const applyBtn = document.getElementById('resultApplyBtn');
+  applyBtn.href = '#' + applyAnchors[result.card];
+  applyBtn.textContent = `${card.name}を申し込む`;
+
   const section = document.getElementById('resultSection');
   section.style.display = 'block';
   setTimeout(() => section.classList.add('visible'), 10);
   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function backFromResult() {
-  const section = document.getElementById('resultSection');
-  section.classList.remove('visible');
-  section.style.display = 'none';
-  document.getElementById('stepNav').style.display = '';
-  goToStep(6);
-  document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function resetDiagnosis() {
@@ -298,7 +323,8 @@ function updateNavButtons() {
   const nextBtn = document.getElementById('stepNext');
   backBtn.disabled = currentStep === 1;
   nextBtn.disabled = !isStepAnswered(currentStep);
-  nextBtn.textContent = currentStep === 6 ? '結果を見る >' : '進む >';
+  const determined = isStepAnswered(currentStep) && !!findDeterminedResult(getAnswers());
+  nextBtn.textContent = (determined || currentStep === 6) ? '結果を見る >' : '進む >';
 }
 
 function goToStep(n) {
@@ -310,13 +336,33 @@ function goToStep(n) {
   updateNavButtons();
 }
 
+function clearAnswersFrom(n) {
+  for (let i = n; i <= 6; i++) {
+    const name = stepQNames[i - 1];
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+      r.checked = false;
+      r.closest('.option').classList.remove('selected');
+    });
+    const card = document.getElementById(`qcard${i}`);
+    if (card) card.classList.remove('answered');
+  }
+}
+
 function stepBack() {
-  if (currentStep > 1) goToStep(currentStep - 1);
+  if (currentStep === 1) return;
+  clearAnswersFrom(currentStep);
+  const section = document.getElementById('resultSection');
+  section.classList.remove('visible');
+  section.style.display = 'none';
+  goToStep(currentStep - 1);
 }
 
 function stepNext() {
   if (!isStepAnswered(currentStep)) return;
-  if (currentStep < 6) {
+  const determined = findDeterminedResult(getAnswers());
+  if (determined) {
+    showResult(determined);
+  } else if (currentStep < 6) {
     goToStep(currentStep + 1);
   } else {
     showResult();
@@ -341,7 +387,10 @@ document.querySelectorAll('.option').forEach(label => {
     stepping = true;
     setTimeout(() => {
       stepping = false;
-      if (currentStep < 6) {
+      const determined = findDeterminedResult(getAnswers());
+      if (determined) {
+        showResult(determined);
+      } else if (currentStep < 6) {
         goToStep(currentStep + 1);
       } else {
         showResult();
@@ -389,8 +438,10 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 ============================================= */
 document.querySelectorAll('.anc-dots').forEach(dotsEl => {
   dotsEl.querySelectorAll('.anc-dot[data-img]').forEach(dot => {
-    dot.addEventListener('click', () => {
-      const card = dot.closest('.anc-card');
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = dot.closest('.anc-card, .type-reco-visual');
       const img = card.querySelector('.anc-img-wrap img');
       img.src = dot.dataset.img;
       img.alt = dot.dataset.alt;
