@@ -215,35 +215,19 @@ document.querySelectorAll('.carousel').forEach(setupCarousel);
 /* =============================================
    タイプ別：重視ポイントのタブ
 ============================================= */
-const recoTabs = [...document.querySelectorAll('.reco-tab')];
-const recoPanels = [...document.querySelectorAll('.reco-panel')];
-function selectRecoTab(type) {
-  const all = type === 'all';
-  recoTabs.forEach(tab => {
-    const selected = tab.dataset.reco === type;
-    tab.classList.toggle('active', selected);
-    tab.setAttribute('aria-selected', selected);
+document.querySelectorAll('.reco-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.reco-tab').forEach(t => {
+      t.classList.toggle('active', t === tab);
+      t.setAttribute('aria-selected', t === tab);
+    });
+    document.querySelectorAll('.reco-panel').forEach(p => { p.hidden = p.id !== `reco-${tab.dataset.reco}`; });
+    const panel = document.getElementById(`reco-${tab.dataset.reco}`);
+    const carousel = panel.querySelector('.carousel');
+    carousel.querySelector('.carousel-track').scrollLeft = 0;
+    carousel.carouselUpdate();
   });
-  recoPanels.forEach(panel => {
-    panel.hidden = !all && panel.id !== `reco-${type}`;
-    if (!panel.hidden) panel.querySelector('.carousel-track').scrollLeft = 0;
-  });
-}
-recoTabs.forEach(tab => tab.addEventListener('click', () => {
-  const type = tab.dataset.reco;
-  selectRecoTab(type);
-  const firstPanel = type === 'all' ? recoPanels[0] : document.getElementById(`reco-${type}`);
-  firstPanel.querySelector('.reco-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}));
-
-function showRecoCardFromHash() {
-  const card = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-  if (!card?.matches('.reco-card')) return;
-  selectRecoTab('all');
-  requestAnimationFrame(() => requestAnimationFrame(() => card.scrollIntoView({ behavior: 'instant', block: 'start' })));
-}
-window.addEventListener('hashchange', showRecoCardFromHash);
-showRecoCardFromHash();
+});
 
 /* =============================================
    比較：タブ切り替え

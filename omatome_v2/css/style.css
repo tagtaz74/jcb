@@ -18,7 +18,7 @@
   --ext-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' fill='none'%3E%3Cpath d='M4.5 1.5H1.5a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7m-4-6h4m0 0v4m0-4L4.5 6.5' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -475,7 +475,7 @@ button { font-family: inherit; }
 ======================================== */
 .reco-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   margin-bottom: 20px;
 }
@@ -493,7 +493,7 @@ button { font-family: inherit; }
 .reco-tab:hover { border-color: var(--jcb-blue); color: var(--jcb-blue); }
 .reco-tab.active { background: var(--jcb-blue); border-color: var(--jcb-blue); color: #fff; }
 @media (max-width: 400px) { .reco-tab { font-size: 12px; } }
-@media (min-width: 900px) {
+@media (min-width: 641px) {
   .reco-tab { white-space: nowrap; }
   .reco-tab br { display: none; }
 }
@@ -503,30 +503,21 @@ button { font-family: inherit; }
   border-radius: var(--radius);
   padding: 18px 18px 20px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  grid-template-areas:
-    "image name"
-    "image chips"
-    "desc desc"
-    "actions actions";
-  align-items: center;
-  column-gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .reco-card-img {
-  grid-area: image;
   display: block;
-  margin: 0;
+  margin: 0 auto 12px;
   border: none; background: none;
   cursor: zoom-in;
 }
 .reco-card-img img { width: 150px; display: block; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.18)); }
-.reco-card-name { grid-area: name; align-self: end; font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.reco-card-name { font-size: 19px; font-weight: 800; margin-bottom: 10px; }
 .usp-chips {
-  grid-area: chips;
   list-style: none;
   display: flex; flex-wrap: wrap; gap: 6px;
-  margin: 0;
+  margin-bottom: 10px;
 }
 .usp-chips li {
   padding: 4px 10px;
@@ -536,26 +527,11 @@ button { font-family: inherit; }
   color: var(--jcb-blue);
 }
 .reco-card-desc {
-  grid-area: desc;
   font-size: 13px;
   line-height: 1.65;
   color: var(--text-muted);
-  margin: 12px 0 16px;
-}
-.reco-card .cta-pair {
-  grid-area: actions;
-}
-@media (max-width: 640px) {
-  .reco-card {
-    grid-template-columns: 92px minmax(0, 1fr);
-    column-gap: 12px;
-    padding: 14px;
-  }
-  .reco-card-img img { width: 100%; }
-  .reco-card-name { font-size: 17px; margin-bottom: 6px; }
-  .usp-chips { gap: 5px; }
-  .usp-chips li { padding: 3px 7px; font-size: 11px; }
-  .reco-card-desc { font-size: 12px; margin: 10px 0 12px; }
+  margin-bottom: 16px;
+  flex: 1;
 }
 
 /* CAROUSEL */
@@ -576,21 +552,6 @@ button { font-family: inherit; }
   flex: 0 0 84%;
   scroll-snap-align: start;
 }
-.reco-panel .carousel-track {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  overflow: visible;
-  scroll-snap-type: none;
-  margin: 0;
-  padding: 4px 0 8px;
-}
-.reco-panel .carousel-item {
-  min-width: 0;
-  width: 100%;
-  scroll-snap-align: none;
-}
-.reco-panel .carousel-dots { display: none; }
 .carousel.is-static .carousel-item:only-child { flex-basis: 100%; }
 .carousel-dots {
   display: flex; justify-content: center; gap: 8px;
