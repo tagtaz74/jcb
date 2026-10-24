@@ -751,6 +751,7 @@ button { font-family: inherit; }
 .campaign-body h3 { font-size: var(--text-base); font-weight: 800; line-height: 1.5; }
 .campaign-body .btn { margin-top: auto; align-self: stretch; padding-inline: var(--sp-4); }
 .campaign-body .pop-label { align-self: flex-start; margin: 0; }
+.campaign-body .guide-comment { margin-top: 0; }
 
 /* ============================================================
    Tips
@@ -797,6 +798,32 @@ button { font-family: inherit; }
 }
 .float-cta.is-show { transform: translate(-50%, 0); }
 .float-cta .btn-cta { max-width: none; box-shadow: 0 5px 0 #D9A400, var(--shadow-lg); font-size: var(--text-sm); padding: var(--sp-3) var(--sp-6); }
+
+/* --- ガイドのひとこと（各ボックスの最後） --- */
+.guide-comment { display: flex; align-items: flex-start; gap: var(--sp-3); margin-top: var(--sp-6); }
+.guide-avatar {
+  flex-shrink: 0; width: 44px; height: 44px; overflow: hidden;
+  border-radius: 50%; background: #fff; border: 2px solid var(--c);
+}
+/* 元画像は上半身の正方形。顔まわりが円に収まるよう拡大して寄せる */
+.guide-avatar img { display: block; width: 170%; max-width: none; height: auto; margin: -8% 0 0 -35%; }
+.guide-bubble {
+  --bubble-bg: var(--c-bg, var(--color-surface));
+  position: relative; flex: 1;
+  background: var(--bubble-bg); border: 1.5px solid var(--c); border-radius: var(--radius-lg);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-xs); font-weight: 600; line-height: 1.8;
+}
+/* しっぽ：外側=枠線色、内側=地色で重ねる */
+.guide-bubble::before, .guide-bubble::after {
+  content: ''; position: absolute;
+  border-style: solid; border-color: transparent;
+}
+.guide-bubble::before { top: 12px; left: -12px; border-width: 8px 12px 8px 0; border-right-color: var(--c); }
+.guide-bubble::after  { top: 14px; left: -8px;  border-width: 6px 9px 6px 0;  border-right-color: var(--bubble-bg); }
+@media (min-width: 768px) {
+  .guide-bubble { font-size: var(--text-sm); }
+}
 
 /* ============================================================
    Utilities（designsystem の命名に準拠。コンポーネントより後に置いて優先させる）
