@@ -479,7 +479,7 @@ button { font-family: inherit; }
   gap: 6px;
   margin-bottom: 20px;
 }
-/* 体裁はスペック比較の .tab-btn に揃える（SPのみ2行） */
+/* 体裁はスペック比較の .tab-btn に揃える */
 .reco-tab {
   padding: 10px 4px;
   border-radius: 24px;
@@ -492,9 +492,10 @@ button { font-family: inherit; }
 }
 .reco-tab:hover { border-color: var(--jcb-blue); color: var(--jcb-blue); }
 .reco-tab.active { background: var(--jcb-blue); border-color: var(--jcb-blue); color: #fff; }
-@media (max-width: 400px) { .reco-tab { font-size: 12px; } }
-@media (min-width: 641px) {
-  .reco-tab { white-space: nowrap; }
+/* SPは縦3段・1行表示（PCは3列・2行） */
+@media (max-width: 640px) {
+  .reco-tabs { grid-template-columns: 1fr; }
+  .reco-tab { padding: 11px 12px; }
   .reco-tab br { display: none; }
 }
 
@@ -533,6 +534,8 @@ button { font-family: inherit; }
   margin-bottom: 16px;
   flex: 1;
 }
+/* 先頭の赤字リードは1行目に独立させる */
+.reco-card-desc > .em:first-child { display: block; margin-bottom: 4px; }
 
 /* CAROUSEL */
 .carousel-track {
@@ -575,6 +578,23 @@ button { font-family: inherit; }
 /* ========================================
    03 COMPARE
 ======================================== */
+/* 比較表の前に置く選び方サマリー */
+.compare-guide {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.compare-guide-title { font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+.compare-guide dl { display: grid; gap: 8px; }
+.compare-guide dl > div { background: var(--white); border-radius: 8px; padding: 12px 14px; }
+.compare-guide dt { font-size: 12px; font-weight: 700; color: var(--text-muted); }
+.compare-guide dd { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+.compare-guide dd strong { display: block; font-size: 16px; font-weight: 800; color: var(--jcb-blue); margin: 2px 0 4px; }
+@media (min-width: 768px) {
+  .compare-guide dl { grid-template-columns: repeat(3, 1fr); }
+}
+
 .tab-nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
