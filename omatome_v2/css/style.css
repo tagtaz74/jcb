@@ -150,17 +150,39 @@ button { font-family: inherit; }
   font-size: clamp(22px, 5.5vw, 42px);
   font-weight: 800;
   line-height: 1.35;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
-.hero-desc {
-  font-size: 14px;
-  opacity: 0.9;
-  line-height: 1.7;
-  margin-bottom: 28px;
+/* FV内の申し込み導線（CV用に白地で目立たせる） */
+.hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  padding: 15px 20px;
+  background: var(--white);
+  color: var(--jcb-blue);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+.hero-cta::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translateY(-2px) rotate(135deg);
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
 .hero-cards {
   overflow: hidden;
-  margin-bottom: 32px;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -193,7 +215,7 @@ button { font-family: inherit; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 32px;
 }
 @media (min-width: 641px) {
   .hero-btns { grid-template-columns: repeat(4, 1fr); max-width: 760px; gap: 10px; }
@@ -231,6 +253,11 @@ button { font-family: inherit; }
 .sec { padding: 56px 0 64px; }
 .sec--white { background: var(--white); }
 .sec--tint { background: var(--tint); }
+/* 診断なし版は診断セクションが抜けるため、以降の白／薄色の交互を入れ替える */
+.no-mil #compare,
+.no-mil #features { background: var(--white); }
+.no-mil #campaign,
+.no-mil #flow { background: var(--tint); }
 .sec--apply { background: linear-gradient(180deg, #dfe6f2 0%, #d5ddeb 100%); }
 .wrap {
   max-width: 960px;
@@ -479,7 +506,7 @@ button { font-family: inherit; }
   gap: 6px;
   margin-bottom: 20px;
 }
-/* 体裁はスペック比較の .tab-btn に揃える */
+/* 体裁は「比べて選ぶ」の .tab-btn に揃える */
 .reco-tab {
   padding: 10px 4px;
   border-radius: 24px;

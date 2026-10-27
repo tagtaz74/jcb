@@ -41,10 +41,10 @@
 <div class="nav-overlay" id="nav-overlay"></div>
 <nav class="nav-drawer" id="nav-drawer" aria-label="ページ内メニュー">
   <div class="nav-drawer-label">MENU</div>
-  <a href="#diagnosis" data-ab="mil">カード診断</a>
-  <a href="#recommend">タイプ別おすすめカード</a>
-  <a href="#compare">スペック比較</a>
-  <a href="#design">デザイン比較</a>
+  <a href="#recommend">目的で選ぶ</a>
+  <a href="#design">見た目で選ぶ</a>
+  <a href="#diagnosis" data-ab="mil">診断で選ぶ</a>
+  <a href="#compare">比べて選ぶ</a>
   <a href="#campaign">新規入会キャンペーン</a>
   <a href="#features">JCBカードの特長</a>
   <a href="#flow">お申し込みの流れ</a>
@@ -60,7 +60,13 @@
 <section class="hero" id="top">
   <div class="hero-eyebrow">JCBカード選びをサポート</div>
   <h1>あなたにぴったりの<br>JCBカードがわかる！</h1>
-  <p class="hero-desc">診断・タイプ別のおすすめ・比較表。<br>あなたに合うJCBカードが見つかる。</p>
+  <a href="#apply-list" class="hero-cta">カードを選択して申し込む</a>
+  <div class="hero-btns">
+    <a href="#recommend" class="hero-btn">目的で選ぶ ↓</a>
+    <a href="#design" class="hero-btn">見た目で選ぶ ↓</a>
+    <a href="#diagnosis" class="hero-btn" data-ab="mil">診断で選ぶ ↓</a>
+    <a href="#compare" class="hero-btn">比べて選ぶ ↓</a>
+  </div>
   <div class="hero-cards" aria-hidden="true">
     <div class="hero-cards-track">
       <div class="hero-card-chip"><img src="./images/card_s.png" alt=""></div>
@@ -88,22 +94,191 @@
       <div class="hero-card-chip"><img src="./images/card_platinum.png" alt=""></div>
     </div>
   </div>
-  <div class="hero-btns">
-    <a href="#diagnosis" class="hero-btn" data-ab="mil">診断してみる ↓</a>
-    <a href="#recommend" class="hero-btn">タイプ別で選ぶ ↓</a>
-    <a href="#compare" class="hero-btn">スペックを比較する ↓</a>
-    <a href="#design" class="hero-btn">デザインで選ぶ ↓</a>
+</section>
+
+<!-- ========================================
+  01 目的で選ぶ
+======================================== -->
+<section id="recommend" class="sec sec--white">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span class="sec-num">01</span>目的で選ぶ</p>
+      <h2 class="sec-title">どれを重視しますか？</h2>
+      <p class="sec-sub">重視するポイントを選ぶと、おすすめのJCBカードが表示されます。</p>
+    </div>
+
+    <div class="reco-tabs" role="tablist">
+      <button class="reco-tab active" type="button" role="tab" aria-selected="true" data-reco="point">普段のお買い物で<br>ポイントをためたい</button>
+      <button class="reco-tab" type="button" role="tab" aria-selected="false" data-reco="benefit">年会費無料で<br>優待・保険もほしい</button>
+      <button class="reco-tab" type="button" role="tab" aria-selected="false" data-reco="travel">旅行やワンランク上の<br>サービスを重視したい</button>
+    </div>
+
+    <!-- 年会費無料でポイント重視 -->
+    <div class="reco-panel" id="reco-point" role="tabpanel">
+      <div class="carousel">
+        <div class="carousel-track">
+          <article class="reco-card carousel-item">
+            <button class="reco-card-img js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png" aria-label="JCBカード Wの券面を拡大">
+              <img src="./images/card_w.png" alt="JCBカード W">
+            </button>
+            <h3 class="reco-card-name">JCBカード W</h3>
+            <ul class="usp-chips">
+              <li>年会費永年無料</li>
+              <li>いつでもポイント2倍</li>
+              <li>優待店でさらにポイントアップ</li>
+            </ul>
+            <p class="reco-card-desc"><span class="em">18～39歳の入会限定（40歳以降も年会費永年無料のまま利用可能）。</span>JCBカード Wは、年会費をかけずに、日常のお買い物でポイントをためたい方におすすめです。ポイント還元率がいつでも1.0％（200円で2ポイント）と高く、さらにAmazon.co.jpやスターバックス、マクドナルドなどの優待店での利用でポイント最大10.5％還元になるため、普段使いでポイントがどんどんたまります。<small>※利用加盟店や交換商品等によりポイント付与条件や還元率は異なる場合があります</small></p>
+            <div class="cta-pair">
+              <button class="btn-apply js-apply" type="button" data-card="w">申し込む</button>
+              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/w/index.html" target="_blank" rel="noopener">詳しく見る</a>
+            </div>
+          </article>
+          <article class="reco-card carousel-item">
+            <button class="reco-card-img js-zoom" type="button" data-card="wplusl" data-design="ピンクデザイン" data-img="./images/card_pink.webp" aria-label="JCBカード W plus Lの券面を拡大">
+              <img src="./images/card_pink.webp" alt="JCBカード W plus L">
+            </button>
+            <h3 class="reco-card-name">JCBカード W plus L</h3>
+            <ul class="usp-chips">
+              <li>年会費永年無料</li>
+              <li>いつでもポイント2倍</li>
+              <li>毎月の特典や優待が満載</li>
+            </ul>
+            <p class="reco-card-desc"><span class="em">ポイント高還元などJCBカード Wのサービスはそのままに、女性にうれしい優待特典を追加、デザインも選べる！</span>JCBカード W plus Lは、ポイントをためながら、毎月の特典や優待、選べるデザインも楽しみたい方におすすめです。18～39歳の入会限定で、40歳以降も年会費永年無料のまま利用できます。</p>
+            <div class="cta-pair">
+              <button class="btn-apply js-apply" type="button" data-card="wplusl">申し込む</button>
+              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/wplusl/index.html" target="_blank" rel="noopener">詳しく見る</a>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+
+    <!-- 年会費無料で優待・保険も -->
+    <div class="reco-panel" id="reco-benefit" role="tabpanel" hidden>
+      <div class="carousel">
+        <div class="carousel-track">
+          <article class="reco-card carousel-item">
+            <button class="reco-card-img js-zoom" type="button" data-card="s" data-design="通常デザイン" data-img="./images/card_s.png" aria-label="JCBカード Sの券面を拡大">
+              <img src="./images/card_s.png" alt="JCBカード S">
+            </button>
+            <h3 class="reco-card-name">JCBカード S</h3>
+            <ul class="usp-chips">
+              <li>年会費永年無料</li>
+              <li>国内外20万ヵ所以上で最大84％OFF！「JCBカード S優待 クラブオフ」</li>
+            </ul>
+            <p class="reco-card-desc"><span class="em">年会費永年無料なのに、優待サービスが多数！</span>JCBの新しいスタンダードカード「JCBカード S」は、年会費をかけずに、優待サービスもお得に活用したい方におすすめです。国内外20万ヵ所以上で最大84％OFFになる「JCBカード S優待 クラブオフ」を使えるためです。</p>
+            <div class="cta-pair">
+              <button class="btn-apply js-apply" type="button" data-card="s">申し込む</button>
+              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/os_card_s/index.html" target="_blank" rel="noopener">詳しく見る</a>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+
+    <!-- 旅行・特典・ステータス -->
+    <div class="reco-panel" id="reco-travel" role="tabpanel" hidden>
+      <div class="carousel">
+        <div class="carousel-track">
+          <article class="reco-card carousel-item">
+            <button class="reco-card-img js-zoom" type="button" data-card="gold" data-design="通常デザイン" data-img="./images/card_gold.png" aria-label="JCBゴールドの券面を拡大">
+              <img src="./images/card_gold.png" alt="JCBゴールド">
+            </button>
+            <h3 class="reco-card-name">JCBゴールド</h3>
+            <ul class="usp-chips">
+              <li>初年度年会費無料</li>
+              <li>充実の優待サービス</li>
+              <li>上位カードご招待あり</li>
+            </ul>
+            <p class="reco-card-desc"><span class="em">充実したサービスに、旅行も日常も安心の補償がついた、年会費を凌駕する1枚。</span>JCBゴールドは、旅行や日常の備えを手厚くしたい方、ワンランク上のサービスを受けたい方におすすめです。初年度は年会費無料で試せるうえ、上位カード「JCBゴールド ザ・プレミア」へご招待のチャンスもあります。<br>年会費：11,000円（税込）※初年度無料</p>
+            <div class="cta-pair">
+              <button class="btn-apply js-apply" type="button" data-card="gold">申し込む</button>
+              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/gold/index.html" target="_blank" rel="noopener">詳しく見る</a>
+            </div>
+          </article>
+          <article class="reco-card carousel-item">
+            <button class="reco-card-img js-zoom" type="button" data-card="platinum" data-design="通常デザイン" data-img="./images/card_platinum.png" aria-label="JCBプラチナの券面を拡大">
+              <img src="./images/card_platinum.png" alt="JCBプラチナ">
+            </button>
+            <h3 class="reco-card-name">JCBプラチナ</h3>
+            <ul class="usp-chips">
+              <li>グルメ・旅行特典充実</li>
+              <li>安心の保険と補償</li>
+              <li>世界の空港ラウンジ</li>
+            </ul>
+            <p class="reco-card-desc"><span class="em">厳選したホテル・旅館の宿泊や、旅行やスマホの充実した補償など、ハイクラスな特典を。</span>JCBプラチナは、旅行やグルメでハイクラスな特典を重視する方におすすめです。世界の空港ラウンジも利用でき、招待制カード「JCBザ・クラス」へご招待のチャンスもあります。<br>年会費：27,500円（税込）</p>
+            <div class="cta-pair">
+              <button class="btn-apply js-apply" type="button" data-card="platinum">申し込む</button>
+              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/platinum/index.html" target="_blank" rel="noopener">詳しく見る</a>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ========================================
-  01 カード診断（MIL相当）
+  02 見た目で選ぶ
+======================================== -->
+<section id="design" class="sec sec--tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-label"><span class="sec-num">02</span>見た目で選ぶ</p>
+      <h2 class="sec-title">お気に入りのデザインから選ぶ。</h2>
+      <p class="sec-sub">シンプル・華やか・キャラクター・限定のカテゴリで絞り込めます。券面をタップすると拡大表示され、そのままお申し込みいただけます。</p>
+    </div>
+
+      <!-- 人気ランキング（順位は仮） -->
+      <div class="rank-box">
+        <p class="rank-title">人気デザインランキング</p>
+        <ol class="rank-list">
+          <li><button class="rank-item js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png"><span class="rank-no">1</span><img src="./images/card_w.png" alt=""><span class="rank-name">JCBカード W<small>通常デザイン</small></span></button></li>
+          <li><button class="rank-item js-zoom" type="button" data-card="s" data-design="ディズニー・デザイン" data-img="./images/card_s_disney.jpg"><span class="rank-no">2</span><img src="./images/card_s_disney.jpg" alt=""><span class="rank-name">JCBカード S<small>ディズニー・デザイン</small></span></button></li>
+          <li><button class="rank-item js-zoom" type="button" data-card="sakura" data-design="限定デザイン「桜」" data-img="./images/card_gold_sakura.png"><span class="rank-no">3</span><img src="./images/card_gold_sakura.png" alt=""><span class="rank-name">JCBゴールド<small>限定デザイン「桜」</small></span></button></li>
+        </ol>
+        <p class="mock-note">【モック注記】順位は仮です。申込実績データをご提供いただき差し替えます。</p>
+      </div>
+
+      <div class="design-filter" role="group" aria-label="デザインの絞り込み">
+        <button class="design-filter-btn active" type="button" data-filter="all">すべて</button>
+        <button class="design-filter-btn" type="button" data-filter="simple">シンプル</button>
+        <button class="design-filter-btn" type="button" data-filter="hanayaka">華やか</button>
+        <button class="design-filter-btn" type="button" data-filter="character">キャラクター</button>
+        <button class="design-filter-btn" type="button" data-filter="limited">限定</button>
+      </div>
+
+      <!-- 11月の新限定券面は data-cats="limited" で追加 -->
+      <ul class="design-grid" id="designGrid">
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png"><span class="design-item-img"><img src="./images/card_w.png" alt="JCBカード W 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBカード W</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="ホワイトデザイン" data-img="./images/card_white.webp"><span class="design-item-img"><img src="./images/card_white.webp" alt="JCBカード W plus L ホワイトデザイン"></span><span class="design-item-name">ホワイトデザイン</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
+        <li data-cats="hanayaka"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="ピンクデザイン" data-img="./images/card_pink.webp"><span class="design-item-img"><img src="./images/card_pink.webp" alt="JCBカード W plus L ピンクデザイン"></span><span class="design-item-name">ピンクデザイン</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
+        <li data-cats="hanayaka"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="M / mika ninagawa" data-img="./images/card_mika.png"><span class="design-item-img"><img src="./images/card_mika.png" alt="JCBカード W plus L M / mika ninagawa"></span><span class="design-item-name">M / mika ninagawa</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="s" data-design="通常デザイン" data-img="./images/card_s.png"><span class="design-item-img"><img src="./images/card_s.png" alt="JCBカード S 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="s" data-design="バイオマスデザイン" data-img="./images/card_s_biomass.jpg"><span class="design-item-img"><img src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"></span><span class="design-item-name">バイオマスデザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
+        <li data-cats="character"><button class="design-item js-zoom" type="button" data-card="s" data-design="ディズニー・デザイン" data-img="./images/card_s_disney.jpg"><span class="design-item-img"><img src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"></span><span class="design-item-name">ディズニー・デザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="gold" data-design="通常デザイン" data-img="./images/card_gold.png"><span class="design-item-img"><img src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="gold" data-design="バイオマスデザイン" data-img="./images/card_gold_biomass.jpg"><span class="design-item-img"><img src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"></span><span class="design-item-name">バイオマスデザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
+        <li data-cats="character"><button class="design-item js-zoom" type="button" data-card="gold" data-design="ディズニー・デザイン" data-img="./images/card_gold_disney.png"><span class="design-item-img"><img src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"></span><span class="design-item-name">ディズニー・デザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
+        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="platinum" data-design="通常デザイン" data-img="./images/card_platinum.png"><span class="design-item-img"><img src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBプラチナ</span></button></li>
+        <li data-cats="limited hanayaka"><button class="design-item js-zoom" type="button" data-card="kirameki" data-design="限定デザイン「煌」" data-img="./images/card_gold_kirameki.png"><span class="design-item-img"><img src="./images/card_gold_kirameki.png" alt="JCBゴールド 限定デザイン 煌"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「煌」</span><span class="design-item-sub">JCBゴールド</span></button></li>
+        <li data-cats="limited hanayaka"><button class="design-item js-zoom" type="button" data-card="sakura" data-design="限定デザイン「桜」" data-img="./images/card_gold_sakura.png"><span class="design-item-img"><img src="./images/card_gold_sakura.png" alt="JCBゴールド 限定デザイン 桜"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「桜」</span><span class="design-item-sub">JCBゴールド</span></button></li>
+        <li data-cats="limited"><button class="design-item js-zoom" type="button" data-card="mikage" data-design="限定デザイン「御影」" data-img="./images/card_platinum_mikage.png"><span class="design-item-img"><img src="./images/card_platinum_mikage.png" alt="JCBプラチナ 限定デザイン 御影"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「御影」</span><span class="design-item-sub">JCBプラチナ</span></button></li>
+      </ul>
+  </div>
+</section>
+
+<!-- ========================================
+  03 診断で選ぶ（MIL相当）
   ABテスト：このsectionと data-ab="mil" の要素を外せば「診断なし版」になる
 ======================================== -->
 <section id="diagnosis" class="sec sec--white" data-ab="mil">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-label"><span class="sec-num">01</span>カード診断</p>
+      <p class="sec-label"><span class="sec-num">03</span>診断で選ぶ</p>
       <h2 class="sec-title">最大6問で、あなたにぴったりのJCBカードが見つかる。</h2>
     </div>
   </div>
@@ -321,137 +496,12 @@
 </section>
 
 <!-- ========================================
-  02 タイプ別おすすめカード
+  04 比べて選ぶ
 ======================================== -->
-<section id="recommend" class="sec sec--tint">
+<section id="compare" class="sec sec--tint">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-label"><span class="sec-num">02</span>タイプ別おすすめカード</p>
-      <h2 class="sec-title">どれを重視しますか？</h2>
-      <p class="sec-sub">重視するポイントを選ぶと、おすすめのJCBカードが表示されます。</p>
-    </div>
-
-    <div class="reco-tabs" role="tablist">
-      <button class="reco-tab active" type="button" role="tab" aria-selected="true" data-reco="point">普段のお買い物で<br>ポイントをためたい</button>
-      <button class="reco-tab" type="button" role="tab" aria-selected="false" data-reco="benefit">年会費無料で<br>優待・保険もほしい</button>
-      <button class="reco-tab" type="button" role="tab" aria-selected="false" data-reco="travel">旅行やワンランク上の<br>サービスを重視したい</button>
-    </div>
-
-    <!-- 年会費無料でポイント重視 -->
-    <div class="reco-panel" id="reco-point" role="tabpanel">
-      <div class="carousel">
-        <div class="carousel-track">
-          <article class="reco-card carousel-item">
-            <button class="reco-card-img js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png" aria-label="JCBカード Wの券面を拡大">
-              <img src="./images/card_w.png" alt="JCBカード W">
-            </button>
-            <h3 class="reco-card-name">JCBカード W</h3>
-            <ul class="usp-chips">
-              <li>年会費永年無料</li>
-              <li>いつでもポイント2倍</li>
-              <li>優待店でさらにポイントアップ</li>
-            </ul>
-            <p class="reco-card-desc"><span class="em">18～39歳の入会限定（40歳以降も年会費永年無料のまま利用可能）。</span>JCBカード Wは、年会費をかけずに、日常のお買い物でポイントをためたい方におすすめです。ポイント還元率がいつでも1.0％（200円で2ポイント）と高く、さらにAmazon.co.jpやスターバックス、マクドナルドなどの優待店での利用でポイント最大10.5％還元になるため、普段使いでポイントがどんどんたまります。<small>※利用加盟店や交換商品等によりポイント付与条件や還元率は異なる場合があります</small></p>
-            <div class="cta-pair">
-              <button class="btn-apply js-apply" type="button" data-card="w">申し込む</button>
-              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/w/index.html" target="_blank" rel="noopener">詳しく見る</a>
-            </div>
-          </article>
-          <article class="reco-card carousel-item">
-            <button class="reco-card-img js-zoom" type="button" data-card="wplusl" data-design="ピンクデザイン" data-img="./images/card_pink.webp" aria-label="JCBカード W plus Lの券面を拡大">
-              <img src="./images/card_pink.webp" alt="JCBカード W plus L">
-            </button>
-            <h3 class="reco-card-name">JCBカード W plus L</h3>
-            <ul class="usp-chips">
-              <li>年会費永年無料</li>
-              <li>いつでもポイント2倍</li>
-              <li>毎月の特典や優待が満載</li>
-            </ul>
-            <p class="reco-card-desc"><span class="em">ポイント高還元などJCBカード Wのサービスはそのままに、女性にうれしい優待特典を追加、デザインも選べる！</span>JCBカード W plus Lは、ポイントをためながら、毎月の特典や優待、選べるデザインも楽しみたい方におすすめです。18～39歳の入会限定で、40歳以降も年会費永年無料のまま利用できます。</p>
-            <div class="cta-pair">
-              <button class="btn-apply js-apply" type="button" data-card="wplusl">申し込む</button>
-              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/wplusl/index.html" target="_blank" rel="noopener">詳しく見る</a>
-            </div>
-          </article>
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-    </div>
-
-    <!-- 年会費無料で優待・保険も -->
-    <div class="reco-panel" id="reco-benefit" role="tabpanel" hidden>
-      <div class="carousel">
-        <div class="carousel-track">
-          <article class="reco-card carousel-item">
-            <button class="reco-card-img js-zoom" type="button" data-card="s" data-design="通常デザイン" data-img="./images/card_s.png" aria-label="JCBカード Sの券面を拡大">
-              <img src="./images/card_s.png" alt="JCBカード S">
-            </button>
-            <h3 class="reco-card-name">JCBカード S</h3>
-            <ul class="usp-chips">
-              <li>年会費永年無料</li>
-              <li>国内外20万ヵ所以上で最大84％OFF！「JCBカード S優待 クラブオフ」</li>
-            </ul>
-            <p class="reco-card-desc"><span class="em">年会費永年無料なのに、優待サービスが多数！</span>JCBの新しいスタンダードカード「JCBカード S」は、年会費をかけずに、優待サービスもお得に活用したい方におすすめです。国内外20万ヵ所以上で最大84％OFFになる「JCBカード S優待 クラブオフ」を使えるためです。</p>
-            <div class="cta-pair">
-              <button class="btn-apply js-apply" type="button" data-card="s">申し込む</button>
-              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/os_card_s/index.html" target="_blank" rel="noopener">詳しく見る</a>
-            </div>
-          </article>
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-    </div>
-
-    <!-- 旅行・特典・ステータス -->
-    <div class="reco-panel" id="reco-travel" role="tabpanel" hidden>
-      <div class="carousel">
-        <div class="carousel-track">
-          <article class="reco-card carousel-item">
-            <button class="reco-card-img js-zoom" type="button" data-card="gold" data-design="通常デザイン" data-img="./images/card_gold.png" aria-label="JCBゴールドの券面を拡大">
-              <img src="./images/card_gold.png" alt="JCBゴールド">
-            </button>
-            <h3 class="reco-card-name">JCBゴールド</h3>
-            <ul class="usp-chips">
-              <li>初年度年会費無料</li>
-              <li>充実の優待サービス</li>
-              <li>上位カードご招待あり</li>
-            </ul>
-            <p class="reco-card-desc"><span class="em">充実したサービスに、旅行も日常も安心の補償がついた、年会費を凌駕する1枚。</span>JCBゴールドは、旅行や日常の備えを手厚くしたい方、ワンランク上のサービスを受けたい方におすすめです。初年度は年会費無料で試せるうえ、上位カード「JCBゴールド ザ・プレミア」へご招待のチャンスもあります。<br>年会費：11,000円（税込）※初年度無料</p>
-            <div class="cta-pair">
-              <button class="btn-apply js-apply" type="button" data-card="gold">申し込む</button>
-              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/gold/index.html" target="_blank" rel="noopener">詳しく見る</a>
-            </div>
-          </article>
-          <article class="reco-card carousel-item">
-            <button class="reco-card-img js-zoom" type="button" data-card="platinum" data-design="通常デザイン" data-img="./images/card_platinum.png" aria-label="JCBプラチナの券面を拡大">
-              <img src="./images/card_platinum.png" alt="JCBプラチナ">
-            </button>
-            <h3 class="reco-card-name">JCBプラチナ</h3>
-            <ul class="usp-chips">
-              <li>グルメ・旅行特典充実</li>
-              <li>安心の保険と補償</li>
-              <li>世界の空港ラウンジ</li>
-            </ul>
-            <p class="reco-card-desc"><span class="em">厳選したホテル・旅館の宿泊や、旅行やスマホの充実した補償など、ハイクラスな特典を。</span>JCBプラチナは、旅行やグルメでハイクラスな特典を重視する方におすすめです。世界の空港ラウンジも利用でき、招待制カード「JCBザ・クラス」へご招待のチャンスもあります。<br>年会費：27,500円（税込）</p>
-            <div class="cta-pair">
-              <button class="btn-apply js-apply" type="button" data-card="platinum">申し込む</button>
-              <a class="btn-detail ext" href="https://www.jcb.co.jp/promotion/ordercard/platinum/index.html" target="_blank" rel="noopener">詳しく見る</a>
-            </div>
-          </article>
-        </div>
-        <div class="carousel-dots"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================
-  03 スペック比較
-======================================== -->
-<section id="compare" class="sec sec--white">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="sec-label"><span class="sec-num">03</span>スペック比較</p>
+      <p class="sec-label"><span class="sec-num">04</span>比べて選ぶ</p>
       <h2 class="sec-title">あなたが重視するポイントは？スペックを比べて選ぶ。</h2>
       <p class="sec-sub">基本スペック・保険補償・優待特典の3つの切り口で比較できます。<span class="info-inline" aria-hidden="true">i</span>マークをタップするとサービスの概要が見られます。</p>
     </div>
@@ -740,56 +790,6 @@
 </section>
 
 <!-- ========================================
-  04 デザイン比較
-======================================== -->
-<section id="design" class="sec sec--tint">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="sec-label"><span class="sec-num">04</span>デザイン比較</p>
-      <h2 class="sec-title">お気に入りのデザインから選ぶ。</h2>
-      <p class="sec-sub">シンプル・華やか・キャラクター・限定のカテゴリで絞り込めます。券面をタップすると拡大表示され、そのままお申し込みいただけます。</p>
-    </div>
-
-      <!-- 人気ランキング（順位は仮） -->
-      <div class="rank-box">
-        <p class="rank-title">人気デザインランキング</p>
-        <ol class="rank-list">
-          <li><button class="rank-item js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png"><span class="rank-no">1</span><img src="./images/card_w.png" alt=""><span class="rank-name">JCBカード W<small>通常デザイン</small></span></button></li>
-          <li><button class="rank-item js-zoom" type="button" data-card="s" data-design="ディズニー・デザイン" data-img="./images/card_s_disney.jpg"><span class="rank-no">2</span><img src="./images/card_s_disney.jpg" alt=""><span class="rank-name">JCBカード S<small>ディズニー・デザイン</small></span></button></li>
-          <li><button class="rank-item js-zoom" type="button" data-card="sakura" data-design="限定デザイン「桜」" data-img="./images/card_gold_sakura.png"><span class="rank-no">3</span><img src="./images/card_gold_sakura.png" alt=""><span class="rank-name">JCBゴールド<small>限定デザイン「桜」</small></span></button></li>
-        </ol>
-        <p class="mock-note">【モック注記】順位は仮です。申込実績データをご提供いただき差し替えます。</p>
-      </div>
-
-      <div class="design-filter" role="group" aria-label="デザインの絞り込み">
-        <button class="design-filter-btn active" type="button" data-filter="all">すべて</button>
-        <button class="design-filter-btn" type="button" data-filter="simple">シンプル</button>
-        <button class="design-filter-btn" type="button" data-filter="hanayaka">華やか</button>
-        <button class="design-filter-btn" type="button" data-filter="character">キャラクター</button>
-        <button class="design-filter-btn" type="button" data-filter="limited">限定</button>
-      </div>
-
-      <!-- 11月の新限定券面は data-cats="limited" で追加 -->
-      <ul class="design-grid" id="designGrid">
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="w" data-design="通常デザイン" data-img="./images/card_w.png"><span class="design-item-img"><img src="./images/card_w.png" alt="JCBカード W 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBカード W</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="ホワイトデザイン" data-img="./images/card_white.webp"><span class="design-item-img"><img src="./images/card_white.webp" alt="JCBカード W plus L ホワイトデザイン"></span><span class="design-item-name">ホワイトデザイン</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
-        <li data-cats="hanayaka"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="ピンクデザイン" data-img="./images/card_pink.webp"><span class="design-item-img"><img src="./images/card_pink.webp" alt="JCBカード W plus L ピンクデザイン"></span><span class="design-item-name">ピンクデザイン</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
-        <li data-cats="hanayaka"><button class="design-item js-zoom" type="button" data-card="wplusl" data-design="M / mika ninagawa" data-img="./images/card_mika.png"><span class="design-item-img"><img src="./images/card_mika.png" alt="JCBカード W plus L M / mika ninagawa"></span><span class="design-item-name">M / mika ninagawa</span><span class="design-item-sub">JCBカード W plus L</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="s" data-design="通常デザイン" data-img="./images/card_s.png"><span class="design-item-img"><img src="./images/card_s.png" alt="JCBカード S 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="s" data-design="バイオマスデザイン" data-img="./images/card_s_biomass.jpg"><span class="design-item-img"><img src="./images/card_s_biomass.jpg" alt="JCBカード S バイオマスデザイン"></span><span class="design-item-name">バイオマスデザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
-        <li data-cats="character"><button class="design-item js-zoom" type="button" data-card="s" data-design="ディズニー・デザイン" data-img="./images/card_s_disney.jpg"><span class="design-item-img"><img src="./images/card_s_disney.jpg" alt="JCBカード S ディズニー・デザイン"></span><span class="design-item-name">ディズニー・デザイン</span><span class="design-item-sub">JCBカード S</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="gold" data-design="通常デザイン" data-img="./images/card_gold.png"><span class="design-item-img"><img src="./images/card_gold.png" alt="JCBゴールド 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="gold" data-design="バイオマスデザイン" data-img="./images/card_gold_biomass.jpg"><span class="design-item-img"><img src="./images/card_gold_biomass.jpg" alt="JCBゴールド バイオマスデザイン"></span><span class="design-item-name">バイオマスデザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
-        <li data-cats="character"><button class="design-item js-zoom" type="button" data-card="gold" data-design="ディズニー・デザイン" data-img="./images/card_gold_disney.png"><span class="design-item-img"><img src="./images/card_gold_disney.png" alt="JCBゴールド ディズニー・デザイン"></span><span class="design-item-name">ディズニー・デザイン</span><span class="design-item-sub">JCBゴールド</span></button></li>
-        <li data-cats="simple"><button class="design-item js-zoom" type="button" data-card="platinum" data-design="通常デザイン" data-img="./images/card_platinum.png"><span class="design-item-img"><img src="./images/card_platinum.png" alt="JCBプラチナ 通常デザイン"></span><span class="design-item-name">通常デザイン</span><span class="design-item-sub">JCBプラチナ</span></button></li>
-        <li data-cats="limited hanayaka"><button class="design-item js-zoom" type="button" data-card="kirameki" data-design="限定デザイン「煌」" data-img="./images/card_gold_kirameki.png"><span class="design-item-img"><img src="./images/card_gold_kirameki.png" alt="JCBゴールド 限定デザイン 煌"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「煌」</span><span class="design-item-sub">JCBゴールド</span></button></li>
-        <li data-cats="limited hanayaka"><button class="design-item js-zoom" type="button" data-card="sakura" data-design="限定デザイン「桜」" data-img="./images/card_gold_sakura.png"><span class="design-item-img"><img src="./images/card_gold_sakura.png" alt="JCBゴールド 限定デザイン 桜"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「桜」</span><span class="design-item-sub">JCBゴールド</span></button></li>
-        <li data-cats="limited"><button class="design-item js-zoom" type="button" data-card="mikage" data-design="限定デザイン「御影」" data-img="./images/card_platinum_mikage.png"><span class="design-item-img"><img src="./images/card_platinum_mikage.png" alt="JCBプラチナ 限定デザイン 御影"></span><span class="design-badge">限定</span><span class="design-item-name">限定デザイン「御影」</span><span class="design-item-sub">JCBプラチナ</span></button></li>
-      </ul>
-  </div>
-</section>
-
-<!-- ========================================
   05 新規入会キャンペーン
 ======================================== -->
 <section id="campaign" class="sec sec--white">
@@ -980,7 +980,7 @@
   08 お申し込み（券種一覧）
 ======================================== -->
 <section id="apply" class="sec sec--apply">
-  <div class="wrap">
+  <div class="wrap" id="apply-list">
     <div class="sec-head">
       <p class="sec-label"><span class="sec-num">08</span>お申し込み</p>
       <h2 class="sec-title">個性豊かなJCBのクレジットカード、オリジナルシリーズ。</h2>

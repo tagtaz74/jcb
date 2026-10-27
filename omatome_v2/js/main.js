@@ -87,7 +87,7 @@ function openApply(key) {
     ${applyButtonsHTML(card)}`, 'apply');
 }
 
-/* 券面の拡大表示（デザイン比較から開いた場合は前後のデザインへ移動できる） */
+/* 券面の拡大表示（「見た目で選ぶ」から開いた場合は前後のデザインへ移動できる） */
 let zoomList = [];
 let zoomIndex = 0;
 
