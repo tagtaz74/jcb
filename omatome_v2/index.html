@@ -60,13 +60,6 @@
 <section class="hero" id="top">
   <div class="hero-eyebrow">JCBカード選びをサポート</div>
   <h1>あなたにぴったりの<br>JCBカードがわかる！</h1>
-  <a href="#apply-list" class="hero-cta">カードを選択して申し込む</a>
-  <div class="hero-btns">
-    <a href="#recommend" class="hero-btn">目的で選ぶ ↓</a>
-    <a href="#design" class="hero-btn">見た目で選ぶ ↓</a>
-    <a href="#diagnosis" class="hero-btn" data-ab="mil">診断で選ぶ ↓</a>
-    <a href="#compare" class="hero-btn">比べて選ぶ ↓</a>
-  </div>
   <div class="hero-cards" aria-hidden="true">
     <div class="hero-cards-track">
       <div class="hero-card-chip"><img src="./images/card_s.png" alt=""></div>
@@ -93,6 +86,13 @@
       <div class="hero-card-chip"><img src="./images/card_gold_disney.png" alt=""></div>
       <div class="hero-card-chip"><img src="./images/card_platinum.png" alt=""></div>
     </div>
+  </div>
+  <a href="#apply-list" class="hero-cta">カードを選択して申し込む</a>
+  <div class="hero-btns">
+    <a href="#recommend" class="hero-btn">目的で選ぶ ↓</a>
+    <a href="#design" class="hero-btn">見た目で選ぶ ↓</a>
+    <a href="#diagnosis" class="hero-btn" data-ab="mil">診断で選ぶ ↓</a>
+    <a href="#compare" class="hero-btn">比べて選ぶ ↓</a>
   </div>
 </section>
 
@@ -828,7 +828,7 @@
     <div class="features-grid">
 
       <!-- 1. J-POINT -->
-      <div class="feature-item feature-item--wide">
+      <div class="feature-item">
         <h3 class="feature-title"><span class="feature-num">1</span>ポイント（J-POINT）がたまる・使える</h3>
         <p class="feature-desc">200円（税込）につき1ポイントがたまり、たまったポイントは1ポイント＝最大1円分※として利用可能です。1回のご利用分が200円未満でも、毎月のご利用分すべてを合計してからポイントに換算されます。<br><small>※利用加盟店や交換商品等によりポイント付与条件や還元率は異なる場合があります。</small></p>
 
@@ -841,22 +841,22 @@
           </ul>
           <p class="jpoint-group-title">J-POINTパートナー（優待店）一例</p>
           <ul class="partner-chips partner-chips--main">
-            <li>スターバックス</li>
-            <li>マクドナルド</li>
-            <li>吉野家</li>
-            <li>ガスト</li>
-            <li>Disney+</li>
+            <li><img src="./images/logo_starbucks.jpg" alt="" width="20" height="20" loading="lazy">スターバックス</li>
+            <li><img src="./images/logo_mcdonalds.jpg" alt="" width="20" height="20" loading="lazy">マクドナルド</li>
+            <li><img src="./images/logo_yoshinoya.jpg" alt="" width="20" height="20" loading="lazy">吉野家</li>
+            <li><img src="./images/logo_gusto.jpg" alt="" width="20" height="20" loading="lazy">ガスト</li>
+            <li><img src="./images/logo_disneyplus.gif" alt="" width="20" height="20" loading="lazy">Disney+</li>
           </ul>
           <p class="jpoint-group-title">いつも使っているあのお店、サービスもJ-POINTパートナー</p>
           <ul class="partner-chips">
-            <li>セブン-イレブン</li>
-            <li>Amazon</li>
-            <li>Uber</li>
-            <li>GO</li>
-            <li>S.RIDE</li>
-            <li>App Store</li>
-            <li>Google Play</li>
-            <li>Qoo10</li>
+            <li><img src="./images/logo_seven-eleven.jpg" alt="" width="20" height="20" loading="lazy">セブン-イレブン</li>
+            <li><img src="./images/logo_amazon.jpg" alt="" width="20" height="20" loading="lazy">Amazon</li>
+            <li><img src="./images/logo_uber.jpg" alt="" width="20" height="20" loading="lazy">Uber</li>
+            <li><img src="./images/logo_go.jpg" alt="" width="20" height="20" loading="lazy">GO</li>
+            <li><img src="./images/logo_sride.jpg" alt="" width="20" height="20" loading="lazy">S.RIDE</li>
+            <li><img src="./images/logo_appstore.jpg" alt="" width="20" height="20" loading="lazy">App Store</li>
+            <li><img src="./images/logo_googleplay.jpg" alt="" width="20" height="20" loading="lazy">Google Play</li>
+            <li><img src="./images/logo_qoo10.jpg" alt="" width="20" height="20" loading="lazy">Qoo10</li>
           </ul>
           <a href="https://j-pointpartner.jcb.co.jp/" target="_blank" rel="noopener" class="feature-link ext">J-POINTパートナーを見る</a>
         </div>
@@ -893,7 +893,88 @@
       <!-- 4. JCBならでは（内容はデザインフェーズで検討） -->
       <div class="feature-item">
         <h3 class="feature-title"><span class="feature-num">4</span>JCBならではの特典</h3>
-        <p class="feature-desc">東京ディズニーリゾート®・パークチケットが当たるキャンペーン、ハワイでのワイキキトロリー（ピンクライン）無料乗車、JCBプラザ ラウンジ・ホノルル利用など。</p>
+        <ul class="benefit-list">
+          <li class="benefit-item">
+            <img src="./images/benefit_disney.png" alt="東京ディズニーリゾート" width="197" height="191" loading="lazy">
+            <div>
+              <p class="benefit-ttl">東京ディズニーリゾート®特典あり</p>
+              <p class="feature-desc">JCBは、東京ディズニーランド®、東京ディズニーシー®のオフィシャルスポンサーです。東京ディズニーリゾート®・パークチケット（ペア）が当たるキャンペーンやイベントへのご招待など、特典が満載です。</p>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <img src="./images/benefit_hawaii.png" alt="ワイキキトロリー" width="394" height="342" loading="lazy">
+            <div>
+              <p class="benefit-ttl">ハワイのラウンジ、ワイキキトロリーが無料</p>
+              <p class="feature-desc">JCBカードを見せるだけで、ワイキキトロリー（ピンクライン）の乗車賃が無料に。JCBプラザ ラウンジ・ホノルルも利用できます。<br><small>※運行状況、営業状況が変更となる場合がありますので、ご利用の際は事前にご確認ください。</small></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5. クレカ積立 -->
+      <div class="feature-item">
+        <h3 class="feature-title"><span class="feature-num">5</span>JCBのクレカ積立でポイント最大1.0％還元</h3>
+        <p class="feature-desc">積立投資にJCBカードを利用するとポイントがたまります。ポイント還元率は普段のお買い物金額によって変わります。</p>
+
+        <div class="tsumitate-grid">
+          <div class="tsumitate-col">
+            <div class="tsumitate-cards">
+              <img src="./images/card_platinum.png" alt="" loading="lazy">
+              <img src="./images/card_gold.png" alt="" loading="lazy">
+            </div>
+            <p class="tsumitate-name">JCBプラチナ／JCBゴールド</p>
+            <dl class="tsumitate-rates">
+              <div>
+                <dt>積立以外の月間ショッピング利用額が<b>5万円以上</b></dt>
+                <dd class="is-high"><span>還元率</span>最大<b>1.0</b>%</dd>
+              </div>
+              <div>
+                <dt>積立以外の月間ショッピング利用額が<b>5万円未満</b></dt>
+                <dd><span>還元率</span>最大<b>0.5</b>%</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="tsumitate-col">
+            <div class="tsumitate-cards">
+              <img src="./images/card_s.png" alt="" loading="lazy">
+              <img src="./images/card_w.png" alt="" loading="lazy">
+              <img src="./images/card_pink.webp" alt="" loading="lazy">
+            </div>
+            <p class="tsumitate-name">JCBカード S／JCBカード W・W plus L</p>
+            <dl class="tsumitate-rates">
+              <div>
+                <dt>積立以外の月間ショッピング利用額が<b>5万円以上</b></dt>
+                <dd><span>還元率</span>最大<b>0.5</b>%</dd>
+              </div>
+            </dl>
+            <p class="feature-note">※積立以外の月間ショッピング利用額が5万円未満の場合にはポイントはつきません。</p>
+          </div>
+        </div>
+
+        <div class="tsumitate-example">
+          <p class="tsumitate-example-label">例えば JCBプラチナ／JCBゴールドなら</p>
+          <p class="tsumitate-example-calc">ショッピング毎月5万円で<b>3,000pt</b> ＋ クレカ積立毎月10万円で<b>12,000pt</b></p>
+          <p class="tsumitate-example-total">年間<b>15,000</b>pt獲得（15,000円相当※）</p>
+          <p class="feature-note">※1ポイント1円相当の商品に交換した場合</p>
+        </div>
+
+        <details class="notes-acc">
+          <summary>注意事項</summary>
+          <ul>
+            <li>※JCB発行のJCB ORIGINAL SERIESが対象です。</li>
+            <li>※東海東京証券プレミアVIP JCB THE CLASS／東海東京証券プレミアクラブ JCB Platinumは対象となりません。</li>
+            <li>※本ページから申し込みいただいたカードはクレカ積立の対象です。</li>
+            <li>※すでにJCB発行のJCB ORIGINAL SERIESをお持ちの方は、カードサイトをご確認ください。</li>
+            <li><a href="https://www.jcb.co.jp/usage/card-tsumitate/index.html" target="_blank" rel="noopener">詳しくはこちら</a></li>
+            <li>※毎月の積立金額の上限は10万円です。</li>
+            <li>※積立金額に対して、還元率に応じたJ-POINTを進呈します。なお、ポイント還元率は交換商品により異なります。</li>
+            <li>※掲載内容は予告なく変更となる場合があります。</li>
+            <li>※積立金額200円に対して一般券種は最大1J-POINT、プレミアム券種は最大2J-POINTが進呈されます。</li>
+            <li>※積立金額は通常のショッピングご利用合計金額によってたまるJ-POINT進呈の対象となりません。</li>
+            <li>※積立金額は、以下の集計対象には含まれません。<br>・JCBゴールド ザ・プレミアの招待条件／サービス年会費の免除条件<br>・JCB一般カードの年会費の免除条件<br>・各種キャンペーンの利用金額条件</li>
+            <li>※条件の月間利用額は、クレカ積立以外のショッピング利用のみが対象となります。なお、各種年会費、ショッピングリボ・分割・スキップ払いの各手数料、キャッシングサービスご利用分、電子マネーチャージご利用分など一部のJ-POINT付与対象外のご利用分は集計対象となりません。</li>
+          </ul>
+        </details>
       </div>
     </div>
   </div>
