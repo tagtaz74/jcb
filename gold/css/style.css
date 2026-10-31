@@ -140,7 +140,8 @@ body::before {
 /* ---------- FV（自己紹介型） ---------- */
 .fv--a {
   position: relative; isolation: isolate; overflow: hidden;
-  background: var(--deep); color: var(--on-deep);
+  background: var(--deep) url("../images/common/bg_fv_tile.jpg") 0 0 / 640px repeat;  /* レザー調テクスチャ。bg_fv.png の端をなじませて継ぎ目なしにしたタイル（832px）を、約8割の大きさで敷く */
+  color: var(--on-deep);
   /* SP〜タブレットは券面をヘッダーの高さまで上げる。縦型券面はロゴとメニューボタンの間に収まり、
      横型券面は正方形の枠の中央に置かれるのでロゴの下になる（320px幅でも重ならない値） */
   padding: calc(env(safe-area-inset-top, 0px) + 30px) var(--gutter) 22px; text-align: center;
