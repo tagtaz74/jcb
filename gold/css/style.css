@@ -25,6 +25,7 @@
 
   --page-w: 430px;        /* 現行ゴールドLPと同じSP幅。PCではこの幅で中央表示 */
   --gutter: 20px;
+  --header-space: calc(env(safe-area-inset-top, 0px) + 71px);  /* ヘッダー（上余白18＋ロゴ47＋下6）の高さ。FVの上余白に足す */
   --radius-s: 6px;
   --radius-m: 12px;
 
@@ -82,11 +83,12 @@ small, .small { font-size: 12px; color: var(--ink-sub); line-height: 1.6; }
 }
 
 /* ---------- ヘッダー ---------- */
-/* ヘッダーはスクロールで流れる（固定しない）。ロゴの上に余白をとる */
+/* ヘッダーはスクロールで流れる（固定しない）。FVの上に透明で重ね、FV背景の光がヘッダー部分も通るようにする */
 .header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 2;
   display: flex; align-items: center;
   padding: calc(env(safe-area-inset-top, 0px) + 18px) var(--gutter) 6px;
-  background: var(--deep); color: var(--on-deep);
+  color: var(--on-deep);
 }
 body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
@@ -137,8 +139,22 @@ body::before {
 
 /* ---------- FV（自己紹介型） ---------- */
 .fv--a {
+  position: relative; isolation: isolate; overflow: hidden;
   background: var(--deep); color: var(--on-deep);
-  padding: 28px var(--gutter) 28px; text-align: center;
+  padding: calc(var(--header-space) + 28px) var(--gutter) 28px; text-align: center;  /* 上はヘッダーの分を足す */
+}
+/* 背景の光：券面の光沢（各カード1.56〜2.76秒）と同じタイミングで、背景もさり気なく横切る。
+   周期は券面1枚分（.fv-cards の --dur = 4s）と同じ。39%＝1.56秒、69%＝2.76秒 */
+.fv--a::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgb(226 194 122 / .06) 44%, rgb(255 240 205 / .13) 50%, rgb(226 194 122 / .06) 56%, transparent 70%);
+  transform: translateX(-100%);
+  animation: fvBgSheen 4s infinite ease-in-out;
+}
+@keyframes fvBgSheen {
+  0%, 39% { transform: translateX(-100%); }
+  69%     { transform: translateX(100%); }
+  100%    { transform: translateX(100%); }
 }
 .fv__card { width: 72%; margin: 0 auto 16px; }
 
@@ -200,7 +216,8 @@ body::before {
   100%     { transform: translateX(120%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fv-cards__slide, .fv-cards__slide::before, .fv-cards__face, .fv-cards__sheen::after { animation: none; }
+  .fv-cards__slide, .fv-cards__slide::before, .fv-cards__face, .fv-cards__sheen::after, .fv--a::before { animation: none; }
+  .fv--a::before { display: none; }
   .fv-cards__slide:first-child { opacity: 1; }
   .fv-cards__face { clip-path: none; }
 }
@@ -578,7 +595,7 @@ body::before {
   /* FV：左に券面、右にテキスト */
   .fv--a {
     display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; align-items: center;
-    padding-top: 64px; padding-bottom: 64px; text-align: left;
+    padding-top: calc(var(--header-space) + 64px); padding-bottom: 64px; text-align: left;
   }
   .fv--a > * { grid-column: 2; }
   .fv--a > .fv__card { grid-column: 1; grid-row: 1 / span 5; width: 90%; max-width: 440px; margin: 0 auto; }
