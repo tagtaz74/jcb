@@ -11,15 +11,6 @@ window.MOCK_CONFIG = {
   applyUrl: "https://entry.jcb.co.jp/input_basic",
   mockNoTransition: true,      // true: 申込ボタンで実際には遷移しない（モック用）
 
-  /* ---------- FV：広告流入別の出し分け ----------
-     モック操作パネル、またはURL末尾の ?ad=point などで切替（ローカル閲覧時） */
-  fvAd: {
-    none:    { sub: "たまるポイントに、空港ラウンジや名店予約まで。<br>1年目は年会費0円で、まずはおためしを。", fact3: { label: "空港ラウンジ", value: "無料" } },
-    point:   { sub: "いつもの支払いで、ポイントがぐんぐんたまる。<br>ボーナスポイントも上乗せ。", fact3: { label: "ポイント", value: "最大20倍" } },
-    travel:  { sub: "空港ラウンジで、旅のはじまりを上質に。<br>旅行傷害保険は最高1億円。", fact3: { label: "空港ラウンジ", value: "無料" } },
-    gourmet: { sub: "予約困難店も、上質なホテルも、<br>もっと身近に。", fact3: { label: "ホテルクーポン", value: "年1万円分" } }
-  },
-
   /* ---------- モト取りシミュレーター ---------- */
   sim: {
     basePerYen: 200,           // 200円（税込）ごとに1ポイント
@@ -45,7 +36,7 @@ window.MOCK_CONFIG = {
       { id: "partner",   label: "よく使うお店でのお支払い",       note: "Amazon・セブン-イレブン・スターバックスなど", unit: "円／月", min: 0, max: 100000, step: 1000 },
       { id: "flights",   label: "飛行機に乗る回数",               note: "国内主要空港・ホノルル", unit: "回／年", min: 0, max: 12, step: 1 },
       { id: "dining",    label: "記念日や特別な日の外食",         note: "2名で1人25,000円のコースを想定", unit: "回／年", min: 0, max: 6, step: 1 },
-      { id: "hotel",     label: "ホテル・旅館に泊まる回数",       note: "", unit: "回／年", min: 0, max: 6, step: 1 },
+      { id: "hotel",     label: "ホテル・旅館に泊まる回数",       note: "JCBプレミアムステイプランで予約した場合（5,000円分のクーポンを1回1枚、年2枚まで）", unit: "回／年", min: 0, max: 2, step: 1 },  // クーポンが年2枚までなので上限2回
       { id: "tsumitate", label: "クレカ積立",                     note: "松井証券・SBI証券・マネックス証券", unit: "円／月", min: 0, max: 100000, step: 5000 }
     ]
   },

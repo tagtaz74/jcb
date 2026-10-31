@@ -41,42 +41,13 @@
     if (e.target === drawer || e.target.closest("a")) setDrawer(false);
   });
 
-  /* ---------- FV切替・広告流入の出し分け ---------- */
-  function setFv(v) {
-    document.body.dataset.fv = v;
-    $$("[data-mock-fv] button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === v)));
-  }
-  function setAd(key) {
-    const ad = C.fvAd[key] || C.fvAd.none;
-    document.body.dataset.ad = key;
-    $("[data-ad-sub]").innerHTML = ad.sub;
-    const f = $("[data-ad-fact3]");
-    $("dt", f).textContent = ad.fact3.label;
-    $("dd", f).textContent = ad.fact3.value;
-    $$("[data-mock-ad] button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === key)));
-  }
-  $$("[data-mock-fv] button").forEach((b) => b.addEventListener("click", () => setFv(b.dataset.value)));
-  $$("[data-mock-ad] button").forEach((b) => b.addEventListener("click", () => setAd(b.dataset.value)));
-  const params = new URLSearchParams(location.search);
-  if (params.get("fv")) setFv(params.get("fv"));
-  if (params.get("ad") && C.fvAd[params.get("ad")]) setAd(params.get("ad"));
-
-  const panelBtn = $("[data-mockpanel-toggle]");
-  panelBtn.addEventListener("click", () => {
-    const body = panelBtn.nextElementSibling;
-    body.hidden = !body.hidden;
-    panelBtn.setAttribute("aria-expanded", String(!body.hidden));
-  });
-
   /* ---------- 追従CTA：FVが見えなくなったら表示 ---------- */
   const sticky = $("[data-sticky-cta]");
-  const fvs = $$(".fv");
+  const fv = $("#fv");
   let ticking = false;
   function updateSticky() {
     ticking = false;
-    const visibleFv = fvs.find((f) => f.offsetParent !== null);
-    if (!visibleFv) return;
-    const fvBottom = visibleFv.getBoundingClientRect().bottom;
+    const fvBottom = fv.getBoundingClientRect().bottom;
     const applyTop = $("#apply").getBoundingClientRect().top;
     const show = fvBottom < 0 && applyTop > window.innerHeight * 0.8;
     sticky.classList.toggle("is-shown", show);
@@ -259,8 +230,8 @@
       ["よく使うお店のポイント", v.partner * 12 * S.partnerRate],
       ["ゴールドのボーナスポイント", bonusPoints(annualShop) * S.pointYen],
       ["空港ラウンジ", v.flights * S.lounge],
-      ["JCB スター・ダイニング", v.dining * S.dining],
-      ["ホテルクーポン", Math.min(v.hotel, S.hotelCouponMax) * S.hotelCoupon],
+      ["JCB スター・ダイニング by OMAKASE", v.dining * S.dining],
+      ["ホテルクーポン（JCBプレミアムステイプラン）", Math.min(v.hotel, S.hotelCouponMax) * S.hotelCoupon],
       ["クレカ積立", v.tsumitate * 12 * (shopMonthly >= S.tsumitate.threshold ? S.tsumitate.high : S.tsumitate.low)]
     ];
     const total = rows.reduce((a, [, n]) => a + n, 0);

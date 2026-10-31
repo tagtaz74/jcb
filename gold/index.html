@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-fv="a" data-ad="none">
+<body>
 
 <div class="page">
 
@@ -28,13 +28,13 @@
     <button class="drawer__close" type="button" data-drawer-close>閉じる</button>
     <ul class="drawer__list">
       <li><a href="#features">JCBゴールドの3大特長</a></li>
-      <li><a href="#voices">サービス体験者の声</a></li>
-      <li><a href="#limited">限定デザイン</a></li>
-      <li><a href="#worry">年会費の元はとれる？</a></li>
-      <li><a href="#campaign">新規入会キャンペーン</a></li>
       <li><a href="#point">J-POINT</a></li>
       <li><a href="#perks">まだある、ゴールドの特典</a></li>
       <li><a href="#family">家族カード・ご招待</a></li>
+      <li><a href="#voices">サービス体験者の声</a></li>
+      <li><a href="#worry">年会費の元はとれる？</a></li>
+      <li><a href="#campaign">新規入会キャンペーン</a></li>
+      <li><a href="#limited">限定デザイン</a></li>
       <li><a href="#security">安全・安心</a></li>
       <li><a href="#flow">お申し込みの流れ</a></li>
       <li><a href="#spec">カード基本情報</a></li>
@@ -47,9 +47,9 @@
 <main id="top">
 
 <!-- =========================================================
-     FV-A：自己紹介型（弊社案）
+     FV：自己紹介型
      ========================================================= -->
-<section class="fv fv--a" id="fv" data-fv-variant="a">
+<section class="fv fv--a" id="fv">
   <!-- 券面：光のラインから券面が開いて現れ、順番に入れ替わる -->
   <div class="fv__card fv-cards">
     <div class="fv-cards__slide" style="--i:0"><div class="fv-cards__face"><img src="images/cards/card_gold.png" alt="JCBゴールド 通常デザイン" width="640" height="408"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
@@ -59,41 +59,38 @@
     <div class="fv-cards__slide fv-cards__slide--v" style="--i:4"><div class="fv-cards__face"><img src="images/cards/card_sakura.png" alt="JCBゴールド -桜（さくら）- 枚数限定デザイン" width="400" height="637"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
   </div>
   <p class="fv__name">JCBゴールド</p>
-  <h1 class="fv__title">持つだけで、<br>毎日が少し上質に。</h1>
-  <p class="fv__sub" data-ad-sub>たまるポイントに、空港ラウンジや名店予約まで。<br>1年目は年会費0円で、まずはおためしを。</p>
+  <h1 class="fv__title">特別な体験も。<br>毎日のおトクも。</h1>
+  <p class="fv__sub">たまるポイントに、空港ラウンジや名店予約まで。<br>1年目は年会費0円で、まずはおためしを。</p>
 
   <dl class="facts">
-    <div class="facts__item"><dt>初年度年会費</dt><dd>¥0<sup><a href="#note-1" id="ref-1">※1</a></sup></dd></div>
-    <div class="facts__item" data-ad-fact3><dt>空港ラウンジ</dt><dd>無料</dd></div>
-    <div class="facts__item"><dt>カード番号発行</dt><dd>最短5分</dd></div>
+    <div class="facts__item"><dt>会員限定</dt><dd>ホテル・旅館の<em>特別優待</em></dd></div>
+    <div class="facts__item"><dt>毎日がもっとおトクに</dt><dd>ポイント最大<em>20倍</em></dd></div>
+    <div class="facts__item"><dt>国内主要空港の</dt><dd>空港ラウンジ<em>無料</em></dd></div>
+    <div class="facts__item"><dt>旅行も日常も補償</dt><dd><em>充実の保険</em></dd></div>
   </dl>
 
   <a class="btn btn--cta btn--block btn--lg" href="#apply">
     今すぐ申し込む<small>最短5分でカード番号発行</small>
   </a>
 
-  <a class="cp-band" href="#campaign">
-    <span class="cp-band__badge">先着600名様</span>
-    <span class="cp-band__text">新規入会＆条件達成で<strong>最大23,000円</strong>キャッシュバック</span>
-  </a>
 </section>
 
+
 <!-- =========================================================
-     FV-B：CP主役型（JCB様案 05_No1_FV のワイヤーを再現）
+     FV直下：新規入会キャンペーンの帯（幅100%）
      ========================================================= -->
-<section class="fv fv--b" data-fv-variant="b">
-  <p class="fv-b__badges"><span class="fv-b__badge fv-b__badge--gold">期間・数量限定</span><span class="fv-b__badge">初年度 年会費無料</span></p>
-  <h1 class="fv-b__title">ワンランク上を、<br>いまひと足お先に。</h1>
-  <div class="fv-b__cp">
-    <span class="fv-b__cp-tag">先着600名様</span>
-    <p class="fv-b__cp-lead">新規入会＆条件達成で</p>
-    <p class="fv-b__cp-num">最大<span>¥23,000</span>分CB</p>
-    <p class="fv-b__cp-sub">20%キャッシュバック</p>
-    <p class="fv-b__cp-note">※初年度年会費無料／キャンペーン期間・上限あり</p>
-  </div>
-  <div class="fv-b__card"><img src="images/cards/card_gold.png" alt="JCBゴールド" width="640" height="408"></div>
-  <a class="btn btn--cta btn--block btn--lg" href="#apply">今すぐ申し込む<small>最短5分でカード番号発行</small></a>
-  <p class="fv-b__strip">入力はかんたん3ステップ／年会費11,000円＝月あたり約917円</p>
+<section class="fv-cp" aria-label="新規入会キャンペーン">
+  <a class="fv-cp__inner" href="#campaign">
+    <span class="fv-cp__label">新規入会キャンペーン</span>
+    <span class="fv-cp__main">
+      <span class="fv-cp__sub fv-cp__l">初年度</span>
+      <span class="fv-cp__sub fv-cp__r">キャッシュバック</span>
+      <strong class="fv-cp__val fv-cp__l">年会費無料<sup id="ref-1">※1</sup></strong>
+      <span class="fv-cp__plus" aria-hidden="true">＋</span>
+      <strong class="fv-cp__val fv-cp__r"><small>最大</small>48,000<small>円</small></strong>
+    </span>
+    <span class="fv-cp__more">詳しくはこちら</span>
+  </a>
 </section>
 
 <!-- =========================================================
@@ -134,9 +131,133 @@
 </section>
 
 <!-- =========================================================
-     JCBゴールド サービス体験者の声
+     2. J-POINT
      ========================================================= -->
-<section class="sec sec--sub" id="voices">
+<section class="sec sec--sub" id="point">
+  <div class="sec__head">
+    <p class="sec__label">J-POINT</p>
+    <h2 class="sec__title">いつもの支払いが、<br>ポイントに変わる。</h2>
+  </div>
+
+  <h3 class="sub-title">
+    ポイントをためる</h3>
+  <div class="point-base">
+    <p class="point-base__rate"><span>200円（税込）ごとに</span><strong>1ポイント</strong></p>
+    <p>1回のご利用が200円未満でも、毎月の合計から換算するので無駄なくたまります。海外でのご利用は、ポイントアップ登録で2倍に。</p>
+  </div>
+
+  <div class="point-partner">
+    <p class="point-partner__head">J-POINTパートナー（優待店）なら<strong>ポイント最大20倍</strong><small>還元率は最大10%</small></p>
+    <div class="ph ph--logo" data-label="画像：J-POINTパートナー ロゴ一覧（現行LP素材を流用）"><img src="images/scenes/partner_logos.png" alt=""></div>
+    <div class="point-example">
+        <p class="point-example__head">たとえば、いつものお店で月5万円使うと<br><strong>毎月1,795ポイント</strong>がたまります</p>
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th class="data__shop">店舗・サービス</th><th>月の利用額</th><th>倍率</th><th>ポイント</th></tr></thead>
+            <tbody>
+              <tr><td class="data__shop"><img src="images/logos/logo_amazon.jpg" alt="" width="24" height="24" loading="lazy">Amazon</td><td>20,000円</td><td>3倍</td><td>300pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_seven-eleven.jpg" alt="" width="24" height="24" loading="lazy">セブン-イレブン</td><td>5,000円</td><td>3倍</td><td>75pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_ubereats.jpg" alt="" width="24" height="24" loading="lazy">Uber Eats</td><td>8,000円</td><td>3倍</td><td>120pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_appstore.jpg" alt="" width="24" height="24" loading="lazy">App Store</td><td>2,000円</td><td>5倍</td><td>50pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_go.jpg" alt="" width="24" height="24" loading="lazy">タクシーアプリ「GO」</td><td>5,000円</td><td>10倍</td><td>250pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_starbucks.jpg" alt="" width="24" height="24" loading="lazy">スターバックス</td><td>3,000円</td><td>20倍</td><td>300pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_mcdonalds.jpg" alt="" width="24" height="24" loading="lazy">マクドナルド</td><td>2,000円</td><td>20倍</td><td>200pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_crecajosha.png" alt="" width="24" height="24" loading="lazy">クレカ乗車</td><td>5,000円</td><td>20倍</td><td>500pt</td></tr>
+              <tr class="is-total"><td>合計</td><td>50,000円</td><td></td><td>1,795pt</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">※事前にポイントアップ登録が必要です。対象加盟店は変更になる場合があります。</p>
+    </div>
+  </div>
+
+  <div class="bonus">
+    <p class="bonus__head">さらにゴールドなら<br><strong>ボーナスポイント</strong>を上乗せ</p>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>年間の利用金額</th><th>ボーナスポイント</th></tr></thead>
+        <tbody>
+          <tr><td>50万円</td><td>1,000pt</td></tr>
+          <tr><td>100万円</td><td>＋2,000pt</td></tr>
+          <tr><td>150万円</td><td>＋2,000pt</td></tr>
+          <tr><td>200万円</td><td>＋2,000pt</td></tr>
+          <tr><td>250万円</td><td>＋2,000pt</td></tr>
+          <tr><td>300万円</td><td>＋6,000pt</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">以降も50万円ごとに2,500ポイント。</p>
+  </div>
+
+  <details class="acc">
+    <summary>こんなため方も。JCBのクレカ積立</summary>
+    <div class="acc__body">
+      <p>積立投資のご利用で、ポイント最大1.0%還元。証券会社は松井証券・SBI証券・マネックス証券から選べます。積立以外の月間ショッピング利用額が5万円以上なら最大1.0%、5万円未満なら最大0.5%です。</p>
+      <p class="small">※リスク・手数料等は注意事項をご確認ください。<sup><a href="#note-2" id="ref-2">※2</a></sup></p>
+    </div>
+  </details>
+
+  <h3 class="sub-title">ポイントをつかう</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="use-shop" id="tab-use-shop">お店で</button>
+      <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="use-net" id="tab-use-net" tabindex="-1">ネットで</button>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="use-shop" aria-labelledby="tab-use-shop">
+      <p>コード決済「MyJCB Pay」で、全国160万ヵ所以上のお店でその場でポイントを使えます。交換の手間はありません。</p>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="use-net" aria-labelledby="tab-use-net" hidden>
+      <p>Amazon.co.jpでのお買い物で、たまったJ-POINTをすぐに使えます。1ポイント＝最大1円分です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. まだある、ゴールドの特典（カルーセル）
+     ========================================================= -->
+<section class="sec" id="perks">
+  <div class="sec__head">
+    <p class="sec__label">まだある、ゴールドの特典</p>
+    <h2 class="sec__title">年会費以上に、<br>使える特典。</h2>
+  </div>
+  <div class="carousel" data-carousel>
+    <ul class="carousel__track" tabindex="0" aria-label="特典一覧（横にスクロール）">
+      <li class="perk"><div class="ph ph--perk" data-label="画像：映画館"><img src="images/scenes/perk_cluboff.jpg" alt=""></div><p class="perk__title">JCB GOLD Service Club Off</p><p class="perk__text">映画館やスポーツクラブ、レジャー施設などを優待価格で。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：自転車・カフェ"><img src="images/scenes/perk_trouble.jpg" alt=""></div><p class="perk__title"><span class="tag-new">新登場</span>日常トラブルおまかせ保険</p><p class="perk__text">自転車事故やカフェでのグラス破損など、日常の賠償を最大30万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：スマートフォン"><img src="images/scenes/perk_phone.jpg" alt=""></div><p class="perk__title">JCBスマートフォン保険</p><p class="perk__text">画面割れなどの修理費用を年間最高5万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：ショッピング"><img src="images/scenes/perk_shopping.jpg" alt=""></div><p class="perk__title">ショッピングガード保険</p><p class="perk__text">国内・海外で購入した品の破損や盗難を、年間最高500万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：空港・飛行機"><img src="images/scenes/perk_delay.jpg" alt=""></div><p class="perk__title">航空機遅延保険</p><p class="perk__text">乗り継ぎや出発の遅延、手荷物の遅延・紛失時の費用を補償。</p></li>
+    </ul>
+    <div class="carousel__nav">
+      <button type="button" class="carousel__btn" data-carousel-prev aria-label="前へ">‹</button>
+      <button type="button" class="carousel__btn" data-carousel-next aria-label="次へ">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. 家族カード・ご招待
+     ========================================================= -->
+<section class="sec sec--sub" id="family">
+  <div class="sec__head">
+    <p class="sec__label">家族カード・ご招待</p>
+    <h2 class="sec__title">持つほどに、<br>価値が広がる。</h2>
+  </div>
+  <div class="split">
+    <div class="ph ph--wide" data-label="写真：家族で旅行を楽しむ"><img src="images/scenes/family.jpg" alt=""></div>
+    <h3 class="split__title">家族カード1名様、年会費永年無料</h3>
+    <p>本会員と同等の特典・サービスを利用でき、ポイントも合算してためられます。2人目以降は1枚につき1,100円（税込）です。</p>
+  </div>
+  <div class="split">
+    <h3 class="split__title">ワンランク上の「JCBゴールド ザ・プレミア」へご招待</h3>
+    <p>JCBゴールドを2年連続で年間100万円以上ご利用の方をご招待。世界約1,900ヵ所以上の空港ラウンジ等を利用できるプライオリティ・パスなど、さらに充実したサービスをご提供します。</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. JCBゴールド サービス体験者の声
+     ========================================================= -->
+<section class="sec" id="voices">
   <div class="sec__head">
     <p class="sec__label">JCBゴールド サービス体験者の声</p>
     <h2 class="sec__title">使ってみたら、<br>思ったより身近でした。</h2>
@@ -159,28 +280,7 @@
 </section>
 
 <!-- =========================================================
-     限定デザイン
-     ========================================================= -->
-<section class="sec sec--deep" id="limited">
-  <div class="sec__head">
-    <p class="sec__label">枚数限定デザイン</p>
-    <h2 class="sec__title">メタルの輝きを、<br>手のひらに。</h2>
-  </div>
-  <div class="limited">
-    <figure class="limited__item">
-      <img src="images/cards/card_kirameki.png" alt="JCBゴールド -煌-" width="400" height="636">
-      <figcaption><span class="limited__name">JCBゴールド -煌（きらめき）-</span>金箔の上品な輝きを表現した、落ち着きのある一枚。</figcaption>
-    </figure>
-    <figure class="limited__item">
-      <img src="images/cards/card_sakura.png" alt="JCBゴールド -桜-" width="400" height="637">
-      <figcaption><span class="limited__name">JCBゴールド -桜（さくら）-</span>日本の華やかさを桜色で表現した、柔らかな印象の一枚。</figcaption>
-    </figure>
-  </div>
-  <p class="limited__note">上質な質感のメタルサーフェスを採用。発行費用1,100円（税込）、ナンバーレスのみ。発行枚数が上限に達し次第、受付終了です。<sup><a href="#note-2" id="ref-2">※2</a></sup></p>
-</section>
-
-<!-- =========================================================
-     2. ゴールドを迷っているあなたへ（心の声＋30秒診断＋シミュレーター）
+     6. ゴールドを迷っているあなたへ（心の声＋30秒診断＋シミュレーター）
      ========================================================= -->
 <section class="sec sec--sub" id="worry">
   <div class="sec__head">
@@ -266,7 +366,7 @@
 </section>
 
 <!-- =========================================================
-     3. 新規入会キャンペーン
+     7. 新規入会キャンペーン
      ========================================================= -->
 <section class="sec" id="campaign">
   <div class="sec__head">
@@ -316,130 +416,28 @@
 </section>
 
 <!-- =========================================================
-     4. J-POINT
+     8. 限定デザイン
      ========================================================= -->
-<section class="sec sec--sub" id="point">
+<section class="sec sec--deep" id="limited">
   <div class="sec__head">
-    <p class="sec__label">J-POINT</p>
-    <h2 class="sec__title">いつもの支払いが、<br>ポイントに変わる。</h2>
+    <p class="sec__label">枚数限定デザイン</p>
+    <h2 class="sec__title">メタルの輝きを、<br>手のひらに。</h2>
   </div>
-
-  <h3 class="sub-title">ためる</h3>
-  <div class="point-base">
-    <p class="point-base__rate"><span>200円（税込）ごとに</span><strong>1ポイント</strong></p>
-    <p>1回のご利用が200円未満でも、毎月の合計から換算するので無駄なくたまります。海外でのご利用は、ポイントアップ登録で2倍に。</p>
+  <div class="limited">
+    <figure class="limited__item">
+      <img src="images/cards/card_kirameki.png" alt="JCBゴールド -煌-" width="400" height="636">
+      <figcaption><span class="limited__name">JCBゴールド -煌（きらめき）-</span>金箔の上品な輝きを表現した、落ち着きのある一枚。</figcaption>
+    </figure>
+    <figure class="limited__item">
+      <img src="images/cards/card_sakura.png" alt="JCBゴールド -桜-" width="400" height="637">
+      <figcaption><span class="limited__name">JCBゴールド -桜（さくら）-</span>日本の華やかさを桜色で表現した、柔らかな印象の一枚。</figcaption>
+    </figure>
   </div>
-
-  <div class="point-partner">
-    <p class="point-partner__head">J-POINTパートナー（優待店）なら<strong>ポイント最大20倍</strong><small>還元率は最大10%</small></p>
-    <div class="ph ph--logo" data-label="画像：J-POINTパートナー ロゴ一覧（現行LP素材を流用）"><img src="images/scenes/partner_logos.png" alt=""></div>
-    <div class="point-example">
-        <p class="point-example__head">たとえば、いつものお店で月5万円使うと<br><strong>毎月1,795ポイント</strong>がたまります</p>
-        <div class="table-scroll">
-          <table class="data">
-            <thead><tr><th class="data__shop">店舗・サービス</th><th>月の利用額</th><th>倍率</th><th>ポイント</th></tr></thead>
-            <tbody>
-              <tr><td class="data__shop"><img src="images/logos/logo_amazon.jpg" alt="" width="24" height="24" loading="lazy">Amazon</td><td>20,000円</td><td>3倍</td><td>300pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_seven-eleven.jpg" alt="" width="24" height="24" loading="lazy">セブン-イレブン</td><td>5,000円</td><td>3倍</td><td>75pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_ubereats.jpg" alt="" width="24" height="24" loading="lazy">Uber Eats</td><td>8,000円</td><td>3倍</td><td>120pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_appstore.jpg" alt="" width="24" height="24" loading="lazy">App Store</td><td>2,000円</td><td>5倍</td><td>50pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_go.jpg" alt="" width="24" height="24" loading="lazy">タクシーアプリ「GO」</td><td>5,000円</td><td>10倍</td><td>250pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_starbucks.jpg" alt="" width="24" height="24" loading="lazy">スターバックス</td><td>3,000円</td><td>20倍</td><td>300pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_mcdonalds.jpg" alt="" width="24" height="24" loading="lazy">マクドナルド</td><td>2,000円</td><td>20倍</td><td>200pt</td></tr>
-              <tr><td class="data__shop"><img src="images/logos/logo_crecajosha.png" alt="" width="24" height="24" loading="lazy">クレカ乗車</td><td>5,000円</td><td>20倍</td><td>500pt</td></tr>
-              <tr class="is-total"><td>合計</td><td>50,000円</td><td></td><td>1,795pt</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="small">※事前にポイントアップ登録が必要です。対象加盟店は変更になる場合があります。</p>
-    </div>
-  </div>
-
-  <div class="bonus">
-    <p class="bonus__head">さらにゴールドなら<br><strong>ボーナスポイント</strong>を上乗せ</p>
-    <div class="table-scroll">
-      <table class="data">
-        <thead><tr><th>年間の利用金額</th><th>ボーナスポイント</th></tr></thead>
-        <tbody>
-          <tr><td>50万円</td><td>1,000pt</td></tr>
-          <tr><td>100万円</td><td>＋2,000pt</td></tr>
-          <tr><td>150万円</td><td>＋2,000pt</td></tr>
-          <tr><td>200万円</td><td>＋2,000pt</td></tr>
-          <tr><td>250万円</td><td>＋2,000pt</td></tr>
-          <tr><td>300万円</td><td>＋6,000pt</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small">以降も50万円ごとに2,500ポイント。</p>
-  </div>
-
-  <details class="acc">
-    <summary>こんなため方も。JCBのクレカ積立</summary>
-    <div class="acc__body">
-      <p>積立投資のご利用で、ポイント最大1.0%還元。証券会社は松井証券・SBI証券・マネックス証券から選べます。積立以外の月間ショッピング利用額が5万円以上なら最大1.0%、5万円未満なら最大0.5%です。</p>
-      <p class="small">※リスク・手数料等は注意事項をご確認ください。<sup><a href="#note-5" id="ref-5">※5</a></sup></p>
-    </div>
-  </details>
-
-  <h3 class="sub-title">つかう</h3>
-  <div class="tabs" data-tabs>
-    <div class="tabs__list" role="tablist">
-      <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="use-shop" id="tab-use-shop">お店で</button>
-      <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="use-net" id="tab-use-net" tabindex="-1">ネットで</button>
-    </div>
-    <div class="tabs__panel" role="tabpanel" id="use-shop" aria-labelledby="tab-use-shop">
-      <p>コード決済「MyJCB Pay」で、全国160万ヵ所以上のお店でその場でポイントを使えます。交換の手間はありません。</p>
-    </div>
-    <div class="tabs__panel" role="tabpanel" id="use-net" aria-labelledby="tab-use-net" hidden>
-      <p>Amazon.co.jpでのお買い物で、たまったJ-POINTをすぐに使えます。1ポイント＝最大1円分です。</p>
-    </div>
-  </div>
+  <p class="limited__note">上質な質感のメタルサーフェスを採用。発行費用1,100円（税込）、ナンバーレスのみ。発行枚数が上限に達し次第、受付終了です。<sup><a href="#note-5" id="ref-5">※5</a></sup></p>
 </section>
 
 <!-- =========================================================
-     5. まだある、ゴールドの特典（カルーセル）
-     ========================================================= -->
-<section class="sec" id="perks">
-  <div class="sec__head">
-    <p class="sec__label">まだある、ゴールドの特典</p>
-    <h2 class="sec__title">年会費以上に、<br>使える特典。</h2>
-  </div>
-  <div class="carousel" data-carousel>
-    <ul class="carousel__track" tabindex="0" aria-label="特典一覧（横にスクロール）">
-      <li class="perk"><div class="ph ph--perk" data-label="画像：映画館"><img src="images/scenes/perk_cluboff.jpg" alt=""></div><p class="perk__title">JCB GOLD Service Club Off</p><p class="perk__text">映画館やスポーツクラブ、レジャー施設などを優待価格で。</p></li>
-      <li class="perk"><div class="ph ph--perk" data-label="画像：自転車・カフェ"><img src="images/scenes/perk_trouble.jpg" alt=""></div><p class="perk__title"><span class="tag-new">新登場</span>日常トラブルおまかせ保険</p><p class="perk__text">自転車事故やカフェでのグラス破損など、日常の賠償を最大30万円まで補償。</p></li>
-      <li class="perk"><div class="ph ph--perk" data-label="画像：スマートフォン"><img src="images/scenes/perk_phone.jpg" alt=""></div><p class="perk__title">JCBスマートフォン保険</p><p class="perk__text">画面割れなどの修理費用を年間最高5万円まで補償。</p></li>
-      <li class="perk"><div class="ph ph--perk" data-label="画像：ショッピング"><img src="images/scenes/perk_shopping.jpg" alt=""></div><p class="perk__title">ショッピングガード保険</p><p class="perk__text">国内・海外で購入した品の破損や盗難を、年間最高500万円まで補償。</p></li>
-      <li class="perk"><div class="ph ph--perk" data-label="画像：空港・飛行機"><img src="images/scenes/perk_delay.jpg" alt=""></div><p class="perk__title">航空機遅延保険</p><p class="perk__text">乗り継ぎや出発の遅延、手荷物の遅延・紛失時の費用を補償。</p></li>
-    </ul>
-    <div class="carousel__nav">
-      <button type="button" class="carousel__btn" data-carousel-prev aria-label="前へ">‹</button>
-      <button type="button" class="carousel__btn" data-carousel-next aria-label="次へ">›</button>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     6. 家族カード・ご招待
-     ========================================================= -->
-<section class="sec sec--sub" id="family">
-  <div class="sec__head">
-    <p class="sec__label">家族カード・ご招待</p>
-    <h2 class="sec__title">持つほどに、<br>価値が広がる。</h2>
-  </div>
-  <div class="split">
-    <div class="ph ph--wide" data-label="写真：家族で旅行を楽しむ"><img src="images/scenes/family.jpg" alt=""></div>
-    <h3 class="split__title">家族カード1名様、年会費永年無料</h3>
-    <p>本会員と同等の特典・サービスを利用でき、ポイントも合算してためられます。2人目以降は1枚につき1,100円（税込）です。</p>
-  </div>
-  <div class="split">
-    <h3 class="split__title">ワンランク上の「JCBゴールド ザ・プレミア」へご招待</h3>
-    <p>JCBゴールドを2年連続で年間100万円以上ご利用の方をご招待。世界約1,900ヵ所以上の空港ラウンジ等を利用できるプライオリティ・パスなど、さらに充実したサービスをご提供します。</p>
-  </div>
-</section>
-
-<!-- =========================================================
-     7. 安全・安心
+     9. 安全・安心
      ========================================================= -->
 <section class="sec" id="security">
   <div class="sec__head">
@@ -465,7 +463,7 @@
 </section>
 
 <!-- =========================================================
-     8. お申し込みの流れ（タブ）
+     10. お申し込みの流れ（タブ）
      ========================================================= -->
 <section class="sec sec--sub" id="flow">
   <div class="sec__head">
@@ -510,7 +508,7 @@
 </section>
 
 <!-- =========================================================
-     9. カード基本情報
+     11. カード基本情報
      ========================================================= -->
 <section class="sec" id="spec">
   <div class="sec__head">
@@ -532,7 +530,7 @@
 </section>
 
 <!-- =========================================================
-     10. よくあるご質問（アコーディオン）
+     12. よくあるご質問（アコーディオン）
      ========================================================= -->
 <section class="sec sec--sub" id="faq">
   <div class="sec__head">
@@ -550,7 +548,7 @@
 </section>
 
 <!-- =========================================================
-     11. お申し込み（ページ内の申込ボタンはすべてここへのアンカー）
+     13. お申し込み（ページ内の申込ボタンはすべてここへのアンカー）
      ========================================================= -->
 <section class="sec sec--deep" id="apply">
   <div class="sec__head">
@@ -568,10 +566,10 @@
   <h2 class="notes__title">注意事項</h2>
   <ol class="notes__list">
     <li id="note-1">初年度年会費無料はオンライン入会の場合のみ。お切り替えの方は対象となりません。<a href="#ref-1" class="notes__back">本文へ戻る</a></li>
-    <li id="note-2">METAL SURFACE CARD™はTOPPANホールディングスの商標です。限定デザインのお申し込み前に注意事項をご確認ください。<a href="#ref-2" class="notes__back">本文へ戻る</a></li>
+    <li id="note-2">クレカ積立に関するリスク・手数料、金融商品仲介業務に関する注意事項（現行LPの記載をそのまま掲載）。<a href="#ref-2" class="notes__back">本文へ戻る</a></li>
     <li id="note-3">試算の換算条件：空港ラウンジ1回1,100円、JCB スター・ダイニング by OMAKASEは1名25,000円のコースを2名で利用し5%引き、JCBプレミアムステイプランのクーポンは5,000円分×年2回まで、J-POINTパートナーの還元率は現行LPの利用例（月5万円で1,795ポイント）から算出。<a href="#ref-3" class="notes__back">本文へ戻る</a></li>
     <li id="note-4">本業が学生の方はお申し込みになれません。<a href="#ref-4" class="notes__back">本文へ戻る</a></li>
-    <li id="note-5">クレカ積立に関するリスク・手数料、金融商品仲介業務に関する注意事項（現行LPの記載をそのまま掲載）。<a href="#ref-5" class="notes__back">本文へ戻る</a></li>
+    <li id="note-5">METAL SURFACE CARD™はTOPPANホールディングスの商標です。限定デザインのお申し込み前に注意事項をご確認ください。<a href="#ref-5" class="notes__back">本文へ戻る</a></li>
   </ol>
   <p class="mock-note">［提案メモ］現行LPの注意事項はすべてここに集約して掲載</p>
   <p class="notes__copy">© JCB Co.,Ltd.</p>
@@ -589,27 +587,6 @@
 
 <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
 
-<!-- =========================================================
-     モック操作パネル（提案用。本番には表示しません）
-     ========================================================= -->
-<aside class="mockpanel" data-mockpanel>
-  <button class="mockpanel__toggle" type="button" aria-expanded="false" data-mockpanel-toggle>モック操作</button>
-  <div class="mockpanel__body" hidden>
-    <p class="mockpanel__label">ファーストビュー</p>
-    <div class="mockpanel__group" data-mock-fv>
-      <button type="button" data-value="a" aria-pressed="true">A：自己紹介型（弊社案）</button>
-      <button type="button" data-value="b" aria-pressed="false">B：CP主役型（JCB様案）</button>
-    </div>
-    <p class="mockpanel__label">広告流入（FVの出し分け）</p>
-    <div class="mockpanel__group" data-mock-ad>
-      <button type="button" data-value="none" aria-pressed="true">指定なし</button>
-      <button type="button" data-value="point" aria-pressed="false">ポイント訴求</button>
-      <button type="button" data-value="travel" aria-pressed="false">旅行訴求</button>
-      <button type="button" data-value="gourmet" aria-pressed="false">グルメ訴求</button>
-    </div>
-    <p class="mockpanel__note">提案用の操作パネルです。本番には表示されません。</p>
-  </div>
-</aside>
 
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>

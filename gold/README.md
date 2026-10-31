@@ -5,8 +5,8 @@
 ## フォルダ構成
 - `index.html` … ページ本体。セクションごとにコメントで区切っています
 - `css/style.css` … スタイル。色・フォント・幅は冒頭の `:root` 変数で一括管理
-- `js/config.js` … シミュレーターの計算係数、30秒診断の設問と結果、FVの出し分け文言、券面一覧
-- `js/main.js` … 動作（FV切替、ドロワー、タブ、カルーセル、診断、シミュレーター、申込（券面選択）
+- `js/config.js` … シミュレーターの計算係数、30秒診断の設問と結果、券面一覧
+- `js/main.js` … 動作（ドロワー、タブ、カルーセル、診断、シミュレーター、申込（券面選択）
 - `images/cards/` … 券面画像（5種）
 - `images/scenes/` … ダミー画像枠の差し替え先（空）
 
@@ -17,9 +17,7 @@
 partner_logos.png / perk_cluboff.jpg / perk_trouble.jpg / perk_phone.jpg / perk_shopping.jpg /
 perk_delay.jpg / family.jpg
 
-## モック操作
-- 画面右上の「モック操作」で、FV（A：自己紹介型／B：CP主役型）と広告流入別の出し分けを切替
-- URLでも指定可：`index.html?fv=b`、`index.html?ad=point`（point / travel / gourmet）
+## モック動作
 - 申込ボタンは `config.js` の `mockNoTransition: true` の間は遷移しません
 
 ## 注意
