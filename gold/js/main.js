@@ -228,7 +228,7 @@
     const rows = [
       ["普段のお買い物のポイント", (v.daily * 12 / S.basePerYen) * S.pointYen],
       ["よく使うお店のポイント", v.partner * 12 * S.partnerRate],
-      ["ゴールドのボーナスポイント", bonusPoints(annualShop) * S.pointYen],
+      ["J-POINTボーナス", bonusPoints(annualShop) * S.pointYen],
       ["空港ラウンジ", v.flights * S.lounge],
       ["JCB スター・ダイニング by OMAKASE", v.dining * S.dining],
       ["ホテルクーポン（JCBプレミアムステイプラン）", Math.min(v.hotel, S.hotelCouponMax) * S.hotelCoupon],

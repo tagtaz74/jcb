@@ -97,7 +97,7 @@ window.MOCK_CONFIG = {
       lead: "いつもの支払いを、そのままポイントに変えていけます。",
       perks: [
         { title: "J-POINTパートナーで最大20倍", text: "Amazon・セブン-イレブン・スターバックスなどでポイントアップ。" },
-        { title: "ゴールドだけのボーナスポイント", text: "年間50万円のご利用ごとに、通常ポイントに上乗せ。" },
+        { title: "ゴールドだけのJ-POINTボーナス", text: "年間50万円のご利用ごとに、通常ポイントに上乗せ。" },
         { title: "クレカ積立で最大1.0%還元", text: "毎月の積立投資でも、ポイントがたまります。" }
       ],
       preset: { daily: 80000, partner: 30000, flights: 0, dining: 0, hotel: 0, tsumitate: 30000 },
