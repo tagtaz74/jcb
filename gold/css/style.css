@@ -25,7 +25,6 @@
 
   --page-w: 430px;        /* 現行ゴールドLPと同じSP幅。PCではこの幅で中央表示 */
   --gutter: 20px;
-  --header-h: 56px;       /* 固定ヘッダーの高さ（PCは下のメディアクエリで上書き） */
   --radius-s: 6px;
   --radius-m: 12px;
 
@@ -37,9 +36,9 @@
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-/* アンカー移動時に固定ヘッダーの高さ分だけ下で止める。セクション以外（※注記・本文中の要素）はさらに余白を足す */
-html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h)); scroll-behavior: smooth; }
-[id]:not(section) { scroll-margin-top: 16px; }
+/* ヘッダーは固定しないので、アンカー移動はノッチ分だけ空ける。セクション以外（※注記・本文中の要素）は余白を足す */
+html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+[id]:not(section) { scroll-margin-top: 24px; }
 
 /* ---------- トークン（ダーク） ---------- */
 @media (prefers-color-scheme: dark) {
@@ -83,18 +82,30 @@ small, .small { font-size: 12px; color: var(--ink-sub); line-height: 1.6; }
 }
 
 /* ---------- ヘッダー ---------- */
+/* ヘッダーはスクロールで流れる（固定しない）。ロゴの上に余白をとる */
 .header {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
-  display: flex; align-items: center; justify-content: space-between;
-  height: var(--header-h); padding: 0 var(--gutter);
+  display: flex; align-items: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) var(--gutter) 6px;
   background: var(--deep); color: var(--on-deep);
 }
 body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
   z-index: 31; background: var(--deep);
 }
-.header__logo { font-family: var(--font-serif); font-weight: 700; letter-spacing: .18em; text-decoration: none; font-size: 17px; }
-.header__menu { width: 44px; height: 44px; border: 0; background: none; color: inherit; cursor: pointer; display: grid; place-items: center; }
+/* JCBロゴ（JCBカード W LPと同様にロゴ単体、白地の角丸で表示） */
+.header__logo { display: block; flex: none; line-height: 0; }
+.header__logo img { width: 60px; height: 47px; object-fit: contain; border-radius: 6px; }
+/* 右上に追従するハンバーガーボタン（ページ幅の右端にそろえる） */
+.menu-fab {
+  position: fixed; z-index: 30; top: calc(env(safe-area-inset-top, 0px) + 17.5px); left: 0; right: 0;
+  max-width: var(--page-w); margin: 0 auto; padding: 0 var(--gutter);
+  display: flex; justify-content: flex-end; pointer-events: none;
+}
+.header__menu {
+  pointer-events: auto; width: 48px; height: 48px; border: 0; border-radius: 10px; cursor: pointer; display: grid; place-items: center;
+  background: rgb(31 31 34 / .82); color: #fff; box-shadow: 0 4px 14px rgb(0 0 0 / .25);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
 .header__menu-bar, .header__menu-bar::before, .header__menu-bar::after {
   content: ""; display: block; width: 22px; height: 1.5px; background: currentColor; position: relative;
 }
@@ -519,15 +530,15 @@ body::before {
 
 /* ---------- タブレット・PC：全幅表示、中身は --content-w で中央寄せ ---------- */
 @media (min-width: 768px) {
-  :root { --content-w: 720px; --header-h: 64px; }
+  :root { --content-w: 720px; }
   /* 左右余白で中身の幅を決める（カルーセル等の負マージンもこの値に追従） */
   .page > *, .page > main > section { --gutter: max(40px, calc((100vw - var(--content-w)) / 2)); }
 
   .page { max-width: none; box-shadow: none; }
+  .menu-fab { max-width: none; }
   .drawer__inner { right: 0; }
 
 
-  .header__logo { font-size: 19px; }
 
   .sec { padding-top: 96px; padding-bottom: 96px; }
   .sec__head { margin-bottom: 48px; }
