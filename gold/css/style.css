@@ -25,7 +25,7 @@
 
   --page-w: 430px;        /* 現行ゴールドLPと同じSP幅。PCではこの幅で中央表示 */
   --gutter: 20px;
-  --header-space: calc(env(safe-area-inset-top, 0px) + 71px);  /* ヘッダー（上余白18＋ロゴ47＋下6）の高さ。FVの上余白に足す */
+  --header-space: calc(env(safe-area-inset-top, 0px) + 71px);  /* ヘッダー（上余白18＋ロゴ47＋下6）の高さ。PCのFV上余白に足す */
   --radius-s: 6px;
   --radius-m: 12px;
 
@@ -141,7 +141,9 @@ body::before {
 .fv--a {
   position: relative; isolation: isolate; overflow: hidden;
   background: var(--deep); color: var(--on-deep);
-  padding: calc(var(--header-space) + 28px) var(--gutter) 28px; text-align: center;  /* 上はヘッダーの分を足す */
+  /* SP〜タブレットは券面をヘッダーの高さまで上げる。縦型券面はロゴとメニューボタンの間に収まり、
+     横型券面は正方形の枠の中央に置かれるのでロゴの下になる（320px幅でも重ならない値） */
+  padding: calc(env(safe-area-inset-top, 0px) + 30px) var(--gutter) 22px; text-align: center;
 }
 /* 背景の光：券面の光沢（各カード1.56〜2.76秒）と同じタイミングで、背景もさり気なく横切る。
    周期は券面1枚分（.fv-cards の --dur = 5s）と同じ。31.2%＝1.56秒、55.2%＝2.76秒 */
@@ -156,7 +158,7 @@ body::before {
   55.2%     { transform: translateX(100%); }
   100%    { transform: translateX(100%); }
 }
-.fv__card { width: 72%; margin: 0 auto 16px; }
+.fv__card { width: 72%; margin: 0 auto 12px; }
 
 /* FV券面：金の光のラインが走り、そこから券面が上下に開いて現れる → 光沢が一度走る → 霞むように消え、次の券面へ
    1枚あたり5秒 × 5枚 = 25秒で一巡。keyframes の％は25秒を基準にしているので、枚数を変えるときは --n と合わせて調整する */
@@ -186,6 +188,11 @@ body::before {
 .fv-cards__slide--v::before { left: 16%; right: 16%; }
 .fv-cards__slide--v .fv-cards__face { width: auto; height: 100%; aspect-ratio: 400 / 636; border-radius: 7% / 4.5%; }
 .fv-cards__slide--v .fv-cards__sheen { inset: 0.5% 1.5%; }
+/* SP〜タブレットは券面の枠をヘッダーの高さまで上げているので、横型だけ少し下げて上ずって見えないようにする（光のラインも一緒に） */
+@media (max-width: 1023px) {
+  .fv-cards__slide:not(.fv-cards__slide--v) .fv-cards__face,
+  .fv-cards__slide:not(.fv-cards__slide--v)::before { top: 58%; }
+}
 .fv-cards__sheen::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / .15) 42%, rgb(255 255 255 / .85) 50%, rgb(255 255 255 / .15) 58%, transparent 70%);
@@ -223,10 +230,10 @@ body::before {
 }
 .fv__name { font-family: var(--font-serif); font-weight: 700; font-size: 19px; letter-spacing: .24em; line-height: 1.4; color: var(--gold-lt); margin-bottom: 10px; }
 .fv__title { font-family: var(--font-serif); font-weight: 800; font-size: clamp(26px, 8.4vw, 34px); line-height: 1.38; margin: 0 0 14px; letter-spacing: .04em; }
-.fv__sub { font-size: 14px; color: var(--on-deep-sub); margin-bottom: 22px; }
+.fv__sub { font-size: 14px; color: var(--on-deep-sub); margin-bottom: 18px; }
 
 /* 4項目を2×2で表示：上に小さなリード、下に特典名（強調部分はゴールド） */
-.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 22px; border-top: 1px solid rgb(217 182 106 / .45); border-bottom: 1px solid rgb(217 182 106 / .45); }
+.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 18px; border-top: 1px solid rgb(217 182 106 / .45); border-bottom: 1px solid rgb(217 182 106 / .45); }
 .facts__item { padding: 14px 6px 12px; }
 .facts__item:nth-child(n+3) { border-top: 1px solid rgb(217 182 106 / .25); }
 .facts__item:nth-child(even) { border-left: 1px solid rgb(217 182 106 / .25); }
