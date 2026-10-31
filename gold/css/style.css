@@ -446,6 +446,23 @@ body::before {
 }
 .ext-link--inline { display: inline-flex; justify-content: center; gap: 4px; padding: 0; font-size: inherit; color: inherit; font-weight: inherit; }
 .ext-link--inline::after { width: 12px; height: 12px; }
+
+/* 現行LPの必須注意事項（JSON読み込み想定のため、装飾は太字・改行・リンクのみ） */
+.legal { margin-top: 16px; font-size: 12px; line-height: 1.75; color: var(--ink-sub); overflow-wrap: anywhere; }
+.legal p { margin: 0; }
+.legal .legal__head:not(:first-child) { margin-top: 1em; }
+.legal strong, .legal a { color: var(--ink); }
+.legal .ext-link--inline { display: inline; text-decoration-color: currentColor; }
+.legal .ext-link--inline::after { display: inline-block; margin-left: 4px; vertical-align: -1px; }
+.sec--deep .legal { color: var(--on-deep-sub); }
+.sec--deep .legal strong, .sec--deep .legal a { color: var(--on-deep); }
+.legal-acc { margin-top: 16px; }
+.legal-acc + .legal-acc { margin-top: -1px; }
+.legal-acc summary { padding-block: 13px; font-size: 13px; }
+.legal-acc .acc__body { margin-top: 0; padding-bottom: 16px; font-size: 12px; }
+.legal-box { margin: 4px 0 0 52px; padding: 14px 16px; border-radius: var(--radius-s); background: var(--bg); border: 1px solid var(--line); }
+.legal-box__title { margin: 0; font-size: 13px; font-weight: 700; }
+.legal-box .legal { margin-top: 6px; }
 .faq .acc summary { padding-left: 28px; }
 .faq .acc summary::before { content: "Q"; position: absolute; left: 0; font-family: var(--font-serif); color: var(--gold); font-size: 17px; }
 
@@ -477,7 +494,7 @@ body::before {
 .point-example__head strong { font-family: var(--font-serif); font-size: 21px; color: var(--ink); }
 .point-example__head strong b { color: var(--gold); }
 .point-example .table-scroll { margin-top: 12px; }
-.point-example .is-total td { color: var(--gold); }
+.point-example .is-total td { color: var(--gold); border-bottom: 0; }  /* 枠の中なので最下段の罫線は不要 */
 .point-example { padding-inline: 12px; }
 .point-example .data { font-size: 12.5px; }
 .point-example .data th, .point-example .data td { padding-inline: 5px; white-space: nowrap; }
@@ -524,10 +541,6 @@ body::before {
 .steps li:not(:last-child)::after { content: ""; position: absolute; left: 17.5px; top: 40px; bottom: 4px; width: 1px; background: var(--line); }
 .steps__title { font-weight: 700; margin-bottom: 2px; padding-top: 5px; }
 .steps li p:not(.steps__title) { font-size: 13.5px; color: var(--ink-sub); }
-.prepare { margin-top: 20px; padding: 20px 18px; background: var(--bg); border-radius: var(--radius-m); border: 1px solid var(--line); }
-.prepare__title { font-weight: 700; margin-bottom: 10px; }
-.prepare__list { margin: 0; padding-left: 1.3em; font-size: 13.5px; }
-.prepare__list li { margin-bottom: 6px; }
 
 /* ---------- 3. カルーセル ---------- */
 .carousel__track { list-style: none; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 4px; display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter); scrollbar-width: none; }
@@ -584,6 +597,7 @@ body::before {
 .notes__sub li { margin-bottom: 4px; list-style: disc; }
 .notes__sub li::marker { content: normal; }
 .notes__copy { margin-top: 24px; text-align: center; }
+.notes .legal { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
 
 /* ---------- 追従CTA ---------- */
 .sticky-cta {
