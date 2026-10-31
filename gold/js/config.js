@@ -84,7 +84,7 @@ window.MOCK_CONFIG = {
       lead: "移動や旅先での時間を、ゆとりあるものに変えられます。",
       perks: [
         { title: "空港ラウンジ無料", text: "国内主要空港とホノルルの空港ラウンジを、出発前にゆったり。" },
-        { title: "ホテルクーポン年1万円分", text: "JCB Premium Stayで使える5,000円分のクーポンを年2回。" },
+        { title: "ホテルクーポン年1万円分", text: "JCBプレミアムステイプランで使える5,000円分のクーポンを年2回。" },
         { title: "旅行傷害保険 最高1億円", text: "海外の事故やケガにも、しっかり備えられます。" }
       ],
       preset: { daily: 60000, partner: 15000, flights: 4, dining: 1, hotel: 2, tsumitate: 0 },
@@ -94,9 +94,9 @@ window.MOCK_CONFIG = {
       name: "食と体験を楽しむタイプ",
       lead: "特別な日の外食やエンタメが、もっと身近になります。",
       perks: [
-        { title: "JCB スター・ダイニング", text: "予約困難店やミシュランガイド掲載店を、会員優待で予約。" },
+        { title: "JCB スター・ダイニング by OMAKASE", text: "予約困難店やミシュランガイド掲載店を、会員優待で予約。" },
         { title: "JCB GOLD Service Club Off", text: "映画館やスポーツクラブなど、身近な場所で優待価格に。" },
-        { title: "JCB Premium Stay", text: "世界4,000軒以上のホテルで、朝食や館内利用券の優待。" }
+        { title: "JCBプレミアムステイプラン", text: "世界4,000軒以上のホテルで、朝食や館内利用券の優待。" }
       ],
       preset: { daily: 50000, partner: 15000, flights: 1, dining: 3, hotel: 1, tsumitate: 0 },
       anchor: "#features"

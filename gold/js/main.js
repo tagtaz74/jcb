@@ -38,7 +38,7 @@
   drawerBtn.addEventListener("click", () => setDrawer(true));
   $("[data-drawer-close]").addEventListener("click", () => setDrawer(false));
   drawer.addEventListener("click", (e) => {
-    if (e.target === drawer || e.target.closest("a") || e.target.closest("[data-open-apply]")) setDrawer(false);
+    if (e.target === drawer || e.target.closest("a")) setDrawer(false);
   });
 
   /* ---------- FV切替・広告流入の出し分け ---------- */
@@ -81,7 +81,7 @@
     const show = fvBottom < 0 && applyTop > window.innerHeight * 0.8;
     sticky.classList.toggle("is-shown", show);
     sticky.setAttribute("aria-hidden", String(!show));
-    $("button", sticky).tabIndex = show ? 0 : -1;
+    $(".btn", sticky).tabIndex = show ? 0 : -1;
   }
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(updateSticky); } }, { passive: true });
   updateSticky();
@@ -285,7 +285,7 @@
   }
 
   /* =========================================================
-     申込：券面選択 → 番号有無（モーダルとページ内で共通）
+     申込：券面選択 → 番号有無（#apply 内）
      ========================================================= */
   function buildChooser(root) {
     let design = C.designs[0];
@@ -328,27 +328,7 @@
   }
   $$("[data-chooser]").forEach(buildChooser);
 
-  /* ---------- モーダル ---------- */
-  const modal = $("[data-modal]");
-  let lastFocus = null;
-  function openModal() {
-    lastFocus = document.activeElement;
-    modal.hidden = false;
-    document.body.style.overflow = "hidden";
-    $(".modal__close", modal).focus();
-  }
-  function closeModal() {
-    modal.hidden = true;
-    document.body.style.overflow = "";
-    if (lastFocus) lastFocus.focus();
-  }
-  document.addEventListener("click", (e) => {
-    if (e.target.closest("[data-open-apply]")) openModal();
-    if (e.target.closest("[data-modal-close]")) closeModal();
-  });
   document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    if (!modal.hidden) closeModal();
-    if (drawer.classList.contains("is-open")) setDrawer(false);
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) setDrawer(false);
   });
 })();

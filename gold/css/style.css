@@ -360,7 +360,12 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
 .compare, .data { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; }
 .compare th, .compare td, .data th, .data td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
 .compare thead th { font-size: 12.5px; color: var(--ink-sub); }
-.compare tbody th { text-align: left; font-weight: 500; font-size: 12.5px; color: var(--ink-sub); width: 34%; }
+.compare tbody th { text-align: left; font-weight: 500; font-size: 12.5px; color: var(--ink-sub); width: 24%; }
+.compare small { display: block; font-size: 10.5px; }
+/* 4列あるので狭い画面では横スクロール。項目名の列は左に固定して見失わないように */
+.compare { min-width: 520px; }
+.compare thead th { white-space: nowrap; }
+.compare tbody th, .compare thead th:first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); }
 .compare .is-gold { background: var(--gold-wash); font-weight: 700; }
 .compare thead .is-gold { color: var(--gold); border-radius: var(--radius-s) var(--radius-s) 0 0; }
 .data thead th { background: var(--bg-sub); font-size: 12px; font-weight: 500; color: var(--ink-sub); }
@@ -403,6 +408,8 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8M8.5 2H12v3.5M12 2 6.5 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8M8.5 2H12v3.5M12 2 6.5 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+.ext-link--inline { display: inline-flex; justify-content: center; gap: 4px; padding: 0; font-size: inherit; color: inherit; font-weight: inherit; }
+.ext-link--inline::after { width: 12px; height: 12px; }
 .faq .acc summary { padding-left: 28px; }
 .faq .acc summary::before { content: "Q"; position: absolute; left: 0; font-family: var(--font-serif); color: var(--gold); font-size: 17px; }
 
@@ -484,10 +491,6 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
 .chooser__type strong { display: block; font-size: 15px; }
 .chooser__type span { font-size: 12.5px; opacity: .8; }
 .chooser__note { font-size: 11.5px; opacity: .8; margin-top: 10px; line-height: 1.6; }
-.modal .chooser__design, .modal .chooser__type { background: var(--bg-sub); }
-.modal .chooser__design[aria-pressed="true"] { background: var(--gold-wash); border-color: var(--gold); }
-.modal .chooser__type[aria-pressed="true"] { border-color: var(--gold); }
-.modal .chooser__design .chooser__limited { color: var(--gold); }
 
 /* ---------- 注意事項 ---------- */
 .notes { padding: 40px var(--gutter) 120px; background: var(--bg-sub); font-size: 12px; color: var(--ink-sub); line-height: 1.7; }
@@ -510,17 +513,6 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
 .sticky-cta__text strong { font-size: 14px; color: var(--gold); }
 .sticky-cta .btn { flex: 1; min-height: 48px; font-size: 15px; }
 
-/* ---------- モーダル ---------- */
-.modal { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; justify-content: center; }
-.modal[hidden] { display: none; }
-.modal__backdrop { position: absolute; inset: 0; background: rgb(6 12 26 / .6); }
-.modal__panel {
-  position: relative; width: 100%; max-width: var(--page-w); max-height: 88vh; overflow-y: auto;
-  background: var(--bg); color: var(--ink); border-radius: 18px 18px 0 0;
-  padding: 18px var(--gutter) calc(24px + env(safe-area-inset-bottom, 0px));
-}
-.modal__close { display: block; margin-left: auto; border: 0; background: none; color: var(--ink-sub); font: inherit; font-size: 13px; padding: 6px 0; cursor: pointer; }
-.modal__title { font-weight: 700; margin: 4px 0 18px; }
 
 .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 80; background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 13px; max-width: 90vw; }
 
@@ -575,9 +567,6 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
   .sticky-cta__text { font-size: 13px; }
   .sticky-cta__text strong { font-size: 16px; }
 
-  /* モーダル：画面中央のダイアログ */
-  .modal { align-items: center; }
-  .modal__panel { max-width: 640px; border-radius: 18px; padding: 24px 32px 32px; }
 }
 
 /* ---------- PC：多カラムレイアウト ---------- */
@@ -620,10 +609,7 @@ body[data-fv="a"] .fv--a, body[data-fv="b"] .fv--b { display: block; }
   .limited__note { max-width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
 
   /* 迷っているあなたへ：診断は全幅、残りの2問は横並び */
-  #worry { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-  #worry > .sec__head, #worry > #sim { grid-column: 1 / -1; }
-  #worry > .sec__head { margin-bottom: 24px; }
-  .voice { margin-bottom: 0; padding: 36px 32px; }
+  .voice { margin-bottom: 24px; padding: 36px 32px; }
   .diag__options { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   /* 診断（または結果）を左、シミュレーターを右に並べる */
   #sim { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; align-items: start; }
