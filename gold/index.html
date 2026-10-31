@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JCBゴールド｜LPリニューアル モック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-fv="a" data-ad="none">
+
+<div class="page">
+
+<!-- =========================================================
+     ヘッダー（ハンバーガーメニュー）
+     ========================================================= -->
+<header class="header">
+  <a class="header__logo" href="#top">JCB GOLD</a>
+  <button class="header__menu" type="button" aria-expanded="false" aria-controls="drawer" data-drawer-open>
+    <span class="header__menu-bar"></span><span class="visually-hidden">メニューを開く</span>
+  </button>
+</header>
+
+<nav class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__inner">
+    <button class="drawer__close" type="button" data-drawer-close>閉じる</button>
+    <ul class="drawer__list">
+      <li><a href="#features">JCBゴールドの3大特長</a></li>
+      <li><a href="#voices">サービス体験者の声</a></li>
+      <li><a href="#limited">限定デザイン</a></li>
+      <li><a href="#worry">年会費の元はとれる？</a></li>
+      <li><a href="#campaign">新規入会キャンペーン</a></li>
+      <li><a href="#point">J-POINT</a></li>
+      <li><a href="#perks">まだある、ゴールドの特典</a></li>
+      <li><a href="#family">家族カード・ご招待</a></li>
+      <li><a href="#security">安全・安心</a></li>
+      <li><a href="#flow">お申し込みの流れ</a></li>
+      <li><a href="#spec">カード基本情報</a></li>
+      <li><a href="#faq">よくあるご質問</a></li>
+    </ul>
+    <button class="btn btn--cta btn--block" type="button" data-open-apply>今すぐ申し込む</button>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- =========================================================
+     FV-A：自己紹介型（弊社案）
+     ========================================================= -->
+<section class="fv fv--a" id="fv" data-fv-variant="a">
+  <!-- 券面：光のラインから券面が開いて現れ、順番に入れ替わる -->
+  <div class="fv__card fv-cards">
+    <div class="fv-cards__slide" style="--i:0"><div class="fv-cards__face"><img src="images/cards/card_gold.png" alt="JCBゴールド 通常デザイン" width="640" height="408"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
+    <div class="fv-cards__slide" style="--i:1"><div class="fv-cards__face"><img src="images/cards/card_biomass.png" alt="JCBゴールド バイオマスデザイン" width="640" height="420"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
+    <div class="fv-cards__slide" style="--i:2"><div class="fv-cards__face"><img src="images/cards/card_disney.png" alt="JCBゴールド ディズニー・デザイン" width="640" height="405"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
+    <div class="fv-cards__slide fv-cards__slide--v" style="--i:3"><div class="fv-cards__face"><img src="images/cards/card_kirameki.png" alt="JCBゴールド -煌（きらめき）- 枚数限定デザイン" width="400" height="636"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
+    <div class="fv-cards__slide fv-cards__slide--v" style="--i:4"><div class="fv-cards__face"><img src="images/cards/card_sakura.png" alt="JCBゴールド -桜（さくら）- 枚数限定デザイン" width="400" height="637"><span class="fv-cards__sheen" aria-hidden="true"></span></div></div>
+  </div>
+  <p class="fv__name">JCBゴールド</p>
+  <h1 class="fv__title">持つだけで、<br>毎日が少し上質に。</h1>
+  <p class="fv__sub" data-ad-sub>たまるポイントに、空港ラウンジや名店予約まで。<br>1年目は年会費0円で、まずはおためしを。</p>
+
+  <dl class="facts">
+    <div class="facts__item"><dt>初年度年会費</dt><dd>¥0<sup><a href="#note-1" id="ref-1">※1</a></sup></dd></div>
+    <div class="facts__item" data-ad-fact3><dt>空港ラウンジ</dt><dd>無料</dd></div>
+    <div class="facts__item"><dt>カード番号発行</dt><dd>最短5分</dd></div>
+  </dl>
+
+  <button class="btn btn--cta btn--block btn--lg" type="button" data-open-apply>
+    今すぐ申し込む<small>最短5分でカード番号発行</small>
+  </button>
+
+  <a class="cp-band" href="#campaign">
+    <span class="cp-band__badge">先着600名様</span>
+    <span class="cp-band__text">新規入会＆条件達成で<strong>最大23,000円</strong>キャッシュバック</span>
+  </a>
+</section>
+
+<!-- =========================================================
+     FV-B：CP主役型（JCB様案 05_No1_FV のワイヤーを再現）
+     ========================================================= -->
+<section class="fv fv--b" data-fv-variant="b">
+  <p class="fv-b__badges"><span class="fv-b__badge fv-b__badge--gold">期間・数量限定</span><span class="fv-b__badge">初年度 年会費無料</span></p>
+  <h1 class="fv-b__title">ワンランク上を、<br>いまひと足お先に。</h1>
+  <div class="fv-b__cp">
+    <span class="fv-b__cp-tag">先着600名様</span>
+    <p class="fv-b__cp-lead">新規入会＆条件達成で</p>
+    <p class="fv-b__cp-num">最大<span>¥23,000</span>分CB</p>
+    <p class="fv-b__cp-sub">20%キャッシュバック</p>
+    <p class="fv-b__cp-note">※初年度年会費無料／キャンペーン期間・上限あり</p>
+  </div>
+  <div class="fv-b__card"><img src="images/cards/card_gold.png" alt="JCBゴールド" width="640" height="408"></div>
+  <button class="btn btn--cta btn--block btn--lg" type="button" data-open-apply>今すぐ申し込む<small>最短5分でカード番号発行</small></button>
+  <p class="fv-b__strip">入力はかんたん3ステップ／年会費11,000円＝月あたり約917円</p>
+</section>
+
+<!-- =========================================================
+     1. JCBゴールドの3大特長（体験価値ブリッジを兼ねる）
+     ========================================================= -->
+<section class="sec" id="features">
+  <div class="sec__head">
+    <p class="sec__label">JCBゴールドの3大特長</p>
+    <h2 class="sec__title">いつもの毎日に、<br>ゴールドの体験を。</h2>
+  </div>
+
+  <article class="feature">
+    <div class="ph ph--wide" data-label="写真：予約困難店で食事を楽しむ2人">
+      <img src="images/scenes/scene_dining.jpg" alt="">
+    </div>
+    <h3 class="feature__title">予約困難店も、上質なホテルも、<br>もっと身近に。</h3>
+    <p>予約困難店やミシュランガイド掲載店など1,500店舗以上を予約できる「JCB スター・ダイニング」。世界4,000軒以上のラグジュアリーホテルを優待価格で予約できる「JCB Premium Stay」では、ホテルで使える1万円分のクーポンもついてきます。</p>
+    <p class="feature__small">JCB Premium Stay 1周年キャンペーン実施中（2027年3月15日予約分まで）</p>
+  </article>
+
+  <article class="feature">
+    <div class="ph ph--wide" data-label="写真：空港ラウンジで出発前にくつろぐ">
+      <img src="images/scenes/scene_lounge.jpg" alt="">
+    </div>
+    <h3 class="feature__title">空港ラウンジで、<br>旅のはじまりを上質に。</h3>
+    <p>国内主要空港とハワイ・ホノルルの空港ラウンジを無料で利用できます。海外旅行傷害保険は最高1億円。出発前から旅先まで、ゆとりと安心をいっしょに。</p>
+  </article>
+
+  <article class="feature">
+    <div class="ph ph--wide" data-label="写真：日常のキャッシュレス決済シーン">
+      <img src="images/scenes/scene_point.jpg" alt="">
+    </div>
+    <h3 class="feature__title">使うほど、<br>ボーナスポイントが上乗せ。</h3>
+    <p>毎月のご利用200円ごとに1ポイント。Amazonやセブン-イレブンなどのパートナー店なら最大20倍。さらにゴールドなら、年間50万円のご利用ごとにボーナスポイントが加わります。</p>
+  </article>
+
+  <button class="btn btn--cta btn--block" type="button" data-open-apply>今すぐ申し込む</button>
+</section>
+
+<!-- =========================================================
+     JCBゴールド サービス体験者の声
+     ========================================================= -->
+<section class="sec sec--sub" id="voices">
+  <div class="sec__head">
+    <p class="sec__label">JCBゴールド サービス体験者の声</p>
+    <h2 class="sec__title">使ってみたら、<br>思ったより身近でした。</h2>
+  </div>
+  <div class="voices-more is-collapsed" data-more>
+  <ul class="testi__list voices" id="voices-list">
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">友人の誕生日に、ちょっと背伸び体験</p><p>友人の誕生日に、ずっと気になっていたお店をアプリで予約。会員の優待価格だったので、ちょっと背伸びする後押しになりました。</p><p class="testi__service">レストラン予約（JCB スター・ダイニング）を活用</p><p class="testi__who">20代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">結婚記念日を、憧れのホテルで</p><p>年2回のクーポンを使って、結婚記念日に憧れのホテルへ。思っていたより手の届く金額で、2人分の朝食がついていたのもうれしかったです。</p><p class="testi__service">ホテル予約（JCB Premium Stay）を活用</p><p class="testi__who">30代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">帰省前のひと息が、ゆったり時間に</p><p>年に2回の帰省の前に、ラウンジでコーヒーを飲みながらひと息。混み合う搭乗口で待つより、ずっとゆったり過ごせました。</p><p class="testi__service">空港ラウンジを活用</p><p class="testi__who">30代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">週末の映画が、月1回の楽しみに</p><p>週末の映画が優待価格で観られるので、月1回の映画が習慣に。ゴールドの特典がこんなに身近なところで使えるとは思いませんでした。</p><p class="testi__service">優待サービス（JCB GOLD Service Club Off）を活用</p><p class="testi__who">20代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">いつもの支払いに、ボーナスポイント</p><p>公共料金や毎日の買い物をカードにまとめたら、年間50万円は自然に超えていました。いつもの支払いにボーナスポイントが上乗せされるのがうれしいです。</p><p class="testi__service">J-POINTボーナスを活用</p><p class="testi__who">40代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">スマホの画面割れも、補償でひと安心</p><p>スマホの画面を割ってしまったとき、修理費用が補償されて本当に助かりました。カードについている保険なので、手続きも思ったより簡単でした。</p><p class="testi__service">JCBスマートフォン保険を活用</p><p class="testi__who">30代・会社員</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">家族のポイントを、まとめてためる</p><p>家族カードは1枚目の年会費が無料。2人分のポイントがまとめてたまるので、家計のポイントが効率よく増えていきます。</p><p class="testi__service">家族カードを活用</p><p class="testi__who">30代・パート</p></div></li>
+    <li class="testi__item"><span class="testi__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5z"/></svg></span><div class="testi__bubble"><p class="testi__lead">うっかり傷つけた腕時計も補償</p><p>買って間もない腕時計を落として傷つけてしまったけれど、ショッピングガード保険で修理費用が補償されました。高めの買い物も安心してできます。</p><p class="testi__service">ショッピングガード保険を活用</p><p class="testi__who">20代・会社員</p></div></li>
+  </ul>
+  </div>
+  <button class="voices-more__btn" type="button" aria-expanded="false" aria-controls="voices-list" data-more-btn>もっと見る</button>
+  <p class="testi__note">※個人の感想です。特典・補償の内容は、施設・店舗やご利用条件により異なります。</p>
+  <p class="mock-note">［提案メモ］体験者の声はダミーです。掲載時は実際の会員の声（掲載許諾済み）に差し替え</p>
+</section>
+
+<!-- =========================================================
+     限定デザイン
+     ========================================================= -->
+<section class="sec sec--deep" id="limited">
+  <div class="sec__head">
+    <p class="sec__label">枚数限定デザイン</p>
+    <h2 class="sec__title">メタルの輝きを、<br>手のひらに。</h2>
+  </div>
+  <div class="limited">
+    <figure class="limited__item">
+      <img src="images/cards/card_kirameki.png" alt="JCBゴールド -煌-" width="400" height="636">
+      <figcaption><span class="limited__name">JCBゴールド -煌（きらめき）-</span>金箔の上品な輝きを表現した、落ち着きのある一枚。</figcaption>
+    </figure>
+    <figure class="limited__item">
+      <img src="images/cards/card_sakura.png" alt="JCBゴールド -桜-" width="400" height="637">
+      <figcaption><span class="limited__name">JCBゴールド -桜（さくら）-</span>日本の華やかさを桜色で表現した、柔らかな印象の一枚。</figcaption>
+    </figure>
+  </div>
+  <p class="limited__note">上質な質感のメタルサーフェスを採用。発行費用1,100円（税込）、ナンバーレスのみ。発行枚数が上限に達し次第、受付終了です。<sup><a href="#note-2" id="ref-2">※2</a></sup></p>
+</section>
+
+<!-- =========================================================
+     2. ゴールドを迷っているあなたへ（心の声＋30秒診断＋シミュレーター）
+     ========================================================= -->
+<section class="sec sec--sub" id="worry">
+  <div class="sec__head">
+    <p class="sec__label">ゴールドを迷っているあなたへ</p>
+    <h2 class="sec__title">その迷い、<br>30秒で答えを出します。</h2>
+  </div>
+
+  <!-- Q1：元はとれる？ -->
+  <article class="voice" id="sim">
+    <p class="voice__q">年会費11,000円、<br>元はとれるの？</p>
+    <p class="voice__a">あなたの使い方で計算してみましょう。下のシミュレーターは標準的な使い方の例で試算しています。3つの質問に答えると、あなたに合ったおすすめの特典と試算に切り替わります。</p>
+
+    <div class="diag" data-diag>
+      <div class="diag__progress" aria-hidden="true"><span data-diag-bar></span></div>
+      <p class="diag__step" data-diag-step>質問 1／3</p>
+      <p class="diag__q" data-diag-q aria-live="polite"></p>
+      <div class="diag__options" data-diag-options></div>
+      <a class="diag__skip" href="#sim-panel">質問をとばして、自分で試算する</a>
+    </div>
+
+    <div class="result" data-result hidden>
+      <p class="result__type-label">あなたは</p>
+      <p class="result__type" data-result-type></p>
+      <p class="result__lead" data-result-lead></p>
+      <ol class="result__perks" data-result-perks></ol>
+      <div class="result__actions">
+        <a class="btn btn--ghost btn--block" href="#features" data-result-anchor>おすすめの特典を詳しく見る</a>
+        <button class="diag__retry" type="button" data-diag-retry>診断をやり直す</button>
+      </div>
+    </div>
+
+    <!-- シミュレーター：初期表示は標準値、診断後はタイプ別の値を反映 -->
+    <div class="sim" id="sim-panel">
+      <p class="sim__badge" data-sim-badge>標準的な使い方の例で試算中</p>
+      <p class="sim__title">スライダーで、あなたの使い方に合わせて調整できます</p>
+      <div class="sim__inputs" data-sim-inputs></div>
+      <div class="sim__out" aria-live="polite">
+        <p class="sim__out-label">年間のおトク額（目安）</p>
+        <p class="sim__out-num"><span data-sim-total>0</span>円相当</p>
+        <div class="sim__bars">
+          <div class="sim__bar"><span>おトク額</span><i data-sim-bar-gain></i></div>
+          <div class="sim__bar sim__bar--fee"><span>年会費</span><i data-sim-bar-fee></i></div>
+        </div>
+        <p class="sim__msg" data-sim-msg></p>
+        <details class="sim__detail">
+          <summary>内訳を見る</summary>
+          <dl data-sim-breakdown></dl>
+        </details>
+      </div>
+      <p class="sim__note">※試算は目安です。1ポイント1円相当で換算。J-POINTパートナーは事前のポイントアップ登録が必要です。各特典の換算条件は注意事項をご確認ください。<sup><a href="#note-3" id="ref-3">※3</a></sup></p>
+      <button class="btn btn--cta btn--block" type="button" data-open-apply>初年度無料で、はじめる</button>
+    </div>
+  </article>
+
+  <!-- Q2：まだ早い？ -->
+  <article class="voice">
+    <p class="voice__q">ゴールドって、<br>自分にはまだ早い？</p>
+    <p class="voice__a">20歳以上で、ご本人に安定継続収入のある方ならお申し込みいただけます。初年度は年会費無料なので、まずは1年、ゴールドのある毎日を体験してみてください。</p>
+    <p class="voice__point"><strong>20歳以上</strong>安定継続収入のある方<sup><a href="#note-4" id="ref-4">※4</a></sup></p>
+  </article>
+
+  <!-- Q3：一般カードと何が違う？ -->
+  <article class="voice">
+    <p class="voice__q">一般のカードと、<br>何が違うの？</p>
+    <p class="voice__a">年会費無料の「JCBカード S」と比べると、旅行の補償やラウンジ、上質な体験の優待が大きく違います。</p>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead><tr><th scope="col"></th><th scope="col">JCBカード S</th><th scope="col" class="is-gold">JCBゴールド</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">年会費</th><td>無料</td><td class="is-gold">11,000円<br><small>初年度無料</small></td></tr>
+          <tr><th scope="row">空港ラウンジ</th><td>―</td><td class="is-gold">無料</td></tr>
+          <tr><th scope="row">海外旅行傷害保険</th><td>最高2,000万円</td><td class="is-gold">最高1億円</td></tr>
+          <tr><th scope="row">国内旅行傷害保険</th><td>―</td><td class="is-gold">最高5,000万円</td></tr>
+          <tr><th scope="row">ショッピングガード保険</th><td>海外 年間100万円</td><td class="is-gold">国内・海外 年間500万円</td></tr>
+          <tr><th scope="row">ボーナスポイント</th><td>―</td><td class="is-gold">あり</td></tr>
+          <tr><th scope="row">グルメ・ホテル優待</th><td>―</td><td class="is-gold">スター・ダイニング<br>Premium Stay</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mock-note">［提案メモ］比較対象・掲載項目はJCB様とご相談</p>
+  </article>
+</section>
+
+<!-- =========================================================
+     3. 新規入会キャンペーン
+     ========================================================= -->
+<section class="sec" id="campaign">
+  <div class="sec__head">
+    <p class="sec__label">新規入会キャンペーン</p>
+    <h2 class="sec__title">さらに今なら、<br>初年度はここまでおトク。</h2>
+  </div>
+
+  <div class="cp-main">
+    <p class="cp-main__tag">先着600名様</p>
+    <p class="cp-main__lead">スマホ決済で20%キャッシュバック</p>
+    <p class="cp-main__num">最大<strong>23,000</strong>円</p>
+    <p class="cp-main__plus">初年度年会費 <strong>0円</strong> ＋ キャッシュバック</p>
+    <p class="cp-main__period">申込期間：2026年4月1日（水）〜</p>
+  </div>
+
+  <p class="cp-sum">今実施中のキャンペーンを組み合わせると<br><strong>最大48,000円相当</strong>プレゼント</p>
+
+  <ul class="cp-list">
+    <li><span class="cp-list__name">対象のJ-POINTパートナー利用で10%還元</span><span class="cp-list__val">最大8,000円相当</span></li>
+    <li><span class="cp-list__name">家族カード同時入会・新規入会</span><span class="cp-list__val">最大4,000円</span></li>
+    <li><span class="cp-list__name">キャッシング利用枠設定＆条件達成</span><span class="cp-list__val">最大3,000円</span></li>
+    <li><span class="cp-list__name">Apple製品購入金額の10%キャッシュバック</span><span class="cp-list__val">最大10,000円</span></li>
+  </ul>
+
+  <div class="cp-disney">
+    <div class="ph ph--square" data-label="画像：東京ディズニーリゾート®パークチケット"><img src="images/scenes/cp_disney.jpg" alt=""></div>
+    <div>
+      <p class="cp-disney__title">東京ディズニーリゾート®パークチケット（ペア）プレゼント</p>
+      <p class="cp-disney__text">対象期間中に条件を達成した方へ。JCBは東京ディズニーランド®・東京ディズニーシー®のオフィシャルスポンサーです。</p>
+    </div>
+  </div>
+
+  <details class="acc">
+    <summary>その他のキャンペーン</summary>
+    <div class="acc__body">
+      <ul class="link-list">
+        <li><a class="ext-link" href="#" target="_blank" rel="noopener">お友達紹介キャンペーン：最大5,000円キャッシュバック</a></li>
+        <li><a class="ext-link" href="#" target="_blank" rel="noopener">すべてのApple製品が最大24回払い、分割金利0%</a></li>
+        <li><a class="ext-link" href="#" target="_blank" rel="noopener">SCOOP!JCB Program スタンダード月額プランが3ヵ月間50%OFF（JCBカードをお持ちの方）</a></li>
+      </ul>
+      <p class="small">※各キャンペーンの詳細は別ページ（新しいタブ）でご確認いただけます。</p>
+    </div>
+  </details>
+
+  <p class="cp-caution">※キャンペーンごとに条件が異なります。当ページ以外から申し込まれた場合は対象外です。</p>
+  <button class="btn btn--cta btn--block" type="button" data-open-apply>キャンペーン期間中に申し込む</button>
+</section>
+
+<!-- =========================================================
+     4. J-POINT
+     ========================================================= -->
+<section class="sec sec--sub" id="point">
+  <div class="sec__head">
+    <p class="sec__label">J-POINT</p>
+    <h2 class="sec__title">いつもの支払いが、<br>ポイントに変わる。</h2>
+  </div>
+
+  <h3 class="sub-title">ためる</h3>
+  <div class="point-base">
+    <p class="point-base__rate"><span>200円（税込）ごとに</span><strong>1ポイント</strong></p>
+    <p>1回のご利用が200円未満でも、毎月の合計から換算するので無駄なくたまります。海外でのご利用は、ポイントアップ登録で2倍に。</p>
+  </div>
+
+  <div class="point-partner">
+    <p class="point-partner__head">J-POINTパートナー（優待店）なら<strong>ポイント最大20倍</strong><small>還元率は最大10%</small></p>
+    <div class="ph ph--logo" data-label="画像：J-POINTパートナー ロゴ一覧（現行LP素材を流用）"><img src="images/scenes/partner_logos.png" alt=""></div>
+    <div class="point-example">
+        <p class="point-example__head">たとえば、いつものお店で月5万円使うと<br><strong>毎月1,795ポイント</strong>がたまります</p>
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th class="data__shop">店舗・サービス</th><th>月の利用額</th><th>倍率</th><th>ポイント</th></tr></thead>
+            <tbody>
+              <tr><td class="data__shop"><img src="images/logos/logo_amazon.jpg" alt="" width="24" height="24" loading="lazy">Amazon</td><td>20,000円</td><td>3倍</td><td>300pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_seven-eleven.jpg" alt="" width="24" height="24" loading="lazy">セブン-イレブン</td><td>5,000円</td><td>3倍</td><td>75pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_ubereats.jpg" alt="" width="24" height="24" loading="lazy">Uber Eats</td><td>8,000円</td><td>3倍</td><td>120pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_appstore.jpg" alt="" width="24" height="24" loading="lazy">App Store</td><td>2,000円</td><td>5倍</td><td>50pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_go.jpg" alt="" width="24" height="24" loading="lazy">タクシーアプリ「GO」</td><td>5,000円</td><td>10倍</td><td>250pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_starbucks.jpg" alt="" width="24" height="24" loading="lazy">スターバックス</td><td>3,000円</td><td>20倍</td><td>300pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_mcdonalds.jpg" alt="" width="24" height="24" loading="lazy">マクドナルド</td><td>2,000円</td><td>20倍</td><td>200pt</td></tr>
+              <tr><td class="data__shop"><img src="images/logos/logo_crecajosha.png" alt="" width="24" height="24" loading="lazy">クレカ乗車</td><td>5,000円</td><td>20倍</td><td>500pt</td></tr>
+              <tr class="is-total"><td>合計</td><td>50,000円</td><td></td><td>1,795pt</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">※事前にポイントアップ登録が必要です。対象加盟店は変更になる場合があります。</p>
+    </div>
+  </div>
+
+  <div class="bonus">
+    <p class="bonus__head">さらにゴールドなら<br><strong>ボーナスポイント</strong>を上乗せ</p>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>年間の利用金額</th><th>ボーナスポイント</th></tr></thead>
+        <tbody>
+          <tr><td>50万円</td><td>1,000pt</td></tr>
+          <tr><td>100万円</td><td>＋2,000pt</td></tr>
+          <tr><td>150万円</td><td>＋2,000pt</td></tr>
+          <tr><td>200万円</td><td>＋2,000pt</td></tr>
+          <tr><td>250万円</td><td>＋2,000pt</td></tr>
+          <tr><td>300万円</td><td>＋6,000pt</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">以降も50万円ごとに2,500ポイント。</p>
+  </div>
+
+  <details class="acc">
+    <summary>こんなため方も。JCBのクレカ積立</summary>
+    <div class="acc__body">
+      <p>積立投資のご利用で、ポイント最大1.0%還元。証券会社は松井証券・SBI証券・マネックス証券から選べます。積立以外の月間ショッピング利用額が5万円以上なら最大1.0%、5万円未満なら最大0.5%です。</p>
+      <p class="small">※リスク・手数料等は注意事項をご確認ください。<sup><a href="#note-5" id="ref-5">※5</a></sup></p>
+    </div>
+  </details>
+
+  <h3 class="sub-title">つかう</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="use-shop" id="tab-use-shop">お店で</button>
+      <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="use-net" id="tab-use-net" tabindex="-1">ネットで</button>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="use-shop" aria-labelledby="tab-use-shop">
+      <p>コード決済「MyJCB Pay」で、全国160万ヵ所以上のお店でその場でポイントを使えます。交換の手間はありません。</p>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="use-net" aria-labelledby="tab-use-net" hidden>
+      <p>Amazon.co.jpでのお買い物で、たまったJ-POINTをすぐに使えます。1ポイント＝最大1円分です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. まだある、ゴールドの特典（カルーセル）
+     ========================================================= -->
+<section class="sec" id="perks">
+  <div class="sec__head">
+    <p class="sec__label">まだある、ゴールドの特典</p>
+    <h2 class="sec__title">年会費以上に、<br>使える特典。</h2>
+  </div>
+  <div class="carousel" data-carousel>
+    <ul class="carousel__track" tabindex="0" aria-label="特典一覧（横にスクロール）">
+      <li class="perk"><div class="ph ph--perk" data-label="画像：映画館"><img src="images/scenes/perk_cluboff.jpg" alt=""></div><p class="perk__title">JCB GOLD Service Club Off</p><p class="perk__text">映画館やスポーツクラブ、レジャー施設などを優待価格で。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：自転車・カフェ"><img src="images/scenes/perk_trouble.jpg" alt=""></div><p class="perk__title"><span class="tag-new">新登場</span>日常トラブルおまかせ保険</p><p class="perk__text">自転車事故やカフェでのグラス破損など、日常の賠償を最大30万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：スマートフォン"><img src="images/scenes/perk_phone.jpg" alt=""></div><p class="perk__title">JCBスマートフォン保険</p><p class="perk__text">画面割れなどの修理費用を年間最高5万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：ショッピング"><img src="images/scenes/perk_shopping.jpg" alt=""></div><p class="perk__title">ショッピングガード保険</p><p class="perk__text">国内・海外で購入した品の破損や盗難を、年間最高500万円まで補償。</p></li>
+      <li class="perk"><div class="ph ph--perk" data-label="画像：空港・飛行機"><img src="images/scenes/perk_delay.jpg" alt=""></div><p class="perk__title">航空機遅延保険</p><p class="perk__text">乗り継ぎや出発の遅延、手荷物の遅延・紛失時の費用を補償。</p></li>
+    </ul>
+    <div class="carousel__nav">
+      <button type="button" class="carousel__btn" data-carousel-prev aria-label="前へ">‹</button>
+      <button type="button" class="carousel__btn" data-carousel-next aria-label="次へ">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. 家族カード・ご招待
+     ========================================================= -->
+<section class="sec sec--sub" id="family">
+  <div class="sec__head">
+    <p class="sec__label">家族カード・ご招待</p>
+    <h2 class="sec__title">持つほどに、<br>価値が広がる。</h2>
+  </div>
+  <div class="split">
+    <div class="ph ph--wide" data-label="写真：家族で旅行を楽しむ"><img src="images/scenes/family.jpg" alt=""></div>
+    <h3 class="split__title">家族カード1名様、年会費永年無料</h3>
+    <p>本会員と同等の特典・サービスを利用でき、ポイントも合算してためられます。2人目以降は1枚につき1,100円（税込）です。</p>
+  </div>
+  <div class="split">
+    <h3 class="split__title">ワンランク上の「JCBゴールド ザ・プレミア」へご招待</h3>
+    <p>JCBゴールドを2年連続で年間100万円以上ご利用の方をご招待。世界約1,900ヵ所以上の空港ラウンジ等を利用できるプライオリティ・パスなど、さらに充実したサービスをご提供します。</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. 安全・安心
+     ========================================================= -->
+<section class="sec" id="security">
+  <div class="sec__head">
+    <p class="sec__label">安全・安心</p>
+    <h2 class="sec__title">もしものときも、<br>しっかり守る。</h2>
+  </div>
+  <ul class="security">
+    <li><p class="security__title">カードご利用通知</p><p>ご利用状況をアプリやメールでリアルタイムにお知らせ。</p></li>
+    <li><p class="security__title">使いすぎ防止機能</p><p>指定金額での通知や、カードの利用制限ができます。</p></li>
+    <li><p class="security__title">不正検知システム</p><p>24時間365日体制で、不審な利用がないかチェック。</p></li>
+    <li><p class="security__title">本人認証サービス</p><p>ネットショッピング時の本人認証で不正利用を防止。</p></li>
+  </ul>
+  <details class="acc">
+    <summary>万が一のときの補償を見る</summary>
+    <div class="acc__body">
+      <p><strong>カードの紛失・盗難</strong>　お届け日から60日前にさかのぼって補償</p>
+      <p><strong>旅行傷害保険</strong>　国内外の事故やケガなど最高1億円</p>
+      <p><strong>ショッピングガード保険</strong>　年間最高500万円</p>
+      <p><strong>JCBスマートフォン保険</strong>　年間最高50,000円</p>
+      <p class="small">※会員規約違反や故意・過失等がある場合は補償の対象外です。</p>
+    </div>
+  </details>
+</section>
+
+<!-- =========================================================
+     8. お申し込みの流れ（タブ）
+     ========================================================= -->
+<section class="sec sec--sub" id="flow">
+  <div class="sec__head">
+    <p class="sec__label">お申し込みの流れ</p>
+    <h2 class="sec__title">最短5分で、<br>すぐ使える。</h2>
+  </div>
+
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="flow-nl" id="tab-flow-nl">ナンバーレス<small>最短5分</small></button>
+      <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="flow-num" id="tab-flow-num" tabindex="-1">番号あり<small>約1週間</small></button>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="flow-nl" aria-labelledby="tab-flow-nl">
+      <ol class="steps">
+        <li><p class="steps__title">インターネットで申し込み</p><p>画面の案内に沿って入力し、お支払い口座を設定します。</p></li>
+        <li><p class="steps__title">入会審査</p><p>審査完了をメールでお知らせ。ここまで最短5分です。</p></li>
+        <li><p class="steps__title">MyJCBアプリで本人確認</p><p>初回のみ、顔写真付きの本人確認書類で確認します。</p></li>
+        <li><p class="steps__title">アプリにカード番号を表示</p><p>すぐにネットで使えます。Apple Pay・Google Pay™を設定すれば店頭でも。</p></li>
+        <li><p class="steps__title">カードをお届け</p><p>約1週間でご自宅に届きます。</p></li>
+      </ol>
+    </div>
+    <div class="tabs__panel" role="tabpanel" id="flow-num" aria-labelledby="tab-flow-num" hidden>
+      <ol class="steps">
+        <li><p class="steps__title">インターネットで申し込み</p><p>画面の案内に沿って入力し、お支払い口座を設定します。</p></li>
+        <li><p class="steps__title">入会審査</p><p>審査完了をメールでお知らせします。</p></li>
+        <li><p class="steps__title">カードをお届け</p><p>約1週間で、番号入りのカードがご自宅に届きます。</p></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="prepare">
+    <p class="prepare__title">お申し込みの前に、手元にご用意ください</p>
+    <ul class="prepare__list">
+      <li>顔写真付きの本人確認書類（運転免許証・マイナンバーカードなど）</li>
+      <li>お支払い口座のキャッシュカードまたは通帳</li>
+      <li>勤務先の情報（名称・電話番号）と年収の目安</li>
+    </ul>
+    <p class="mock-note">［提案メモ］必要書類の正式な表記はJCB様にご確認</p>
+  </div>
+
+  <button class="btn btn--cta btn--block" type="button" data-open-apply>今すぐ申し込む</button>
+</section>
+
+<!-- =========================================================
+     9. カード基本情報
+     ========================================================= -->
+<section class="sec" id="spec">
+  <div class="sec__head">
+    <p class="sec__label">カード基本情報</p>
+    <h2 class="sec__title">知っておきたい、<br>スペックのすべて。</h2>
+  </div>
+  <dl class="spec">
+    <div><dt>年会費（本会員）</dt><dd>11,000円（税込）<br>初年度年会費無料（オンライン入会の場合のみ）<sup><a href="#note-1">※1</a></sup></dd></div>
+    <div><dt>年会費（家族会員）</dt><dd>1名様無料、2人目より1名様につき1,100円（税込）</dd></div>
+    <div><dt>お申し込み対象</dt><dd>20歳以上で、ご本人に安定継続収入のある方<sup><a href="#note-4">※4</a></sup></dd></div>
+    <div><dt>旅行傷害保険</dt><dd>海外：最高1億円／国内：最高5,000万円</dd></div>
+    <div><dt>ショッピングガード保険</dt><dd>国内・海外：年間最高500万円</dd></div>
+    <div><dt>航空機遅延保険</dt><dd>国内・海外 2万円〜4万円限度</dd></div>
+    <div><dt>JCBスマートフォン保険</dt><dd>年間最高50,000円</dd></div>
+    <div><dt>ポイント</dt><dd>J-POINT</dd></div>
+    <div><dt>追加可能なカード</dt><dd>ETC、家族カード</dd></div>
+    <div><dt>スマホ決済</dt><dd>Apple Pay／Google Pay™／Samsung Wallet</dd></div>
+  </dl>
+</section>
+
+<!-- =========================================================
+     10. よくあるご質問（アコーディオン）
+     ========================================================= -->
+<section class="sec sec--sub" id="faq">
+  <div class="sec__head">
+    <p class="sec__label">よくあるご質問</p>
+    <h2 class="sec__title">気になること、<br>先にお答えします。</h2>
+  </div>
+  <div class="faq">
+    <details class="acc"><summary>2年目以降の年会費はいくらですか？</summary><div class="acc__body"><p>11,000円（税込）です。月あたりに換算すると約917円です。初年度の年会費無料はオンライン入会の場合のみ対象です。</p></div></details>
+    <details class="acc"><summary>年収の入力は必要ですか？</summary><div class="acc__body"><p>お申し込み時にご入力いただきます。目安で問題ありません。</p><p class="mock-note">［提案メモ］表現はJCB様にご確認</p></div></details>
+    <details class="acc"><summary>審査にはどのくらい時間がかかりますか？</summary><div class="acc__body"><p>ナンバーレスなら最短5分で審査が完了し、カード番号が発行されます。</p></div></details>
+    <details class="acc"><summary>本人確認には何が必要ですか？</summary><div class="acc__body"><p>ナンバーレスの場合、MyJCBアプリの初回起動時に顔写真付きの本人確認書類で確認します。</p></div></details>
+    <details class="acc"><summary>すでにJCBカードを持っていても申し込めますか？</summary><div class="acc__body"><p>お持ちのカードによっては自動的に切り替えとなります。お切り替えの場合は初年度年会費無料の対象外です。</p></div></details>
+    <details class="acc"><summary>限定デザインは番号ありでも選べますか？</summary><div class="acc__body"><p>限定デザイン（煌・桜）はナンバーレスのみです。発行費用1,100円（税込）がかかります。</p></div></details>
+  </div>
+</section>
+
+<!-- =========================================================
+     11. お申し込み（モーダルと同じ中身をページ内にも配置）
+     ========================================================= -->
+<section class="sec sec--deep" id="apply">
+  <div class="sec__head">
+    <p class="sec__label">お申し込み</p>
+    <h2 class="sec__title">ゴールドを、<br>はじめよう。</h2>
+  </div>
+  <p class="apply__lead">初年度年会費無料 × 最大23,000円キャッシュバック</p>
+  <div class="chooser" data-chooser></div>
+</section>
+
+<!-- =========================================================
+     注意事項（本文の※からアンカーで往復）
+     ========================================================= -->
+<section class="notes" id="notes">
+  <h2 class="notes__title">注意事項</h2>
+  <ol class="notes__list">
+    <li id="note-1">初年度年会費無料はオンライン入会の場合のみ。お切り替えの方は対象となりません。<a href="#ref-1" class="notes__back">本文へ戻る</a></li>
+    <li id="note-2">METAL SURFACE CARD™はTOPPANホールディングスの商標です。限定デザインのお申し込み前に注意事項をご確認ください。<a href="#ref-2" class="notes__back">本文へ戻る</a></li>
+    <li id="note-3">試算の換算条件：空港ラウンジ1回1,100円、JCB スター・ダイニングは1名25,000円のコースを2名で利用し5%引き、JCB Premium Stayのクーポンは5,000円分×年2回まで、J-POINTパートナーの還元率は現行LPの利用例（月5万円で1,795ポイント）から算出。<a href="#ref-3" class="notes__back">本文へ戻る</a></li>
+    <li id="note-4">本業が学生の方はお申し込みになれません。<a href="#ref-4" class="notes__back">本文へ戻る</a></li>
+    <li id="note-5">クレカ積立に関するリスク・手数料、金融商品仲介業務に関する注意事項（現行LPの記載をそのまま掲載）。<a href="#ref-5" class="notes__back">本文へ戻る</a></li>
+  </ol>
+  <p class="mock-note">［提案メモ］現行LPの注意事項はすべてここに集約して掲載</p>
+  <p class="notes__copy">© JCB Co.,Ltd.</p>
+</section>
+
+</main>
+
+<!-- 追従CTA -->
+<div class="sticky-cta" data-sticky-cta aria-hidden="true">
+  <p class="sticky-cta__text">初年度年会費無料<br><strong>最大23,000円CB</strong></p>
+  <button class="btn btn--cta" type="button" data-open-apply tabindex="-1">今すぐ申し込む</button>
+</div>
+
+</div><!-- /.page -->
+
+<!-- 申込モーダル（券面選択 → 番号有無） -->
+<div class="modal" data-modal hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" data-modal-close>閉じる</button>
+    <p class="modal__title" id="modal-title">カードデザインと申し込み方法を選んでください</p>
+    <div class="chooser" data-chooser></div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+<!-- =========================================================
+     モック操作パネル（提案用。本番には表示しません）
+     ========================================================= -->
+<aside class="mockpanel" data-mockpanel>
+  <button class="mockpanel__toggle" type="button" aria-expanded="false" data-mockpanel-toggle>モック操作</button>
+  <div class="mockpanel__body" hidden>
+    <p class="mockpanel__label">ファーストビュー</p>
+    <div class="mockpanel__group" data-mock-fv>
+      <button type="button" data-value="a" aria-pressed="true">A：自己紹介型（弊社案）</button>
+      <button type="button" data-value="b" aria-pressed="false">B：CP主役型（JCB様案）</button>
+    </div>
+    <p class="mockpanel__label">広告流入（FVの出し分け）</p>
+    <div class="mockpanel__group" data-mock-ad>
+      <button type="button" data-value="none" aria-pressed="true">指定なし</button>
+      <button type="button" data-value="point" aria-pressed="false">ポイント訴求</button>
+      <button type="button" data-value="travel" aria-pressed="false">旅行訴求</button>
+      <button type="button" data-value="gourmet" aria-pressed="false">グルメ訴求</button>
+    </div>
+    <p class="mockpanel__note">提案用の操作パネルです。本番には表示されません。</p>
+  </div>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
