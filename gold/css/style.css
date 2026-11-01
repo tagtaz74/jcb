@@ -266,7 +266,7 @@ body::before {
 .sec--deep { background: var(--deep); color: var(--on-deep); }
 .sec--deep .small, .sec--deep small { color: var(--on-deep-sub); }
 .sec__head { margin-bottom: 32px; }
-.sec__label { font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.sec__label { font-size: 13px; font-weight: 700; color: var(--gold); margin: 0 0 10px; line-height: 1.8; display: flex; align-items: center; gap: 10px; }
 .sec__label::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .sec--deep .sec__label { color: var(--gold-lt); }
 .sec__title { font-family: var(--font-serif); font-weight: 800; font-size: clamp(24px, 7vw, 29px); line-height: 1.5; margin: 0; letter-spacing: .02em; }
