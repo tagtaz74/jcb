@@ -162,9 +162,9 @@ body::before {
 .fv__card { width: 72%; margin: 0 auto 12px; }
 
 /* FV券面：金の光のラインが走り、そこから券面が上下に開いて現れる → 光沢が一度走る → 霞むように消え、次の券面へ
-   1枚あたり5秒 × 5枚 = 25秒で一巡。keyframes の％は25秒を基準にしているので、枚数を変えるときは --n と合わせて調整する */
+   1枚あたり5秒 × 6枚 = 30秒で一巡。keyframes の％は30秒を基準にしているので、枚数を変えるときは --n と合わせて調整する */
 /* 枠は正方形。横型は幅いっぱい・縦型は高さいっぱいに置き、実物どおり同じ大きさのカードに見せる */
-.fv-cards { --n: 5; --dur: 5s; --cycle: calc(var(--dur) * var(--n)); position: relative; aspect-ratio: 1; }
+.fv-cards { --n: 6; --dur: 5s; --cycle: calc(var(--dur) * var(--n)); position: relative; aspect-ratio: 1; }
 .fv-cards__slide {
   --delay: calc(var(--dur) * var(--i));
   position: absolute; inset: 0; opacity: 0;
@@ -200,27 +200,27 @@ body::before {
   transform: translateX(-120%);
   animation: fvSheen var(--cycle) var(--delay) infinite ease-in-out;
 }
-/* 1サイクル（25秒）中の位置：0〜20% が自分の出番。18.4〜21.76% で次の券面と重なって入れ替わる（全体表示は約1.3〜4.6秒） */
+/* 1サイクル（30秒）中の位置：0〜16.7% が自分の出番。15.33〜18.13% で次の券面と重なって入れ替わる（全体表示は約1.3〜4.6秒） */
 @keyframes fvSlide {  /* 開きながら88%→100%へゆっくり拡大し、そのまま霞んで消える */
   0%   { opacity: 1; transform: scale(.88); animation-timing-function: cubic-bezier(.25, .6, .3, 1); }
-  18.4% { opacity: 1; transform: scale(1); filter: drop-shadow(0 18px 24px rgb(0 0 0 / .45)) blur(0); }
-  21.76% { opacity: 0; transform: scale(1.04); filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0)) blur(8px); }
+  15.33% { opacity: 1; transform: scale(1); filter: drop-shadow(0 18px 24px rgb(0 0 0 / .45)) blur(0); }
+  18.13% { opacity: 0; transform: scale(1.04); filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0)) blur(8px); }
   100% { opacity: 0; }
 }
 @keyframes fvLine {
   0%   { transform: scaleX(0); opacity: 1; }
-  1.92% { transform: scaleX(1); opacity: 1; }
-  4.8%  { transform: scaleX(1); opacity: 0; }
+  1.6% { transform: scaleX(1); opacity: 1; }
+  4%   { transform: scaleX(1); opacity: 0; }
   100% { transform: scaleX(1); opacity: 0; }
 }
 @keyframes fvOpen {
-  0%, 1.44% { clip-path: inset(50% 0 50% 0); }
-  5.28%     { clip-path: inset(0 0 0 0); }
+  0%, 1.2% { clip-path: inset(50% 0 50% 0); }
+  4.4%     { clip-path: inset(0 0 0 0); }
   100%     { clip-path: inset(0 0 0 0); }
 }
 @keyframes fvSheen {
-  0%, 6.24% { transform: translateX(-120%); }
-  11.04%    { transform: translateX(120%); }
+  0%, 5.2% { transform: translateX(-120%); }
+  9.2%     { transform: translateX(120%); }
   100%     { transform: translateX(120%); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -321,6 +321,10 @@ body::before {
 .limited__item img { width: 78%; margin: 0 auto 14px; filter: drop-shadow(0 12px 18px rgb(0 0 0 / .5)); }
 .limited__item figcaption { font-size: 12.5px; color: var(--on-deep-sub); line-height: 1.65; }
 .limited__name { display: block; font-family: var(--font-serif); font-weight: 700; color: var(--on-deep); font-size: 14px; margin-bottom: 4px; }
+/* 横型の限定デザイン（枯山水）：2列ぶち抜きで、縦型と同じカードの大きさに見える幅にする */
+.limited__item--h { grid-column: 1 / -1; }
+.limited__item--h img { width: 60%; }
+.limited__item--h figcaption { width: 60%; margin: 0 auto; }
 .limited__note { margin-top: 24px; font-size: 12.5px; color: var(--on-deep-sub); }
 
 /* ---------- 6. 心の声 ---------- */
@@ -456,6 +460,8 @@ body::before {
 .legal .ext-link--inline::after { display: inline-block; margin-left: 4px; vertical-align: -1px; }
 .sec--deep .legal { color: var(--on-deep-sub); }
 .sec--deep .legal strong, .sec--deep .legal a { color: var(--on-deep); }
+.sec--deep .acc { border-color: rgb(255 255 255 / .16); }  /* 濃い背景ではアコーディオンの罫線を控えめに */
+.sec--deep .acc summary::after { border-color: var(--gold-lt); }
 .legal-acc { margin-top: 16px; }
 .legal-acc + .legal-acc { margin-top: -1px; }
 .legal-acc summary { padding-block: 13px; font-size: 13px; }
@@ -556,7 +562,21 @@ body::before {
 /* ---------- 4. 家族・招待 ---------- */
 .split { margin-bottom: 32px; }
 .split .ph { margin-bottom: 16px; }
+#family .split .ph { width: 66.667%; margin-inline: auto; }  /* 写真は幅の2/3に抑える */
 .split__title { font-family: var(--font-serif); font-size: 19px; line-height: 1.55; margin: 0 0 8px; }
+
+/* ---------- JCBゴールド ザ・プレミア：さらに上のカードとして控えめに。高さを取らないよう券面とテキストを横並び ---------- */
+.premier {
+  padding-block: 36px; color: var(--on-deep);
+  background: radial-gradient(120% 160% at 100% 0%, #3A2E1A 0%, #17140F 45%, #0A0A0B 100%);
+  border-top: 1px solid rgb(217 182 106 / .45); border-bottom: 1px solid rgb(217 182 106 / .25);
+}
+.premier__inner { display: grid; grid-template-columns: 38% 1fr; gap: 18px; align-items: center; }
+.premier__card { border-radius: 4.5% / 7%; overflow: hidden; line-height: 0; box-shadow: 0 0 0 1px rgb(217 182 106 / .4), 0 12px 24px rgb(0 0 0 / .6); }
+.premier .sec__label { margin-bottom: 4px; font-size: 12px; color: var(--gold-lt); }
+.premier .sec__label::before { width: 16px; }
+.premier__title { margin: 0 0 6px; font-family: var(--font-serif); font-weight: 700; font-size: 15px; line-height: 1.5; }
+.premier__text { margin: 0; font-size: 12px; line-height: 1.7; color: var(--on-deep-sub); }
 
 /* ---------- 9. セキュリティ ---------- */
 .security { list-style: none; padding: 0; margin: 0 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -651,7 +671,7 @@ body::before {
   .spec > div { grid-template-columns: 12em 1fr; font-size: 14.5px; }
 
   /* 申込（ページ内）：券面5種を横一列 */
-  #apply .chooser__designs { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; }
+  #apply .chooser__designs { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }  /* 6種を3列×2段 */
   #apply .chooser__types { grid-template-columns: 1fr 1fr; }
   #apply .chooser .btn--block { max-width: 420px; margin-left: auto; margin-right: auto; }
 
@@ -697,7 +717,12 @@ body::before {
   .voices { grid-template-columns: repeat(2, 1fr); gap: 16px 32px; }
 
   /* 限定デザイン */
-  .limited { max-width: 720px; margin: 0 auto; gap: 48px; }
+  /* 限定デザイン：3枚を横一列。横型（枯山水）の列は1.6倍幅にし、券面の長辺を縦型の高さにそろえる。
+     横型は上下に余白（列幅の14.4%＝縦型との高さの差の半分）を取り、カードの中心とキャプションの位置を縦型とそろえる */
+  .limited { grid-template-columns: 1fr 1fr 1.6fr; max-width: 860px; margin: 0 auto; gap: 36px; }
+  .limited__item--h { grid-column: auto; }
+  .limited__item--h img { width: 78%; margin: 14.4% auto calc(14.4% + 14px); }
+  .limited__item--h figcaption { width: 78%; }
   .limited__note { max-width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
 
   /* 迷っているあなたへ：診断は全幅、残りの2問は横並び */
@@ -718,11 +743,14 @@ body::before {
   #campaign > .cp-sum { margin-top: 0; text-align: left; }
   #campaign > .acc { margin-top: 24px; }
 
-  /* 家族・招待：2カラム */
-  #family { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; align-items: start; }
-  #family > .sec__head { grid-column: 1 / -1; }
-  .split { margin-bottom: 0; }
-  .split:not(:has(.ph)) { padding: 28px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-m); }
+  /* ザ・プレミア：券面を少し大きく、テキストは読みやすい幅に */
+  .premier__inner { grid-template-columns: 260px 1fr; gap: 40px; max-width: 760px; margin: 0 auto; }
+  .premier__title { font-size: 19px; }
+  .premier__text { font-size: 13.5px; }
+
+  /* 家族カード：写真とテキストを横並び */
+  #family .split { display: grid; grid-template-columns: 1fr 2fr; column-gap: 40px; align-items: center; margin-bottom: 0; }
+  #family .split .ph { width: 100%; margin: 0; }  /* 列幅（1fr）が従来の2/3 */
 
   /* 安全・安心：4カラム */
   .security { grid-template-columns: repeat(4, 1fr); gap: 16px; }

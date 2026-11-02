@@ -111,6 +111,7 @@ window.MOCK_CONFIG = {
     { id: "biomass",  name: "バイオマスデザイン", img: "images/cards/card_biomass.png",  vertical: false, limited: false },
     { id: "disney",   name: "ディズニー・デザイン", img: "images/cards/card_disney.png", vertical: false, limited: false },
     { id: "kirameki", name: "JCBゴールド -煌-",   img: "images/cards/card_kirameki.png", vertical: true,  limited: true },
-    { id: "sakura",   name: "JCBゴールド -桜-",   img: "images/cards/card_sakura.png",   vertical: true,  limited: true }
+    { id: "sakura",   name: "JCBゴールド -桜-",   img: "images/cards/card_sakura.png",   vertical: true,  limited: true },
+    { id: "karesansui", name: "JCBゴールド -枯山水-", img: "images/cards/card_karesansui.png", vertical: false, limited: true }
   ]
 };
