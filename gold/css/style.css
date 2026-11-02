@@ -384,7 +384,16 @@ body::before {
 .sim__msg { font-size: 13.5px; line-height: 1.7; }
 .sim__msg strong { color: var(--gold-lt); }
 .sim__detail { margin-top: 12px; text-align: left; font-size: 13px; }
-.sim__detail summary { cursor: pointer; color: var(--on-deep-sub); text-align: center; }
+/* 内訳の開閉ボタン：金の枠線のピル型＋矢印で、押せることがわかる見た目に */
+.sim__detail summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: fit-content; margin: 0 auto; padding: 8px 22px; border: 1px solid rgb(226 194 122 / .6); border-radius: 999px;
+  font-weight: 700; color: var(--gold-lt); background: rgb(226 194 122 / .08); transition: background .2s;
+}
+.sim__detail summary::-webkit-details-marker { display: none; }
+.sim__detail summary::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+.sim__detail[open] summary::after { transform: translateY(1px) rotate(-135deg); }
+.sim__detail summary:hover { background: rgb(226 194 122 / .18); }
 .sim__detail dl { margin: 10px 0 0; }
 .sim__detail dl div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgb(255 255 255 / .12); }
 .sim__detail dd { margin: 0; font-variant-numeric: tabular-nums; }
