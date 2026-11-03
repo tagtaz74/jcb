@@ -6,9 +6,13 @@
 - `index.html` … ページ本体。セクションごとにコメントで区切っています
 - `css/style.css` … スタイル。色・フォント・幅は冒頭の `:root` 変数で一括管理
 - `js/config.js` … シミュレーターの計算係数、30秒診断の設問と結果、券面一覧
-- `js/main.js` … 動作（ドロワー、タブ、カルーセル、診断、シミュレーター、申込（券面選択）
-- `images/cards/` … 券面画像（5種）
-- `images/scenes/` … ダミー画像枠の差し替え先（空）
+- `js/main.js` … 動作（ドロワー、タブ、カルーセル、診断、シミュレーター、申込（券面選択））
+- `images/cards/` … 券面画像（7種）
+  - 申込の券面選択（`config.js` で管理）：ゴールド / バイオマス / ディズニー / きらめき / 桜 / 枯山水
+  - ザ・プレミア（`index.html` に直接記述）：card_goldthepremier.png
+- `images/logos/` … JCBロゴ、J-POINTパートナー（提携店）のロゴ
+- `images/common/` … FV背景（bg_fv_tile.jpg）
+- `images/scenes/` … ダミー画像枠の差し替え先（未作成。画像を置くときに作成してください）
 
 ## 画像の差し替え
 ダミー画像枠（斜線の枠）は、`index.html` 内の `<img src="images/scenes/xxx.jpg">` と同じファイル名で
