@@ -593,14 +593,19 @@ body::before {
 .security__title { margin: 0 0 4px; font-weight: 700; color: var(--ink); font-size: 14px; line-height: 1.6; }
 
 /* ---------- 11. スペック ---------- */
-.spec { margin: 0; }
-.spec > div { display: grid; grid-template-columns: 8.5em 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; line-height: 1.6; }
-.spec dt { color: var(--ink-sub); font-weight: 500; }
-.spec dd { margin: 0; }
+/* カード基本情報：JCBゴールド／S／Wの比較表（.compare を流用） */
+.spec__lead { font-size: 14px; }
+.compare--spec { min-width: 640px; table-layout: fixed; }
+.compare--spec th:first-child { width: 22%; }
+.compare--spec td { width: 26%; }
+.compare--spec small { margin-top: 2px; font-weight: 400; color: var(--ink-sub); line-height: 1.5; }
+.compare__group th { background: var(--bg-sub) !important; color: var(--ink) !important; font-weight: 700 !important; font-size: 12.5px; padding-block: 8px; }
 
 /* ---------- 13. 申込（券面選択） ---------- */
 .apply__lead { font-size: 14px; color: var(--gold-lt); margin-bottom: 20px; }
-.chooser__step { font-weight: 700; font-size: 14px; margin: 0 0 12px; }
+/* 申込の選択ステップ：番号バッジ＋大きめの見出しで「ここで選ぶ」ことがわかるように */
+.chooser__step { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font-family: var(--font-serif); font-weight: 700; font-size: 19px; line-height: 1.4; }
+.chooser__num { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-lt); color: #2A1E08; font-family: var(--font-sans); font-size: 15px; }
 .chooser__designs { display: grid; grid-auto-flow: column; grid-auto-columns: 44%; gap: 10px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; margin-bottom: 22px; }
 .chooser__design { scroll-snap-align: start; font: inherit; color: inherit; background: rgb(127 127 127 / .08); border: 2px solid transparent; border-radius: var(--radius-m); padding: 12px 8px 10px; cursor: pointer; text-align: center; font-size: 12px; line-height: 1.4; }
 .chooser__design img { height: 92px; width: auto; margin: 0 auto 8px; object-fit: contain; }
@@ -677,7 +682,6 @@ body::before {
 
   /* 申込の流れ・スペック */
   #flow .tabs__list { max-width: 480px; }
-  .spec > div { grid-template-columns: 12em 1fr; font-size: 14.5px; }
 
   /* 申込（ページ内）：券面5種を横一列 */
   #apply .chooser__designs { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }  /* 6種を3列×2段 */

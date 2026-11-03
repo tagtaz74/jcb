@@ -262,9 +262,9 @@
     let design = C.designs[0];
     let type = "nl";
     root.innerHTML = `
-      <p class="chooser__step">1. カードデザインを選ぶ</p>
+      <p class="chooser__step"><span class="chooser__num">1</span>カードデザインを選ぶ</p>
       <div class="chooser__designs" role="group" aria-label="カードデザイン"></div>
-      <p class="chooser__step">2. 申し込み方法を選ぶ</p>
+      <p class="chooser__step"><span class="chooser__num">2</span>申し込み方法を選ぶ</p>
       <div class="chooser__types">
         <button type="button" class="chooser__type" data-type="nl"><strong>ナンバーレス（最短5分）</strong><span>アプリでカード番号を確認。すぐにネットで使えます</span></button>
         <button type="button" class="chooser__type" data-type="num"><strong>番号あり（約1週間）</strong><span>券面でカード番号を確認したい方に</span></button>
